@@ -26,6 +26,21 @@ gulp.task('connect', function(){
     });
 });
 
+gulp.task('copy', function() {
+    gulp
+        .src(['./front/css/**'])
+        .pipe(gulp.dest('./app/assets/stylesheets/'));
+    gulp
+        .src(['./front/js/**'])
+        .pipe(gulp.dest('./app/assets/javascript/'));
+    gulp
+        .src(['./front/index.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/top/'));
+});
+
 gulp.task('sass', function(){
     sass('./front/scss/application.scss', {style: 'expanded'})
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
@@ -40,3 +55,6 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', ['sass', 'connect', 'watch']);
+gulp.task('build', function() {
+    runSequence('sass', 'copy');
+});
