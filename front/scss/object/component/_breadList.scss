@@ -1,0 +1,29 @@
+.breadList {
+    @include inlineBlock();
+    @include marginAuto();
+    width: 1000px;
+    li {
+        position: relative;
+        margin-right: 20px;
+        font-size: 13px;
+        &::after {
+            content: "/";
+            position: absolute;
+            top: 0;
+            right: -13px;
+            color: #c7c9c5;
+        }
+        &:last-child {
+            color: black;
+            &::after {
+                display: none;
+            }
+        }
+    }
+    a {
+        color: #20aadd;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
