@@ -18,6 +18,17 @@
         });
     });
 
+    app.controller('topPageController', function($scope, $http) {
+
+        $http({
+            method: 'GET',
+            url: '/json/topPage.json'
+        }).success(function(data, status, headers, config) {
+            $scope.data = data.data;
+            console.log($scope.data);
+        });
+
+    });
 
     $(window).scroll(function() {
         if($(window).scrollTop() >= 500) {
