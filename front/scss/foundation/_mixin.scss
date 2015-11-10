@@ -1,0 +1,41 @@
+@mixin marginAuto() {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@mixin imageCover() {
+    background-size: cover;
+    background-position: center;
+}
+
+@mixin inlineBlock() {
+    letter-spacing: -.40em;
+    > section {
+        display: inline-block;
+        vertical-align: middle;
+        letter-spacing: normal;
+    }
+    > div {
+        display: inline-block;
+        vertical-align: middle;
+        letter-spacing: normal;
+    }
+    > li {
+        display: inline-block;
+        vertical-align: middle;
+        letter-spacing: normal;
+    }
+    > a {
+        display: inline-block;
+        vertical-align: middle;
+        letter-spacing: normal;
+    }
+}
+
+@mixin clearfix() {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

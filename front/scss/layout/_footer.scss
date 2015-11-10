@@ -1,0 +1,33 @@
+footer {
+    color: #72716d;
+    background: #333531;
+    .footerContent {
+        @include inlineBlock();
+        @include marginAuto();
+        width: 1000px;
+        padding-top: 40px;;
+        margin-bottom: 40px;;
+        section {
+            vertical-align: top;
+            width: 250px;
+        }
+        p {
+            font-size: 14px;
+            color: white;
+        }
+        ul {
+            margin-top: 14px;
+        }
+        a {
+            color: #72716d;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .footerCopyright {
+        font-size: 12px;
+        line-height: 24px;
+        text-align: center;
+    }
+}
