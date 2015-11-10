@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Front-End
+*/.DS_Store
+node_modules/
+.sass-cache/
