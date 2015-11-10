@@ -37,7 +37,7 @@ gulp.task('copy', function() {
         .src(['./front/img/**'])
         .pipe(gulp.dest('./public/img/'));
     gulp
-        .src(['./front/index.html'])
+        .src(['./front/template/index.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
