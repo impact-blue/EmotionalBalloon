@@ -1,0 +1,33 @@
+.button {
+
+}
+.button--add {
+    p {
+        font-size: 13px;
+        line-height: 32px;
+        padding: 0 5px;
+        background: #6dc91a;
+        border-radius: 3px;
+    }
+}
+.button--more {
+    p {
+        @include marginAuto();
+        width: 250px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 20px;
+        text-align: center;
+        background: #d5d6d2;
+        &:hover {
+            background: #bbbdb9;
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 12px 0;
+            color: #72716d;
+        }
+    }
+}

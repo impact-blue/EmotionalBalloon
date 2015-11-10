@@ -1,0 +1,27 @@
+.p-budgetList {
+    @include marginAuto();
+    width: 1000px;
+    color: #C06;
+    .budgetHeading {
+        font-size: 20px;
+    }
+    a {
+        color: #C06;
+        text-decoration: underline;
+    }
+    ul {
+        @include inlineBlock();
+    }
+    li {
+        width: 150px;
+        margin-top: 5px;
+        margin-left: 20px;
+        padding: 5px 0;
+        font-size: 14px;
+        background: white;
+        text-align: center;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
