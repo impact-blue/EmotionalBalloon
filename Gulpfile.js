@@ -15,10 +15,11 @@ var gulp = require('gulp'),
 gulp.task('connect', function(){
     browserSync({
         server: {
-            middleware: [modRewrite(['!\\.\\w+$ /index.html [L]'])],
+            baseDir: "front/",
+            middleware: [modRewrite(['!\\.\\w+$ /index.html [L]'])]
         },
         port: 8888,
-        open: false,
+        open: false
     });
     ngrok.connect(8888, function(error, url) {
         console.log('[ngrok] ' + url);
@@ -26,14 +27,14 @@ gulp.task('connect', function(){
 });
 
 gulp.task('sass', function(){
-    sass('./scss/application.scss', {style: 'expanded'})
+    sass('./front/scss/application.scss', {style: 'expanded'})
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./front/css'));
 });
 
 gulp.task('watch', function(){
-    gulp.watch(['./scss/**/*.scss'], ['sass']);
-    gulp.watch(['./*.html', './css/application.css', './js/application.js'], function(){
+    gulp.watch(['./front/scss/**/*.scss'], ['sass']);
+    gulp.watch(['./front/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
