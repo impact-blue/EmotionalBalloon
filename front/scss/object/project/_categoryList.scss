@@ -1,0 +1,33 @@
+.p-categoryList {
+    @include marginAuto();
+    width: 1000px;
+    a {
+        @include inlineBlock();
+        display: block;
+        margin-bottom: 20px;
+        transition: 0.5s;
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    .categoryIcon {
+        width: 490px;
+        height: 235px;
+        margin-right: 20px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .categoryWrapper {
+        vertical-align: top;
+        width: 490px;
+        p {
+            font-size: 16px;
+            &:first-child {
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.p-categoryDescription {
+    @include marginAuto();
+    width: 1000px;
+    p {
+        font-size: 14px;
+        &:first-child {
+            color: #C06;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+    }
+}
+.p-categoryDescription--attention {
+    width: 1000px;
+    padding: 20px;
+    border: 2px solid #C06;
+    box-sizing: border-box;
+}
