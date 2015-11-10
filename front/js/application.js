@@ -1,8 +1,11 @@
 (function() {
 
-    var app = angular.module('balloonApp', ['ngRoute', 'ngResource']);
+    var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
+        apiUrl = [
+            '/apis/index.json'
+        ];
 
-    app.config(function($routeProvider, $locationProvider) {
+    app.config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: '/template/index.html',
@@ -16,16 +19,17 @@
             enabled: true,
             requireBase: false
         });
+
+        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     });
 
     app.controller('topPageController', function($scope, $http) {
 
         $http({
             method: 'GET',
-            url: '/json/topPage.json'
+            url: apiUrl[0]
         }).success(function(data, status, headers, config) {
             $scope.data = data.data;
-            console.log($scope.data);
         });
 
     });
