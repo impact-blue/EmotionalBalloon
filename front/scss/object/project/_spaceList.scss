@@ -47,12 +47,14 @@
         left: 0;
         padding: 10px;
         font-size: 13px;
+        line-height: 1;
         font-weight: bold;
         z-index: 10;
         text-shadow: 0 0 5px rgba(black, 0.5);
         p {
             &:first-child {
-                font-size: 16px;
+                font-size: 18px;
+                margin-bottom: 5px;
             }
             &:nth-of-type(3) {
                 font-size: 11px;
