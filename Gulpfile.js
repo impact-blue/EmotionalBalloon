@@ -52,7 +52,7 @@ gulp.task('sass', function(){
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/*.html', './front/css/application.css', './front/js/application.js'], function(){
+    gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
