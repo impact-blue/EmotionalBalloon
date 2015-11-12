@@ -1,0 +1,31 @@
+.p-companyBlock {
+    @include marginAuto();
+    margin-top: 50px;
+    width: 1000px;
+    .companyBlock__heading2 {
+        font-size: 30px;
+        padding: 20px 0;
+    }
+    .companyBlock__heading3 {
+        font-size: 20px;
+    }
+    .companyBlock__list {
+        padding: 0 20px;
+        margin-bottom: 20px;
+        li {
+            position: relative;
+            margin-top: 10px;
+            &::before {
+                content: "・";
+                position: absolute;
+                top: 0;
+                left: -15px;
+            }
+        }
+    }
+    .companyBlock__text {
+        font-size: 16px;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+}
