@@ -13,7 +13,7 @@
     .categoryIcon {
         width: 490px;
         height: 235px;
-        margin-right: 20px;
+        margin-right: 18px;
         overflow: hidden;
         img {
             width: 100%;
@@ -24,6 +24,7 @@
         width: 490px;
         p {
             font-size: 16px;
+            line-height: 1.2;
             &:first-child {
                 font-size: 28px;
                 margin-bottom: 16px;
