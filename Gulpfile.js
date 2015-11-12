@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat-util'),
     uglify = require('gulp-uglify'),
     browserSync = require('browser-sync'),
-    modRewrite = require('connect-modrewrite');
+    modRewrite = require('connect-modrewrite'),
+    ejs = require('gulp-ejs');
 
 gulp.task('connect', function(){
     browserSync({
@@ -24,6 +25,12 @@ gulp.task('connect', function(){
     ngrok.connect(8888, function(error, url) {
         console.log('[ngrok] ' + url);
     });
+});
+
+gulp.task('sass', function(){
+    sass('./front/scss/application.scss', {style: 'expanded'})
+        .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+        .pipe(gulp.dest('./front/css'));
 });
 
 gulp.task('copy', function() {
@@ -44,20 +51,22 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('./app/views/top/'));
 });
 
-gulp.task('sass', function(){
-    sass('./front/scss/application.scss', {style: 'expanded'})
-        .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-        .pipe(gulp.dest('./front/css'));
+gulp.task('ejs', function() {
+    gulp
+        .src(['./front/ejs/**/*.ejs', '!./front/ejs/**/_*.ejs'])
+        .pipe(ejs())
+        .pipe(gulp.dest('./front/template/'));
 });
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/*.html', './front/css/application.css', './front/js/application.js'], function(){
+    gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
+    gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', ['sass', 'connect', 'watch']);
+gulp.task('default', ['sass', 'ejs','connect', 'watch']);
 gulp.task('build', function() {
     runSequence('sass', 'copy');
 });

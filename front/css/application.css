@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 html {
   height: 100%;
   width: 100%;
@@ -15,7 +17,7 @@ body {
   width: 100%;
   color: #333531;
   word-break: break-all;
-  font-family: meiryo, Verdana, sans-serif;
+  font-family: 'Noto Sans Japanese', 'Noto Sans', meiryo, Verdana, sans-serif;
   background: #dee0dc;
 }
 
@@ -73,25 +75,20 @@ select {
   background: none;
 }
 
-@font-face {
-  font-family: 'BlazeRadley';
-  src: url("./fonts/BlazeRadley.ttf");
-}
 header {
   position: fixed;
-  top: -60px;
+  top: 0;
   left: 0;
   width: 100%;
   font-size: 11px;
   line-height: 50px;
   color: white;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
   z-index: 100;
 }
 header.on {
-  transform: translateY(60px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 header ul {
   margin-right: auto;
@@ -292,66 +289,14 @@ footer .footerCopyright {
   position: relative;
   width: 100%;
   height: 600px;
+  margin-top: 50px;
   overflow: hidden;
 }
-.p-topHead > img {
+.p-topHead .topHead__image {
   position: absolute;
   width: 100%;
 }
-.p-topHead ul {
-  margin-right: auto;
-  margin-left: auto;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 6px;
-  width: 1000px;
-  height: 60px;
-  padding: 0 10px;
-  top: 0;
-  left: 0;
-  line-height: 60px;
-  color: white;
-  border-bottom: 1px solid white;
-}
-.p-topHead ul li {
-  font-size: 16px;
-  line-height: 60px;
-}
-.p-topHead ul li:first-child {
-  font-size: 30px;
-}
-.p-topHead ul li:first-child a {
-  height: 60px;
-}
-.p-topHead ul li:last-child {
-  font-size: 13px;
-  text-align: right;
-  opacity: 0.9;
-}
-.p-topHead ul a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.p-topHead ul img {
-  height: 40px;
-  margin-top: 10px;
-}
-.p-topHead ul input[type="text"] {
-  width: 150px;
-  height: 16px;
-  border-radius: 5px 0 0 5px;
-}
-.p-topHead ul input[type="submit"] {
-  color: white;
-  padding: 0 5px;
-  line-height: 28px;
-  background: #d5d6d2;
-  border: 0;
-  border-radius: 0 5px 5px 0;
-}
-.p-topHead > div {
+.p-topHead .topHead__text {
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -362,31 +307,9 @@ footer .footerCopyright {
   font-size: 20px;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-.p-topHead > div p:first-child {
+.p-topHead .topHead__text p:first-child {
   font-size: 36px;
-}
-.p-topHead .topHead__menu li {
-  position: relative;
-}
-.p-topHead .topHead__menu li:hover .topHead__menu__child {
-  display: block;
-}
-.p-topHead .topHead__menu__child {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 200px;
-  background: rgba(255, 255, 255, 0.4);
-}
-.p-topHead .topHead__menu__child p {
-  line-height: 50px;
-  padding-left: 10px;
-  border: 1px solid white;
-  border-top: none;
-}
-.p-topHead .topHead__menu__child p:first-child {
-  border-top: 1px solid white;
+  margin-bottom: 10px;
 }
 
 .p-categoryHead {
@@ -435,7 +358,7 @@ footer .footerCopyright {
 .p-categoryList .categoryIcon {
   width: 490px;
   height: 235px;
-  margin-right: 20px;
+  margin-right: 18px;
   overflow: hidden;
 }
 .p-categoryList .categoryIcon img {
@@ -447,6 +370,7 @@ footer .footerCopyright {
 }
 .p-categoryList .categoryWrapper p {
   font-size: 16px;
+  line-height: 1.2;
 }
 .p-categoryList .categoryWrapper p:first-child {
   font-size: 28px;
@@ -594,12 +518,14 @@ footer .footerCopyright {
   left: 0;
   padding: 10px;
   font-size: 13px;
+  line-height: 1;
   font-weight: bold;
   z-index: 10;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .p-spaceList .spaceWrapper p:first-child {
-  font-size: 16px;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 .p-spaceList .spaceWrapper p:nth-of-type(3) {
   font-size: 11px;
@@ -677,12 +603,45 @@ footer .footerCopyright {
   background-position: center;
   width: 235px;
   height: 235px;
-  margin-right: 20px;
+  margin-right: 18px;
 }
 .p-customerVoice li div:nth-of-type(2) {
   width: 745px;
   font-size: 20px;
   line-height: 1.3;
+}
+
+.p-companyBlock {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  width: 1000px;
+}
+.p-companyBlock .companyBlock__heading2 {
+  font-size: 30px;
+  padding: 20px 0;
+}
+.p-companyBlock .companyBlock__heading3 {
+  font-size: 20px;
+}
+.p-companyBlock .companyBlock__list {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.p-companyBlock .companyBlock__list li {
+  position: relative;
+  margin-top: 10px;
+}
+.p-companyBlock .companyBlock__list li::before {
+  content: "・";
+  position: absolute;
+  top: 0;
+  left: -15px;
+}
+.p-companyBlock .companyBlock__text {
+  font-size: 16px;
+  padding: 0 10px;
+  margin-bottom: 20px;
 }
 
 .u-mt-10 {
