@@ -11,6 +11,9 @@
                 templateUrl: '/template/index.html',
                 controller: 'topPageController'
             })
+            .when('/privacy', {
+                templateUrl: '/template/privacy.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });
