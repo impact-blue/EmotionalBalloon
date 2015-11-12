@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(//fonts.googleapis.com/earlyaccess/notosans.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 html {
@@ -609,6 +610,39 @@ footer .footerCopyright {
   width: 745px;
   font-size: 20px;
   line-height: 1.3;
+}
+
+.p-companyBlock {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  width: 1000px;
+}
+.p-companyBlock .companyBlock__heading2 {
+  font-size: 30px;
+  padding: 20px 0;
+}
+.p-companyBlock .companyBlock__heading3 {
+  font-size: 20px;
+}
+.p-companyBlock .companyBlock__list {
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.p-companyBlock .companyBlock__list li {
+  position: relative;
+  margin-top: 10px;
+}
+.p-companyBlock .companyBlock__list li::before {
+  content: "・";
+  position: absolute;
+  top: 0;
+  left: -15px;
+}
+.p-companyBlock .companyBlock__text {
+  font-size: 16px;
+  padding: 0 10px;
+  margin-bottom: 20px;
 }
 
 .u-mt-10 {
