@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116060104) do
+ActiveRecord::Schema.define(version: 20151116062405) do
 
   create_table "balloontypes", force: :cascade do |t|
     t.string   "balloontype", limit: 255
@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(version: 20151116060104) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
-    t.integer  "image_id",   limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "product_balloontypes", force: :cascade do |t|
@@ -66,9 +65,17 @@ ActiveRecord::Schema.define(version: 20151116060104) do
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.string   "image",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "product_id", limit: 4
+    t.integer  "image_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "product_scenes", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "scene_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -84,6 +91,12 @@ ActiveRecord::Schema.define(version: 20151116060104) do
     t.text     "recommended",       limit: 65535
     t.date     "registration_date"
     t.integer  "boxsize_id",        limit: 4
+  end
+
+  create_table "scenes", force: :cascade do |t|
+    t.string   "scene",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

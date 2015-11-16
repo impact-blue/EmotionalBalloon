@@ -7,4 +7,5 @@ class Product < ActiveRecord::Base
   has_many :balloontypes, through: :product_balloontypes
   has_many :product_images
   has_many :images, through: :product_images
+  belongs_to :boxsize
 end
