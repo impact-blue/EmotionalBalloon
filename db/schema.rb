@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116054225) do
+ActiveRecord::Schema.define(version: 20151116060104) do
 
   create_table "balloontypes", force: :cascade do |t|
     t.string   "balloontype", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "boxsizes", force: :cascade do |t|
+    t.string   "boxsize",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "characters", force: :cascade do |t|
@@ -77,6 +83,7 @@ ActiveRecord::Schema.define(version: 20151116054225) do
     t.text     "keyword",           limit: 65535
     t.text     "recommended",       limit: 65535
     t.date     "registration_date"
+    t.integer  "boxsize_id",        limit: 4
   end
 
 end
