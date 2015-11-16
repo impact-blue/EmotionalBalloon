@@ -11,7 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112090640) do
+ActiveRecord::Schema.define(version: 20151116052104) do
+
+  create_table "balloontypes", force: :cascade do |t|
+    t.string   "balloontype", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "character",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string   "color",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "product_balloontypes", force: :cascade do |t|
+    t.integer  "product_id",     limit: 4
+    t.integer  "balloontype_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "product_characters", force: :cascade do |t|
+    t.integer  "product_id",   limit: 4
+    t.integer  "character_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "product_colors", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "color_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "product",           limit: 255
