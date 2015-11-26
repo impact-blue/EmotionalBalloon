@@ -197,11 +197,11 @@
         <section>
             <p>バルーンについて</p>
             <ul>
-                <li><a href="">利用規約</a></li>
-                <li><a href="">プライバシーポリシー</a></li>
-                <li><a href="">よくある質問</a></li>
-                <li><a href="">運営会社</a></li>
-                <li><a href="">お問い合わせ</a></li>
+                <li><%= link_to '利用規約',company_agreement_path %></li>
+                <li><%= link_to 'プライバシーポリシー',company_privacy_path %></li>
+                <li><%= link_to 'よくある質問', company_question_path %></li>
+                <li><%= link_to '運営会社', company_about_path %></li>
+                <li><%= link_to 'お問い合わせ', company_contact_path %></li>
             </ul>
         </section>
     </div>
