@@ -7,22 +7,11 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module EmotionalBalloon
-    class Application < Rails::Application
-
-        config.active_record.raise_in_transactional_callbacks = true
-    end
-
-end
-
-module Samples
   class Application < Rails::Application
 
-    config.paths.add "app/api", glob: "**/*.rb"
-    config.autoload_paths += %W(#{config.root}/app/api)
+    config.active_record.raise_in_transactional_callbacks = true
 
-    config.middleware.use(Rack::Config) do |env|
-      env['api.tilt.root'] = Rails.root.join 'app', 'views', 'api'
-    end
-
+    config.i18n.default_locale = :ja
   end
+
 end

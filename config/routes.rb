@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admin_users #ここを編集する（new)をできなくする
   root  'top#index'
 
   get 'api/show' => 'api#show'
@@ -21,5 +22,4 @@ Rails.application.routes.draw do
 
   get 'admin/show' => 'admin#show'
 
-#mount API => "/api"
 end

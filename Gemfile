@@ -17,6 +17,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'grape'
 gem 'grape-jbuilder'
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'chef','11.12.4'
