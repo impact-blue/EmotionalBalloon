@@ -17,10 +17,9 @@ Rails.application.routes.draw do
   get 'product/ranking' => 'product/product_rankings#show'
   get 'product/search' => 'product/product_searchs#show'
 
-  get 'feature/feature_list' => 'feature/show'
+  get 'feature/feature_list' => 'feature#show'
 
-
-
+  get 'admin/show' => 'admin#show'
 
 #mount API => "/api"
 end
