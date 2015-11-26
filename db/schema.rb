@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126022443) do
+ActiveRecord::Schema.define(version: 20151126024528) do
 
   create_table "balloontypes", force: :cascade do |t|
     t.string   "balloontype", limit: 255
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20151126022443) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "character",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "roman",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
