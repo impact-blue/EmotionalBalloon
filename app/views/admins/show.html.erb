@@ -1,2 +1,36 @@
 <%= render partial: 'header', locals: { admin_user: @admin_user } %>
-  <p>test</p>
+
+
+<ul class="p-categoryList u-mt-40">
+  <li>
+    <a href="">
+      <div class="categoryWrapper">
+        <p>商品の追加</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="">
+      <div class="categoryWrapper">
+        <p>商品一覧</p>
+      </div>
+    </a>
+  </li>
+  <% @product.each do |product| %>
+  <li>
+    <a href="">
+      <div class="categoryIcon"><img src="<%= product.image %>" alt=""></div>
+      <div class="categoryWrapper">
+        <p>商品名：<%= product.product %></p>
+        <p>価格：<%= product.price %></p>
+        <p>在庫：<%= product.stocks %></p>
+        <p>送料の有無：<%= product.postage %></p>
+        <p>コメント：<%= product.comment %></p>
+        <p>推薦分：<%= product.recommended %></p>
+        <p>キーワード：<%= product.keyword %></p>
+        <p>箱サイズ：<%= product.boxsize_id %></p>
+      </div>
+    </a>
+  </li>
+  <% end %>
+</ul>
