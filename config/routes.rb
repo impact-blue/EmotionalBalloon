@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
  # devise_for :admin_users #ここを編集する（new)をできなくする
 root  'top#index'
-resources :admin_users
 
 get 'company/agreement' => 'company#agreement'
 get 'company/privacy' =>'company#privacy'
@@ -19,6 +18,7 @@ get 'product/search' => 'product/product_searchs#show'
 get 'feature/feature_list' => 'feature#show'
 
 get 'admin/show' => 'admins#show'
+post 'admin/show' => 'admin#create'
 
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
