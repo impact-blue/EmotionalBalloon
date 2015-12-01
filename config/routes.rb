@@ -1,27 +1,32 @@
 Rails.application.routes.draw do
-  get 'session/new'
+  get 'sessions/new'
 
-  devise_for :admin_users #ここを編集する（new)をできなくする
-  root  'top#index'
+ # devise_for :admin_users #ここを編集する（new)をできなくする
+root  'top#index'
+resources :admin_users
 
-  get 'api/show' => 'api#show'
+get 'api/show' => 'api#show'
 
 
-  get 'company/agreement' => 'company#agreement'
-  get 'company/privacy' =>'company#privacy'
-  get 'company/exchange' => 'company#exchange'
-  get 'company/question' => 'company#question'
-  get 'company/about' => 'company#about'
-  get 'company/flow' => 'company#flow'
-  get 'company/contact' => 'company#contact'
+get 'company/agreement' => 'company#agreement'
+get 'company/privacy' =>'company#privacy'
+get 'company/exchange' => 'company#exchange'
+get 'company/question' => 'company#question'
+get 'company/about' => 'company#about'
+get 'company/flow' => 'company#flow'
+get 'company/contact' => 'company#contact'
 
-  get 'product/show' => 'product/product_shows#show'
-  get 'product/list' => 'product/product_lists#show'
-  get 'product/ranking' => 'product/product_rankings#show'
-  get 'product/search' => 'product/product_searchs#show'
+get 'product/show' => 'product/product_shows#show'
+get 'product/list' => 'product/product_lists#show'
+get 'product/ranking' => 'product/product_rankings#show'
+get 'product/search' => 'product/product_searchs#show'
 
-  get 'feature/feature_list' => 'feature#show'
+get 'feature/feature_list' => 'feature#show'
 
-  get 'admin/show' => 'admin#show'
+get 'admin/show' => 'admin#show'
+
+get    'admin/login'   => 'sessions#new'
+post   'admin/login'   => 'sessions#create'
+delete 'admin/logout'  => 'sessions#destroy'
 
 end
