@@ -13,7 +13,7 @@ module SessionsHelper
   def logged_in?
     !current_admin_user.nil?
   end
-  #ログアウトする
+  # 現在のユーザーがログアウトする
   def log_out
     session.delete(:admin_user_id)
     @current_admin_user = nil

@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
  # devise_for :admin_users #ここを編集する（new)をできなくする
 root  'top#index'
 resources :admin_users
-
-get 'api/show' => 'api#show'
-
 
 get 'company/agreement' => 'company#agreement'
 get 'company/privacy' =>'company#privacy'
@@ -27,6 +22,6 @@ get 'admin/show' => 'admins#show'
 
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
-delete 'admin/logout'  => 'sessions#destroy'
+get 'logout'  => 'sessions#destroy' ,as: :logout
 
 end
