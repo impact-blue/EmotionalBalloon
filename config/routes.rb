@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'session/new'
+
   devise_for :admin_users #ここを編集する（new)をできなくする
   root  'top#index'
 

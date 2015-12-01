@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-  http_basic_authenticate_with :name => "impact", :password => "impact1234"
+  #http_basic_authenticate_with :name => "impact", :password => "impact1234"
 
   def show
   end
