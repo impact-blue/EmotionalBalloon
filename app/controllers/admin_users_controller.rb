@@ -11,7 +11,9 @@ class AdminUsersController < ApplicationController
   def create
     @admin_user = AdminUser.new(user_params)
     if @admin_user.save
-      redirect_to @admin_user
+      login @admin_user
+      flash[:success] = "管理画面へようこそ"
+      redirect_to root_path
     else
       render 'new'
     end
