@@ -792,3 +792,107 @@ h1 {
     -ms-user-select: none;
     user-select: none;
 }
+
+
+
+.admin-topHead {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+.admin-topHead > img {
+  position: absolute;
+  width: 100%;
+}
+.admin-topHead ul {
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  width: 1000px;
+  height: 60px;
+  padding: 0 10px;
+  top: 0;
+  left: 0;
+  line-height: 60px;
+  border-bottom: 1px solid white;
+}
+.admin-topHead ul li {
+  font-size: 16px;
+  line-height: 60px;
+}
+.admin-topHead ul li:first-child {
+  font-size: 30px;
+}
+.admin-topHead ul li:first-child a {
+  height: 60px;
+}
+.admin-topHead ul li:last-child {
+  font-size: 13px;
+  text-align: right;
+  opacity: 0.9;
+}
+.admin-topHead ul a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.admin-topHead ul img {
+  height: 40px;
+  margin-top: 10px;
+}
+.admin-topHead ul input[type="text"] {
+  width: 150px;
+  height: 16px;
+  border-radius: 5px 0 0 5px;
+}
+.admin-topHead ul input[type="submit"] {
+  color: white;
+  padding: 0 5px;
+  line-height: 28px;
+  background: #d5d6d2;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+}
+.admin-topHead > div {
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  width: 1000px;
+  margin-top: 160px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.admin-topHead > div p:first-child {
+  font-size: 36px;
+}
+.admin-topHead .topHead__menu li {
+  position: relative;
+}
+.admin-topHead .topHead__menu li:hover .topHead__menu__child {
+  display: block;
+}
+.admin-topHead .topHead__menu__child {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.admin-topHead .topHead__menu__child p {
+  line-height: 50px;
+  padding-left: 10px;
+  border: 1px solid white;
+  border-top: none;
+}
+.admin-topHead .topHead__menu__child p:first-child {
+  border-top: 1px solid white;
+}

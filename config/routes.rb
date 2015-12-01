@@ -23,7 +23,7 @@ get 'product/search' => 'product/product_searchs#show'
 
 get 'feature/feature_list' => 'feature#show'
 
-get 'admin/show' => 'admin#show'
+get 'admin/show' => 'admins#show'
 
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
