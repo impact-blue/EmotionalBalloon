@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     admin_user = AdminUser.find_by(email: params[:session][:email].downcase)
     if admin_user && admin_user.authenticate(params[:session][:password])
       log_in admin_user
-      redirect_to root_path
+      redirect_to admin_show_path
     else
      flash.now[:danger] = 'Invalid email/password combination'
      render 'new'
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
  def destroy
     log_out
-    redirect_to root_url
+    redirect_to admin_login_path
  end
 
 end

@@ -28,7 +28,9 @@
                 </div>
             </li>
             <li>
-                <a href="">ランキング</a>
+            <% if logged_in? %>
+                <%= link_to "ログアウト", { :controller => :sessions, :action => :destroy} %>
+                 <% end %>
             </li>
             <li><input type="text" placeholder="結婚式 Balloon"><input type="submit" value="検索"></li>
         </ul>
