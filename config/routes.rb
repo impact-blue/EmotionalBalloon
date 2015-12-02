@@ -17,10 +17,15 @@ get 'product/search' => 'product/product_searchs#show'
 
 get 'feature/feature_list' => 'feature#show'
 
-get 'admin/show' => 'admins#show'
-get 'admin/new' => 'admins#new'
-post 'admin' => 'admins#create'
+#管理画面の商品関連
+post  'admin'          => 'admins#create'
+get   'admin/new'      => 'admins#new'
+get   'admin/:id/edit' => 'admins#edit'
+get   'admin/show'     => 'admins#show'
+patch 'admin/:id'      => 'admins#update'
+delete'admin/:id'      => 'admins#destroy'
 
+#管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
 get 'logout'  => 'sessions#destroy' ,as: :logout

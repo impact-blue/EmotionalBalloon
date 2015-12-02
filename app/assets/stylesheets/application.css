@@ -896,3 +896,58 @@ h1 {
 .admin-topHead .topHead__menu__child p:first-child {
   border-top: 1px solid white;
 }
+
+.admin-categoryList {
+  margin-right: auto;
+  margin-left: auto;
+  width: 1000px;
+}
+.admin-categoryList a {
+  letter-spacing:0;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.admin-categoryList a > section {
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: normal;
+}
+.admin-categoryList a > div {
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: normal;
+}
+.admin-categoryList a > li {
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: normal;
+}
+.admin-categoryList a > a {
+  display: inline-block;
+  vertical-align: middle;
+  letter-spacing: normal;
+}
+.admin-categoryList a:hover {
+  opacity: 0.9;
+}
+.admin-categoryList .categoryIcon {
+  width: 490px;
+  height: 235px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.admin-categoryList .categoryIcon img {
+  width: 100%;
+}
+.admin-categoryList .categoryWrapper {
+  vertical-align: top;
+  width: 490px;
+}
+.admin-categoryList .categoryWrapper p {
+  font-size: 16px;
+}
+.admin-categoryList .categoryWrapper p:first-child {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
