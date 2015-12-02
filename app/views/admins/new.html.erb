@@ -1,0 +1,16 @@
+<%= render partial: 'header', locals: { admin_user: @admin_user } %>
+
+
+<ul class="p-categoryList u-mt-40">
+  <li>
+    <div class="categoryWrapper">
+      <p>商品の追加</p>
+      <%= form_for([:admins, @product] , :url => {:action => 'create'}) do |f| %>
+      <%= f.label :商品名 %>
+      <%= f.text_field :product %>
+
+      <%= f.submit :商品登録する %>
+      <% end %>
+    </div>
+  </li>
+</ul>

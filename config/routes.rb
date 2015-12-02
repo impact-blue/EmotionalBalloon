@@ -18,7 +18,8 @@ get 'product/search' => 'product/product_searchs#show'
 get 'feature/feature_list' => 'feature#show'
 
 get 'admin/show' => 'admins#show'
-post 'admin/show' => 'admin#create'
+get 'admin/new' => 'admins#new'
+post 'admin' => 'admins#create'
 
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
