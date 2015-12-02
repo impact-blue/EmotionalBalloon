@@ -5,7 +5,7 @@
   <li>
     <div class="categoryWrapper">
       <p>商品の追加</p>
-      <%= form_for([:admins, @product] , :url => {:action => 'create'}) do |f| %>
+      <%= form_for([:admins, @product] , :url => {:action => 'update'}) do |f| %>
       <%= f.label :商品名 %>
       <%= f.text_field :product , class: 'form-control' %>
 
