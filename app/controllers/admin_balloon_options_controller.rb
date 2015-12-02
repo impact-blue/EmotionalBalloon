@@ -1,0 +1,4 @@
+class AdminBalloonOptionsController < ApplicationController
+
+  
+end
