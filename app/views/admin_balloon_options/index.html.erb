@@ -35,6 +35,28 @@
   <% end -%>
 </li>
 
+<% @balloontype.each do |balloontype| %>
+<li>
+  <a>
+    <div class="categoryWrapper">
+      <p>バルーンの種類<%= balloontype.id %>：<%= balloontype.balloontype %></p>
+      <p><%= link_to '編集', "/balloontypes/#{balloontype.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      </p>
+    </div>
+  </a>
+</li>
+<% end %>
+
+<li>
+  <div class="categoryWrapper">
+    <%= form_tag({controller: :balloontypes, action: :create}) do %>
+    バルーンの種類の追加
+    <%= text_field_tag "balloontype[balloontype]", "", :id => "balloontype" %><br />
+    <%= submit_tag "作成" ,class: "btn btn-primary"%>
+  </div>
+  <% end -%>
+</li>
+
 <% @scene.each do |scene| %>
 <li>
   <a>

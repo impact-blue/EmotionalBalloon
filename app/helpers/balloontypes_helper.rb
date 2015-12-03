@@ -1,0 +1,2 @@
+module BalloontypesHelper
+end
