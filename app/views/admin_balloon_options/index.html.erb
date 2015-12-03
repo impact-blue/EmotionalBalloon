@@ -1,0 +1,101 @@
+<%= render partial: 'header', locals: { admin_user: @admin_user } %>
+<!--
+
+編集先のリンクが、idで判断すると、色、シーンと同じIDの区別がつかない。
+直す
+
+-->
+<ul class="admin-categoryList u-mt-40">
+  <li>
+    <div class="categoryWrapper">
+      <p>オプション</p>
+    </div>
+  </a>
+</li>
+
+<% @color.each do |color| %>
+<li>
+  <a>
+    <div class="categoryWrapper">
+      <p>色<%= color.id %>：<%= color.color %></p>
+      <p><%= link_to '編集', "/admin_balloon_options/#{color.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      </p>
+    </div>
+  </a>
+</li>
+<% end %>
+
+<li>
+  <div class="categoryWrapper">
+    <%= form_tag({controller: :colors, action: :create}) do %>
+    色の追加
+    <%= text_field_tag "color[color]", "", :id => "color" %><br />
+    <%= submit_tag "作成" ,class: "btn btn-primary"%>
+  </div>
+  <% end -%>
+</li>
+
+<% @scene.each do |scene| %>
+<li>
+  <a>
+    <div class="categoryWrapper">
+      <p>シーン<%= scene.id %>：<%= scene.scene %></p>
+      <p><%= link_to '編集', "/admin_balloon_options/#{scene.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      </p>
+    </div>
+  </a>
+</li>
+<% end %>
+<li>
+  <div class="categoryWrapper">
+    <%= form_tag({controller: :scenes, action: :create}) do %>
+    目的シーンの追加
+    <%= text_field_tag "scene[scene]", "", :id => "scene" %><br />
+    <%= submit_tag "作成" ,class: "btn btn-primary"%>
+  </div>
+  <% end -%>
+</li>
+
+<% @character.each do |character| %>
+<li>
+  <a>
+    <div class="categoryWrapper">
+      <p>キャラクター<%= character.id %>：<%= character.character %></p>
+      <p><%= link_to '編集', "/admin_balloon_options/#{character.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      </p>
+    </div>
+  </a>
+</li>
+<% end %>
+<li>
+  <div class="categoryWrapper">
+    <%= form_tag({controller: :characters, action: :create}) do %>
+    キャラクターの追加
+    <%= text_field_tag "character[character]", "", :id => "character" %><br />
+    <%= submit_tag "作成" ,class: "btn btn-primary"%>
+  </div>
+  <% end -%>
+</li>
+
+<% @boxsize.each do |boxsize| %>
+<li>
+  <a>
+    <div class="categoryWrapper">
+      <p>箱のサイズ<%= boxsize.id %>：<%= boxsize.boxsize %></p>
+      <p><%= link_to '編集', "/admin_balloon_options/#{boxsize.id}/edit" , method: :get ,class: "btn btn-primary" %>
+      </p>
+    </div>
+  </a>
+</li>
+<% end %>
+
+<li>
+  <div class="categoryWrapper">
+    <%= form_tag({controller: :admin_balloon_options, action: :create}) do %>
+    箱サイズの追加
+    <%= text_field_tag "boxsize[boxsize]", "", :id => "boxsize" %><br />
+    <%= submit_tag "作成" ,class: "btn btn-primary"%>
+  </div>
+  <% end -%>
+</li>
+</ul>
