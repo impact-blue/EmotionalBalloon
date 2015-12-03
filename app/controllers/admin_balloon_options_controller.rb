@@ -2,12 +2,11 @@ class AdminBalloonOptionsController < ApplicationController
 #TODO before_action
 
 def index
-  @product = Product.all
   @character = Character.all
   @boxsize = Boxsize.all
   @color = Color.all
   @scene = Scene.all
-
+  @balloontype = Balloontype.all
 end
 
 def edit
@@ -23,15 +22,15 @@ def create
   end
 end
 
-  def update
-    @boxsize = Boxsize.find(params[:id])
-    if @boxsize.update_attributes(create_params)
-      flash[:success] = "編集しました"
-      redirect_to admin_balloon_options_path, notice: '商品の編集が完了しました。'
-    else
-      render 'index'
-    end
+def update
+  @boxsize = Boxsize.find(params[:id])
+  if @boxsize.update_attributes(create_params)
+    flash[:success] = "編集しました"
+    redirect_to admin_balloon_options_path, notice: '商品の編集が完了しました。'
+  else
+    render 'index'
   end
+end
 
 
 private

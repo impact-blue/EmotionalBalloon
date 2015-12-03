@@ -27,14 +27,19 @@
       <%= f.label :キーワード %>
       <%= f.text_field :keyword , class: 'form-control' %>
 
-      <%= f.label :箱サイズ %>
-      <%= f.number_field :boxsize_id , class: 'form-control' %>
+      <%= f.label :boxsize_id %>
+      <%= f.collection_select :boxsize_id, Boxsize.all, :id, :boxsize , class: 'form-control'%>
+    </br>
 
       <%= f.label :登録日 %>
       <%= f.date_field :registration_date , class: 'form-control' %>
 
       <%= f.submit :商品登録する , class: "btn btn-primary"%>
+
+      <!--  画像（複数）、色（複数）、送料の有無、キャラクター（複数）、シーン（複数）
+      -->
       <% end %>
     </div>
   </li>
 </ul>
+

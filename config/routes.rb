@@ -38,6 +38,7 @@ get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 post 'colors/create' => 'colors#create'
 post 'scenes/create' => 'scenes#create'
 post 'characters/create' => 'characters#create'
+post 'balloontypes/create' => 'balloontypes#create'
 
 get 'colors/:id/edit' => 'colors#edit'
 patch 'colors/:id' => 'colors#update'
@@ -47,6 +48,9 @@ patch 'characters/:id' => 'characters#update'
 
 get 'scenes/:id/edit' => 'scenes#edit'
 patch 'scenes/:id' => 'scenes#update'
+
+get 'balloontypes/:id/edit' => 'balloontypes#edit'
+patch 'balloontypes/:id' => 'balloontypes#update'
 
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
