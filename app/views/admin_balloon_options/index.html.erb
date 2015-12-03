@@ -18,7 +18,7 @@
   <a>
     <div class="categoryWrapper">
       <p>色<%= color.id %>：<%= color.color %></p>
-      <p><%= link_to '編集', "/admin_balloon_options/#{color.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      <p><%= link_to '編集', "/colors/#{color.id}/edit" , method: :get ,class: "btn btn-primary"%>
       </p>
     </div>
   </a>
@@ -40,7 +40,7 @@
   <a>
     <div class="categoryWrapper">
       <p>シーン<%= scene.id %>：<%= scene.scene %></p>
-      <p><%= link_to '編集', "/admin_balloon_options/#{scene.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      <p><%= link_to '編集', "/scenes/#{scene.id}/edit" , method: :get ,class: "btn btn-primary"%>
       </p>
     </div>
   </a>
@@ -61,7 +61,7 @@
   <a>
     <div class="categoryWrapper">
       <p>キャラクター<%= character.id %>：<%= character.character %></p>
-      <p><%= link_to '編集', "/admin_balloon_options/#{character.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      <p><%= link_to '編集', "/characters/#{character.id}/edit" , method: :get ,class: "btn btn-primary"%>
       </p>
     </div>
   </a>
