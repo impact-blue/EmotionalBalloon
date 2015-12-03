@@ -58,3 +58,18 @@ City.create(:name => '大分県', :roman =>'oita')
 City.create(:name => '宮崎県', :roman =>'miyazaki')
 City.create(:name => '鹿児島県', :roman =>'kagoshima')
 City.create(:name => '沖縄県', :roman =>'okinawa')
+
+
+Boxsize.create(:boxsize =>'小')
+Boxsize.create(:boxsize =>'中')
+Boxsize.create(:boxsize =>'大')
+
+Character.create(:character => 'サンリオ')
+Character.create(:character => 'ポケモン')
+
+Color.create(:color => '白')
+Color.create(:color => 'ピンク')
+Color.create(:color => '青')
+
+Scene.create(:scene => '結婚式')
+Scene.create(:scene => '誕生日')
