@@ -4,12 +4,13 @@
 <ul class="p-categoryList u-mt-40">
   <li>
     <div class="categoryWrapper">
-      <p>箱サイズの変更</p>
-      <%= form_for([:admins, @boxsize] , :url => {:action => 'update'}) do |f| %>
-      <p>サイズID:<%= @boxsize.id %></p>
+      <p>シーンの変更</p>
+      <%= form_for([:admins, @scene] , :url => {:action => 'update'}) do |f| %>
+      <p>ID:<%= @scene.id %></p>
       <%= f.text_field :id , class: 'form-control' %>
-      <p>大きさ:<%= @boxsize.boxsize %></p>
-      <%= f.text_field :boxsize , class: 'form-control' %>
+      <p>シーン:<%= @scene.scene %></p>
+      <%= f.text_field :scene , class: 'form-control' %>
+
       <%= f.submit :編集する , class: "btn btn-primary"%>
       <% end %>
     </div>

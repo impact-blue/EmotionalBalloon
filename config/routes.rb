@@ -39,6 +39,15 @@ post 'colors/create' => 'colors#create'
 post 'scenes/create' => 'scenes#create'
 post 'characters/create' => 'characters#create'
 
+get 'colors/:id/edit' => 'colors#edit'
+patch 'colors/:id' => 'colors#update'
+
+get 'characters/:id/edit' => 'characters#edit'
+patch 'characters/:id' => 'characters#update'
+
+get 'scenes/:id/edit' => 'scenes#edit'
+patch 'scenes/:id' => 'scenes#update'
+
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'

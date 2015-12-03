@@ -37,7 +37,7 @@ end
 private
 
 def create_params
-  params.require(:boxsize).permit(:boxsize)
+  params.require(:boxsize).permit(:id,:boxsize)
 end
 
 end

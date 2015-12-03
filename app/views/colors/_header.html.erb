@@ -1,0 +1,29 @@
+<section>
+    <div class="admin-topHead">
+        <!-- <img src="" alt="bbq"> -->
+        <ul class="topHead__menu">
+            <li>管理画面</li>
+            <li>
+                <%= link_to '商品追加', admin_new_path %>
+            </li>
+            <li>
+                <%= link_to '商品一覧', admin_show_path %>
+            </li>
+            <li>
+                <%= link_to 'バルーンオプションの追加', admin_balloon_options_path %>
+                <div class="topHead__menu__child">
+                    <p><a href=""></a>バルーンタイプ</p>
+                    <p><a href="">キャラクター</a></p>
+                    <p><a href="">色</a></p>
+                    <p><a href="">シーン</a></p>
+                </div>
+            </li>
+            <li>
+            <% if logged_in? %>
+                <%= link_to "ログアウト", { :controller => :sessions, :action => :destroy} %>
+                 <% end %>
+            </li>
+            <li><input type="text" placeholder="結婚式 Balloon"><input type="submit" value="検索"></li>
+        </ul>
+    </div>
+</section>
