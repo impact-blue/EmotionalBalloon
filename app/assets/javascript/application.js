@@ -29,14 +29,12 @@
                 templateUrl: '/template/index.html',
                 controller: 'topPageController'
             })
+            .when('/company/privacy', {
+                templateUrl: '/template/company/privacy.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });
-
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
 
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     });

@@ -55,7 +55,6 @@ input[type="checkbox"] {
   outline: none;
   width: 14px !important;
   height: 14px !important;
-  -webkit-appearance: none;
 }
 input[type="checkbox"]:checked {
   border: none;
@@ -64,7 +63,6 @@ input[type="checkbox"]:checked {
 input[type="submit"],
 select {
   outline: none;
-  -webkit-appearance: none;
 }
 
 select {
