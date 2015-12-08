@@ -23,6 +23,7 @@ get 'product/search' => 'product/product_searchs#show'
 
 get 'feature/feature_list' => 'feature#show'
 
+#以下管理画面のルーティング
 #管理画面の商品関連
 post  'admin'          => 'admins#create'
 get   'admin/new'      => 'admins#new'

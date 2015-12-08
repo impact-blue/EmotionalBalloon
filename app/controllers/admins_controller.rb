@@ -41,7 +41,7 @@ class AdminsController < ApplicationController
   private
 
   def create_params
-    params.require(:product).permit(:product,:price,:stocks,:postage,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]})
+    params.require(:product).permit(:number,:product,:price,:stocks,:postage,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:character_ids =>[]})
   end
 
   def logged_in_admin_user
