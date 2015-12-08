@@ -80,7 +80,7 @@ gulp.task('watch', function(){
 
 gulp.task('default', ['sass', 'ejs', 'connect', 'watch']);
 gulp.task('build', function() {
-    runSequence('sass', 'copy');
+    runSequence('sass', 'ejs', 'copy');
 });
 gulp.task('deploy', function(){
     runSequence('sass', 'ejs', 'ftp');
