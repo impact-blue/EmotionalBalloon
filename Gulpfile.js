@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     browserSync = require('browser-sync'),
     modRewrite = require('connect-modrewrite'),
-    ejs = require('gulp-ejs');
+    ejs = require('gulp-ejs'),
+    ftp = require('gulp-ftp');
 
 gulp.task('connect', function(){
     browserSync({
@@ -58,6 +59,17 @@ gulp.task('ejs', function() {
         .pipe(gulp.dest('./front/template/'));
 });
 
+gulp.task('ftp', function() {
+    gulp
+        .src(['./front/**/*'])
+        .pipe(ftp({
+            host: 'ftp.1614f910438e6c32.lolipop.jp',
+            user: 'lolipop.jp-1614f910438e6c32',
+            pass: 'impact-blue2013',
+            remotePath: '/balloon'
+        }));
+});
+
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
@@ -66,7 +78,10 @@ gulp.task('watch', function(){
     });
 });
 
-gulp.task('default', ['sass', 'ejs','connect', 'watch']);
+gulp.task('default', ['sass', 'ejs', 'connect', 'watch']);
 gulp.task('build', function() {
     runSequence('sass', 'copy');
+});
+gulp.task('deploy', function(){
+    runSequence('sass', 'ejs', 'ftp');
 });

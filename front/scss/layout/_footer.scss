@@ -1,6 +1,7 @@
 footer {
     color: #72716d;
     background: #333531;
+    margin-top: 80px;
     .footerContent {
         @include inlineBlock();
         @include marginAuto();
