@@ -109,27 +109,27 @@
         "product_pickup": [
             {
                 "id": 111,
-                "name": "エモーショナルバルーン",
-                "image": "http://uds.gnst.jp/rest/img/2descshv0000/s_005o.jpg?t=1443019427",
-                "price": "10,000"
+                "name": "結婚式特集",
+                "image": "http://diftion.com/0142/app/webroot/files/uploads/fu60.jpg",
+                "content": "突然の仕事や急な用事など、どうしても出席できない結婚式に。二人の門出の日にキュートなバルーンとお祝いメッセージを贈りませんか？色彩豊かで様々なバリエーションタイプのバルーンは、披露宴のディスプレイも華やかに飾り、"
             },
             {
                 "id": 111,
-                "name": "エモーショナルバルーン",
-                "image": "http://www.bbq-partystyle.com/area/up_img/1341915308-470609_2.jpg",
-                "price": "10,000"
+                "name": "入学式・謝恩会特集",
+                "image": "http://www.y-mainichi.co.jp/files/entry_thumbnails/24739/24739.jpg",
+                "content": "突然の仕事や急な用事など、どうしても出席できない結婚式に。二人の門出の日にキュートなバルーンとお祝いメッセージを贈りませんか？色彩豊かで様々なバリエーションタイプのバルーンは、披露宴のディスプレイも華やかに飾り、"
             },
             {
                 "id": 111,
-                "name": "エモーショナルバルーン",
-                "image": "http://fw-sh.com/wp-content/uploads/20141215bbq.jpg",
-                "price": "10,000"
+                "name": "出産祝い特集",
+                "image": "http://livedoor.blogimg.jp/martinskitchen/imgs/8/2/822d6918.jpg",
+                "content": "突然の仕事や急な用事など、どうしても出席できない結婚式に。二人の門出の日にキュートなバルーンとお祝いメッセージを贈りませんか？色彩豊かで様々なバリエーションタイプのバルーンは、披露宴のディスプレイも華やかに飾り、"
             },
             {
                 "id": 111,
-                "name": "エモーショナルバルーン",
-                "image": "https://www.keihan.co.jp/group/topics/beer2014/shiga/img/biwako/p-1.jpg",
-                "price": "10,000"
+                "name": "誕生日特集",
+                "image": "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172",
+                "content": "突然の仕事や急な用事など、どうしても出席できない結婚式に。二人の門出の日にキュートなバルーンとお祝いメッセージを贈りませんか？色彩豊かで様々なバリエーションタイプのバルーンは、披露宴のディスプレイも華やかに飾り、"
             }
         ]
     }
