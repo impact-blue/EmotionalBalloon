@@ -6,6 +6,10 @@
     <div class="categoryWrapper">
       <p>商品の追加</p>
       <%= form_for([:admins, @product] , :url => {:action => 'update'}) do |f| %>
+
+      <%= f.label :商品番号 %>
+      <%= f.number_field :number , class: 'form-control' %>
+
       <%= f.label :商品名 %>
       <%= f.text_field :product , class: 'form-control' %>
 
@@ -27,14 +31,38 @@
       <%= f.label :キーワード %>
       <%= f.text_field :keyword , class: 'form-control' %>
 
-      <%= f.label :箱サイズ %>
-      <%= f.number_field :boxsize_id , class: 'form-control' %>
-
-      <%= f.label :登録日 %>
-      <%= f.date_field :registration_date , class: 'form-control' %>
-
-      <%= f.submit :編集する , class: "btn btn-primary"%>
+      <%= f.label :シーン %>
+      <br>
+      <%= collection_check_boxes(:product, :scene_ids, Scene.all, :id, :scene) do |b| %>
+      <%= b.label {b.check_box + b.text } %>
       <% end %>
-    </div>
-  </li>
+      <br>
+      <br>
+      <%= f.label :キャラクター %>
+      <br>
+      <%= collection_check_boxes(:product, :character_ids, Character.all, :id, :character) do |b| %>
+      <%= b.label {b.check_box + b.text } %>
+      <% end %>
+      <br>
+      <br>
+
+      <%= f.label :色 %>
+      <br>
+      <%= collection_check_boxes(:product, :color_ids, Color.all, :id, :color) do |b| %>
+      <%= b.label {b.check_box + b.text } %>
+      <% end %>
+      <br>
+      <br>
+
+      <%= f.label :boxsize_id %>
+      <%= f.collection_select :boxsize_id, Boxsize.all, :id, :boxsize , class: 'form-control'%>
+    </br>
+
+    <%= f.label :登録日 %>
+    <%= f.date_field :registration_date , class: 'form-control' %>
+
+    <%= f.submit :編集する , class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</li>
 </ul>

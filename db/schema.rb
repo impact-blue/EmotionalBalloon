@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126083016) do
+ActiveRecord::Schema.define(version: 20151203082740) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20151126083016) do
     t.text     "recommended",       limit: 65535
     t.date     "registration_date"
     t.integer  "boxsize_id",        limit: 4
+    t.integer  "number",            limit: 4
   end
 
   create_table "scenes", force: :cascade do |t|
