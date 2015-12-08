@@ -151,6 +151,7 @@ header .header__menu__child p:first-child {
 footer {
   color: #72716d;
   background: #333531;
+  margin-top: 80px;
 }
 footer .footerContent {
   letter-spacing: -.40em;
@@ -201,6 +202,13 @@ footer .footerCopyright {
   font-size: 12px;
   line-height: 24px;
   text-align: center;
+}
+
+h2.balloonHeading2 {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .button--add p {
@@ -328,6 +336,7 @@ footer .footerCopyright {
 }
 .p-categoryList a {
   letter-spacing: -.40em;
+  position: relative;
   display: block;
   margin-bottom: 20px;
   transition: 0.5s;
@@ -354,6 +363,14 @@ footer .footerCopyright {
 }
 .p-categoryList a:hover {
   opacity: 0.9;
+}
+.p-categoryList a::after {
+  content: "read more...";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #EE2882;
+  letter-spacing: normal;
 }
 .p-categoryList .categoryIcon {
   width: 490px;
@@ -564,15 +581,20 @@ footer .footerCopyright {
   width: 100%;
   height: auto;
 }
+.p-spaceList--summary .spaceWrapper {
+  font-weight: 500;
+}
+.p-spaceList--summary .spaceWrapper p {
+  font-size: 16px;
+}
+.p-spaceList--summary .spaceWrapper p:first-child {
+  font-size: 24px;
+}
 
 .p-customerVoice {
   margin-right: auto;
   margin-left: auto;
   width: 1000px;
-}
-.p-customerVoice > p {
-  font-size: 26px;
-  text-align: center;
 }
 .p-customerVoice li {
   letter-spacing: -.40em;

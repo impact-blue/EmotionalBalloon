@@ -3,11 +3,20 @@
     width: 1000px;
     a {
         @include inlineBlock();
+        position: relative;
         display: block;
         margin-bottom: 20px;
         transition: 0.5s;
         &:hover {
             opacity: 0.9;
+        }
+        &::after {
+            content: "read more...";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #EE2882;
+            letter-spacing: normal;
         }
     }
     .categoryIcon {

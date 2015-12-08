@@ -1,10 +1,6 @@
 .p-customerVoice {
     @include marginAuto();
     width: 1000px;
-    > p {
-        font-size: 26px;
-        text-align: center;
-    }
     li {
         @include inlineBlock();
         margin-top: 20px;
