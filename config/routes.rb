@@ -25,9 +25,11 @@ get 'feature/feature_list' => 'feature#show'
 
 #顧客情報入力
 get 'order/new' => 'orders#new'
+get 'user/create' => 'users#create'
 
 #商品購入
-post  'oder/create'          => 'orders#create'
+post  'order/create'    => 'orders#create'
+get 'order/complete'  =>  'orders#complete'
 
 #以下管理画面のルーティング
 #管理画面の商品関連
