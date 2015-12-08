@@ -23,6 +23,12 @@ get 'product/search' => 'product/product_searchs#show'
 
 get 'feature/feature_list' => 'feature#show'
 
+#顧客情報入力
+get 'order/new' => 'orders#new'
+
+#商品購入
+post  'oder/create'          => 'orders#create'
+
 #以下管理画面のルーティング
 #管理画面の商品関連
 post  'admin'          => 'admins#create'
