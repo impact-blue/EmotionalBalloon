@@ -1,5 +1,5 @@
 class AdminBalloonOptionsController < ApplicationController
-#TODO before_action
+  before_action :logged_in_admin_user
 layout 'admin_header'
 
 def index
@@ -39,5 +39,12 @@ private
 def create_params
   params.require(:boxsize).permit(:id,:boxsize)
 end
+
+  def logged_in_admin_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to admin_login_path
+    end
+  end
 
 end

@@ -7,11 +7,11 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(create_params)
-    @order.user = User.new(user_model_params)
-    if @order.save
+    @user = User.new(user_model_params)
+    if @order.save && @user.save
       redirect_to order_complete_path
     else
-      render 'new'
+      render action: 'new'
     end
   end
 

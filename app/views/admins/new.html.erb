@@ -1,4 +1,13 @@
 
+<% if @product.errors.any? %>
+<div>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li style="color: red"><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <ul class="p-categoryList u-mt-40">
   <li>
@@ -6,10 +15,10 @@
       <p>商品の追加</p>
       <%= form_for([:admins, @product] , :url => {:action => 'create'}) do |f| %>
 
-      <%= f.label :商品番号 %>
+      <%= f.label :番号 %>
       <%= f.number_field :number , class: 'form-control' %>
 
-      <%= f.label :商品名 %>
+      <%= f.label :product %>
       <%= f.text_field :product , class: 'form-control' %>
 
       <%= f.label :価格 %>
