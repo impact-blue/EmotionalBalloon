@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
     if @product.save
       redirect_to admin_show_path, notice: '商品の追加が完了しました。'
     else
-      render action: 'show'
+      render action: 'new'
     end
   end
 

@@ -1,3 +1,12 @@
+<% if @user.errors.any? %>
+<div>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li style="color: red"><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <ul class="p-categoryList u-mt-40">
   <li>

@@ -23,12 +23,11 @@ get 'product/search' => 'product/product_searchs#show'
 
 get 'feature/feature_list' => 'feature#show'
 
+#商品購入
+post  'order'    => 'orders#create'
+patch  'order'    => 'orders#create'
 #顧客情報入力
 get 'order/new' => 'orders#new'
-get 'user/create' => 'users#create'
-
-#商品購入
-post  'order/create'    => 'orders#create'
 get 'order/complete'  =>  'orders#complete'
 
 #以下管理画面のルーティング
