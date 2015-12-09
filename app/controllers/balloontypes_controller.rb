@@ -1,5 +1,5 @@
 class BalloontypesController < ApplicationController
-
+  layout 'admin_header'
    def create
     @balloontype = Balloontype.new(create_params)
     if @balloontype.save

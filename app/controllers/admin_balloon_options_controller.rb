@@ -1,5 +1,6 @@
 class AdminBalloonOptionsController < ApplicationController
 #TODO before_action
+layout 'admin_header'
 
 def index
   @character = Character.all
