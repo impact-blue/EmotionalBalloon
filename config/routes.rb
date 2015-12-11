@@ -24,7 +24,7 @@ get 'product/search' => 'product/product_searchs#show'
 get 'feature/feature_list' => 'feature#show'
 
 #商品購入
-post  'order'    => 'orders#create'
+post  'order/new'    => 'orders#create'
 patch  'order'    => 'orders#create'
 #顧客情報入力
 get 'order/new' => 'orders#new'
