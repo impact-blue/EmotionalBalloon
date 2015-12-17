@@ -13,6 +13,7 @@
 
 @import "layout/_header";
 @import "layout/_footer";
+@import "layout/_admin";
 
 // =============================================================
 // Object
@@ -45,3 +46,9 @@
 
 @import "object/utility/_margin";
 @import "object/utility/_padding";
+
+// =============================================================
+// Awesome
+// =============================================================
+
+@import "awesome/font-awesome";
