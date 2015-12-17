@@ -242,6 +242,16 @@ footer .footerCopyright {
 .l-admin__left__list__child:hover {
   opacity: 0.8;
 }
+.l-admin__left__list__child.on::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right: 10px solid #555;
+}
 .l-admin__left__list__child i {
   position: absolute;
   top: 50%;
@@ -284,7 +294,18 @@ footer .footerCopyright {
   background: #555;
 }
 .l-admin__right__foot__content__list li {
+  position: relative;
   border-bottom: 1px solid #444;
+}
+.l-admin__right__foot__content__list li.on::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right: 10px solid white;
 }
 .l-admin__right__foot__content__list a {
   display: block;
