@@ -1,0 +1,71 @@
+.l-admin {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    &__left {
+        width: 80px;
+        height: 100%;
+        text-align: center;
+        background: #0a9b94;
+        a {
+            font-size: 11px;
+            color: white;
+        }
+        &__list {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 73px;
+                left: 10px;
+                width: 60px;
+                height: 2px;
+                background: white;
+            }
+            &__child {
+                position: relative;
+                margin-bottom: 10px;
+                padding-top: 40px;
+                transition: 0.3s;
+                &:hover {
+                    opacity: 0.8;
+                }
+                i {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -20px;
+                    margin-left: -14px;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+    &__right {
+        width: calc(100% - 80px);
+        height: calc(100% - 20px);
+        &__head {
+            display: flex;
+            align-items: center;
+            height: 56px;
+            padding: 0 10px;
+            background: #efede0;
+            &__logo {
+                a {
+                    color: #aaa;
+                }
+                img {
+                    width: 240px;
+                }
+            }
+        }
+        &__foot {
+            height: calc(100% - 56px);
+            padding: 10px;
+            background: white;
+            &__content {
+
+            }
+        }
+    }
+}
