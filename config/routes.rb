@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount API => "/api"
+ # mount API => "/api"
   get 'characters/create'
 
   get 'scenes/create'
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'colors/create'
 
  # devise_for :admin_users #ここを編集する（new)をできなくする
-root  'top#index'
+get 'top' => 'top#index'
 
 get 'company/agreement' => 'company#agreement'
 get 'company/privacy' =>'company#privacy'
