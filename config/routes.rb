@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount API => "/api"
   get 'characters/create'
 
   get 'scenes/create'
@@ -25,10 +26,11 @@ get 'feature/feature_list' => 'feature#show'
 
 #商品購入
 post  'order/new'    => 'orders#create'
-patch  'order'    => 'orders#create'
+patch  'order/new'    => 'orders#create'
 #顧客情報入力
 get 'order/new' => 'orders#new'
 get 'order/complete'  =>  'orders#complete'
+
 
 #以下管理画面のルーティング
 #管理画面の商品関連
@@ -38,6 +40,12 @@ get   'admin/:id/edit' => 'admins#edit'
 get   'admin/show'     => 'admins#show'
 patch 'admin/:id'      => 'admins#update'
 delete'admin/:id'      => 'admins#destroy'
+#管理画面の購入した人一覧
+get   'admin/customer/:id/edit' => 'admin_customers#edit'
+get   'admin/customer/show'     => 'admin_customers#show'
+get   'admin/customer/index'     => 'admin_customers#index'
+patch 'admin/customer/:id'      => 'admin_customers#update'
+delete'admin/customer/:id'      => 'admin_customers#destroy'
 
 resources :admin_balloon_options
 

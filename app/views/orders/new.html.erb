@@ -1,7 +1,18 @@
-<% if @user.errors.any? %>
+
+<% if @order.errors.any? %>
 <div>
   <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li style="color: red"><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if @order.user.errors.any? %>
+<div>
+  <ul>
+    <% @order.user.errors.full_messages.each do |msg| %>
       <li style="color: red"><%= msg %></li>
     <% end %>
   </ul>
@@ -14,7 +25,7 @@
       <%= form_for([:order, @order] , :url => {:action => 'create'}) do |f| %>
 
       <h1>お客様情報</h1>
-        <%= fields_for(@user) do |i| %>
+        <%= fields_for(@order.user) do |i| %>
 
           <%= i.label :姓 %>
           <%= i.text_field :first_name , class: 'form-control' %>
@@ -88,6 +99,8 @@
 
       <%= f.label :送料 %>
       <%= f.text_field :option , class: 'form-control' %>
+
+      <%= f.hidden_field :order_status, :value => 'unconfirmed' %>
 
 
       <%= f.label :合計値段 %>
