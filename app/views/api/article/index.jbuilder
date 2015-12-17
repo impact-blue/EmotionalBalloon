@@ -1,3 +1,3 @@
-json.articles @articles do |article|
-  json.(article, :id, :title)
+json.articles @products do |article|
+  json.(article, :id, :product)
 end
