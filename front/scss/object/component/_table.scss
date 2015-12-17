@@ -1,0 +1,54 @@
+.c-table {
+    width: 100%;
+    color: #555;
+    border: 1px solid #555;
+    border-collapse: separate;
+    border-spacing: 0px 1px;
+    &__thread {
+
+    }
+    &__body {
+
+    }
+    &__row {
+        &:nth-of-type(2n-1) {
+            background: #f7f7f7;
+        }
+    }
+    &__head {
+        border-left: 1px solid #555;
+        background: white;
+        &:nth-of-type(1) {
+            width: 50px;
+            border-left: none;
+        }
+        &:nth-of-type(2) {
+            width: 110px;
+        }
+        &:nth-of-type(3) {
+            width: 200px;
+        }
+        &:nth-of-type(4) {
+            width: 200px;
+
+        }
+    }
+    &__data {
+        text-align: center;
+        border-top: 1px solid #555;
+        border-left: 1px solid #555;
+        &:first-child {
+            border-left: none;
+        }
+        &:last-child {
+            text-align: left;
+            padding: 10px;
+        }
+        a {
+            text-decoration: underline;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}

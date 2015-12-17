@@ -10,6 +10,10 @@ body , div , dl , dt , dd , ul , ol , li , h1 , h2 , h3 , h4 , h5 , h6 , pre , f
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     height: 100%;
     width: 100%;

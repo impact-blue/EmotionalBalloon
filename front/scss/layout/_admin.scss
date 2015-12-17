@@ -45,11 +45,13 @@
         width: calc(100% - 80px);
         height: calc(100% - 20px);
         &__head {
+            position: relative;
             display: flex;
             align-items: center;
             height: 56px;
             padding: 0 10px;
             background: #efede0;
+            box-shadow: 0 5px 10px rgba(black, 0.1);
             &__logo {
                 a {
                     color: #aaa;
@@ -83,6 +85,7 @@
                 }
                 &__body {
                     padding: 10px;
+                    overflow: scroll;
                 }
             }
         }

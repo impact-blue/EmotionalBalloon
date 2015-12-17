@@ -12,6 +12,10 @@ body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, 
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -251,11 +255,13 @@ footer .footerCopyright {
   height: calc(100% - 20px);
 }
 .l-admin__right__head {
+  position: relative;
   display: flex;
   align-items: center;
   height: 56px;
   padding: 0 10px;
   background: #efede0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 .l-admin__right__head__logo a {
   color: #aaa;
@@ -289,6 +295,7 @@ footer .footerCopyright {
 }
 .l-admin__right__foot__content__body {
   padding: 10px;
+  overflow: scroll;
 }
 
 h2.balloonHeading2 {
@@ -376,6 +383,52 @@ h2.balloonHeading2 {
 }
 .breadList a:hover {
   text-decoration: underline;
+}
+
+.c-table {
+  width: 100%;
+  color: #555;
+  border: 1px solid #555;
+  border-collapse: separate;
+  border-spacing: 0px 1px;
+}
+.c-table__row:nth-of-type(2n-1) {
+  background: #f7f7f7;
+}
+.c-table__head {
+  border-left: 1px solid #555;
+  background: white;
+}
+.c-table__head:nth-of-type(1) {
+  width: 50px;
+  border-left: none;
+}
+.c-table__head:nth-of-type(2) {
+  width: 110px;
+}
+.c-table__head:nth-of-type(3) {
+  width: 200px;
+}
+.c-table__head:nth-of-type(4) {
+  width: 200px;
+}
+.c-table__data {
+  text-align: center;
+  border-top: 1px solid #555;
+  border-left: 1px solid #555;
+}
+.c-table__data:first-child {
+  border-left: none;
+}
+.c-table__data:last-child {
+  text-align: left;
+  padding: 10px;
+}
+.c-table__data a {
+  text-decoration: underline;
+}
+.c-table__data a:hover {
+  opacity: 0.5;
 }
 
 .p-topHead {
