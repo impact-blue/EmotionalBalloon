@@ -36,8 +36,8 @@ Dashboard
 │   ├── ProductNew
 │   └── ProductEdit
 │
-└── Customer
-    └── CustomerList
+└── Order
+    └── OrderList
 		 ├──unconfirmed
 		 ├──Process
 		 └──Complete
