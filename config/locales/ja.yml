@@ -198,6 +198,7 @@ ja:
       models:
         product: 商品
         user: ユーザー
+        order: 注文
       attributes:
         product:
           product: 商品
@@ -214,3 +215,8 @@ ja:
          address2: 番地・建物
          email_confirmation: メールアドレス（確認）
          phone: 電話番号
+         postal_code: 郵便番号
+        order:
+         delivery_address: 市区群町村
+         delivery_address2: 番地・建物（お届け先）
+         user_id: お客様情報の入力（お届け先）

@@ -1,0 +1,29 @@
+
+
+<ul class="admin-categoryList u-mt-40">
+  <li>
+      <div class="categoryWrapper">
+        <p>購入者一覧</p>
+      </div>
+    </a>
+  </li>
+  <% @order.each do |order| %>
+  <li>
+    <a>
+      <div class="categoryWrapper">
+        <p><%= order.id %></p>
+        <p>注文者：<%=  order.user.first_name  %>   <%= order.user.last_name %>（<%= order.user.first_name_kana %>   <%= order.user.last_name_kana %>）</p>
+        <p>電話番号：<%= order.user.phone %></p>
+        <p>メール  ：<%= order.user.email %></p>
+        <p>都道府県：<%= order.user.city.name %></p>
+        <p>市区群町村：<%= order.user.address %></p>
+        <p>番地・建物：<%= order.user.address2 %></p>
+        <br>
+        <p>注文情報</p>
+        <p>商品到着日時：<%= order.delively_date %></p>
+        <p>注文日：<%= order.created_at %></p>
+      </div>
+    </a>
+  </li>
+  <% end %>
+</ul>

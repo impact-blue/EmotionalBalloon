@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :orders
+  has_one :order, :dependent => :destroy
   belongs_to :city
 
   validates_confirmation_of :email
@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   validates :email, presence: { message: 'は必須です' }
 
   validates :email_confirmation, presence: { message: 'は必須です' }
-#正規表現修正
-  validates :phone,
-  :format => { :with => /[0-9]/, :message => "半角数字のみ入力できます" },
+  #正規表現修正
+  validates :phone,:postal_code,
+  numericality: { only_integer: true , :message => "は半角数字のみ入力できます" },
   presence: { message: 'は必須です' }
 end
