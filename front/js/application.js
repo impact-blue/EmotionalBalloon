@@ -20,7 +20,8 @@
 
     var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
         apiUrl = [
-            '/apis/index.json'
+            '/apis/index.json',
+            '/apis/admin.json'
         ];
 
     app.config(function($routeProvider, $locationProvider, $httpProvider) {
@@ -30,7 +31,8 @@
                 controller: 'topPageController'
             })
             .when('/admin', {
-                templateUrl: '/template/admin/index.html'
+                templateUrl: '/template/admin/index.html',
+                controller: 'adminPageController'
             })
             .when('/company/privacy', {
                 templateUrl: '/template/company/privacy.html'
@@ -47,6 +49,17 @@
         $http({
             method: 'GET',
             url: apiUrl[0]
+        }).success(function(data, status, headers, config) {
+            $scope.data = data.data;
+        });
+
+    });
+
+    app.controller('adminPageController', function($scope, $http) {
+
+        $http({
+            method: 'GET',
+            url: apiUrl[1]
         }).success(function(data, status, headers, config) {
             $scope.data = data.data;
         });

@@ -22,7 +22,26 @@
                     <li><a href="">Complete</a></li>
                 </ul>
                 <div class="l-admin__right__foot__content__body">
-                    aaaa
+                    <table class="c-table">
+                        <thead class="c-table__thread">
+                            <tr class="c-table__row">
+                                <th class="c-table__head">id</th>
+                                <th class="c-table__head">status</th>
+                                <th class="c-table__head">user</th>
+                                <th class="c-table__head">date</th>
+                                <th class="c-table__head">option</th>
+                            </tr>
+                        </thead>
+                        <tbody class="c-table__body">
+                            <tr class="c-table__row" ng-repeat="order in data.order_list">
+                                <td class="c-table__data"><a href="">{{order.id}}</a></td>
+                                <td class="c-table__data">{{order.status}}</td>
+                                <td class="c-table__data"><a href="">{{order.user.name}}</a></td>
+                                <td class="c-table__data">{{order.date}}</td>
+                                <td class="c-table__data">{{order.option}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
