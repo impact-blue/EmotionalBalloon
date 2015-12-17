@@ -264,9 +264,31 @@ footer .footerCopyright {
   width: 240px;
 }
 .l-admin__right__foot {
-  height: calc(100% - 56px);
-  padding: 10px;
+  height: calc(100% - 36px);
   background: white;
+}
+.l-admin__right__foot__content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.l-admin__right__foot__content__list {
+  width: 250px;
+  height: 100%;
+  background: #555;
+}
+.l-admin__right__foot__content__list li {
+  border-bottom: 1px solid #444;
+}
+.l-admin__right__foot__content__list a {
+  display: block;
+  font-size: 12px;
+  line-height: 3.5;
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.l-admin__right__foot__content__body {
+  padding: 10px;
 }
 
 h2.balloonHeading2 {

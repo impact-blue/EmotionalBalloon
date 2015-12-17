@@ -60,11 +60,30 @@
             }
         }
         &__foot {
-            height: calc(100% - 56px);
-            padding: 10px;
+            height: calc(100% - 36px);
             background: white;
             &__content {
-
+                display: flex;
+                width: 100%;
+                height: 100%;
+                &__list {
+                    width: 250px;
+                    height: 100%;
+                    background: #555;
+                    li {
+                        border-bottom: 1px solid #444;
+                    }
+                    a {
+                        display: block;
+                        font-size: 12px;
+                        line-height: 3.5;
+                        padding: 0 10px;
+                        color: rgba(white, 0.9);
+                    }
+                }
+                &__body {
+                    padding: 10px;
+                }
             }
         }
     }
