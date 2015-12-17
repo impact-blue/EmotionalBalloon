@@ -18,19 +18,17 @@
     &__head {
         border-left: 1px solid #555;
         background: white;
-        &:nth-of-type(1) {
-            width: 50px;
+        &:first-child {
             border-left: none;
         }
-        &:nth-of-type(2) {
-            width: 110px;
+        &.small {
+            width: 50px;
         }
-        &:nth-of-type(3) {
-            width: 200px;
+        &.normal {
+            width: 120px;
         }
-        &:nth-of-type(4) {
+        &.large {
             width: 200px;
-
         }
     }
     &__data {
