@@ -27,7 +27,7 @@ TopPage
 
 ### Admin
 ```
-Dashboard
+Home
 │
 ├── Login
 │
@@ -37,8 +37,10 @@ Dashboard
 │   └── ProductEdit
 │
 └── Order
-    └── OrderList
-		 ├──unconfirmed
-		 ├──Process
-		 └──Complete
+    ├── OrderList
+    │   ├──unconfirmed
+    │   ├──Process
+    │   └──Complete
+    │
+    └── ProductEdit
 ```
