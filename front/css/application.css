@@ -315,6 +315,7 @@ footer .footerCopyright {
   color: rgba(255, 255, 255, 0.9);
 }
 .l-admin__right__foot__content__body {
+  width: calc(100% - 250px);
   padding: 10px;
   overflow: scroll;
 }
