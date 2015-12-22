@@ -10,6 +10,10 @@
         a {
             font-size: 11px;
             color: white;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         &__list {
             position: relative;
@@ -26,10 +30,6 @@
                 position: relative;
                 margin-bottom: 10px;
                 padding-top: 40px;
-                transition: 0.3s;
-                &:hover {
-                    opacity: 0.8;
-                }
                 &.on {
                     &::after {
                         content: "";
@@ -40,6 +40,11 @@
                         height: 0;
                         border: 10px solid transparent;
                         border-right: 10px solid #555;
+                    }
+                }
+                &:nth-of-type(2) {
+                    &::after {
+                        border-right: 10px solid white;
                     }
                 }
                 i {
