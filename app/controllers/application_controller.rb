@@ -6,5 +6,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   #商品詳細ページ、発送ページ、利用規約、下層
-
+  def set_request_filter
+     Thread.current[:request] = request
+  end
 end

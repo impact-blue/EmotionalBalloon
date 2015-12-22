@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
   validates :number,  presence: { message: 'は必須です' }
 
   #商品名
-  validates :product,  presence: { message: 'は必須です' }
+  validates :name,  presence: { message: 'は必須です' }
 
   #画像
   #validates :image

@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
     @order = Order.new(create_params)
     @order.user = User.new(user_model_params)
     if @order.save && @order.user.save
+
+      Mailer.send_email(@order).deliver
+
       redirect_to order_complete_path
     else
       render action: 'new'

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'colors/create'
 
  # devise_for :admin_users #ここを編集する（new)をできなくする
-get 'top' => 'top#index'
+root 'top#index'
+#jsonの出力
+get 'api/product/search' => 'api#apis_product_search'
+get 'api/ranking' => 'api#ranking'
+get 'api/budget' => 'api#budget'
 
 get 'company/agreement' => 'company#agreement'
 get 'company/privacy' =>'company#privacy'
