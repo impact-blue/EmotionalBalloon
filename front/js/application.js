@@ -29,6 +29,9 @@
                 templateUrl: '/template/index.html',
                 controller: 'topPageController'
             })
+            .when('/admin', {
+                templateUrl: '/template/admin/index.html'
+            })
             .when('/company/privacy', {
                 templateUrl: '/template/company/privacy.html'
             })
