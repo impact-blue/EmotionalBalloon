@@ -11,4 +11,33 @@ class Product < ActiveRecord::Base
   has_many :product_scenes
   has_many :scenes, through: :product_scenes
   belongs_to :boxsize
+
+
+
+  #商品番号
+  validates :number,  presence: { message: 'は必須です' }
+
+  #商品名
+  validates :name,  presence: { message: 'は必須です' }
+
+  #画像
+  #validates :image
+
+  #価格,
+  validates :price,  :numericality => { :only_integer => true , message: 'は必須です'}
+
+  #在庫
+  validates :stocks,  presence: { message: 'は必須です' }
+
+  #送料 validates :postage
+
+  #コメント、推薦文、キーワード
+#validates :comment ,:keyword , :recommended
+
+  #登録日
+  validates :registration_date,  presence: { message: 'は必須です' }
+
+  #箱サイズ
+  validates :boxsize_id,  presence: { message: 'は必須です' }
+
 end

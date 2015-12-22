@@ -1,5 +1,5 @@
 class ScenesController < ApplicationController
-
+  layout 'admin_header'
 
 def create
   @scene = Scene.new(create_params)

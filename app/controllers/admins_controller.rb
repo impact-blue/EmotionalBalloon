@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :logged_in_admin_user
+  layout 'admin_header'
 
   def new
     @product = Product.new
@@ -18,7 +19,7 @@ class AdminsController < ApplicationController
     if @product.save
       redirect_to admin_show_path, notice: '商品の追加が完了しました。'
     else
-      render action: 'show'
+      render action: 'new'
     end
   end
 
@@ -41,7 +42,7 @@ class AdminsController < ApplicationController
   private
 
   def create_params
-    params.require(:product).permit(:number,:product,:price,:stocks,:postage,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:character_ids =>[]},{:balloontype_ids =>[]})
+    params.require(:product).permit(:number,:name,:price,:stocks,:postage,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:character_ids =>[]},{:balloontype_ids =>[]})
   end
 
   def logged_in_admin_user

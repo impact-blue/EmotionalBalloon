@@ -194,10 +194,29 @@ ja:
       short: "%y/%m/%d %H:%M"
     pm: 午後
 
-    activerecord:
-     attributes:
-          user:
-           name: 名前
-           password: パスワード
-           password_confirmation: パスワード確認
-           email: メールアドレス
+  activerecord:
+      models:
+        product: 商品
+        user: ユーザー
+        order: 注文
+      attributes:
+        product:
+          product: 商品
+          number: 商品番号
+          price: 価格
+          stocks: 在庫
+          registration_date: 商品の登録日
+        user:
+         first_name: 姓
+         first_name_kana: 姓（フリガナ）
+         last_name: 名
+         last_name_kana: 名（フリガナ）
+         address: 市区群町村
+         address2: 番地・建物
+         email_confirmation: メールアドレス（確認）
+         phone: 電話番号
+         postal_code: 郵便番号
+        order:
+         delivery_address: 市区群町村
+         delivery_address2: 番地・建物（お届け先）
+         user_id: お客様情報の入力（お届け先）
