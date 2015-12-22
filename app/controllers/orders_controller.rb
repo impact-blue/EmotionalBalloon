@@ -2,16 +2,19 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @user = User.new
+    @order.user = User.new
   end
 
   def create
     @order = Order.new(create_params)
     @order.user = User.new(user_model_params)
-    if @order.save
+    if @order.save && @order.user.save
+
+      Mailer.send_email(@order).deliver
+
       redirect_to order_complete_path
     else
-      render 'new'
+      render action: 'new'
     end
   end
 
@@ -21,7 +24,7 @@ class OrdersController < ApplicationController
   private
   #productとorderの中間テーブルを作り、アソシエーションをかけ、配列で複数のプロダクトを受け取れるようにす
   def create_params
-    params.require(:order).permit(:product_id,:user_id,:city_id,:order_date,:delively_date,:delivery_address,:delivery_address2,:option,:phone)
+    params.require(:order).permit(:product_id,:user_id,:city_id,:order_status,:order_date,:delively_date,:delivery_address,:delivery_address2,:option,:phone)
   end
 
   def user_model_params

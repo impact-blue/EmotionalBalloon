@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    layout 'admin_header'
   def new
   end
 
