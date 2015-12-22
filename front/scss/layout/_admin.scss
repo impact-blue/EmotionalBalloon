@@ -10,6 +10,10 @@
         a {
             font-size: 11px;
             color: white;
+            transition: 0.3s;
+            &:hover {
+                opacity: 0.8;
+            }
         }
         &__list {
             position: relative;
@@ -26,9 +30,22 @@
                 position: relative;
                 margin-bottom: 10px;
                 padding-top: 40px;
-                transition: 0.3s;
-                &:hover {
-                    opacity: 0.8;
+                &.on {
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 30px;
+                        right: 0;
+                        width: 0;
+                        height: 0;
+                        border: 10px solid transparent;
+                        border-right: 10px solid #555;
+                    }
+                }
+                &:nth-of-type(2) {
+                    &::after {
+                        border-right: 10px solid white;
+                    }
                 }
                 i {
                     position: absolute;
@@ -43,13 +60,15 @@
     }
     &__right {
         width: calc(100% - 80px);
-        height: calc(100% - 20px);
+        height: 100%;
         &__head {
+            position: relative;
             display: flex;
             align-items: center;
             height: 56px;
             padding: 0 10px;
             background: #efede0;
+            box-shadow: 0 5px 10px rgba(black, 0.1);
             &__logo {
                 a {
                     color: #aaa;
@@ -60,11 +79,46 @@
             }
         }
         &__foot {
-            height: calc(100% - 56px);
-            padding: 10px;
+            // height: calc(100% - 36px);
+            height: 100%;
             background: white;
             &__content {
-
+                display: flex;
+                width: 100%;
+                height: 100%;
+                &__list {
+                    width: 250px;
+                    height: 100%;
+                    background: #555;
+                    li {
+                        position: relative;
+                        border-bottom: 1px solid #444;
+                        &.on {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 15px;
+                                right: 0;
+                                width: 0;
+                                height: 0;
+                                border: 10px solid transparent;
+                                border-right: 10px solid white;
+                            }
+                        }
+                    }
+                    a {
+                        display: block;
+                        font-size: 12px;
+                        line-height: 3.5;
+                        padding: 0 10px;
+                        color: rgba(white, 0.9);
+                    }
+                }
+                &__body {
+                    width: calc(100% - 250px);
+                    padding: 10px;
+                    overflow: scroll;
+                }
             }
         }
     }

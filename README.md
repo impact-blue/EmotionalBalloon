@@ -3,44 +3,39 @@
 ## PagingTree
 ### Public
 ```
-TopPage
-│
+Top
 ├── Product
-│   ├── ProductList
-│   ├── ProductRanking
-│   ├── ProductSearch
-│   └── ProductShow
-│
+│   ├── List
+│   ├── Ranking
+│   ├── Search
+│   └── Show
 ├── Feature
-│   ├── ProductList
-│   └── ProductShow
-│
+│   ├── List
+│   └── Show
 └── Customer
-    ├── CompanyAgreement
-    ├── CompanyPrivacy
-    ├── CompanyExchange
-    ├── CompanyQuestion
-    ├── CompanyAbout
-    ├── CompanyFlow
-    └── CompanyContact
+    ├── Agreement
+    ├── Privacy
+    ├── Exchange
+    ├── Question
+    ├── About
+    ├── Flow
+    └── Contact
 ```
 
 ### Admin
 ```
 Home
-│
 ├── Login
-│
 ├── Product
-│   ├── ProductList
-│   ├── ProductNew
-│   └── ProductEdit
-│
+│   ├── List
+│   │   └── All
+│   ├── New
+│   └── Edit
 └── Order
-    ├── OrderList
-    │   ├──unconfirmed
-    │   ├──Process
-    │   └──Complete
-    │
-    └── ProductEdit
+    ├── List
+    │   ├── All
+    │   ├── Unconfirmed
+    │   ├── Process
+    │   └── Complete
+    └── Edit
 ```

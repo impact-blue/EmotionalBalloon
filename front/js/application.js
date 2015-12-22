@@ -20,7 +20,8 @@
 
     var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
         apiUrl = [
-            '/apis/index.json'
+            '/apis/index.json',
+            '/apis/admin.json'
         ];
 
     app.config(function($routeProvider, $locationProvider, $httpProvider) {
@@ -30,15 +31,29 @@
                 controller: 'topPageController'
             })
             .when('/admin', {
-                templateUrl: '/template/admin/index.html'
+                templateUrl: '/template/admin/index.html',
+                controller: 'adminPageController'
+            })
+            .when('/admin/product', {
+                templateUrl: '/template/admin/product/index.html',
+                controller: 'adminPageController'
+            })
+            .when('/admin/order', {
+                templateUrl: '/template/admin/order/index.html',
+                controller: 'adminPageController'
             })
             .when('/company/privacy', {
                 templateUrl: '/template/company/privacy.html'
             })
             .otherwise({
                 redirectTo: '/'
-            });
+            }
+        );
 
+        /* HTML5 MODE */
+        $locationProvider.html5Mode(true);
+
+        /* Rails Ajax Escape */
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     });
 
@@ -51,6 +66,18 @@
             $scope.data = data.data;
         });
 
+    });
+
+    app.controller('adminPageController', function($scope, $http) {
+        $scope.path = location.pathname;
+        $scope.search = location.search;
+
+        $http({
+            method: 'GET',
+            url: apiUrl[1]
+        }).success(function(data, status, headers, config) {
+            $scope.data = data.data;
+        });
     });
 
     $(window).scroll(function() {

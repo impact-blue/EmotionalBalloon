@@ -1,0 +1,30 @@
+<% include ../../parts/admin/_header %>
+                <ul class="l-admin__right__foot__content__list">
+                    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/order?filter=all">ALL</a></li>
+                    <li ng-class="{'on': search === '?filter=unconfirmed'}"><a href="/admin/order?filter=unconfirmed">Unconfirmed</a></li>
+                    <li ng-class="{'on': search === '?filter=process'}"><a href="/admin/order?filter=process">Process</a></li>
+                    <li ng-class="{'on': search === '?filter=complete'}"><a href="/admin/order?filter=complete">Complete</a></li>
+                </ul>
+                <div class="l-admin__right__foot__content__body">
+                    <table class="c-table">
+                        <thead class="c-table__thread">
+                            <tr class="c-table__row">
+                                <th class="c-table__head small">id</th>
+                                <th class="c-table__head normal">status</th>
+                                <th class="c-table__head large">user</th>
+                                <th class="c-table__head large">date</th>
+                                <th class="c-table__head">option</th>
+                            </tr>
+                        </thead>
+                        <tbody class="c-table__body">
+                            <tr class="c-table__row" ng-repeat="order in data.order_list">
+                                <td class="c-table__data"><a href="">{{order.id}}</a></td>
+                                <td class="c-table__data">{{order.status}}</td>
+                                <td class="c-table__data"><a href="">{{order.user.name}}</a></td>
+                                <td class="c-table__data">{{order.date}}</td>
+                                <td class="c-table__data">{{order.option}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<% include ../../parts/admin/_footer %>
