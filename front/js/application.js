@@ -34,6 +34,10 @@
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
             })
+            .when('/admin/order/:status', {
+                templateUrl: '/template/admin/order/index.html',
+                controller: 'adminPageController'
+            })
             .when('/company/privacy', {
                 templateUrl: '/template/company/privacy.html'
             })
