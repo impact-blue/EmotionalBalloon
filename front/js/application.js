@@ -43,8 +43,13 @@
             })
             .otherwise({
                 redirectTo: '/'
-            });
+            }
+        );
 
+        /* HTML5 MODE */
+        $locationProvider.html5Mode(true);
+
+        /* Rails Ajax Escape */
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     });
 
@@ -67,6 +72,8 @@
         }).success(function(data, status, headers, config) {
             $scope.data = data.data;
         });
+
+        $scope.path = location.pathname;
 
     });
 

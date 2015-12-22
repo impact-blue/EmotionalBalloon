@@ -262,7 +262,7 @@ footer .footerCopyright {
 }
 .l-admin__right {
   width: calc(100% - 80px);
-  height: calc(100% - 20px);
+  height: 100%;
 }
 .l-admin__right__head {
   position: relative;
@@ -280,7 +280,7 @@ footer .footerCopyright {
   width: 240px;
 }
 .l-admin__right__foot {
-  height: calc(100% - 36px);
+  height: 100%;
   background: white;
 }
 .l-admin__right__foot__content {

@@ -55,7 +55,7 @@
     }
     &__right {
         width: calc(100% - 80px);
-        height: calc(100% - 20px);
+        height: 100%;
         &__head {
             position: relative;
             display: flex;
@@ -74,7 +74,8 @@
             }
         }
         &__foot {
-            height: calc(100% - 36px);
+            // height: calc(100% - 36px);
+            height: 100%;
             background: white;
             &__content {
                 display: flex;
