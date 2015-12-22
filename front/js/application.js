@@ -34,7 +34,7 @@
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
             })
-            .when('/admin/order/:status', {
+            .when('/admin/order', {
                 templateUrl: '/template/admin/order/index.html',
                 controller: 'adminPageController'
             })
@@ -74,7 +74,7 @@
         });
 
         $scope.path = location.pathname;
-
+        console.log($scope.path);
     });
 
     $(window).scroll(function() {

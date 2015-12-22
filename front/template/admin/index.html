@@ -3,9 +3,9 @@
         <ul class="l-admin__left__list">
             <li class="l-admin__left__list__child"><a href=""><i class="fa fa-pencil-square-o"></i>NEW POST</a>
             </li>
-            <li class="l-admin__left__list__child"><a href="/#/admin"><i class="fa fa-home"></i>HOME</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}"><a href="/#/admin"><i class="fa fa-home"></i>HOME</a></li>
             <li class="l-admin__left__list__child"><a href=""><i class="fa fa-gift"></i>PRODUCT</a></li>
-            <li class="l-admin__left__list__child"><a href="/#/admin/order/all"><i class="fa fa-shopping-cart"></i>ORDER</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/order'}"><a href="/#/admin/order/?filter=all"><i class="fa fa-shopping-cart"></i>ORDER</a></li>
             <li class="l-admin__left__list__child"><a href=""><i class="fa fa-sign-out"></i>LOGOUT</a></li>
         </ul>
     </div>
