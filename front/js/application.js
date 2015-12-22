@@ -34,6 +34,10 @@
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
             })
+            .when('/admin/product', {
+                templateUrl: '/template/admin/product/index.html',
+                controller: 'adminPageController'
+            })
             .when('/admin/order', {
                 templateUrl: '/template/admin/order/index.html',
                 controller: 'adminPageController'
@@ -65,6 +69,8 @@
     });
 
     app.controller('adminPageController', function($scope, $http) {
+        $scope.path = location.pathname;
+        $scope.search = location.search;
 
         $http({
             method: 'GET',
@@ -72,9 +78,6 @@
         }).success(function(data, status, headers, config) {
             $scope.data = data.data;
         });
-
-        $scope.path = location.pathname;
-        console.log($scope.path);
     });
 
     $(window).scroll(function() {
