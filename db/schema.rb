@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222054536) do
+ActiveRecord::Schema.define(version: 20151224090229) do
 
   create_table "Users", force: :cascade do |t|
     t.string   "first_name",      limit: 255
@@ -42,18 +42,21 @@ ActiveRecord::Schema.define(version: 20151222054536) do
     t.string   "balloontype", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "name",        limit: 255
   end
 
   create_table "boxsizes", force: :cascade do |t|
     t.string   "boxsize",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
-  create_table "characters", force: :cascade do |t|
-    t.string   "character",  limit: 255
+  create_table "charas", force: :cascade do |t|
+    t.string   "chara",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
   create_table "cities", force: :cascade do |t|
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 20151222054536) do
     t.string   "color",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
   create_table "images", force: :cascade do |t|
@@ -105,11 +109,11 @@ ActiveRecord::Schema.define(version: 20151222054536) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "product_characters", force: :cascade do |t|
-    t.integer  "product_id",   limit: 4
-    t.integer  "character_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "product_charas", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "chara_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "product_colors", force: :cascade do |t|
@@ -153,6 +157,7 @@ ActiveRecord::Schema.define(version: 20151222054536) do
     t.string   "scene",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
 end
