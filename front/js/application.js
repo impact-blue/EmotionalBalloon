@@ -30,6 +30,12 @@
                 templateUrl: '/template/index.html',
                 controller: 'topPageController'
             })
+            .when('/product/scene', {
+                templateUrl: '/template/product/scene.html'
+            })
+            .when('/product/show', {
+                templateUrl: '/template/product/show.html'
+            })
             .when('/admin', {
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
