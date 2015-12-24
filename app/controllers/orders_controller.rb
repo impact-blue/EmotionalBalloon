@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+#確認ページを作る。
   def new
     @order = Order.new
     @order.user = User.new
