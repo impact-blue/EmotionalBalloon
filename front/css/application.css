@@ -115,7 +115,7 @@ header img {
 }
 header input[type="text"] {
   width: 150px;
-  height: 16px;
+  height: 28px;
   border-radius: 5px 0 0 5px;
 }
 header input[type="submit"] {
