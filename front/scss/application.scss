@@ -14,6 +14,7 @@
 @import "layout/_header";
 @import "layout/_footer";
 @import "layout/_admin";
+@import "layout/_column";
 
 // =============================================================
 // Object
@@ -40,6 +41,8 @@
 @import "object/project/_spaceList";
 @import "object/project/_customerVoice";
 @import "object/project/_companyBlock";
+@import "object/project/_productDetail";
+@import "object/project/_photoGallery";
 
 // -------------------------------------------------------------
 // Utility

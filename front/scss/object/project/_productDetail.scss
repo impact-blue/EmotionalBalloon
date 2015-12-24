@@ -1,0 +1,45 @@
+.p-productDetail {
+    &__option {
+        display: inline-block;
+        padding: 8px;
+        font-size: 13px;
+        color: $brandColor;
+        border: 1px solid $brandColor;
+    }
+    &__title {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+    &__price {
+        font-size: 34px;
+    }
+    &__description {
+        margin-top: 15px;
+        padding: 15px 0;
+        border-top: 1px solid white;
+        &__title {
+            font-size: 18px;
+        }
+        &__text {
+            font-size: 13px;
+        }
+    }
+    &__detail {
+        border-top: 1px solid white;
+        padding: 15px 0;
+        &__title {
+            font-size: 18px;
+        }
+        &__table {
+            font-size: 13px;
+            text-align: left;
+            &__row {
+                vertical-align: top;
+                th {
+                    width: 140px;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}

@@ -31,3 +31,20 @@
         }
     }
 }
+.c-button--cart {
+    margin-top: 20px;
+    &__text {
+        width: 300px;
+        margin: 0 auto;
+        line-height: 40px;
+        text-align: center;
+        color: $brandColor;
+        border: 1px solid $brandColor;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            color: white;
+            background: $brandColor;
+        }
+    }
+}

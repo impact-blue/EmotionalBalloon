@@ -1,0 +1,12 @@
+.l-column-col2 {
+    display: flex;
+    align-items: flex-start;
+    width: 1000px;
+    margin: 20px auto 0 auto;
+    &__left {
+        width: 600px;
+    }
+    &__right {
+        width: 400px;
+    }
+}
