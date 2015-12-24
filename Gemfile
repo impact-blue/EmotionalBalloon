@@ -22,9 +22,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'chef','11.12.4'
-gem 'berkshelf','3.1.2'
-gem 'knife-solo'
 gem 'kaminari'
 
 group :development, :test do

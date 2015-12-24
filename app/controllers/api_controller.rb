@@ -1,35 +1,58 @@
 class ApiController < ApplicationController
 #TODO before_action
-#出力例http://localhost:3000/api/new.json?page=2&price=>100
+#出力例http://localhost:3000/api/product/search.json?page=2&min=100&max2000
   def apis_product_search
     min = params[:min]
     max = params[:max]
     price = params[:price]
+    scene = params[:scene]
+    chara = params[:chara]
+    color = params[:color]
+    balloontype = params[:balloontype]
+    @page = 3
 
     if min.present? && max.present?
-      @products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(3).order("created_at DESC")
+      @products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
-    elsif min.present?
-      @products = Product.where('price >= ? ',params[:min]).page(params[:page]).per(3).order("created_at DESC")
+
+#単一検索
+    elsif min.present? #最小価格
+      @products = Product.where('price >= ? ',params[:min]).page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
-    elsif max.present?
-      @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(3).order("created_at DESC")
+    elsif max.present? #最大価格
+      @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(2).order("created_at DESC")
       @current_page = params[:page].to_i
+    elsif scene.present? #シーン別
+      @products = Kaminari.paginate_array(Product.includes(:scenes).where('scene = ?', params[:scene]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @current_page = params[:page].to_i
+
+    elsif chara.present? #キャラクター別
+      @products = Kaminari.paginate_array(Product.includes(:charas).where('chara = ?', params[:chara]).references(:chara).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @current_page = params[:page].to_i
+
+    elsif color.present? #色別
+      @products = Kaminari.paginate_array(Product.includes(:colors).where('color = ?', params[:color]).references(:color).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @current_page = params[:page].to_i
+    elsif balloontype.present? #バルーンタイプ別
+      @products = Kaminari.paginate_array(Product.includes(:balloontypes).where('balloontype = ?', params[:balloontype]).references(:balloontype).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @current_page = params[:page].to_i
+#条件なし
     else
-      @products = Product.page(params[:page]).per(3).order("created_at DESC")
+      @products = Product.page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
     end
+#終了
   end
 
   def ranking
-    @products = Product.page(params[:page]).per(3).order("created_at DESC")
+    @products = Product.page(params[:page]).per(@page).order("created_at DESC")
     @current_page = params[:page].to_i
   end
 #http://localhost:3000/api/budget.json?page=1&min=100&max=100000 みたいな
   def budget
     min = params[:min]
     max = params[:max]
-    @products = Product.where('price >= ?',params[:min]).where('price <= ?',params[:max]).page(params[:page]).per(3).order("created_at DESC")
+    @products = Product.where('price >= ?',params[:min]).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at DESC")
     @current_page = params[:page].to_i
   end
 
