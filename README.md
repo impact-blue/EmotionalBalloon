@@ -6,13 +6,12 @@
 Top
 ├── Product
 │   ├── List
+│   ├── Scene
+│   ├── Feature
 │   ├── Ranking
 │   ├── Search
 │   └── Show
-├── Feature
-│   ├── List
-│   └── Show
-└── Customer
+└── Company
     ├── Agreement
     ├── Privacy
     ├── Exchange
@@ -30,6 +29,7 @@ Home
 │   ├── List
 │   │   └── All
 │   ├── New
+│   ├── Show
 │   └── Edit
 └── Order
     ├── List
@@ -37,5 +37,6 @@ Home
     │   ├── Unconfirmed
     │   ├── Process
     │   └── Complete
+    ├── Show
     └── Edit
 ```
