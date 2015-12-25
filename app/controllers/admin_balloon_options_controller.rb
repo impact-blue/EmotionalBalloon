@@ -3,7 +3,7 @@ class AdminBalloonOptionsController < ApplicationController
 layout 'admin_header'
 
 def index
-  @character = Character.all
+  @chara = Chara.all
   @boxsize = Boxsize.all
   @color = Color.all
   @scene = Scene.all

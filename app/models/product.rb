@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
   has_many :product_colors
   has_many :colors, through: :product_colors
-  has_many :product_characters
-  has_many :characters, through: :product_characters
+  has_many :product_charas
+  has_many :charas, through: :product_charas
   has_many :product_balloontypes
   has_many :balloontypes, through: :product_balloontypes
   has_many :product_images
@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 
 
   #商品番号
-  validates :number,  presence: { message: 'は必須です' }
+  #validates :number,  presence: { message: 'は必須です' }
 
   #商品名
   validates :name,  presence: { message: 'は必須です' }

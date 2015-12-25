@@ -78,12 +78,12 @@
   <% end -%>
 </li>
 
-<% @character.each do |character| %>
+<% @chara.each do |chara| %>
 <li>
   <a>
     <div class="categoryWrapper">
-      <p>キャラクター<%= character.id %>：<%= character.character %></p>
-      <p><%= link_to '編集', "/characters/#{character.id}/edit" , method: :get ,class: "btn btn-primary"%>
+      <p>キャラクター<%= chara.id %>：<%= chara.chara %></p>
+      <p><%= link_to '編集', "/characters/#{chara.id}/edit" , method: :get ,class: "btn btn-primary"%>
       </p>
     </div>
   </a>
@@ -93,7 +93,7 @@
   <div class="categoryWrapper">
     <%= form_tag({controller: :characters, action: :create}) do %>
     キャラクターの追加
-    <%= text_field_tag "character[character]", "", :id => "character" %><br />
+    <%= text_field_tag "chara[chara]", "", :id => "chara" %><br />
     <%= submit_tag "作成" ,class: "btn btn-primary"%>
   </div>
   <% end -%>
