@@ -20,13 +20,13 @@
         <p>推薦分：<%= product.recommended %></p>
         <p>キーワード：<%= product.keyword %></p>
         <% product.colors.each do |color| %>
-        <p>色：<%= color.color %></p>
+        <p>色：<%= color.name %></p>
         <% end %>
         <% product.scenes.each do |scene| %>
-        <p>シーン：<%= scene.scene %></p>
+        <p>シーン：<%= scene.name %></p>
         <% end %>
-        <% product.characters.each do |character| %>
-        <p>キャラクター：<%= character.character %></p>
+        <% product.charas.each do |chara| %>
+        <p>キャラクター：<%= chara.name %></p>
         <% end %>
         <% product.balloontypes.each do |balloontype| %>
         <p>バルーンの種類：<%= balloontype.balloontype %></p>
