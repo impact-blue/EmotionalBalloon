@@ -37,6 +37,8 @@ get 'order/complete'  =>  'orders#complete'
 
 
 #以下管理画面のルーティング
+get 'admin/user/new' => 'admins_users#new'
+post 'admin/user/new' => 'admins_user#create'
 #管理画面の商品関連
 post  'admin'          => 'admins#create'
 get   'admin/new'      => 'admins#new'
