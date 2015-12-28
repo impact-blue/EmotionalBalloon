@@ -1,5 +1,5 @@
 class ColorsController < ApplicationController
-  layout 'admin_header'
+  layout 'header_admin'
 
 def create
   @color = Color.new(create_params)

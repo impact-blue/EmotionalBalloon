@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  layout 'admin_header'
+  layout 'header_admin'
   def create
     @chara = Chara.new(create_params)
     if @chara.save

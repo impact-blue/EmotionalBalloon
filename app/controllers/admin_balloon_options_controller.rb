@@ -1,6 +1,6 @@
 class AdminBalloonOptionsController < ApplicationController
   before_action :logged_in_admin_user
-layout 'admin_header'
+layout 'header_admin'
 
 def index
   @chara = Chara.all
