@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  layout 'admin_header'
+  layout 'header_admin'
   def show
     @admin_user = AdminUser.find(params[:id])
   end
