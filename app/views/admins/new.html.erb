@@ -15,10 +15,7 @@
       <p>商品の追加</p>
       <%= form_for([:admins, @product] , :url => {:action => 'create'}) do |f| %>
 
-      <%= f.label :番号 %>
-      <%= f.number_field :number , class: 'form-control' %>
-
-      <%= f.label :name %>
+      <%= f.label :商品名 %>
       <%= f.text_field :name , class: 'form-control' %>
 
       <%= f.label :価格 %>
@@ -26,9 +23,6 @@
 
       <%= f.label :在庫 %>
       <%= f.number_field :stocks , class: 'form-control' %>
-
-      <%= f.label :送料の有無 %>
-      <%= f.number_field :postage , class: 'form-control' %>
 
       <%= f.label :コメント %>
       <%= f.text_field :comment , class: 'form-control' %>
@@ -50,7 +44,7 @@
     <br>
     <%= f.label :キャラクター %>
     <br>
-    <%= collection_check_boxes(:product, :character_ids, Character.all, :id, :character) do |b| %>
+    <%= collection_check_boxes(:product, :chara_ids, Chara.all, :id, :chara) do |b| %>
     <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>

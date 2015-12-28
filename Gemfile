@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5'
 
 gem 'mysql2', '~> 0.3.20'
 
@@ -22,9 +22,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'chef','11.12.4'
-gem 'berkshelf','3.1.2'
-gem 'knife-solo'
 gem 'kaminari'
 
 group :development, :test do
