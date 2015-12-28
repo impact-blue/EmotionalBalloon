@@ -23,6 +23,7 @@ gem 'devise-i18n-views'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
+gem 'therubyracer'
 
 group :development, :test do
   gem 'byebug'
