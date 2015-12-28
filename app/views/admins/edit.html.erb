@@ -38,7 +38,7 @@
       <br>
       <%= f.label :キャラクター %>
       <br>
-      <%= collection_check_boxes(:product, :character_ids, Character.all, :id, :character) do |b| %>
+      <%= collection_check_boxes(:product, :chara_ids, Chara.all, :id, :chara) do |b| %>
       <%= b.label {b.check_box + b.text } %>
       <% end %>
       <br>
