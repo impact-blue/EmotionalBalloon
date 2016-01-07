@@ -12,6 +12,8 @@ Top
 │   ├── Search
 │   ├── Cart
 │   ├── Register
+│   ├── Comfirm
+│   ├── Thanks
 │   └── Show
 └── Company
     ├── Agreement

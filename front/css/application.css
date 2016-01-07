@@ -980,6 +980,30 @@ h2.balloonHeading2 {
   font-size: 13px;
 }
 
+.p-cartList--comfirm .p-cartList__list {
+  margin-bottom: 10px;
+}
+.p-cartList--comfirm .p-cartList__list:first-child, .p-cartList--comfirm .p-cartList__list:last-child {
+  padding: 0;
+  border: none;
+}
+.p-cartList--comfirm .p-cartList__list:last-child {
+  justify-content: space-between;
+}
+.p-cartList--comfirm .p-cartList__list:last-child .p-cartList__list__text {
+  font-size: 14px;
+  font-weight: normal;
+}
+.p-cartList--comfirm .p-cartList__list__image {
+  width: 100px;
+}
+.p-cartList--comfirm .p-cartList__list__text {
+  font-size: 14px;
+}
+.p-cartList--comfirm .p-cartList__list__text.title {
+  width: 140px;
+}
+
 .p-registerForm__heading {
   font-size: 18px;
 }
@@ -1005,6 +1029,9 @@ h2.balloonHeading2 {
   width: 150px;
   font-size: 14px;
   font-weight: bold;
+}
+.p-registerForm__wrapper__list__content {
+  width: 450px;
 }
 .p-registerForm__wrapper__list__content input[type="text"] {
   width: 220px;
