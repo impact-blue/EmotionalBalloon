@@ -36,8 +36,8 @@
             .when('/product/show', {
                 templateUrl: '/template/public/product/show.html'
             })
-            .when('/product/curt', {
-                templateUrl: '/template/public/product/curt.html'
+            .when('/product/cart', {
+                templateUrl: '/template/public/product/cart.html'
             })
             .when('/admin', {
                 templateUrl: '/template/admin/index.html',
