@@ -11,7 +11,6 @@
         }
         &:last-child {
             justify-content: flex-end;
-
             .p-cartList__list__text {
                 font-size: 16px;
                 font-weight: bold;
@@ -29,6 +28,32 @@
         }
         &__text {
             font-size: 13px;
+        }
+    }
+}
+.p-cartList--comfirm {
+    .p-cartList__list {
+        margin-bottom: 10px;
+        &:first-child,
+        &:last-child {
+            padding: 0;
+            border: none;
+        }
+        &:last-child {
+            justify-content: space-between;
+            .p-cartList__list__text {
+                font-size: 14px;
+                font-weight: normal;
+            }
+        }
+        &__image {
+            width: 100px;
+        }
+        &__text {
+            font-size: 14px;
+            &.title {
+                width: 140px;
+            }
         }
     }
 }
