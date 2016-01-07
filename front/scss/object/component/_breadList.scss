@@ -1,7 +1,6 @@
 .breadList {
-    @include inlineBlock();
-    @include marginAuto();
-    width: 1000px;
+    display: flex;
+    margin-bottom: 20px;
     li {
         position: relative;
         margin-right: 20px;
