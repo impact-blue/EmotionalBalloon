@@ -326,7 +326,8 @@ footer .footerCopyright {
   display: flex;
   align-items: flex-start;
   width: 1000px;
-  margin: 20px auto 0 auto;
+  margin: 50px auto 0 auto;
+  padding-top: 20px;
 }
 .l-column-col2__left {
   width: 600px;
@@ -409,30 +410,8 @@ h2.balloonHeading2 {
 }
 
 .breadList {
-  letter-spacing: -.40em;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1000px;
-}
-.breadList > section {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > div {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > li {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > a {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
+  display: flex;
+  margin-bottom: 20px;
 }
 .breadList li {
   position: relative;
@@ -999,6 +978,68 @@ h2.balloonHeading2 {
 }
 .p-cartList__list__text {
   font-size: 13px;
+}
+
+.p-registerForm__heading {
+  font-size: 18px;
+}
+.p-registerForm__wrapper__list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.p-registerForm__wrapper__list.required::after {
+  content: "必須";
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 105px;
+  width: 34px;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+  background: #D83961;
+}
+.p-registerForm__wrapper__list__text {
+  width: 150px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.p-registerForm__wrapper__list__content input[type="text"] {
+  width: 220px;
+  line-height: 33px;
+  font-size: 12px;
+  margin-right: 5px;
+  border: 1px solid #c8c8c8;
+}
+.p-registerForm__wrapper__list__content.postal input[type="text"] {
+  width: 145px;
+}
+.p-registerForm__wrapper__list__content.address input[type="text"] {
+  width: 445px;
+}
+.p-registerForm__wrapper__list__content__radio input[type="radio"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.p-registerForm__wrapper__list__content__radio label {
+  cursor: pointer;
+}
+
+.p-registerResult {
+  width: 300px;
+  margin: 0 auto;
+}
+.p-registerResult__row {
+  font-size: 14px;
+}
+.p-registerResult__row th {
+  text-align: left;
+  font-weight: normal;
+}
+.p-registerResult__row td {
+  text-align: right;
 }
 
 .u-mt-10 {
