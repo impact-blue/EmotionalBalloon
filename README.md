@@ -10,7 +10,7 @@ Top
 │   ├── Feature
 │   ├── Ranking
 │   ├── Search
-│   ├── Curt
+│   ├── Cart
 │   └── Show
 └── Company
     ├── Agreement
