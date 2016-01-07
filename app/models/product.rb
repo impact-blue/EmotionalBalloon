@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   has_many :balloontypes, through: :product_balloontypes
   has_many :product_images
   has_many :images, through: :product_images
-  has_many :orders
+  has_many :orders, through: :product_orders
   has_many :product_scenes
   has_many :scenes, through: :product_scenes
   belongs_to :boxsize
