@@ -322,6 +322,11 @@ footer .footerCopyright {
   overflow: scroll;
 }
 
+.l-column-col1 {
+  width: 1000px;
+  margin: 50px auto 0 auto;
+}
+
 .l-column-col2 {
   display: flex;
   align-items: flex-start;
@@ -1067,6 +1072,18 @@ h2.balloonHeading2 {
 }
 .p-registerResult__row td {
   text-align: right;
+}
+
+.p-thanksFont {
+  margin: 180px 0;
+  text-align: center;
+}
+.p-thanksFont__heading {
+  font-size: 60px;
+}
+.p-thanksFont__text {
+  font-size: 14px;
+  margin-top: 20px;
 }
 
 .u-mt-10 {

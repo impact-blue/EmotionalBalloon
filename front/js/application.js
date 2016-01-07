@@ -45,6 +45,9 @@
             .when('/product/comfirm', {
                 templateUrl: '/template/public/product/comfirm.html'
             })
+            .when('/product/thanks', {
+                templateUrl: '/template/public/product/thanks.html'
+            })
             .when('/admin', {
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
