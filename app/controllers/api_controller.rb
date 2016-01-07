@@ -20,7 +20,7 @@ class ApiController < ApplicationController
       @products = Product.where('price >= ? ',params[:min]).page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
     elsif max.present? #最大価格
-      @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(2).order("created_at DESC")
+      @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
     elsif scene.present? #シーン別
       @products = Kaminari.paginate_array(Product.includes(:scenes).where('scene = ?', params[:scene]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@page)

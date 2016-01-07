@@ -31,7 +31,7 @@
         <% product.balloontypes.each do |balloontype| %>
         <p>バルーンの種類：<%= balloontype.balloontype %></p>
         <% end %>
-        <p>箱サイズ：<%= product.boxsize.boxsize %></p>
+        <p>箱サイズ：<%= product.boxsize.name %></p>
         <p>商品登録日：<%= product.registration_date %></p>
         <p>編集日：<%= product.updated_at %></p>
         <p><%= link_to '編集', "/admin/#{product.id}/edit", method: :get ,class: "btn btn-primary"%>
