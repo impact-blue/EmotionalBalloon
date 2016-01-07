@@ -39,6 +39,9 @@
             .when('/product/cart', {
                 templateUrl: '/template/public/product/cart.html'
             })
+            .when('/product/register', {
+                templateUrl: '/template/public/product/register.html'
+            })
             .when('/admin', {
                 templateUrl: '/template/admin/index.html',
                 controller: 'adminPageController'
