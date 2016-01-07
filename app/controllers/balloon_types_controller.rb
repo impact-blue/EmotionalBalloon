@@ -1,8 +1,8 @@
-class BalloontypesController < ApplicationController
+class BalloonTypesController < ApplicationController
   layout 'header_admin'
    def create
-    @balloontype = Balloontype.new(create_params)
-    if @balloontype.save
+    @balloon_type = BalloonType.new(create_params)
+    if @balloon_type.save
       redirect_to  admin_balloon_options_path
     else
       redirect_to admin_balloon_options_path
@@ -10,12 +10,12 @@ class BalloontypesController < ApplicationController
   end
 
   def edit
-    @balloontype = Balloontype.find(params[:id])
+    @balloon_type = BalloonType.find(params[:id])
   end
 
   def update
-    @balloontype = Balloontype.find(params[:id])
-    if @balloontype.update_attributes(create_params)
+    @balloon_type = BalloonType.find(params[:id])
+    if @balloon_type.update_attributes(create_params)
       flash[:success] = "編集しました"
       redirect_to admin_balloon_options_path, notice: '商品の編集が完了しました。'
     else
@@ -26,7 +26,7 @@ class BalloontypesController < ApplicationController
   private
 
   def create_params
-    params.require(:balloontype).permit(:balloontype,:id)
+    params.require(:balloon_type).permit(:balloon_type,:id)
   end
 
 end
