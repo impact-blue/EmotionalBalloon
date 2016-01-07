@@ -54,7 +54,7 @@
 
       <%= f.label :バルーンの種類 %>
       <br>
-      <%= collection_check_boxes(:product, :balloontype_ids, Balloontype.all, :id, :balloontype) do |b| %>
+      <%= collection_check_boxes(:product, :balloon_type_ids, BalloonType.all, :id, :balloon_type) do |b| %>
       <%= b.label {b.check_box + b.text } %>
       <% end %>
       <br>

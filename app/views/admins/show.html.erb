@@ -28,8 +28,8 @@
         <% product.charas.each do |chara| %>
         <p>キャラクター：<%= chara.name %></p>
         <% end %>
-        <% product.balloontypes.each do |balloontype| %>
-        <p>バルーンの種類：<%= balloontype.balloontype %></p>
+        <% product.balloon_types.each do |balloon_type| %>
+        <p>バルーンの種類：<%= balloon_type.balloon_type %></p>
         <% end %>
         <p>箱サイズ：<%= product.boxsize.name %></p>
         <p>商品登録日：<%= product.registration_date %></p>
