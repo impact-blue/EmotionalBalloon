@@ -27,14 +27,17 @@
     app.config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/template/index.html',
+                templateUrl: '/template/public/index.html',
                 controller: 'topPageController'
             })
             .when('/product/scene', {
-                templateUrl: '/template/product/scene.html'
+                templateUrl: '/template/public/product/scene.html'
             })
             .when('/product/show', {
-                templateUrl: '/template/product/show.html'
+                templateUrl: '/template/public/product/show.html'
+            })
+            .when('/product/curt', {
+                templateUrl: '/template/public/product/curt.html'
             })
             .when('/admin', {
                 templateUrl: '/template/admin/index.html',
