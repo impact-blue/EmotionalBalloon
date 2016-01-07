@@ -63,10 +63,38 @@ Home
         "max_page": 5,
         "product_list": [
             {
-                "id": 1,
-                "name": "SAMPLE",
-                "price": 3000,
-                "image": "http://sample.com/img/sample.jpg"
+                "id": 4,
+                "name": "テスト",
+                "price": 2000,
+                "image": "http://sample.com/img/sample.jpg",
+                "scenes": [
+                    {
+                        "id": 1,
+                        "scene": "marriage",
+                        "created_at": "2016-01-07T10:40:23.000+09:00",
+                        "updated_at": "2016-01-07T10:40:23.000+09:00",
+                        "name": "結婚式"
+                    }
+                ],
+                "charas": [
+                    {
+                        "id": 1,
+                        "chara": "sanrio",
+                        "name": "サンリオ",
+                        "created_at": "2016-01-07T10:40:23.000+09:00",
+                        "updated_at": "2016-01-07T10:40:23.000+09:00"
+                    }
+                ],
+                "colors": [
+                    {
+                        "id": 1,
+                        "color": "white",
+                        "created_at": "2016-01-07T10:40:23.000+09:00",
+                        "updated_at": "2016-01-07T10:40:23.000+09:00",
+                        "name": "白色"
+                    }
+                ],
+                "balloon_types": []
             }
         ]
     }
