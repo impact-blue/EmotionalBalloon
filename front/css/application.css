@@ -379,7 +379,6 @@ h2.balloonHeading2 {
   margin: 0 auto;
   line-height: 40px;
   text-align: center;
-  color: #D83961;
   border: 1px solid #D83961;
   cursor: pointer;
   transition: 0.3s;
@@ -387,6 +386,14 @@ h2.balloonHeading2 {
 .c-button--cart__text:hover {
   color: white;
   background: #D83961;
+}
+.c-button--cart__text:hover a {
+  color: white;
+}
+.c-button--cart__text a {
+  display: block;
+  color: #D83961;
+  transition: 0.3s;
 }
 
 .breadList {

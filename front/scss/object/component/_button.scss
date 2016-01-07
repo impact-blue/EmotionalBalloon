@@ -38,13 +38,20 @@
         margin: 0 auto;
         line-height: 40px;
         text-align: center;
-        color: $brandColor;
         border: 1px solid $brandColor;
         cursor: pointer;
         transition: 0.3s;
         &:hover {
             color: white;
             background: $brandColor;
+            a {
+                color: white;
+            }
+        }
+        a {
+            display: block;
+            color: $brandColor;
+            transition: 0.3s;
         }
     }
 }
