@@ -326,7 +326,8 @@ footer .footerCopyright {
   display: flex;
   align-items: flex-start;
   width: 1000px;
-  margin: 20px auto 0 auto;
+  margin: 50px auto 0 auto;
+  padding-top: 20px;
 }
 .l-column-col2__left {
   width: 600px;
@@ -409,30 +410,8 @@ h2.balloonHeading2 {
 }
 
 .breadList {
-  letter-spacing: -.40em;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1000px;
-}
-.breadList > section {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > div {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > li {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
-}
-.breadList > a {
-  display: inline-block;
-  vertical-align: middle;
-  letter-spacing: normal;
+  display: flex;
+  margin-bottom: 20px;
 }
 .breadList li {
   position: relative;
