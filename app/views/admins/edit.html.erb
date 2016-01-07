@@ -64,7 +64,7 @@
       <%= f.collection_select :boxsize_id, Boxsize.all, :id, :name , class: 'form-control'%>
     </br>
 
-    <%= f.label :登録日 %>
+    <%= f.label :公開日 %>
     <%= f.date_field :registration_date , class: 'form-control' %>
 
     <%= f.submit :編集する , class: "btn btn-primary"%>
