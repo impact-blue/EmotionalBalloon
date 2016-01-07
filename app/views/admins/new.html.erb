@@ -37,14 +37,14 @@
 
     <%= f.label :シーン %>
     <br>
-    <%= collection_check_boxes(:product, :scene_ids, Scene.all, :id, :scene) do |b| %>
+    <%= collection_check_boxes(:product, :scene_ids, Scene.all, :id, :name) do |b| %>
     <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>
     <br>
     <%= f.label :キャラクター %>
     <br>
-    <%= collection_check_boxes(:product, :chara_ids, Chara.all, :id, :chara) do |b| %>
+    <%= collection_check_boxes(:product, :chara_ids, Chara.all, :id, :name) do |b| %>
     <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>
@@ -52,7 +52,7 @@
 
     <%= f.label :色 %>
     <br>
-    <%= collection_check_boxes(:product, :color_ids, Color.all, :id, :color) do |b| %>
+    <%= collection_check_boxes(:product, :color_ids, Color.all, :id, :name) do |b| %>
     <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>
@@ -60,14 +60,14 @@
 
     <%= f.label :バルーンの種類 %>
     <br>
-    <%= collection_check_boxes(:product, :balloontype_ids, Balloontype.all, :id, :balloontype) do |b| %>
+    <%= collection_check_boxes(:product, :balloon_type_ids, BalloonType.all, :id, :balloon_type) do |b| %>
     <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>
     <br>
 
     <%= f.label :boxsize_id %>
-    <%= f.collection_select :boxsize_id, Boxsize.all, :id, :boxsize , class: 'form-control'%>
+    <%= f.collection_select :boxsize_id, Boxsize.all, :id, :name , class: 'form-control'%>
     <br>
 
     <%= f.label :登録日 %>
