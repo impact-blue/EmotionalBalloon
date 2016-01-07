@@ -69,7 +69,7 @@
       <br>
       <h1>注文情報</h1>
       <%= f.label :購入商品 %>
-      <%= f.text_field :option , class: 'form-control' %>
+      <%= f.text_field :product_id , class: 'form-control' %>
 
       <%= f.label :到着日時 %>
       <%= f.datetime_select :delively_date ,:minute_step => 30, class: 'form-control' %>
@@ -91,14 +91,11 @@
       <%= f.text_field :option , class: 'form-control' %>
 
       <%= f.label :送る相手 %>
-      <%= f.text_field :option , class: 'form-control' %>
+      <%= f.text_field :opponent , class: 'form-control' %>
 
       <%= f.label :使用目的 %>
       <%= f.collection_select :scene_id, Scene.all, :id, :scene , class: 'form-control' %>
       <br>
-
-      <%= f.label :送料 %>
-      <%= f.text_field :option , class: 'form-control' %>
 
       <%= f.hidden_field :order_status, :value => 'unconfirmed' %>
 

@@ -217,6 +217,6 @@ ja:
          phone: 電話番号
          postal_code: 郵便番号
         order:
-         delivery_address: 市区群町村
+         delivery_address: 市区群町村(お届け先)
          delivery_address2: 番地・建物（お届け先）
          user_id: お客様情報の入力（お届け先）
