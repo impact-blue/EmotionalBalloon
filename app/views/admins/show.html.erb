@@ -28,11 +28,11 @@
         <% product.charas.each do |chara| %>
         <p>キャラクター：<%= chara.name %></p>
         <% end %>
-        <% product.balloontypes.each do |balloontype| %>
-        <p>バルーンの種類：<%= balloontype.balloontype %></p>
+        <% product.balloon_types.each do |balloon_type| %>
+        <p>バルーンの種類：<%= balloon_type.balloon_type %></p>
         <% end %>
-        <p>箱サイズ：<%= product.boxsize.boxsize %></p>
-        <p>商品登録日：<%= product.registration_date %></p>
+        <p>箱サイズ：<%= product.boxsize.name %></p>
+        <p>商品公開日：<%= product.registration_date %></p>
         <p>編集日：<%= product.updated_at %></p>
         <p><%= link_to '編集', "/admin/#{product.id}/edit", method: :get ,class: "btn btn-primary"%>
         <%= link_to '削除', "/admin/#{product.id}" , method: :delete , data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %></p>

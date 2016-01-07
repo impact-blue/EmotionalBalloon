@@ -7,7 +7,7 @@ def index
   @boxsize = Boxsize.all
   @color = Color.all
   @scene = Scene.all
-  @balloontype = Balloontype.all
+  @balloon_type = BalloonType.all
 end
 
 def edit

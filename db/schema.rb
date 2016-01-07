@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225013320) do
-
-  create_table "Users", force: :cascade do |t|
-    t.string   "first_name",      limit: 255
-    t.string   "last_name",       limit: 255
-    t.string   "first_name_kana", limit: 255
-    t.string   "last_name_kana",  limit: 255
-    t.string   "email",           limit: 255
-    t.string   "phone",           limit: 255
-    t.integer  "postal_code",     limit: 4
-    t.integer  "city_id",         limit: 4
-    t.string   "address",         limit: 255
-    t.string   "address2",        limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
+ActiveRecord::Schema.define(version: 20160107045526) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -38,11 +23,11 @@ ActiveRecord::Schema.define(version: 20151225013320) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
 
-  create_table "balloontypes", force: :cascade do |t|
-    t.string   "balloontype", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "name",        limit: 255
+  create_table "balloon_types", force: :cascade do |t|
+    t.string   "balloon_type", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name",         limit: 255
   end
 
   create_table "boxsizes", force: :cascade do |t|
@@ -102,11 +87,11 @@ ActiveRecord::Schema.define(version: 20151225013320) do
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "product_balloontypes", force: :cascade do |t|
-    t.integer  "product_id",     limit: 4
-    t.integer  "balloontype_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "product_balloon_types", force: :cascade do |t|
+    t.integer  "product_id",      limit: 4
+    t.integer  "balloon_type_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "product_charas", force: :cascade do |t|
@@ -126,6 +111,13 @@ ActiveRecord::Schema.define(version: 20151225013320) do
   create_table "product_images", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "image_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "product_orders", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "order_id",   limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -158,6 +150,21 @@ ActiveRecord::Schema.define(version: 20151225013320) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "name",       limit: 255
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",      limit: 255
+    t.string   "last_name",       limit: 255
+    t.string   "first_name_kana", limit: 255
+    t.string   "last_name_kana",  limit: 255
+    t.string   "email",           limit: 255
+    t.integer  "phone",           limit: 4
+    t.integer  "postal_code",     limit: 4
+    t.integer  "city_id",         limit: 4
+    t.string   "address",         limit: 255
+    t.string   "address2",        limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

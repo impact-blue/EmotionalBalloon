@@ -76,3 +76,5 @@ Scene.create(:scene => 'birthday' ,:name => '誕生日')
 Scene.create(:scene => 'employment' ,:name => '就職祝い')
 Scene.create(:scene => 'birth' ,:name => '出産祝い')
 
+AdminUser.create(:name => 'impact',:email => 'impact1234@example.com',:password => 'impact1234')
+

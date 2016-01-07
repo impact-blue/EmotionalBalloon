@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@admin_user) do |f| %>
+    <%= form_for([:admin, @admin_users] , :url => {:action => 'create'}) do |f| %>
           <%= render 'shared/error_messages' %>
 
       <%= f.label :名前 %>
