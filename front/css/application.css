@@ -396,6 +396,18 @@ h2.balloonHeading2 {
   transition: 0.3s;
 }
 
+.c-button--delete__text {
+  color: white;
+  width: 70px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 11px;
+  font-weight: normal;
+  background: #333531;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .breadList {
   letter-spacing: -.40em;
   margin-right: auto;
@@ -956,6 +968,37 @@ h2.balloonHeading2 {
 }
 .p-photoGallery__list__child img {
   display: block;
+}
+
+.p-cartList__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.p-cartList__list:first-child, .p-cartList__list:last-child {
+  padding-top: 30px;
+  border-top: 1px solid white;
+}
+.p-cartList__list:last-child {
+  justify-content: flex-end;
+}
+.p-cartList__list:last-child .p-cartList__list__text {
+  font-size: 16px;
+  font-weight: bold;
+}
+.p-cartList__list:last-child .p-cartList__list__text span {
+  font-size: 11px;
+  font-weight: normal;
+}
+.p-cartList__list__image {
+  width: 125px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+.p-cartList__list__text {
+  font-size: 13px;
 }
 
 .u-mt-10 {
