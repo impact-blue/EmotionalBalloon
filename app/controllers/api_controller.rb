@@ -8,7 +8,7 @@ class ApiController < ApplicationController
     scene = params[:scene]
     chara = params[:chara]
     color = params[:color]
-    balloontype = params[:balloontype]
+    balloon_type = params[:balloon_type]
     @page = 3
 
     if min.present? && max.present?
@@ -33,8 +33,8 @@ class ApiController < ApplicationController
     elsif color.present? #色別
       @products = Kaminari.paginate_array(Product.includes(:colors).where('color = ?', params[:color]).references(:color).order("products.created_at DESC")).page(params[:page]).per(@page)
       @current_page = params[:page].to_i
-    elsif balloontype.present? #バルーンタイプ別
-      @products = Kaminari.paginate_array(Product.includes(:balloontypes).where('balloontype = ?', params[:balloontype]).references(:balloontype).order("products.created_at DESC")).page(params[:page]).per(@page)
+    elsif balloon_type.present? #バルーンタイプ別
+      @products = Kaminari.paginate_array(Product.includes(:balloon_types).where('balloon_type = ?', params[:balloon_type]).references(:balloon_type).order("products.created_at DESC")).page(params[:page]).per(@page)
       @current_page = params[:page].to_i
 #条件なし
     else
@@ -45,7 +45,8 @@ class ApiController < ApplicationController
   end
 
   def ranking
-    @products = Product.page(params[:page]).per(@page).order("created_at DESC")
+    @page = 5
+    @products = Product.page(params[:page]).per(@page).order("number DESC")
     @current_page = params[:page].to_i
   end
 #http://localhost:3000/api/budget.json?page=1&min=100&max=100000 みたいな
@@ -54,6 +55,11 @@ class ApiController < ApplicationController
     max = params[:max]
     @products = Product.where('price >= ?',params[:min]).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at DESC")
     @current_page = params[:page].to_i
+  end
+
+  def detail
+    @product = Product.find(params[:id])
+    #http://localhost:3000/api/detail.json?id=2
   end
 
 #TODO 予算別、シチュエーション別、ランキング、フリーワード

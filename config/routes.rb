@@ -12,7 +12,8 @@ root 'top#index'
 get 'api/product/search' => 'api#apis_product_search'
 get 'api/ranking' => 'api#ranking'
 get 'api/budget' => 'api#budget'
-
+get 'api/detail' => 'api#detail'
+ #下層ページ
 get 'company/agreement' => 'company#agreement'
 get 'company/privacy' =>'company#privacy'
 get 'company/exchange' => 'company#exchange'
@@ -60,7 +61,7 @@ get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 post 'colors/create' => 'colors#create'
 post 'scenes/create' => 'scenes#create'
 post 'characters/create' => 'characters#create'
-post 'balloontypes/create' => 'balloontypes#create'
+post 'balloon_types/create' => 'balloon_types#create'
 
 get 'colors/:id/edit' => 'colors#edit'
 patch 'colors/:id' => 'colors#update'
@@ -71,8 +72,8 @@ patch 'characters/:id' => 'characters#update'
 get 'scenes/:id/edit' => 'scenes#edit'
 patch 'scenes/:id' => 'scenes#update'
 
-get 'balloontypes/:id/edit' => 'balloontypes#edit'
-patch 'balloontypes/:id' => 'balloontypes#update'
+get 'balloon_types/:id/edit' => 'balloon_types#edit'
+patch 'balloon_types/:id' => 'balloon_types#update'
 
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
