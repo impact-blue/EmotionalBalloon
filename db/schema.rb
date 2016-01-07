@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20160107045526) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
 
-  create_table "balloontypes", force: :cascade do |t|
-    t.string   "balloontype", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "name",        limit: 255
+  create_table "balloon_types", force: :cascade do |t|
+    t.string   "balloon_type", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name",         limit: 255
   end
 
   create_table "boxsizes", force: :cascade do |t|
@@ -87,11 +87,11 @@ ActiveRecord::Schema.define(version: 20160107045526) do
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "product_balloontypes", force: :cascade do |t|
-    t.integer  "product_id",     limit: 4
-    t.integer  "balloontype_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "product_balloon_types", force: :cascade do |t|
+    t.integer  "product_id",      limit: 4
+    t.integer  "balloon_type_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "product_charas", force: :cascade do |t|
