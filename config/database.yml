@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: EmotionalBalloon_production
-  username: EmotionalBalloon
-  password: <%= ENV['EMOTIONALBALLOON_DATABASE_PASSWORD'] %>
+  username: balloon_user
+  password: impact1234

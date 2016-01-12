@@ -24,6 +24,10 @@ gem 'devise-i18n-views'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'therubyracer'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
@@ -35,7 +39,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'capistrano'
 end
 
 group :production do
