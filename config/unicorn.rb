@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # unicornのプロセスがリスンするアドレスとポートを指定
-listen "153.120.168.115:3000"
+listen "153.120.168.115"
 
 # pid fileの位置を指定する
 pid "var/www/app/EmotionalBalloon/shared/tmp/pids/unicorn.pid"
