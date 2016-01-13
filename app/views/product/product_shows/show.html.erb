@@ -6,5 +6,10 @@
     <% @product.scenes.each do |scene| %>
     <li>シーン： <%= scene.name %></li>
     <% end %>
-    <submit>購入する</submit>
+  <li>
+    <%= form_for([:cart, @cart] , :url => {:action => 'create_cart'}) do |f| %>
+    <%= f.hidden_field :product_id, :value => params[:id] %>
+    <%= f.submit "カートに追加する" , class: "btn btn-primary" %>
+    <% end %>
+  </li>
   </ul>
