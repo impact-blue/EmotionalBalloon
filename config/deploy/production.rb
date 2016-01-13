@@ -5,9 +5,7 @@ set :unicorn_rack_env, "production"
 
 
 
-role :app, %w{balloon@153.120.168.115}
-role :web, %w{balloon@153.120.168.115}
-role :db, %w{balloon@153.120.168.115}
+server '153.120.168.115', roles: %w(app web db), primary: true, user: 'balloon'
 set :ssh_options, {
                     keys: [File.expand_path('~/.ssh/id_rsa.pub')],
                     forward_agent: true
