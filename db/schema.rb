@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(version: 20160107045526) do
     t.string   "first_name_kana", limit: 255
     t.string   "last_name_kana",  limit: 255
     t.string   "email",           limit: 255
-    t.integer  "phone",           limit: 4
+    t.string   "phone",           limit: 255
     t.integer  "postal_code",     limit: 4
     t.integer  "city_id",         limit: 4
     t.string   "address",         limit: 255

@@ -1,1 +1,10 @@
-  <p>product_shows</p>
+  <p>商品<%= @product.id %></p>
+  <ul>
+    <li>商品名：<%= @product.name %></li>
+    <li>価格：<%= @product.price %></li>
+    <li>在庫：<%= @product.stocks %></li>
+    <% @product.scenes.each do |scene| %>
+    <li>シーン： <%= scene.name %></li>
+    <% end %>
+    <submit>購入する</submit>
+  </ul>
