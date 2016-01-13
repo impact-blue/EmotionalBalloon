@@ -22,7 +22,7 @@ get 'company/about' => 'company#about'
 get 'company/flow' => 'company#flow'
 get 'company/contact' => 'company#contact'
 
-get 'product/show' => 'product/product_shows#show'
+get 'product/show/:id' => 'product/product_shows#show'
 get 'product/list' => 'product/product_lists#show'
 get 'product/ranking' => 'product/product_rankings#show'
 get 'product/search' => 'product/product_searchs#show'

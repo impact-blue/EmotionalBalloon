@@ -5,9 +5,6 @@
       <p>商品の追加</p>
       <%= form_for([:admins, @product] , :url => {:action => 'update'}) do |f| %>
 
-      <%= f.label :商品番号 %>
-      <%= f.number_field :number , class: 'form-control' %>
-
       <%= f.label :商品名 %>
       <%= f.text_field :name , class: 'form-control' %>
 
