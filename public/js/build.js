@@ -38,17 +38,17 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
         .when('/product/show', {
             templateUrl: '/template/public/product/show.html'
         })
-        .when('/product/cart', {
-            templateUrl: '/template/public/product/cart.html'
+        .when('/cart/show', {
+            templateUrl: '/template/public/cart/show.html'
         })
-        .when('/product/register', {
-            templateUrl: '/template/public/product/register.html'
+        .when('/cart/register', {
+            templateUrl: '/template/public/cart/register.html'
         })
-        .when('/product/comfirm', {
-            templateUrl: '/template/public/product/comfirm.html'
+        .when('/cart/comfirm', {
+            templateUrl: '/template/public/cart/comfirm.html'
         })
-        .when('/product/thanks', {
-            templateUrl: '/template/public/product/thanks.html'
+        .when('/cart/thanks', {
+            templateUrl: '/template/public/cart/thanks.html'
         })
         .when('/admin', {
             templateUrl: '/template/admin/index.html',

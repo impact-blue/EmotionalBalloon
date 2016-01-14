@@ -69,6 +69,12 @@ gulp.task('copy', function(){
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/products/'));
+    gulp
+        .src(['./front/template/public/cart/**.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/carts/'));
 });
 
 gulp.task('ejs', function(){
