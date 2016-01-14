@@ -26,6 +26,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def cart
+    @cart = Cart.where(ip: request.remote_ip)
+  end
+
+
   private
 
   def cart_params
