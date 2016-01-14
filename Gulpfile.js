@@ -40,7 +40,7 @@ gulp.task('js', function(){
         .pipe(plumber())
         .pipe(browserify())
         .pipe(ngAnnotate())
-        .pipe(rename('./front/build.js'))
+        .pipe(rename('./build.js'))
         .pipe(gulp.dest('./front/js'));
 });
 
@@ -50,7 +50,7 @@ gulp.task('copy', function(){
         .pipe(gulp.dest('./app/assets/stylesheets/'));
     gulp
         .src(['./front/js/**'])
-        .pipe(gulp.dest('./app/assets/javascript/'));
+        .pipe(gulp.dest('./app/assets/javascripts/'));
     gulp
         .src(['./front/img/**'])
         .pipe(gulp.dest('./public/img/'));
