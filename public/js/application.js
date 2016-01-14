@@ -31,22 +31,22 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/public/index.html',
             controller: 'topPageController'
         })
-        .when('/product/scene', {
+        .when('/products/scene', {
             templateUrl: '/template/public/product/scene.html'
         })
-        .when('/product/show', {
+        .when('/products/show', {
             templateUrl: '/template/public/product/show.html'
         })
-        .when('/cart/show', {
+        .when('/carts/show', {
             templateUrl: '/template/public/cart/show.html'
         })
-        .when('/cart/register', {
+        .when('/carts/register', {
             templateUrl: '/template/public/cart/register.html'
         })
-        .when('/cart/comfirm', {
+        .when('/carts/comfirm', {
             templateUrl: '/template/public/cart/comfirm.html'
         })
-        .when('/cart/thanks', {
+        .when('/carts/thanks', {
             templateUrl: '/template/public/cart/thanks.html'
         })
         .when('/admin', {
