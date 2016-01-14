@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'top#index'
 
 #jsonの出力
-  get 'api/product/search'  => 'api#apis_product_search'
-  get 'api/ranking'         => 'api#ranking'
-  get 'api/budget'          => 'api#budget'
-  get 'api/product/detail'          => 'api#detail'
+  get 'api/products/search'  => 'api#apis_product_search'
+  get 'api/products/ranking'         => 'api#ranking'
+  get 'api/products/budget'          => 'api#budget'
+  get 'api/products/detail'          => 'api#detail'
 
 #下層ページ
   get 'company/agreement' => 'company#agreement'
