@@ -47,10 +47,10 @@ gulp.task('js', function(){
 gulp.task('copy', function(){
     gulp
         .src(['./front/css/**'])
-        .pipe(gulp.dest('./app/assets/stylesheets/'));
+        .pipe(gulp.dest('./public/css'));
     gulp
         .src(['./front/js/**'])
-        .pipe(gulp.dest('./app/assets/javascripts/'));
+        .pipe(gulp.dest('./public/js'));
     gulp
         .src(['./front/img/**'])
         .pipe(gulp.dest('./public/img/'));
