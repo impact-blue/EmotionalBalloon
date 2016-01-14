@@ -1,1 +1,15 @@
-  <p>product_shows</p>
+  <p>商品<%= @product.id %></p>
+  <ul>
+    <li>商品名：<%= @product.name %></li>
+    <li>価格：<%= @product.price %></li>
+    <li>在庫：<%= @product.stocks %></li>
+    <% @product.scenes.each do |scene| %>
+    <li>シーン： <%= scene.name %></li>
+    <% end %>
+  <li>
+    <%= form_for([:cart, @cart] , :url => {:action => 'create_cart'}) do |f| %>
+    <%= f.hidden_field :product_id, :value => params[:id] %>
+    <%= f.submit "カートに追加する" , class: "btn btn-primary" %>
+    <% end %>
+  </li>
+  </ul>
