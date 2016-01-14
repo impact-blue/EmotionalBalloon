@@ -1,8 +1,10 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'EmotionalBalloon'
+set :repo_url, 'git@github.com:impact-blue/EmotionalBalloon.git'
+set :deploy_to, 'var/www/app/EmotionalBalloon'
+set :scm, :git
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -35,6 +37,17 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :keep_releases, 5
 
 namespace :deploy do
+
+  desc 'Restart application'
+  task :restart do
+    on roles(:db), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+      invoke 'delayed_job:restart'
+    end
+  end
+
+  after :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
