@@ -25,12 +25,13 @@ root 'top#index'
   get 'company/contact' => 'company#contact'
 
 #productの一覧
-  get 'product/show/:id' => 'product/product_shows#show'
-  get 'product/list' => 'product/product_lists#show'
-  get 'product/ranking' => 'product/product_rankings#show'
-  get 'product/search' => 'product/product_searchs#show'
+  get 'product/show/:id' => 'products#show'
+  get 'product/scene' => 'products#scene'
+  get 'product/register' => 'products#register'
+  get 'product/cart' => 'products#cart'
+  get 'product/confirm' => 'products#confirm'
 #カートの追加
-post 'product/show' => 'product/product_shows#create_cart'
+post 'product/show' => 'products#create_cart'
 get 'cart' => 'carts#index'
 
 get 'feature/feature_list' => 'feature#show'
