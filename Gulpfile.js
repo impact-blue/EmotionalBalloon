@@ -80,7 +80,7 @@ gulp.task('ejs', function(){
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/js/**/*.js'], ['js']);
+    gulp.watch(['./front/js/**/application.js'], ['js']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
     gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
