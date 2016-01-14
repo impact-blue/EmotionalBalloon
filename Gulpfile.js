@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     modRewrite = require('connect-modrewrite'),
     ejs = require('gulp-ejs'),
-    ftp = require('gulp-ftp');
+    ngAnnotate = require('gulp-ng-annotate'),
+    browserify = require('gulp-browserify');
 
 gulp.task('connect', function(){
     browserSync({
@@ -34,7 +35,16 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('copy', function() {
+gulp.task('js', function(){
+    gulp.src(['./front/js/application.js'])
+        .pipe(plumber())
+        .pipe(browserify())
+        .pipe(ngAnnotate())
+        .pipe(rename('./front/build.js'))
+        .pipe(gulp.dest('./front/js'));
+});
+
+gulp.task('copy', function(){
     gulp
         .src(['./front/css/**'])
         .pipe(gulp.dest('./app/assets/stylesheets/'));
@@ -55,7 +65,7 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('./app/views/top/'));
 });
 
-gulp.task('ejs', function() {
+gulp.task('ejs', function(){
     gulp
         .src(['./front/ejs/**/*.ejs', '!./front/ejs/**/_*.ejs'])
         .pipe(ejs())
@@ -64,13 +74,14 @@ gulp.task('ejs', function() {
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
+    gulp.watch(['./front/js/**/*.js'], ['js']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
     gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', ['sass', 'ejs', 'connect', 'watch']);
-gulp.task('build', function() {
-    runSequence('sass', 'ejs', 'copy');
+gulp.task('default', ['sass', 'js', 'ejs', 'connect', 'watch']);
+gulp.task('build', function(){
+    runSequence('sass', 'js', 'ejs', 'copy');
 });
