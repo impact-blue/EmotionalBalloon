@@ -15,23 +15,25 @@ set :password,"impact1234"
 
 
 namespace :deploy do
-  Rake::Task["deploy:updating"].clear_actions
-  task :updating => :new_release_path do
-    #invoke "#{scm}:create_release" gitを使わないので不要
-    # 代わりに、wgetでMavenリポジトリからjar/warファイルをダウンロードするようにする
-    on release_roles :all do
-      execute :mkdir, '-p', release_path
-      execute :wget, "#{fetch(:m2repo)}/#{fetch(:group)}/#{fetch(:application)}/#{fetch(:version)}/#{fetch(:application)}-#{fetch(:version)}.war -P #{release_path}"
-    end
 
-    #invoke "deploy:set_current_revision" gitを使わないので不要
-    # 代わりに、入力させたバージョンをREVISIONファイルに書き込む
-    on release_roles :all do
-      within release_path do
-        execute :echo, "\"#{fetch(:version)}\" >> REVISION"
-      end
+  desc 'Restart application'
+  task :restart do
+    on roles(:db), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+      invoke 'delayed_job:restart'
     end
-
-    invoke 'deploy:symlink:shared'
   end
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
+  end
+
 end

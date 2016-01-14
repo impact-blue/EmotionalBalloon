@@ -4,7 +4,7 @@
 listen "153.120.168.115"
 
 # pid fileの位置を指定する
-pid "var/www/app/EmotionalBalloon/shared/tmp/pids/unicorn.pid"
+pid "var/www/app/EmotionalBalloon/tmp/pids/unicorn.pid"
 
 # ワーカーの数を指定する
 worker_processes 2
