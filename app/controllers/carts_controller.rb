@@ -1,16 +1,16 @@
-class ProductsController < ApplicationController
+class CartsController < ApplicationController
 
   def show
-    @cart = Cart.new
-  end
-
-  def scene
+    @cart = Cart.where(ip: request.remote_ip)
   end
 
   def register
   end
 
-  def confirm
+  def comfirm
+  end
+
+  def thanks
   end
 
   def create_cart
@@ -24,11 +24,6 @@ class ProductsController < ApplicationController
       render 'show'
     end
   end
-
-  def cart
-    @cart = Cart.where(ip: request.remote_ip)
-  end
-
 
   private
 

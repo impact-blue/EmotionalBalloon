@@ -18,15 +18,15 @@ Rails.application.routes.draw do
   get 'company/contact'   => 'company#contact'
 
 #productの一覧
-  get 'product/show/:id'  => 'products#show'
-  get 'product/scene'     => 'products#scene'
+  get 'products/show'  => 'products#show'
+  get 'products/scene'     => 'products#scene'
 
 #カートの追加
-  get 'cart/show' =>'carts#show'
-  get 'cart/register' => 'carts#register'
+  get 'carts/show' =>'carts#show'
+  get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
   get 'carts/thanks' => 'carts#thanks'
-  post 'product/show'     => 'products#create_cart'
+  post 'products/show'     => 'products#create_cart'
 
  # get 'feature/feature_list' => 'feature#show'
 
