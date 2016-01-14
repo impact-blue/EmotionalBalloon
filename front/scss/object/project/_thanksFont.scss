@@ -1,0 +1,11 @@
+.p-thanksFont {
+    margin: 180px 0;
+    text-align: center;
+    &__heading {
+        font-size: 60px;
+    }
+    &__text {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+}

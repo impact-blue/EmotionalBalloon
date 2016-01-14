@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     modRewrite = require('connect-modrewrite'),
     ejs = require('gulp-ejs'),
-    ftp = require('gulp-ftp');
+    ngAnnotate = require('gulp-ng-annotate'),
+    browserify = require('gulp-browserify');
 
 gulp.task('connect', function(){
     browserSync({
@@ -34,54 +35,65 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('copy', function() {
+gulp.task('js', function(){
+    gulp.src(['./front/js/application.js'])
+        .pipe(plumber())
+        .pipe(browserify())
+        .pipe(ngAnnotate())
+        .pipe(rename('./build.js'))
+        .pipe(gulp.dest('./front/js'));
+});
+
+gulp.task('copy', function(){
     gulp
         .src(['./front/css/**'])
-        .pipe(gulp.dest('./app/assets/stylesheets/'));
+        .pipe(gulp.dest('./public/css'));
     gulp
         .src(['./front/js/**'])
-        .pipe(gulp.dest('./app/assets/javascript/'));
+        .pipe(gulp.dest('./public/js'));
     gulp
         .src(['./front/img/**'])
         .pipe(gulp.dest('./public/img/'));
     gulp
-        .src(['./front/template/index.html'])
+        .src(['./front/template/**'])
+        .pipe(gulp.dest('./public/template/'));
+    gulp
+        .src(['./front/template/public/index.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/top/'));
+    gulp
+        .src(['./front/template/public/product/**.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/products/'));
+    gulp
+        .src(['./front/template/public/cart/**.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/carts/'));
 });
 
-gulp.task('ejs', function() {
+gulp.task('ejs', function(){
     gulp
         .src(['./front/ejs/**/*.ejs', '!./front/ejs/**/_*.ejs'])
         .pipe(ejs())
         .pipe(gulp.dest('./front/template/'));
 });
 
-gulp.task('ftp', function() {
-    gulp
-        .src(['./front/**/*'])
-        .pipe(ftp({
-            host: 'ftp.1614f910438e6c32.lolipop.jp',
-            user: 'lolipop.jp-1614f910438e6c32',
-            pass: 'impact-blue2013',
-            remotePath: '/balloon'
-        }));
-});
-
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
+    gulp.watch(['./front/js/**/application.js'], ['js']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
     gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', ['sass', 'ejs', 'connect', 'watch']);
-gulp.task('build', function() {
-    runSequence('sass', 'ejs', 'copy');
-});
-gulp.task('deploy', function(){
-    runSequence('sass', 'ejs', 'ftp');
+gulp.task('default', ['sass', 'js', 'ejs', 'connect', 'watch']);
+gulp.task('build', function(){
+    runSequence('sass', 'js', 'ejs', 'copy');
 });

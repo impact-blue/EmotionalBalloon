@@ -1,0 +1,61 @@
+.p-registerForm {
+    &__heading {
+        font-size: 18px;
+    }
+    &__wrapper {
+        &__list {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            &.required {
+                &::after {
+                    content: "必須";
+                    position: absolute;
+                    top: calc(50% - 10px);
+                    left: 105px;
+                    width: 34px;
+                    line-height: 20px;
+                    font-size: 12px;
+                    text-align: center;
+                    color: white;
+                    background: $brandColor;
+                }
+            }
+            &__text {
+                width: 150px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            &__content {
+                width: 450px;
+                input[type="text"] {
+                    width: 220px;
+                    line-height: 33px;
+                    font-size: 12px;
+                    margin-right: 5px;
+                    border: 1px solid #c8c8c8;;
+                }
+                &.postal {
+                    input[type="text"] {
+                        width: 145px;
+                    }
+                }
+                &.address {
+                    input[type="text"] {
+                        width: 445px;
+                    }
+                }
+                &__radio {
+                    input[type="radio"] {
+                        margin-right: 5px;
+                        cursor: pointer;
+                    }
+                    label {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

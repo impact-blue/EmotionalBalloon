@@ -11,4 +11,6 @@ class Order < ActiveRecord::Base
   validates :delivery_address,:delivery_address2,
   presence: { message: 'は必須です' }
 
+
+
 end
