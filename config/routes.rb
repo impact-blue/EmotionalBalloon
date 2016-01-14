@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'api/product/search'  => 'api#apis_product_search'
   get 'api/ranking'         => 'api#ranking'
   get 'api/budget'          => 'api#budget'
-  get 'api/detail'          => 'api#detail'
+  get 'api/product/detail'          => 'api#detail'
 
 #下層ページ
   get 'company/agreement' => 'company#agreement'
