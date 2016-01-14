@@ -20,13 +20,13 @@ Rails.application.routes.draw do
 #productの一覧
   get 'product/show/:id'  => 'products#show'
   get 'product/scene'     => 'products#scene'
-  get 'product/register'  => 'products#register'
-  get 'product/cart'      => 'products#cart'
-  get 'product/confirm'   => 'products#confirm'
 
 #カートの追加
+  get 'cart/show' =>'carts#show'
+  get 'cart/register' => 'carts#register'
+  get 'carts/comfirm' => 'carts#comfirm'
+  get 'carts/thanks' => 'carts#thanks'
   post 'product/show'     => 'products#create_cart'
-  get 'product/cart'      => 'products#cart'
 
  # get 'feature/feature_list' => 'feature#show'
 
