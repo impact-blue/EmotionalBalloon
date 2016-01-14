@@ -1,0 +1,14 @@
+.p-registerResult {
+    width: 300px;
+    margin: 0 auto;
+    &__row {
+        font-size: 14px;
+        th {
+            text-align: left;
+            font-weight: normal;
+        }
+        td {
+            text-align: right;
+        }
+    }
+}

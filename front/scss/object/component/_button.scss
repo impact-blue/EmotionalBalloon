@@ -38,13 +38,33 @@
         margin: 0 auto;
         line-height: 40px;
         text-align: center;
-        color: $brandColor;
         border: 1px solid $brandColor;
         cursor: pointer;
         transition: 0.3s;
         &:hover {
             color: white;
             background: $brandColor;
+            a {
+                color: white;
+            }
         }
+        a {
+            display: block;
+            color: $brandColor;
+            transition: 0.3s;
+        }
+    }
+}
+.c-button--delete {
+    &__text {
+        color: white;
+        width: 70px;
+        text-align: center;
+        line-height: 24px;
+        font-size: 11px;
+        font-weight: normal;
+        background: #333531;
+        border-radius: 3px;
+        cursor: pointer;
     }
 }

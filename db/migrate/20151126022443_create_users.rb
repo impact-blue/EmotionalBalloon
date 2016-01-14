@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name_kana
       t.string :last_name_kana
       t.string :email
-      t.integer :phone
+      t.string :phone
       t.integer :postal_code
       t.integer :city_id
       t.string :address
