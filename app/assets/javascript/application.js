@@ -20,22 +20,58 @@
 
     var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
         apiUrl = [
-            '/apis/index.json'
+            '/apis/index.json',
+            '/apis/admin.json'
         ];
 
     app.config(function($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/template/index.html',
+                templateUrl: '/template/public/index.html',
                 controller: 'topPageController'
+            })
+            .when('/product/scene', {
+                templateUrl: '/template/public/product/scene.html'
+            })
+            .when('/product/show', {
+                templateUrl: '/template/public/product/show.html'
+            })
+            .when('/product/cart', {
+                templateUrl: '/template/public/product/cart.html'
+            })
+            .when('/product/register', {
+                templateUrl: '/template/public/product/register.html'
+            })
+            .when('/product/comfirm', {
+                templateUrl: '/template/public/product/comfirm.html'
+            })
+            .when('/product/thanks', {
+                templateUrl: '/template/public/product/thanks.html'
+            })
+            .when('/admin', {
+                templateUrl: '/template/admin/index.html',
+                controller: 'adminPageController'
+            })
+            .when('/admin/product', {
+                templateUrl: '/template/admin/product/index.html',
+                controller: 'adminPageController'
+            })
+            .when('/admin/order', {
+                templateUrl: '/template/admin/order/index.html',
+                controller: 'adminPageController'
             })
             .when('/company/privacy', {
                 templateUrl: '/template/company/privacy.html'
             })
             .otherwise({
                 redirectTo: '/'
-            });
+            }
+        );
 
+        /* HTML5 MODE */
+        $locationProvider.html5Mode(true);
+
+        /* Rails Ajax Escape */
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
     });
 
@@ -48,6 +84,18 @@
             $scope.data = data.data;
         });
 
+    });
+
+    app.controller('adminPageController', function($scope, $http) {
+        $scope.path = location.pathname;
+        $scope.search = location.search;
+
+        $http({
+            method: 'GET',
+            url: apiUrl[1]
+        }).success(function(data, status, headers, config) {
+            $scope.data = data.data;
+        });
     });
 
     $(window).scroll(function() {

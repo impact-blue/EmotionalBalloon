@@ -45,7 +45,10 @@ gulp.task('copy', function() {
         .src(['./front/img/**'])
         .pipe(gulp.dest('./public/img/'));
     gulp
-        .src(['./front/template/index.html'])
+        .src(['./front/template/**'])
+        .pipe(gulp.dest('./public/template/'));
+    gulp
+        .src(['./front/template/public/index.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
@@ -59,17 +62,6 @@ gulp.task('ejs', function() {
         .pipe(gulp.dest('./front/template/'));
 });
 
-gulp.task('ftp', function() {
-    gulp
-        .src(['./front/**/*'])
-        .pipe(ftp({
-            host: 'ftp.1614f910438e6c32.lolipop.jp',
-            user: 'lolipop.jp-1614f910438e6c32',
-            pass: 'impact-blue2013',
-            remotePath: '/balloon'
-        }));
-});
-
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
@@ -81,7 +73,4 @@ gulp.task('watch', function(){
 gulp.task('default', ['sass', 'ejs', 'connect', 'watch']);
 gulp.task('build', function() {
     runSequence('sass', 'ejs', 'copy');
-});
-gulp.task('deploy', function(){
-    runSequence('sass', 'ejs', 'ftp');
 });
