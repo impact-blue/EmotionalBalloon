@@ -29,19 +29,28 @@ Top
 ### Admin
 ```
 Home
-├── Login
+├── Login (/admin/login)
 ├── Product
 │   ├── List
-│   │   └── All
-│   ├── New
+│   │   ├── All (/admin/products?filter=all)
+│   │   ├── Public (/admin/products?filter=public)
+│   │   ├── Secret (/admin/products?filter=secret)
+│   │   └── None (/admin/products?filter=none)
+│   ├── New (/admin/products/new)
+│   ├── Show (/admin/products/:id)
+│   └── Edit (/admin/products/:id/edit)
+├── Order
+│   ├── List
+│   │   ├── All
+│   │   ├── Unconfirmed
+│   │   ├── Process
+│   │   └── Complete
 │   ├── Show
 │   └── Edit
-└── Order
+├── Category
+└── Customer
     ├── List
-    │   ├── All
-    │   ├── Unconfirmed
-    │   ├── Process
-    │   └── Complete
+    ├── New
     ├── Show
     └── Edit
 ```
