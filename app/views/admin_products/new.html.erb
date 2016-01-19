@@ -1,6 +1,9 @@
 
 <% if @product.errors.any? %>
 <div>
+<br/>
+<br/>
+<br/>
   <ul>
     <% @product.errors.full_messages.each do |msg| %>
       <li style="color: red"><%= msg %></li>
