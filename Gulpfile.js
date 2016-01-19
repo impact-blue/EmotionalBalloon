@@ -87,6 +87,30 @@ gulp.task('copy', function(){
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_products/'));
+    gulp
+        .src(['./front/template/admin/order/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_orders/'));
+    gulp
+        .src(['./front/template/admin/category/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_categories/'));
+    gulp
+        .src(['./front/template/admin/customer/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_customers/'));
+    gulp
+        .src(['./front/template/admin/setting/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_settings/'));
 });
 
 gulp.task('ejs', function(){
