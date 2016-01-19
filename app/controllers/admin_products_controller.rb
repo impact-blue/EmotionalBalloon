@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
   layout 'header_admin'
 
@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
     @product = Product.new
   end
 
-  def show
+  def index
     @product = Product.all
   end
 
@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
     @product = Product.new(create_params)
     @product.number = 0
     if @product.save
-      redirect_to admin_show_path, notice: '商品の追加が完了しました。'
+      redirect_to admin_products_path, notice: '商品の追加が完了しました。'
     else
       render action: 'new'
     end
@@ -28,7 +28,7 @@ class AdminsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.update_attributes(create_params)
       flash[:success] = "編集しました"
-      redirect_to admin_show_path, notice: '商品の編集が完了しました。'
+      redirect_to admin_products_path, notice: '商品の編集が完了しました。'
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class AdminsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to admin_show_path
+    redirect_to admin_products_path
   end
 
   private

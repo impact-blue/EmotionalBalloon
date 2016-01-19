@@ -42,12 +42,7 @@ Rails.application.routes.draw do
   get   'admin/user/new'   => 'admin_users#new'
   post  'admin/user/new'   => 'admin_users#create'
 #管理画面の商品関連
-  post  'admin'          => 'admins#create'
-  get   'admin/new'      => 'admins#new'
-  get   'admin/:id/edit' => 'admins#edit'
-  get   'admin/show'     => 'admins#show'
-  patch 'admin/:id'      => 'admins#update'
-  delete'admin/:id'      => 'admins#destroy'
+  resources :admin_products, only: [:new, :create, :index, :edit, :update, :destroy]
 #管理画面の購入した人一覧
   get   'admin/customer/:id/edit' => 'admin_customers#edit'
   get   'admin/customer/show'     => 'admin_customers#show'

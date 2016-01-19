@@ -1,5 +1,6 @@
 
 
+
 <ul class="admin-categoryList u-mt-40">
   <li>
       <div class="categoryWrapper">
@@ -34,8 +35,8 @@
         <p>箱サイズ：<%= product.boxsize.name %></p>
         <p>商品公開日：<%= product.registration_date %></p>
         <p>編集日：<%= product.updated_at %></p>
-        <p><%= link_to '編集', "/admin/#{product.id}/edit", method: :get ,class: "btn btn-primary"%>
-        <%= link_to '削除', "/admin/#{product.id}" , method: :delete , data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %></p>
+        <p><%= link_to '編集', "/admin_products/#{product.id}/edit", method: :get ,class: "btn btn-primary"%>
+        <%= link_to '削除', "/admin_products/#{product.id}" , method: :delete , data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %></p>
       </div>
     </a>
   </li>
