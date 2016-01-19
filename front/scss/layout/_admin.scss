@@ -42,7 +42,10 @@
                         border-right: 10px solid #555;
                     }
                 }
-                &:nth-of-type(2) {
+                &:nth-of-type(2),
+                &:nth-of-type(5),
+                &:nth-of-type(6),
+                &:nth-of-type(7), {
                     &::after {
                         border-right: 10px solid white;
                     }
@@ -87,7 +90,7 @@
                 width: 100%;
                 height: 100%;
                 &__list {
-                    width: 250px;
+                    width: 200px;
                     height: 100%;
                     background: #555;
                     li {
@@ -115,7 +118,7 @@
                     }
                 }
                 &__body {
-                    width: calc(100% - 250px);
+                    width: calc(100% - 200px);
                     padding: 10px;
                     overflow: scroll;
                 }
