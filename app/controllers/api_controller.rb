@@ -1,6 +1,8 @@
 class ApiController < ApplicationController
-#TODO before_action
+#TODO: before_action
 #出力例http://localhost:3000/api/product/search.json?page=2&min=100&max2000
+
+
   def apis_product_search
     min = params[:min]
     max = params[:max]
@@ -41,8 +43,9 @@ class ApiController < ApplicationController
       @products = Product.page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
     end
-#終了
   end
+#終了
+
 
   def ranking
     @page = 5

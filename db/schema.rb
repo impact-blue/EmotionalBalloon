@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113051010) do
+ActiveRecord::Schema.define(version: 20160119081731) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20160113051010) do
     t.string   "ip",         limit: 255
     t.integer  "product_id", limit: 4
     t.integer  "flag",       limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "category_id", limit: 4
+    t.string   "name",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "category_children", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -100,6 +113,13 @@ ActiveRecord::Schema.define(version: 20160113051010) do
     t.integer  "balloon_type_id", limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "product_category_children", force: :cascade do |t|
+    t.integer  "product_id",        limit: 4
+    t.integer  "category_chird_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "product_charas", force: :cascade do |t|
