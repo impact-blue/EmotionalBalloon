@@ -53,16 +53,28 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/admin/index.html',
             controller: 'adminPageController'
         })
-        .when('/admin/product', {
+        .when('/company/privacy', {
+            templateUrl: '/template/company/privacy.html'
+        })
+        .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html',
             controller: 'adminPageController'
         })
-        .when('/admin/order', {
+        .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html',
             controller: 'adminPageController'
         })
-        .when('/company/privacy', {
-            templateUrl: '/template/company/privacy.html'
+        .when('/admin/categories', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/customers', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/settings', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
         })
         .otherwise({
             redirectTo: '/'
