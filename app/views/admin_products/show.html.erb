@@ -1,0 +1,44 @@
+
+
+
+<ul class="admin-categoryList u-mt-40">
+  <li>
+      <div class="categoryWrapper">
+        <p>商品一覧</p>
+      </div>
+    </a>
+  </li>
+  <% @product.each do |product| %>
+  <li>
+    <a>
+      <div class="categoryIcon"><img src="<%= product.image %>" alt=""></div>
+      <div class="categoryWrapper">
+        <p><%= product.id %>：商品名：<%= product.name %></p>
+        <p>価格：<%= product.price %></p>
+        <p>在庫：<%= product.stocks %></p>
+        <p>送料の有無：<%= product.postage %></p>
+        <p>コメント：<%= product.comment %></p>
+        <p>推薦分：<%= product.recommended %></p>
+        <p>キーワード：<%= product.keyword %></p>
+        <% product.colors.each do |color| %>
+        <p>色：<%= color.name %></p>
+        <% end %>
+        <% product.scenes.each do |scene| %>
+        <p>シーン：<%= scene.name %></p>
+        <% end %>
+        <% product.charas.each do |chara| %>
+        <p>キャラクター：<%= chara.name %></p>
+        <% end %>
+        <% product.balloon_types.each do |balloon_type| %>
+        <p>バルーンの種類：<%= balloon_type.balloon_type %></p>
+        <% end %>
+        <p>箱サイズ：<%= product.boxsize.name %></p>
+        <p>商品公開日：<%= product.registration_date %></p>
+        <p>編集日：<%= product.updated_at %></p>
+        <p><%= link_to '編集', "/admin_products/#{product.id}/edit", method: :get ,class: "btn btn-primary"%>
+        <%= link_to '削除', "/admin_products/#{product.id}" , method: :delete , data: { confirm: '本当に削除しますか？' }, class: "btn btn-primary" %></p>
+      </div>
+    </a>
+  </li>
+  <% end %>
+</ul>
