@@ -77,4 +77,6 @@ Scene.create(:scene => 'employment' ,:name => '就職祝い')
 Scene.create(:scene => 'birth' ,:name => '出産祝い')
 
 AdminUser.create(:name => 'impact',:email => 'impact1234@example.com',:password => 'impact1234')
-
+AdminUser.create(:name => 'kubota',:email => 'kubota@impact-blue.co.jp',:password => 'impact2016')
+AdminUser.create(:name => 'muraki',:email => 'muraki@impact-blue.co.jp',:password => 'impact2016')
+AdminUser.create(:name => 'miyazawa',:email => 'miyazawa@impact-blue.co.jp',:password => 'impact2016')
