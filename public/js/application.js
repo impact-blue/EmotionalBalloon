@@ -69,7 +69,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             controller: 'adminPageController'
         })
         .when('/admin/customers', {
-            templateUrl: '/template/admin/cutomer/index.html',
+            templateUrl: '/template/admin/customer/index.html',
             controller: 'adminPageController'
         })
         .when('/admin/settings', {
