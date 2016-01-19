@@ -251,7 +251,7 @@ footer .footerCopyright {
   border: 10px solid transparent;
   border-right: 10px solid #555;
 }
-.l-admin__left__list__child:nth-of-type(2)::after {
+.l-admin__left__list__child:nth-of-type(2)::after, .l-admin__left__list__child:nth-of-type(5)::after, .l-admin__left__list__child:nth-of-type(6)::after, .l-admin__left__list__child:nth-of-type(7)::after {
   border-right: 10px solid white;
 }
 .l-admin__left__list__child i {
@@ -291,7 +291,7 @@ footer .footerCopyright {
   height: 100%;
 }
 .l-admin__right__foot__content__list {
-  width: 250px;
+  width: 200px;
   height: 100%;
   background: #555;
 }
@@ -317,7 +317,7 @@ footer .footerCopyright {
   color: rgba(255, 255, 255, 0.9);
 }
 .l-admin__right__foot__content__body {
-  width: calc(100% - 250px);
+  width: calc(100% - 200px);
   padding: 10px;
   overflow: scroll;
 }

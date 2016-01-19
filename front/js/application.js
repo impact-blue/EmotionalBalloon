@@ -49,20 +49,32 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/carts/thanks', {
             templateUrl: '/template/public/cart/thanks.html'
         })
+        .when('/company/privacy', {
+            templateUrl: '/template/company/privacy.html'
+        })
         .when('/admin', {
             templateUrl: '/template/admin/index.html',
             controller: 'adminPageController'
         })
-        .when('/admin/product', {
+        .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html',
             controller: 'adminPageController'
         })
-        .when('/admin/order', {
+        .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html',
             controller: 'adminPageController'
         })
-        .when('/company/privacy', {
-            templateUrl: '/template/company/privacy.html'
+        .when('/admin/categories', {
+            templateUrl: '/template/admin/category/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/customers', {
+            templateUrl: '/template/admin/cutomer/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/settings', {
+            templateUrl: '/template/admin/setting/index.html',
+            controller: 'adminPageController'
         })
         .otherwise({
             redirectTo: '/'
