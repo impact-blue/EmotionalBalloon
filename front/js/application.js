@@ -64,6 +64,18 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/admin/order/index.html',
             controller: 'adminPageController'
         })
+        .when('/admin/categories', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/customers', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
+        })
+        .when('/admin/settings', {
+            templateUrl: '/template/admin/order/index.html',
+            controller: 'adminPageController'
+        })
         .otherwise({
             redirectTo: '/'
         }
