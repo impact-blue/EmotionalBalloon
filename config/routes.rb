@@ -42,8 +42,14 @@ Rails.application.routes.draw do
   get   'admin/user/new'   => 'admin_users#new'
   post  'admin/user/new'   => 'admin_users#create'
 
+#管理画面ホーム
+get "admin" => "admin#index"
+
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
+
+#管理画面の注文一覧
+
 
 #管理画面の購入した人一覧
   get   'admin/customer/:id/edit' => 'admin_customers#edit'
@@ -53,6 +59,8 @@ Rails.application.routes.draw do
   delete'admin/customer/:id'      => 'admin_customers#destroy'
 
 resources :admin_balloon_options
+
+
 #バルーンのオプションの選択--ここから
   get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 
