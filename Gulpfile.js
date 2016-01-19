@@ -64,17 +64,29 @@ gulp.task('copy', function(){
         }))
         .pipe(gulp.dest('./app/views/top/'));
     gulp
-        .src(['./front/template/public/product/**.html'])
+        .src(['./front/template/public/product/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/products/'));
     gulp
-        .src(['./front/template/public/cart/**.html'])
+        .src(['./front/template/public/cart/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/carts/'));
+    gulp
+        .src(['./front/template/admin/index.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin/'));
+    gulp
+        .src(['./front/template/admin/product/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_products/'));
 });
 
 gulp.task('ejs', function(){

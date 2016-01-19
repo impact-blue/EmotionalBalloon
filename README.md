@@ -28,7 +28,7 @@ Top
 
 ### Admin
 ```
-Home
+Dashboard (/admin)
 ├── Login (/admin/login)
 ├── Product
 │   ├── List
