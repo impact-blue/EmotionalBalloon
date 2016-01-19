@@ -13,6 +13,8 @@ class Product < ActiveRecord::Base
   belongs_to :boxsize
   has_many :carts
 
+  has_many :product_category_children
+  has_many :product_category_children, through: :product_category_child
 
 
   #商品番号
