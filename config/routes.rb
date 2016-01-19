@@ -49,19 +49,18 @@ get "admin" => "admin#index"
   resources :admin_products,:path => 'admin/products'
 
 #管理画面の注文一覧
-
+  resources :admin_orders,:path  =>  'admin/orders'
 
 #管理画面の購入した人一覧
-  get   'admin/customer/:id/edit' => 'admin_customers#edit'
-  get   'admin/customer/show'     => 'admin_customers#show'
-  get   'admin/customer/index'    => 'admin_customers#index'
-  patch 'admin/customer/:id'      => 'admin_customers#update'
-  delete'admin/customer/:id'      => 'admin_customers#destroy'
+  resources :admin_customers,only: [:index,:show,:edit,:update,:destroy],:path => 'admin/customers'
+#TODO: 設定のコントローラー作成
+
 
 resources :admin_balloon_options
-
-
 #バルーンのオプションの選択--ここから
+
+  resources :admin_categories, only:[:index] , :path => 'admin/categories'
+
   get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 
   post 'colors/create'        => 'colors#create'
