@@ -1,12 +1,15 @@
 class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
-  layout 'header_admin'
 
   def new
     @product = Product.new
   end
 
   def index
+    @product = Product.all
+  end
+
+  def show
     @product = Product.all
   end
 
