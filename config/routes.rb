@@ -54,7 +54,7 @@ get "admin" => "admin#index"
 #管理画面の購入した人一覧
   resources :admin_customers,only: [:index,:show,:edit,:update,:destroy],:path => 'admin/customers'
 #TODO: 設定のコントローラー作成
-
+  resources :admin_settings,only:[:index],:path => 'admin/settings'
 
 resources :admin_balloon_options
 #バルーンのオプションの選択--ここから
