@@ -65,8 +65,6 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
 
     /* HTML5 MODE */
     $locationProvider.html5Mode(true);
-
-    console.log('hi');
 }]);
 app.controller('adminPageController', ["$scope", "$http", function($scope, $http) {
     $scope.path = location.pathname;
