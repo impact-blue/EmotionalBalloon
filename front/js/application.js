@@ -35,28 +35,22 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
             templateUrl: '/template/company/privacy.html'
         })
         .when('/admin', {
-            templateUrl: '/template/admin/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/index.html'
         })
         .when('/admin/products', {
-            templateUrl: '/template/admin/product/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/product/index.html'
         })
         .when('/admin/orders', {
-            templateUrl: '/template/admin/order/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/order/index.html'
         })
         .when('/admin/categories', {
-            templateUrl: '/template/admin/category/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/category/index.html'
         })
         .when('/admin/customers', {
-            templateUrl: '/template/admin/customer/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/customer/index.html'
         })
         .when('/admin/settings', {
-            templateUrl: '/template/admin/setting/index.html',
-            controller: 'adminPageController'
+            templateUrl: '/template/admin/setting/index.html'
         })
         .otherwise({
             redirectTo: '/'
@@ -66,7 +60,7 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
     /* HTML5 MODE */
     $locationProvider.html5Mode(true);
 }]);
-app.controller('adminPageController', ["$scope", "$http", function($scope, $http) {
+app.controller('adminController', ["$scope", "$http", function($scope, $http) {
     $scope.path = location.pathname;
     $scope.search = location.search;
 
@@ -77,14 +71,14 @@ app.controller('adminPageController', ["$scope", "$http", function($scope, $http
         $scope.data = data.data;
     });
 }]);
-app.controller('topPageController', ["$scope", "$http", function($scope, $http) {
+app.controller('balloonController', ["$scope", "$http", function($scope, $http) {
 
-    $http({
-        method: 'GET',
-        url: apiUrl[0]
-    }).success(function(data, status, headers, config) {
-        $scope.data = data.data;
-    });
+    // $http({
+    //     method: 'GET',
+    //     url: apiUrl[0]
+    // }).success(function(data, status, headers, config) {
+    //     $scope.data = data.data;
+    // });
 
 }]);
 },{"angular":7,"angular-resource":3,"angular-route":5}],2:[function(require,module,exports){
