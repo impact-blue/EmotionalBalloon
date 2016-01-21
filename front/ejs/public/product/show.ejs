@@ -1,5 +1,5 @@
 <% include ../parts/_header %>
-<div class="l-column-col2">
+<div class="l-column-col2" ng-controller="productDetailController">
     <div class="l-column-col2__left">
         <ul class="breadList">
             <li><a href="">home</a></li>
@@ -8,29 +8,20 @@
             <li>バルーン</li>
         </ul>
         <div class="p-photoGallery">
-            <div class="p-photoGallery__zoom"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172B_16_D_500.jpg" alt=""></div>
+            <div class="p-photoGallery__zoom"><img src="{{data.image[0]}}" alt=""></div>
             <ul class="p-photoGallery__list">
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172B_16_D_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_01_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_02_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_03_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_04_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_05_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_06_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_07_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_08_35.jpg" alt=""></li>
-                <li class="p-photoGallery__list__child"><img src="http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_09_35.jpg" alt=""></li>
+                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
             </ul>
         </div>
     </div>
     <div class="l-column-col2__right">
         <div class="p-productDetail">
             <p class="p-productDetail__option">この商品は送料無料でお届けします</p>
-            <p class="p-productDetail__title">モールニット</p>
-            <p class="p-productDetail__price">¥24,300</p>
+            <p class="p-productDetail__title">{{data.name}}</p>
+            <p class="p-productDetail__price">¥{{data.price}}</p>
             <div class="p-productDetail__description">
                 <div class="p-productDetail__description__title">商品説明</div>
-                <div class="p-productDetail__description__text">マイクロポリエステルのモール糸を使用しトラッドなストライプ柄に編み立てた、リラックスジャケット。柔らかく、肌触りが気持ちいいです。<br /><br />※ご注文いただいた予約商品のお届け時期の確認は、注文履歴ページより行えます。<br />※予約商品は、その他の予約商品や通常商品との同時決済はできません。</div>
+                <div class="p-productDetail__description__text">{{data.description}}</div>
             </div>
             <div class="p-productDetail__detail">
                 <p class="productDetail__detail__title">商品詳細</p>
@@ -57,7 +48,7 @@
             </div>
         </div>
         <div class="c-button--cart">
-            <p class="c-button--cart__text"><a href="/carts/show">カートに追加する</a></p>
+            <p class="c-button--cart__text">カートに追加する</p>
         </div>
     </div>
 </div>

@@ -81,6 +81,14 @@ app.controller('balloonController', ["$scope", "$http", function($scope, $http) 
     // });
 
 }]);
+app.controller('productDetailController', ["$scope", "$http", function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: '/apis/products/detail.json'
+    }).success(function(data, status, headers, config) {
+        $scope.data = data.data;
+    });
+}]);
 },{"angular":7,"angular-resource":3,"angular-route":5}],2:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.8

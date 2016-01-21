@@ -388,6 +388,7 @@ h2.balloonHeading2 {
 .c-button--cart__text {
   width: 300px;
   margin: 0 auto;
+  color: #D83961;
   line-height: 40px;
   text-align: center;
   border: 1px solid #D83961;
