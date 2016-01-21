@@ -55,6 +55,4 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 
     /* HTML5 MODE */
     $locationProvider.html5Mode(true);
-
-    console.log('hi');
 });
