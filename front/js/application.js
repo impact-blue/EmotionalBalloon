@@ -4,10 +4,11 @@ require('angular-resource');
 require('angular-route');
 
 var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
-    apiUrl = [
-        '/apis/index.json',
-        '/apis/admin.json'
-    ];
+    cartItem = [];
+
+if(localStorage.getItem('cart')) {
+    cartItem = JSON.parse(localStorage.getItem('cart'));
+}
 app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
         .when('/', {
@@ -73,21 +74,36 @@ app.controller('adminController', ["$scope", "$http", function($scope, $http) {
 }]);
 app.controller('balloonController', ["$scope", "$http", function($scope, $http) {
 
-    // $http({
-    //     method: 'GET',
-    //     url: apiUrl[0]
-    // }).success(function(data, status, headers, config) {
-    //     $scope.data = data.data;
-    // });
-
 }]);
 app.controller('productDetailController', ["$scope", "$http", function($scope, $http) {
+    $scope.is_cart = false;
+    $scope.cartItem = cartItem;
     $http({
         method: 'GET',
-        url: '/apis/products/detail.json'
+        url: '/api/products/detail.json'
     }).success(function(data, status, headers, config) {
         $scope.data = data.data;
+        angular.forEach($scope.cartItem, function(value, key){
+            if($scope.data.id === value) {
+                $scope.is_cart = true;
+            }
+        });
     });
+
+    $scope.toCart = function(id, flag) {
+        var tmpItem = $scope.cartItem;
+        $scope.cartItem = [];
+        $scope.is_cart = !$scope.is_cart;
+        angular.forEach(tmpItem, function(value, key){
+            if(id !== value) {
+                $scope.cartItem.push(value);
+            }
+        });
+        if(flag) {
+            $scope.cartItem.push(id);
+        }
+        localStorage.setItem("cart", JSON.stringify($scope.cartItem));
+    };
 }]);
 },{"angular":7,"angular-resource":3,"angular-route":5}],2:[function(require,module,exports){
 /**

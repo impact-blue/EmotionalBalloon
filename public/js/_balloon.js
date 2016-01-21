@@ -3,7 +3,8 @@ require('angular-resource');
 require('angular-route');
 
 var app = angular.module('balloonApp', ['ngRoute', 'ngResource']),
-    apiUrl = [
-        '/apis/index.json',
-        '/apis/admin.json'
-    ];
+    cartItem = [];
+
+if(localStorage.getItem('cart')) {
+    cartItem = JSON.parse(localStorage.getItem('cart'));
+}
