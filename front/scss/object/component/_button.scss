@@ -33,6 +33,15 @@
 }
 .c-button--cart {
     margin-top: 20px;
+    &.on {
+        .c-button--cart__text {
+            color: white;
+            background: $brandColor;
+            a {
+                color: white;
+            }
+        }
+    }
     &__text {
         width: 300px;
         margin: 0 auto;

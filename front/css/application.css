@@ -385,6 +385,13 @@ h2.balloonHeading2 {
 .c-button--cart {
   margin-top: 20px;
 }
+.c-button--cart.on .c-button--cart__text {
+  color: white;
+  background: #D83961;
+}
+.c-button--cart.on .c-button--cart__text a {
+  color: white;
+}
 .c-button--cart__text {
   width: 300px;
   margin: 0 auto;
