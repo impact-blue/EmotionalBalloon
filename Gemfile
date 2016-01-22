@@ -28,6 +28,10 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano3-puma'
 gem 'puma'
+gem 'therubyracer', platforms: :ruby
+gem 'unicorn'
+  gem 'nginx'
+  gem 'rb-readline'
 
 group :development, :test do
   gem 'byebug'
@@ -39,9 +43,4 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-end
-
-group :production do
-  gem 'unicorn'
-  gem 'nginx'
 end
