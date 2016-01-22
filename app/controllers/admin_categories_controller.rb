@@ -12,7 +12,7 @@ class AdminCategoriesController < ApplicationController
     @category = Category.new(create_params)
 
     if @category.save
-      redirect_to 'index'
+      redirect_to admin_categories_path
     else
       render action: 'new'
     end
@@ -31,7 +31,7 @@ class AdminCategoriesController < ApplicationController
   private
 
   def create_params
-    params.require(:category).permit()
+    params.require(:category).permit(:name)
   end
 
   def logged_in_admin_user
