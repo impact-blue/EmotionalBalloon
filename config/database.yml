@@ -53,3 +53,4 @@ production:
   database: EmotionalBalloon_production
   username: root
   password: impact1234
+  socket: /var/lib/mysql/mysql.sock
