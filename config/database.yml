@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: EmotionalBalloon_production
-  username: balloon_user
+  username: root
   password: impact1234
