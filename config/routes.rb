@@ -59,7 +59,7 @@ get "admin" => "admin#index"
 resources :admin_balloon_options
 #バルーンのオプションの選択--ここから
 
-  resources :admin_categories, only:[:index] , :path => 'admin/categories'
+  resources :admin_categories, only:[:index,:new,:create] , :path => 'admin/categories'
 
   get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 
