@@ -1,73 +1,71 @@
 <% include ../parts/_header %>
-<section>
-    <div class="l-column-col2">
-        <div class="l-column-col2__left">
-            <div class="p-registerForm">
-                <p class="p-registerForm__heading">購入手続き</p>
-                <ul class="p-registerForm__wrapper">
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">お名前</p>
-                        <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">郵便番号</p>
-                        <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">都道府県</p>
-                        <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="都道府県名"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">住所１</p>
-                        <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list">
-                        <p class="p-registerForm__wrapper__list__text">住所２</p>
-                        <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="建物名など（任意）"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">電話番号</p>
-                        <div class="p-registerForm__wrapper__list__content postal"><input type="text" placeholder="080"><input type="text" placeholder="1234"><input type="text" placeholder="5678"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">メールアドレス</p>
-                        <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="sample@sample.com"></div>
-                    </li>
-                    <li class="p-registerForm__wrapper__list required">
-                        <p class="p-registerForm__wrapper__list__text">お支払い方法</p>
-                        <div class="p-registerForm__wrapper__list__content">
-                            <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">クレジットカード</label></p>
-                            <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">代金引換</label></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="l-column-col2__right">
-            <div class="c-button--cart">
-                <p class="c-button--cart__text"><a href="/carts/comfirm">次へ進む</a></p>
-            </div>
-            <table class="p-registerResult">
-                <tbody>
-                    <tr class="p-registerResult__row">
-                        <th>商品合計</th>
-                        <td>¥6,480</td>
-                    </tr>
-                    <tr class="p-registerResult__row">
-                        <th>送料</th>
-                        <td>¥0</td>
-                    </tr>
-                    <tr class="p-registerResult__row">
-                        <th>支払い手数料</th>
-                        <td>¥0</td>
-                    </tr>
-                    <tr class="p-registerResult__row">
-                        <th>合計</th>
-                        <td>¥6,480</td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="l-column-col2">
+    <div class="l-column-col2__left">
+        <div class="p-registerForm">
+            <p class="p-registerForm__heading">購入手続き</p>
+            <ul class="p-registerForm__wrapper">
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">お名前</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">郵便番号</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">都道府県</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="都道府県名"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">住所１</p>
+                    <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list">
+                    <p class="p-registerForm__wrapper__list__text">住所２</p>
+                    <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="建物名など（任意）"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">電話番号</p>
+                    <div class="p-registerForm__wrapper__list__content postal"><input type="text" placeholder="080"><input type="text" placeholder="1234"><input type="text" placeholder="5678"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">メールアドレス</p>
+                    <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="sample@sample.com"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">お支払い方法</p>
+                    <div class="p-registerForm__wrapper__list__content">
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">クレジットカード</label></p>
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">代金引換</label></p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-</section>
+    <div class="l-column-col2__right">
+        <div class="c-button--cart">
+            <p class="c-button--cart__text"><a href="/carts/comfirm">次へ進む</a></p>
+        </div>
+        <table class="p-registerResult">
+            <tbody>
+                <tr class="p-registerResult__row">
+                    <th>商品合計</th>
+                    <td>¥6,480</td>
+                </tr>
+                <tr class="p-registerResult__row">
+                    <th>送料</th>
+                    <td>¥0</td>
+                </tr>
+                <tr class="p-registerResult__row">
+                    <th>支払い手数料</th>
+                    <td>¥0</td>
+                </tr>
+                <tr class="p-registerResult__row">
+                    <th>合計</th>
+                    <td>¥6,480</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <% include ../parts/_footer %>
