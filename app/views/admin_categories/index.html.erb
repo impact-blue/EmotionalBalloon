@@ -43,6 +43,14 @@
             </tr>
         </tbody>
     </table>
+    <br/>
+    <% @category.each do |category| %>
+    <a href="/admin/categories/<%= category.id %>/sub_categories/new">
+    <%= category.id %>
+    <%= category.name %>
+    </a>
+    <br/>
+    <% end %>
        <p><%= debug(params) if Rails.env.development? %></p>
 </div>
             </div>
