@@ -35,12 +35,22 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('js', function(){
-    gulp.src(['./front/js/application.js'])
+gulp.task('js:dev', function(){
+    gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js'])
         .pipe(plumber())
+        .pipe(concat('application.js'))
         .pipe(browserify())
         .pipe(ngAnnotate())
-        .pipe(rename('./build.js'))
+        .pipe(gulp.dest('./front/js'));
+});
+
+gulp.task('js:build', function(){
+    gulp.src(['./front/js/_balloon.js', './front/js/controller/*.js'])
+        .pipe(plumber())
+        .pipe(concat('application.min.js'))
+        .pipe(browserify())
+        .pipe(ngAnnotate())
+        .pipe(uglify())
         .pipe(gulp.dest('./front/js'));
 });
 
@@ -87,6 +97,30 @@ gulp.task('copy', function(){
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_products/'));
+    gulp
+        .src(['./front/template/admin/order/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_orders/'));
+    gulp
+        .src(['./front/template/admin/category/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_categories/'));
+    gulp
+        .src(['./front/template/admin/customer/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_customers/'));
+    gulp
+        .src(['./front/template/admin/setting/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_settings/'));
 });
 
 gulp.task('ejs', function(){
@@ -98,14 +132,14 @@ gulp.task('ejs', function(){
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/js/**/application.js'], ['js']);
+    gulp.watch(['./front/js/**/_*.js'], ['js:dev']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
     gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', ['sass', 'js', 'ejs', 'connect', 'watch']);
+gulp.task('default', ['sass', 'js:dev', 'ejs', 'connect', 'watch']);
 gulp.task('build', function(){
-    runSequence('sass', 'js', 'ejs', 'copy');
+    runSequence('sass', 'js:build', 'ejs', 'copy');
 });

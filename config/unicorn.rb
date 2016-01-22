@@ -1,36 +1,36 @@
-# -*- coding: utf-8 -*-
+application = 'EmotionalBalloon'
 
-# unicornのプロセスがリスンするアドレスとポートを指定
-listen "153.120.168.115"
-
-# pid fileの位置を指定する
-pid "var/www/app/EmotionalBalloon/tmp/pids/unicorn.pid"
-
-# ワーカーの数を指定する
 worker_processes 2
+working_directory "/var/www/app/#{application}"
 
-# リクエストのタイムアウト秒を指定する
-timeout 15
+listen "/var/run/unicorn/unicorn_#{application}.sock"   # Unix Domain Socket
 
-# ダウンタイムなくすため、アプリをプレロード
+pid "/var/run/unicorn/unicorn_#{application}.pid"       # PIDファイル出力先
+ 
+timeout 60
+ 
 preload_app true
 
-# unicornのログ出力先を指定
-stdout_path "log/unicorn-stdout.log"
-stderr_path "log/unicorn-stderr.log"
-
+stdout_path "/var/log/unicorn/unicorn.stdout_#{application}.log"  # 標準出力ログ出力先
+stderr_path "/var/log/unicorn/unicorn.stderr_#{application}.log"  # 標準エラー出力ログ出力先
+ 
+GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
+ 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
 
-  old_pid = "#{ server.config[:pid] }.oldbin"
-  unless old_pid == server.pid
-    begin
-      Process.kill :QUIT, File.read(old_pid).to_i
-    rescue Errno::ENOENT, Errno::ESRCH
+  old_pid = "#{server.config[:pid]}.oldbin"
+    if old_pid != server.pid
+      begin
+        sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+        Process.kill(sig, File.read(old_pid).to_i)
+      rescue Errno::ENOENT, Errno::ESRCH
+      end
     end
+ 
+    sleep 1
   end
-end
-
+ 
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 end
