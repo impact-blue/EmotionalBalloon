@@ -43,13 +43,12 @@
             </tr>
         </tbody>
     </table>
-    <br/>
-    <% @category.each do |category| %>
-    <a href="/admin/categories/<%= category.id %>/sub_categories/new">
-    <%= category.id %>
-    <%= category.name %>
-    </a>
-    <br/>
+
+    <%= form_for([:admin_categories, @category] , :url => {:action => 'create'}) do |f| %>
+      <p><%= f.label :名前 %></p>
+      <p><%= f.text_field :name , class: 'form-control' %><p>
+
+      <p><%= f.submit :新規カテゴリを作成する , class: "btn btn-primary"%><p>
     <% end %>
        <p><%= debug(params) if Rails.env.development? %></p>
 </div>
