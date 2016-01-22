@@ -2,6 +2,7 @@ class AdminCategoriesController < ApplicationController
   before_action :logged_in_admin_user
 
   def index
+    @category = Category.all
   end
 
   def new
