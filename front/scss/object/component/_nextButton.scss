@@ -1,0 +1,22 @@
+.c-nextButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    &__list {
+        font-size: 14px;
+        &__button {
+            width: 120px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+            background: $brandColor;
+            transition: 0.3s;
+            &:hover {
+                background: rgba($brandColor, 0.9);
+            }
+        }
+    }
+}
