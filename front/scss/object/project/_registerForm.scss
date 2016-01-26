@@ -76,7 +76,7 @@
         display: block;
     }
     &-menu {
-        // display: none;
+        display: none;
         position: absolute;
         max-width: 300px;
         background: white;
@@ -89,6 +89,26 @@
         th,
         td {
             text-align: center;
+        }
+        th {
+            &.left {
+                cursor: pointer;
+                &::after {
+                    content: "<";
+                    position: absolute;
+                    top: 3px;
+                    left: 15px;
+                }
+            }
+            &.right {
+                cursor: pointer;
+                &::after {
+                    content: ">";
+                    position: absolute;
+                    top: 3px;
+                    right: 15px;
+                }
+            }
         }
         td {
             cursor: pointer;
