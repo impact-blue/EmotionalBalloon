@@ -1,4 +1,4 @@
-app.controller('productDetailController', function($scope, $http) {
+app.controller('productShowController', function($scope, $http) {
     $scope.is_cart = false;
     $scope.cartItem = cartItem;
     $http({

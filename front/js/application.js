@@ -11,6 +11,7 @@ if(localStorage.getItem('cart')) {
 }
 app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
+        /***** Public *****/
         .when('/', {
             templateUrl: '/template/public/index.html'
         })
@@ -35,6 +36,7 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
         .when('/company/privacy', {
             templateUrl: '/template/company/privacy.html'
         })
+        /***** Admin *****/
         .when('/admin', {
             templateUrl: '/template/admin/index.html'
         })
@@ -73,9 +75,21 @@ app.controller('adminController', ["$scope", "$http", function($scope, $http) {
     });
 }]);
 app.controller('balloonController', ["$scope", "$http", function($scope, $http) {
-
+    $scope.data = balloon_data.data;
 }]);
-app.controller('productDetailController', ["$scope", "$http", function($scope, $http) {
+app.controller('cartShowController', ["$scope", "$http", function($scope, $http) {
+    $scope.cartItem = cartItem;
+    $scope.data = {};
+    angular.forEach($scope.cartItem, function(value, key){
+        $http({
+            method: 'GET',
+            url: '/api/products/detail.json'
+        }).success(function(data, status, headers, config) {
+            angular.merge($scope.data, data.data);
+        });
+    });
+}]);
+app.controller('productShowController', ["$scope", "$http", function($scope, $http) {
     $scope.is_cart = false;
     $scope.cartItem = cartItem;
     $http({

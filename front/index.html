@@ -10,8 +10,78 @@
     <link rel="shortcut icon" href="./img/favicon.ico" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="./js/application.js"></script>
+    <script type="text/javascript">
+        var balloon_data = {
+            data: {
+                search_products: {
+
+                },
+                ranking_products: {
+                    current_page: 1,
+                    max_page: 3,
+                    product_list: [
+                        {
+                            id: 4,
+                            name: "テスト",
+                            price: 2000,
+                            image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                        },
+                        {
+                            id: 4,
+                            name: "テスト",
+                            price: 2000,
+                            image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                        },
+                        {
+                            id: 4,
+                            name: "テスト",
+                            price: 2000,
+                            image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                        },
+                        {
+                            id: 4,
+                            name: "テスト",
+                            price: 2000,
+                            image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                        },
+                        {
+                            id: 4,
+                            name: "テスト",
+                            price: 2000,
+                            image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                        }
+                    ]
+                },
+                detail_products: {
+
+                },
+                feature_list: [
+                    {
+                        id: 5,
+                        name: "テストテストテスト",
+                        image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                    },
+                    {
+                        id: 5,
+                        name: "テストテストテスト",
+                        image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                    },
+                    {
+                        id: 5,
+                        name: "テストテストテスト",
+                        image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                    },
+                    {
+                        id: 5,
+                        name: "テストテストテスト",
+                        image: "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172"
+                    }
+                ]
+            }
+        }
+    </script>
 </head>
-<body>
+<body ng-controller="balloonController">
     <div ng-view style="height: inherit;"></div>
 </body>
 </html>
