@@ -454,7 +454,7 @@ h2.balloonHeading2 {
   display: none;
 }
 .breadList a {
-  color: #20aadd;
+  color: #D83961;
 }
 .breadList a:hover {
   text-decoration: underline;
@@ -503,6 +503,29 @@ h2.balloonHeading2 {
 }
 .c-table__data a:hover {
   opacity: 0.5;
+}
+
+.c-nextButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+}
+.c-nextButton__list {
+  font-size: 14px;
+}
+.c-nextButton__list__button {
+  width: 120px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background: #D83961;
+  transition: 0.3s;
+}
+.c-nextButton__list__button:hover {
+  background: rgba(216, 57, 97, 0.9);
 }
 
 .p-topHead {
