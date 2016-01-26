@@ -1,7 +1,7 @@
 <% include ../parts/_header %>
 <div class="l-column-col1">
-    <div class="p-categoryHead" style="background-image: url(http://diftion.com/0142/app/webroot/files/uploads/fu60.jpg)"></div>
-    <ul class="breadList u-mt-20">
+    <div class="p-categoryHead" style="background-image: url({{data.search_products.image}})" ng-if="data.search_products.image"></div>
+    <ul class="breadList u-pt-20">
         <li><a href="">home</a></li>
         <li><a href="">バルーン</a></li>
         <li><a href="">東京</a></li>
@@ -31,7 +31,7 @@
         <li class="c-nextButton__list">
             <a href=""><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
         </li>
-        <li class="c-nextButton__list">1 / 6</li>
+        <li class="c-nextButton__list">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
         <li class="c-nextButton__list">
             <a href=""><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
         </li>
