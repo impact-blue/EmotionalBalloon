@@ -3,27 +3,25 @@
 ## PagingTree
 ### Public
 ```
-Top
+Top (/)
 ├── Product
-│   ├── List
-│   ├── Scene
-│   ├── Feature
-│   ├── Ranking
-│   ├── Search
-│   └── Show
+│   ├── List (/products)
+│   ├── Feature (/products/feature)
+│   ├── Ranking (/products/ranking)
+│   └── Show (/products/show)
 ├── Cart
-│   ├── Register
-│   ├── Comfirm
-│   ├── Thanks
-│   └── Show
+│   ├── Register (/carts/register)
+│   ├── Comfirm (/carts/comfirm)
+│   ├── Thanks (/carts/thanks)
+│   └── Show (/carts/show)
 └── Company
-    ├── Agreement
-    ├── Privacy
-    ├── Exchange
-    ├── Question
-    ├── About
-    ├── Flow
-    └── Contact
+    ├── Agreement (/company/agreement)
+    ├── Privacy (/company/privacy)
+    ├── Exchange (/company/exchange)
+    ├── Question (/company/question)
+    ├── About (/company/about)
+    ├── Flow (/company/flow)
+    └── Contact (/company/contact)
 ```
 
 ### Admin
@@ -64,6 +62,7 @@ Dashboard (/admin)
 | min | :min_price |
 | max | :max_price |
 | scene | :scene |
+| character | :character |
 
 ##### Responce
 ```
