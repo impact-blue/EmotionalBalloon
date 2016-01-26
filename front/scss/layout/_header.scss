@@ -1,71 +1,80 @@
-header {
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    font-size: 11px;
-    color: white;
-    background: rgba(white, 1);
+    height: 50px;
+    background: white;
     box-shadow: 0 5px 10px rgba(black, 0.1);
     transition: 0.5s;
     z-index: 100;
-    ul {
-        @include marginAuto();
+    &__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 1000px;
         height: 50px;
+        margin: 0 auto;
     }
-    li {
-        margin-right: 5px;
-        font-size: 16px;
-    }
-    a {
-        display: block;
-        width: 100%;
-    }
-    img {
-        width: 220px;
-    }
-    input[type="text"] {
-        width: 150px;
-        height: 28px;
-        border-radius: 5px 0 0 5px;
-    }
-    input[type="submit"] {
-        color: white;
-        padding: 0 5px;
-        line-height: 28px;
-        background: #d5d6d2;
-        border: 0;
-        border-radius: 0 5px 5px 0;
-    }
-    .header__menu {
-        li {
-            position: relative;
-            &:hover .header__menu__child{
-                display: block;
-            }
+    &__logo {
+        img {
+            width: 220px;
         }
     }
-    .header__menu__list__text {
-        line-height: 50px;
-    }
-    .header__menu__child {
-        display: none;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 200px;
-        background: rgba(white, 0.8);
-        p {
-            line-height: 50px;
-            padding-left: 10px;
-            border: 1px solid white;
-            border-top: none;
-            &:first-child {
-                border-top: 1px solid white;
+    &__menu {
+        display: flex;
+        &__list {
+            width: 110px;
+            font-size: 15px;
+            &:last-child {
+                width: 70px;
+                font-size: 22px;
+            }
+            &:hover {
+                .header__menu__list__child {
+                    display: block;
+                }
+            }
+            a {
+                &:hover {
+                    color: $brandColor;
+                }
+            }
+            &__text {
+                position: relative;
+                text-align: center;
+                line-height: 50px;
+                a {
+                    display: block;
+                }
+                &__badge {
+                    position: absolute;
+                    top: 6px;
+                    right: 10px;
+                    width: 19px;
+                    line-height: 17px;
+                    font-size: 11px;
+                    color: white;
+                    background: $brandColor;
+                    border: 1px solid white;
+                    border-radius: 50%;
+                }
+            }
+            &__child {
+                display: none;
+                position: absolute;
+                width: 110px;
+                background: rgba(white, 0.9);
+                &__text {
+                    line-height: 30px;
+                    font-size: 13px;
+                    border: 1px solid white;
+                    border-top: none;
+                    a {
+                        display: block;
+                        padding: 10px;
+                    }
+                }
             }
         }
     }
