@@ -1114,6 +1114,58 @@ h2.balloonHeading2 {
   cursor: pointer;
 }
 
+.dropdown:focus {
+  display: block;
+}
+.dropdown-menu {
+  position: absolute;
+  max-width: 300px;
+  background: white;
+  border: 1px solid #D83961;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.dropdown table {
+  width: 300px;
+}
+.dropdown table th,
+.dropdown table td {
+  text-align: center;
+}
+.dropdown table td {
+  cursor: pointer;
+}
+.dropdown .day-view td:hover {
+  color: white;
+  background: #D83961;
+}
+.dropdown .day-view td.past, .dropdown .day-view td.future {
+  color: rgba(0, 0, 0, 0.3);
+}
+.dropdown .day-view td.past:hover, .dropdown .day-view td.future:hover {
+  color: rgba(0, 0, 0, 0.3);
+  background: white;
+  cursor: default;
+}
+.dropdown .day-view td span {
+  display: block;
+}
+.dropdown .hour-view thead .left,
+.dropdown .minute-view thead .left {
+  display: none;
+}
+.dropdown .hour-view td,
+.dropdown .minute-view td {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dropdown .hour-view td span:hover,
+.dropdown .minute-view td span:hover {
+  color: white;
+  background: #D83961;
+}
+
 .p-registerResult {
   width: 300px;
   margin: 0 auto;
