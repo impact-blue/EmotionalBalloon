@@ -77,76 +77,80 @@ select {
   background: none;
 }
 
-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 11px;
-  color: white;
+  height: 50px;
   background: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
   z-index: 100;
 }
-header ul {
-  margin-right: auto;
-  margin-left: auto;
+.header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 1000px;
   height: 50px;
+  margin: 0 auto;
 }
-header li {
-  margin-right: 5px;
-  font-size: 16px;
-}
-header a {
-  display: block;
-  width: 100%;
-}
-header img {
+.header__logo img {
   width: 220px;
 }
-header input[type="text"] {
-  width: 150px;
-  height: 28px;
-  border-radius: 5px 0 0 5px;
+.header__menu {
+  display: flex;
 }
-header input[type="submit"] {
-  color: white;
-  padding: 0 5px;
-  line-height: 28px;
-  background: #d5d6d2;
-  border: 0;
-  border-radius: 0 5px 5px 0;
+.header__menu__list {
+  width: 110px;
+  font-size: 15px;
 }
-header .header__menu li {
-  position: relative;
+.header__menu__list:last-child {
+  width: 70px;
+  font-size: 22px;
 }
-header .header__menu li:hover .header__menu__child {
+.header__menu__list:hover .header__menu__list__child {
   display: block;
 }
-header .header__menu__list__text {
+.header__menu__list a:hover {
+  color: #D83961;
+}
+.header__menu__list__text {
+  position: relative;
+  text-align: center;
   line-height: 50px;
 }
-header .header__menu__child {
+.header__menu__list__text a {
+  display: block;
+}
+.header__menu__list__text__badge {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 19px;
+  line-height: 17px;
+  font-size: 11px;
+  color: white;
+  background: #D83961;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.header__menu__list__child {
   display: none;
   position: absolute;
-  top: 50px;
-  left: 0;
-  width: 200px;
-  background: rgba(255, 255, 255, 0.8);
+  width: 110px;
+  background: rgba(255, 255, 255, 0.9);
 }
-header .header__menu__child p {
-  line-height: 50px;
-  padding-left: 10px;
+.header__menu__list__child__text {
+  line-height: 30px;
+  font-size: 13px;
   border: 1px solid white;
   border-top: none;
 }
-header .header__menu__child p:first-child {
-  border-top: 1px solid white;
+.header__menu__list__child__text a {
+  display: block;
+  padding: 10px;
 }
 
 footer {
