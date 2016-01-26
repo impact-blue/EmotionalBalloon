@@ -1,6 +1,8 @@
 .p-registerForm {
     &__heading {
         font-size: 18px;
+        padding-left: 6px;
+        border-left: 4px solid $brandColor;
     }
     &__wrapper {
         &__list {
@@ -13,7 +15,7 @@
                     content: "必須";
                     position: absolute;
                     top: calc(50% - 10px);
-                    left: 105px;
+                    left: 115px;
                     width: 34px;
                     line-height: 20px;
                     font-size: 12px;
@@ -23,27 +25,37 @@
                 }
             }
             &__text {
-                width: 150px;
+                width: 160px;
+                padding-left: 10px;
                 font-size: 14px;
                 font-weight: bold;
             }
             &__content {
-                width: 450px;
+                width: calc(100% - 160px);
                 input[type="text"] {
-                    width: 220px;
+                    width: calc(50% - 5px);
                     line-height: 33px;
                     font-size: 12px;
                     margin-right: 5px;
                     border: 1px solid #c8c8c8;;
                 }
+                textarea {
+                    width: 100%;
+                    height: 80px;
+                    font-size: 12px;
+                    border: 1px solid #c8c8c8;
+                }
                 &.postal {
                     input[type="text"] {
-                        width: 145px;
+                        width: calc(31.4% + 5px);
+                        &:last-child {
+                            margin-right: 0;
+                        }
                     }
                 }
                 &.address {
                     input[type="text"] {
-                        width: 445px;
+                        width: 100%;
                     }
                 }
                 &__radio {

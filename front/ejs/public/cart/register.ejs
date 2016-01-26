@@ -8,6 +8,10 @@
                     <p class="p-registerForm__wrapper__list__text">お名前</p>
                     <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
                 </li>
+                <li class="p-registerForm__wrapper__list">
+                    <p class="p-registerForm__wrapper__list__text">連名</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
+                </li>
                 <li class="p-registerForm__wrapper__list required">
                     <p class="p-registerForm__wrapper__list__text">郵便番号</p>
                     <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁"></div>
@@ -32,12 +36,59 @@
                     <p class="p-registerForm__wrapper__list__text">メールアドレス</p>
                     <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="sample@sample.com"></div>
                 </li>
+            </ul>
+            <p class="p-registerForm__heading u-mt-40">お届け先</p>
+            <ul class="p-registerForm__wrapper">
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">お名前</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">郵便番号</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">都道府県</p>
+                    <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="都道府県名"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">住所１</p>
+                    <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list">
+                    <p class="p-registerForm__wrapper__list__text">住所２</p>
+                    <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="建物名など（任意）"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list required">
+                    <p class="p-registerForm__wrapper__list__text">電話番号</p>
+                    <div class="p-registerForm__wrapper__list__content postal"><input type="text" placeholder="080"><input type="text" placeholder="1234"><input type="text" placeholder="5678"></div>
+                </li>
+                <li class="p-registerForm__wrapper__list">
+                    <p class="p-registerForm__wrapper__list__text">届け先分類</p>
+                    <div class="p-registerForm__wrapper__list__content">
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="destination" id="destination1" placeholder=""><label for="destination1">貸し会場のイベントへ直送</label></p>
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="destination" id="destination2" placeholder=""><label for="destination2">住居・勤務先でのイベントで使用</label></p>
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="destination" id="destination3" placeholder=""><label for="destination3">自分で受取り後、持参・手渡し</label></p>
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="destination" id="destination4" placeholder=""><label for="destination4">お受取人の住居・勤務先へ</label></p>
+                        <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="destination" id="destination5" placeholder=""><label for="destination5">その他</label></p>
+                    </div>
+                </li>
+            </ul>
+            <p class="p-registerForm__heading u-mt-40">お支払い方法</p>
+            <ul class="p-registerForm__wrapper">
                 <li class="p-registerForm__wrapper__list required">
                     <p class="p-registerForm__wrapper__list__text">お支払い方法</p>
                     <div class="p-registerForm__wrapper__list__content">
                         <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">クレジットカード</label></p>
                         <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">代金引換</label></p>
                     </div>
+                </li>
+            </ul>
+            <p class="p-registerForm__heading u-mt-40">その他</p>
+            <ul class="p-registerForm__wrapper">
+                <li class="p-registerForm__wrapper__list">
+                    <p class="p-registerForm__wrapper__list__text">備考</p>
+                    <div class="p-registerForm__wrapper__list__content"><textarea name=""></textarea></div>
                 </li>
             </ul>
         </div>
