@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hatoya/ProtfolioSite",
   "devDependencies": {
+    "angular-bootstrap-datetimepicker": "^0.4.0",
     "browser-sync": "^2.8.2",
     "connect-modrewrite": "^0.8.2",
     "gulp": "^3.9.0",

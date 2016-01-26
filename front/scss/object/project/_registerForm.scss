@@ -71,3 +71,66 @@
         }
     }
 }
+.dropdown {
+    &:focus {
+        display: block;
+    }
+    &-menu {
+        // display: none;
+        position: absolute;
+        max-width: 300px;
+        background: white;
+        border: 1px solid $brandColor;
+        box-shadow: 2px 2px 5px rgba(black, 0.1);
+        z-index: 10;
+    }
+    table {
+        width: 300px;
+        th,
+        td {
+            text-align: center;
+        }
+        td {
+            cursor: pointer;
+        }
+    }
+    .day-view {
+        td {
+            &:hover {
+                color: white;
+                background: $brandColor;
+            }
+            &.past,
+            &.future {
+                color: rgba(black, 0.3);
+                &:hover {
+                    color: rgba(black, 0.3);
+                    background: white;
+                    cursor: default;
+                }
+            }
+            span {
+                display: block;
+            }
+        }
+    }
+    .hour-view,
+    .minute-view {
+        thead {
+            .left {
+                display: none;
+            }
+        }
+        td {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            span {
+                &:hover {
+                    color: white;
+                    background: $brandColor;
+                }
+            }
+        }
+    }
+}
