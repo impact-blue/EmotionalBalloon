@@ -12,10 +12,10 @@
             text-align: center;
             font-size: 12px;
             color: white;
-            background: $brandColor;
+            background: #333531;
             transition: 0.3s;
             &:hover {
-                background: rgba($brandColor, 0.9);
+                background: rgba(#333531, 0.9);
             }
         }
     }
