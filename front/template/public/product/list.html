@@ -6,20 +6,20 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="">シーン別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/products/scene">結婚式</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products/scene">出産祝い</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products/scene">誕生日</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=marriage">結婚式</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=babygift">出産祝い</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=birthday">誕生日</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="">予算別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="">¥5,000</a></li>
-                        <li class="header__menu__list__child__text"><a href="">¥6,000</a></li>
-                        <li class="header__menu__list__child__text"><a href="">¥7,000</a></li>
-                        <li class="header__menu__list__child__text"><a href="">¥8,000</a></li>
-                        <li class="header__menu__list__child__text"><a href="">¥9,000</a></li>
-                        <li class="header__menu__list__child__text"><a href="">¥10,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?max=5000">¥5,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=5000&max=6000">¥6,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=6000&max=7000">¥7,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=8000&max=9000">¥8,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=8000&max=9000">¥9,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=9000&max=10000">¥10,000</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
@@ -48,8 +48,8 @@
 </header>
 <section>
 <div class="l-column-col1">
-    <div class="p-categoryHead" style="background-image: url(http://diftion.com/0142/app/webroot/files/uploads/fu60.jpg)"></div>
-    <ul class="breadList u-mt-20">
+    <div class="p-categoryHead" style="background-image: url({{data.search_products.image}})" ng-if="data.search_products.image"></div>
+    <ul class="breadList u-pt-20">
         <li><a href="">home</a></li>
         <li><a href="">バルーン</a></li>
         <li><a href="">東京</a></li>
@@ -79,7 +79,7 @@
         <li class="c-nextButton__list">
             <a href=""><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
         </li>
-        <li class="c-nextButton__list">1 / 6</li>
+        <li class="c-nextButton__list">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
         <li class="c-nextButton__list">
             <a href=""><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
         </li>

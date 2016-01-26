@@ -4,8 +4,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/', {
             templateUrl: '/template/public/index.html'
         })
-        .when('/products/scene', {
-            templateUrl: '/template/public/product/scene.html'
+        .when('/products', {
+            templateUrl: '/template/public/product/list.html'
         })
         .when('/products/show', {
             templateUrl: '/template/public/product/show.html'
