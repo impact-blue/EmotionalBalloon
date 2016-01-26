@@ -1054,6 +1054,8 @@ h2.balloonHeading2 {
 
 .p-registerForm__heading {
   font-size: 18px;
+  padding-left: 6px;
+  border-left: 4px solid #D83961;
 }
 .p-registerForm__wrapper__list {
   position: relative;
@@ -1065,7 +1067,7 @@ h2.balloonHeading2 {
   content: "必須";
   position: absolute;
   top: calc(50% - 10px);
-  left: 105px;
+  left: 115px;
   width: 34px;
   line-height: 20px;
   font-size: 12px;
@@ -1074,25 +1076,35 @@ h2.balloonHeading2 {
   background: #D83961;
 }
 .p-registerForm__wrapper__list__text {
-  width: 150px;
+  width: 160px;
+  padding-left: 10px;
   font-size: 14px;
   font-weight: bold;
 }
 .p-registerForm__wrapper__list__content {
-  width: 450px;
+  width: calc(100% - 160px);
 }
 .p-registerForm__wrapper__list__content input[type="text"] {
-  width: 220px;
+  width: calc(50% - 5px);
   line-height: 33px;
   font-size: 12px;
   margin-right: 5px;
   border: 1px solid #c8c8c8;
 }
+.p-registerForm__wrapper__list__content textarea {
+  width: 100%;
+  height: 80px;
+  font-size: 12px;
+  border: 1px solid #c8c8c8;
+}
 .p-registerForm__wrapper__list__content.postal input[type="text"] {
-  width: 145px;
+  width: calc(31.4% + 5px);
+}
+.p-registerForm__wrapper__list__content.postal input[type="text"]:last-child {
+  margin-right: 0;
 }
 .p-registerForm__wrapper__list__content.address input[type="text"] {
-  width: 445px;
+  width: 100%;
 }
 .p-registerForm__wrapper__list__content__radio input[type="radio"] {
   margin-right: 5px;
