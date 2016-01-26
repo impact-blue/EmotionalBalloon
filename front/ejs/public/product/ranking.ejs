@@ -1,0 +1,28 @@
+<% include ../parts/_header %>
+<div class="l-column-col1">
+    <ul class="breadList u-pt-20">
+        <li><a href="">home</a></li>
+        <li>ランキング</li>
+    </ul>
+    <div class="p-categoryDescription p-categoryDescription--attention u-mt-20">
+        <p>10月14日（水）午前10時までのご注文で、最短のお届け日は10月15日（木）です</p>
+        <p>※関東方面の最短のお届けは10月15日（木）午後14～16時です<br />※東北地方などお届けに2日かかる地域は、10月16日（金）のお届けが最短となります<br />※関東方面へ15日（木）午前中お届けをご希望の場合はスペシャルお急ぎ便ページからご注文ください</p>
+    </div>
+    <div class="p-categoryDescription u-mt-20">
+        <p>人気ランキング</p>
+        <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+    </div>
+    <ul class="p-spaceList p-spaceList--ranking u-mt-40">
+        <li ng-repeat="product in data.ranking_products.product_list">
+            <a href="/products/show">
+                <img src="{{product.image}}" alt="">
+                <div class="spaceWrapper">
+                    <p>{{product.name}}</p>
+                    <p>¥{{product.price}}</p>
+                    <p>{{product.description}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<% include ../parts/_footer %>

@@ -18,6 +18,9 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
         .when('/products', {
             templateUrl: '/template/public/product/list.html'
         })
+        .when('/products/ranking', {
+            templateUrl: '/template/public/product/ranking.html'
+        })
         .when('/products/show', {
             templateUrl: '/template/public/product/show.html'
         })
