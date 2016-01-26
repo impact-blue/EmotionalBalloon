@@ -36,6 +36,9 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
         .when('/carts/thanks', {
             templateUrl: '/template/public/cart/thanks.html'
         })
+        .when('/original', {
+            templateUrl: '/template/public/original/index.html'
+        })
         .when('/company/privacy', {
             templateUrl: '/template/company/privacy.html'
         })
