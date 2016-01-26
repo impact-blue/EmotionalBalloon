@@ -1118,6 +1118,7 @@ h2.balloonHeading2 {
   display: block;
 }
 .dropdown-menu {
+  display: none;
   position: absolute;
   max-width: 300px;
   background: white;
@@ -1131,6 +1132,24 @@ h2.balloonHeading2 {
 .dropdown table th,
 .dropdown table td {
   text-align: center;
+}
+.dropdown table th.left {
+  cursor: pointer;
+}
+.dropdown table th.left::after {
+  content: "<";
+  position: absolute;
+  top: 3px;
+  left: 15px;
+}
+.dropdown table th.right {
+  cursor: pointer;
+}
+.dropdown table th.right::after {
+  content: ">";
+  position: absolute;
+  top: 3px;
+  right: 15px;
 }
 .dropdown table td {
   cursor: pointer;
