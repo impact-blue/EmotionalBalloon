@@ -806,6 +806,9 @@ h2.balloonHeading2 {
 .p-spaceList--ranking li:nth-of-type(2n) {
   margin-right: 20px;
 }
+.p-spaceList--ranking li:nth-of-type(4n+7) {
+  margin-right: 20px;
+}
 
 .p-spaceList--summary li {
   width: 490px;
