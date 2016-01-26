@@ -36,7 +36,7 @@
         </li>
     </ul>
 </header>
-<section ng-controller="balloonController">
+<section>
 <div class="p-topHead">
     <div class="topHead__text">
         <p>そうだ、バルーンをプレゼントしよう</p>
@@ -86,8 +86,8 @@
     <p><a href="">もっと見る</a></p>
 </div>
 <h2 class="balloonHeading2">ランキング</h2>
-<ul class="p-spaceList">
-    <li ng-repeat="product in data.product_list">
+<ul class="p-spaceList p-spaceList--ranking">
+    <li ng-repeat="product in data.ranking_products.product_list">
         <a href="/products/show">
             <img src="{{product.image}}" alt="{{product.name}}">
             <div class="spaceWrapper">
@@ -102,7 +102,7 @@
 </div>
 <h2 class="balloonHeading2">特集一覧</h2>
 <ul class="p-spaceList p-spaceList--summary">
-    <li ng-repeat="product in data.product_pickup">
+    <li ng-repeat="product in data.feature_list">
         <a href="">
             <img src="{{product.image}}" alt="{{product.name}}">
             <div class="spaceWrapper">

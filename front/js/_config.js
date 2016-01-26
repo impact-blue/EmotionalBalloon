@@ -1,5 +1,6 @@
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
+        /***** Public *****/
         .when('/', {
             templateUrl: '/template/public/index.html'
         })
@@ -24,6 +25,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/company/privacy', {
             templateUrl: '/template/company/privacy.html'
         })
+        /***** Admin *****/
         .when('/admin', {
             templateUrl: '/template/admin/index.html'
         })
