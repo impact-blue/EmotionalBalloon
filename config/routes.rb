@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 #productの一覧
   get 'products/show'  => 'products#show'
   get 'products/scene'     => 'products#scene'
+  get 'products' => 'products#index'
+  get 'products/ranking' => 'products#ranking'
 
 #カートの追加
   get 'carts/show' =>'carts#show'
