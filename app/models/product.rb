@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
   has_many :carts
 
   has_many :product_category_children
-  has_many :category_children, through: :product_category_child
+  has_many :category_children, through: :product_category_children
 
 
   #商品番号

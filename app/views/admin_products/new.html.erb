@@ -90,8 +90,8 @@
     <br>
     <br>
 
-    <% @category_child.each do |c| %>
-    <%= c.name %>
+    <%= collection_check_boxes(:product, :category_child_ids,  CategoryChild.all, :id, :name) do |b| %>
+    <%= b.label {b.check_box + b.text } %>
     <% end %>
     <br>
 

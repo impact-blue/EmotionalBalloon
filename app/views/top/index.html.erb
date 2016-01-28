@@ -1,8 +1,19 @@
 <%= content_for(:json) do %>
 <script>
     var balloon_data = {
-        product_ranking{
-            date:title[<%= @products.first.name %>]
+        product_ranking:{
+            product_list: [
+            <% @products.each do |p| %>
+                {
+                    id: <%= p.id %>,
+                    name: "<%= p.name %>",
+                    price: <%= p.price %>,
+                    image: <%= p.image %>,
+                    description: <%= p.comment %>
+                },
+                <% end %>
+            ]
+            }
         }
     };
 </script>
