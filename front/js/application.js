@@ -84,6 +84,21 @@ app.controller('adminController', ["$scope", "$http", function($scope, $http) {
 app.controller('balloonController', ["$scope", "$http", function($scope, $http) {
     $scope.data = balloon_data.data;
 }]);
+app.controller('cartComfirmController', ["$scope", "$http", function($scope, $http) {
+    $scope.test = {
+        sample1: 'HelloWorld!!',
+        sample2: 'hogehoge'
+    };
+    $scope.cartComfirm = function() {
+        $http({
+            method: 'POST',
+            url: '/api/carts/comfirm',
+            data: $scope.test
+        }).success(function(data, status, headers, config) {
+            console.log(data, status);
+        });
+    };
+}]);
 app.controller('cartShowController', ["$scope", "$http", function($scope, $http) {
     $scope.cartItem = cartItem;
     $scope.data = {};
