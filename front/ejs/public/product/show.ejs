@@ -8,20 +8,20 @@
             <li>バルーン</li>
         </ul>
         <div class="p-photoGallery">
-            <div class="p-photoGallery__zoom"><img src="{{data.image[0]}}" alt=""></div>
+            <div class="p-photoGallery__zoom"><img src="{{data.detail_products.image[0]}}" alt=""></div>
             <ul class="p-photoGallery__list">
-                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
+                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_products.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
             </ul>
         </div>
     </div>
     <div class="l-column-col2__right">
         <div class="p-productDetail">
             <p class="p-productDetail__option">この商品は送料無料でお届けします</p>
-            <p class="p-productDetail__title">{{data.name}}</p>
-            <p class="p-productDetail__price">¥{{data.price}}</p>
+            <p class="p-productDetail__title">{{data.detail_products.name}}</p>
+            <p class="p-productDetail__price">¥{{data.detail_products.price}}</p>
             <div class="p-productDetail__description">
                 <div class="p-productDetail__description__title">商品説明</div>
-                <div class="p-productDetail__description__text">{{data.description}}</div>
+                <div class="p-productDetail__description__text">{{data.detail_products.description}}</div>
             </div>
             <div class="p-productDetail__detail">
                 <p class="productDetail__detail__title">商品詳細</p>
@@ -48,10 +48,10 @@
             </div>
         </div>
         <div class="c-button--cart" ng-if="!is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.id, true)">カートに追加する</p>
+            <p class="c-button--cart__text" ng-click="toCart(data.detail_products.id, true)">カートに追加する</p>
         </div>
         <div class="c-button--cart on" ng-if="is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.id, false)">カートに追加済み</p>
+            <p class="c-button--cart__text" ng-click="toCart(data.detail_products.id, false)">カートに追加済み</p>
         </div>
     </div>
 </div>

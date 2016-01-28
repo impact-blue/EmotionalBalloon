@@ -99,16 +99,10 @@ app.controller('cartShowController', ["$scope", "$http", function($scope, $http)
 app.controller('productShowController', ["$scope", "$http", function($scope, $http) {
     $scope.is_cart = false;
     $scope.cartItem = cartItem;
-    $http({
-        method: 'GET',
-        url: '/api/products/detail.json'
-    }).success(function(data, status, headers, config) {
-        $scope.data = data.data;
-        angular.forEach($scope.cartItem, function(value, key){
-            if($scope.data.id === value) {
-                $scope.is_cart = true;
-            }
-        });
+    angular.forEach($scope.cartItem, function(value, key){
+        if($scope.data.id === value) {
+            $scope.is_cart = true;
+        }
     });
 
     $scope.toCart = function(id, flag) {
