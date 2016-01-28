@@ -97,7 +97,7 @@ app.controller('cartComfirmController', ["$scope", "$http", function($scope, $ht
         }).success(function(data, status, headers, config) {
             console.log(data, status);
         }).error(function(data, status, headers, config) {
-            consle.log(status);
+            console.log(status);
         });
     };
 }]);

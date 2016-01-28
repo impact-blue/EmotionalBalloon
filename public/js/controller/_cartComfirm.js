@@ -11,7 +11,7 @@ app.controller('cartComfirmController', function($scope, $http) {
         }).success(function(data, status, headers, config) {
             console.log(data, status);
         }).error(function(data, status, headers, config) {
-            consle.log(status);
+            console.log(status);
         });
     };
 });
