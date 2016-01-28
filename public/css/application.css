@@ -77,76 +77,80 @@ select {
   background: none;
 }
 
-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  font-size: 11px;
-  color: white;
+  height: 50px;
   background: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
   z-index: 100;
 }
-header ul {
-  margin-right: auto;
-  margin-left: auto;
+.header__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 1000px;
   height: 50px;
+  margin: 0 auto;
 }
-header li {
-  margin-right: 5px;
-  font-size: 16px;
-}
-header a {
-  display: block;
-  width: 100%;
-}
-header img {
+.header__logo img {
   width: 220px;
 }
-header input[type="text"] {
-  width: 150px;
-  height: 28px;
-  border-radius: 5px 0 0 5px;
+.header__menu {
+  display: flex;
 }
-header input[type="submit"] {
-  color: white;
-  padding: 0 5px;
-  line-height: 28px;
-  background: #d5d6d2;
-  border: 0;
-  border-radius: 0 5px 5px 0;
+.header__menu__list {
+  width: 110px;
+  font-size: 15px;
 }
-header .header__menu li {
-  position: relative;
+.header__menu__list:last-child {
+  width: 70px;
+  font-size: 22px;
 }
-header .header__menu li:hover .header__menu__child {
+.header__menu__list:hover .header__menu__list__child {
   display: block;
 }
-header .header__menu__list__text {
+.header__menu__list a:hover {
+  color: #D83961;
+}
+.header__menu__list__text {
+  position: relative;
+  text-align: center;
   line-height: 50px;
 }
-header .header__menu__child {
+.header__menu__list__text a {
+  display: block;
+}
+.header__menu__list__text__badge {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  width: 19px;
+  line-height: 17px;
+  font-size: 11px;
+  color: white;
+  background: #D83961;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.header__menu__list__child {
   display: none;
   position: absolute;
-  top: 50px;
-  left: 0;
-  width: 200px;
-  background: rgba(255, 255, 255, 0.8);
+  width: 110px;
+  background: rgba(255, 255, 255, 0.9);
 }
-header .header__menu__child p {
-  line-height: 50px;
-  padding-left: 10px;
+.header__menu__list__child__text {
+  line-height: 30px;
+  font-size: 13px;
   border: 1px solid white;
   border-top: none;
 }
-header .header__menu__child p:first-child {
-  border-top: 1px solid white;
+.header__menu__list__child__text a {
+  display: block;
+  padding: 10px;
 }
 
 footer {
@@ -385,9 +389,17 @@ h2.balloonHeading2 {
 .c-button--cart {
   margin-top: 20px;
 }
+.c-button--cart.on .c-button--cart__text {
+  color: white;
+  background: #D83961;
+}
+.c-button--cart.on .c-button--cart__text a {
+  color: white;
+}
 .c-button--cart__text {
   width: 300px;
   margin: 0 auto;
+  color: #D83961;
   line-height: 40px;
   text-align: center;
   border: 1px solid #D83961;
@@ -442,7 +454,7 @@ h2.balloonHeading2 {
   display: none;
 }
 .breadList a {
-  color: #20aadd;
+  color: #D83961;
 }
 .breadList a:hover {
   text-decoration: underline;
@@ -491,6 +503,29 @@ h2.balloonHeading2 {
 }
 .c-table__data a:hover {
   opacity: 0.5;
+}
+
+.c-nextButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+}
+.c-nextButton__list {
+  font-size: 14px;
+}
+.c-nextButton__list__button {
+  width: 120px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  background: #333531;
+  transition: 0.3s;
+}
+.c-nextButton__list__button:hover {
+  background: rgba(51, 53, 49, 0.9);
 }
 
 .p-topHead {
@@ -771,6 +806,9 @@ h2.balloonHeading2 {
 .p-spaceList--ranking li:nth-of-type(2n) {
   margin-right: 20px;
 }
+.p-spaceList--ranking li:nth-of-type(4n+7) {
+  margin-right: 20px;
+}
 
 .p-spaceList--summary li {
   width: 490px;
@@ -1016,6 +1054,8 @@ h2.balloonHeading2 {
 
 .p-registerForm__heading {
   font-size: 18px;
+  padding-left: 6px;
+  border-left: 4px solid #D83961;
 }
 .p-registerForm__wrapper__list {
   position: relative;
@@ -1027,7 +1067,7 @@ h2.balloonHeading2 {
   content: "必須";
   position: absolute;
   top: calc(50% - 10px);
-  left: 105px;
+  left: 115px;
   width: 34px;
   line-height: 20px;
   font-size: 12px;
@@ -1036,25 +1076,35 @@ h2.balloonHeading2 {
   background: #D83961;
 }
 .p-registerForm__wrapper__list__text {
-  width: 150px;
+  width: 160px;
+  padding-left: 10px;
   font-size: 14px;
   font-weight: bold;
 }
 .p-registerForm__wrapper__list__content {
-  width: 450px;
+  width: calc(100% - 160px);
 }
 .p-registerForm__wrapper__list__content input[type="text"] {
-  width: 220px;
+  width: calc(50% - 5px);
   line-height: 33px;
   font-size: 12px;
   margin-right: 5px;
   border: 1px solid #c8c8c8;
 }
+.p-registerForm__wrapper__list__content textarea {
+  width: 100%;
+  height: 80px;
+  font-size: 12px;
+  border: 1px solid #c8c8c8;
+}
 .p-registerForm__wrapper__list__content.postal input[type="text"] {
-  width: 145px;
+  width: calc(31.4% + 5px);
+}
+.p-registerForm__wrapper__list__content.postal input[type="text"]:last-child {
+  margin-right: 0;
 }
 .p-registerForm__wrapper__list__content.address input[type="text"] {
-  width: 445px;
+  width: 100%;
 }
 .p-registerForm__wrapper__list__content__radio input[type="radio"] {
   margin-right: 5px;
@@ -1062,6 +1112,77 @@ h2.balloonHeading2 {
 }
 .p-registerForm__wrapper__list__content__radio label {
   cursor: pointer;
+}
+
+.dropdown:focus {
+  display: block;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  max-width: 300px;
+  background: white;
+  border: 1px solid #D83961;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.dropdown table {
+  width: 300px;
+}
+.dropdown table th,
+.dropdown table td {
+  text-align: center;
+}
+.dropdown table th.left {
+  cursor: pointer;
+}
+.dropdown table th.left::after {
+  content: "<";
+  position: absolute;
+  top: 3px;
+  left: 15px;
+}
+.dropdown table th.right {
+  cursor: pointer;
+}
+.dropdown table th.right::after {
+  content: ">";
+  position: absolute;
+  top: 3px;
+  right: 15px;
+}
+.dropdown table td {
+  cursor: pointer;
+}
+.dropdown .day-view td:hover {
+  color: white;
+  background: #D83961;
+}
+.dropdown .day-view td.past, .dropdown .day-view td.future {
+  color: rgba(0, 0, 0, 0.3);
+}
+.dropdown .day-view td.past:hover, .dropdown .day-view td.future:hover {
+  color: rgba(0, 0, 0, 0.3);
+  background: white;
+  cursor: default;
+}
+.dropdown .day-view td span {
+  display: block;
+}
+.dropdown .hour-view thead .left,
+.dropdown .minute-view thead .left {
+  display: none;
+}
+.dropdown .hour-view td,
+.dropdown .minute-view td {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dropdown .hour-view td span:hover,
+.dropdown .minute-view td span:hover {
+  color: white;
+  background: #D83961;
 }
 
 .p-registerResult {
@@ -1113,6 +1234,10 @@ h2.balloonHeading2 {
 
 .u-mt-80 {
   margin-top: 80px !important;
+}
+
+.u-pt-20 {
+  padding-top: 20px !important;
 }
 
 .u-pt-50 {

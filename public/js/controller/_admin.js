@@ -1,4 +1,4 @@
-app.controller('adminPageController', function($scope, $http) {
+app.controller('adminController', function($scope, $http) {
     $scope.path = location.pathname;
     $scope.search = location.search;
 
