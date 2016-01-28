@@ -96,6 +96,8 @@ app.controller('cartComfirmController', ["$scope", "$http", function($scope, $ht
             data: $scope.test
         }).success(function(data, status, headers, config) {
             console.log(data, status);
+        }).error(function(data, status, headers, config) {
+            consle.log(status);
         });
     };
 }]);
