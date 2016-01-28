@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'jqQuery',
+1 verbose cli   '--save-dev' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.28
+4 verbose node symlink /usr/local/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'jqQuery', null ]
+7 verbose cache add spec="jqQuery" args=["jqQuery",null]
+8 verbose parsed spec { raw: 'jqQuery',
+8 verbose parsed spec   scope: null,
+8 verbose parsed spec   name: 'jqQuery',
+8 verbose parsed spec   rawSpec: '',
+8 verbose parsed spec   spec: '*',
+8 verbose parsed spec   type: 'range' }
+9 verbose addNamed [ 'jqQuery', '*' ]
+10 verbose addNamed [ null, '*' ]
+11 silly lockFile c170ff70-jqQuery jqQuery@*
+12 verbose lock jqQuery@* /Users/wadahayato/.npm/c170ff70-jqQuery.lock
+13 silly addNameRange { name: 'jqQuery', range: '*', hasData: false }
+14 verbose mapToRegistry name jqQuery
+15 verbose mapToRegistry uri https://registry.npmjs.org/jqQuery
+16 verbose request where is /jqQuery
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id d99daeb7690b698c
+19 verbose request url raw /jqQuery
+20 verbose request url resolving [ 'https://registry.npmjs.org/', './jqQuery' ]
+21 verbose request url resolved https://registry.npmjs.org/jqQuery
+22 verbose request where is https://registry.npmjs.org/jqQuery
+23 verbose request no basic auth needed
+24 info trying registry request attempt 1 at 17:52:32
+25 http GET https://registry.npmjs.org/jqQuery
+26 http 404 https://registry.npmjs.org/jqQuery
+27 silly registry.get cb [ 404,
+27 silly registry.get   { 'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '2',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     date: 'Thu, 28 Jan 2016 08:52:33 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-nrt6123-NRT',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1453971152.982579,VS0,VE179' } ]
+28 silly lockFile c170ff70-jqQuery jqQuery@*
+29 silly lockFile c170ff70-jqQuery jqQuery@*
+30 error 404 Not Found
+30 error 404
+30 error 404 'jqQuery' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404 It was specified as a dependency of 'hatoya'
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Darwin 15.0.0
+32 error command "node" "/usr/local/bin/npm" "install" "jqQuery" "--save-dev"
+33 error cwd /Users/wadahayato/Desktop/EmotionalBalloon
+34 error node -v v0.10.28
+35 error npm -v 2.0.0-alpha-5
+36 error code E404
+37 verbose exit [ 1, true ]
