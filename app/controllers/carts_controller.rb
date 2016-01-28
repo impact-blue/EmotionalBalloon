@@ -8,6 +8,7 @@ class CartsController < ApplicationController
   end
 
   def comfirm
+    @token = "true"
   end
 
   def thanks
@@ -34,5 +35,7 @@ class CartsController < ApplicationController
   def set_ip
     @ip = request.remote_ip
   end
+
+
 
 end

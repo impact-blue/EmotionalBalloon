@@ -24,7 +24,6 @@ gem 'devise-i18n-views'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
-gem 'therubyracer'
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano3-puma'
@@ -33,6 +32,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'unicorn'
   gem 'nginx'
   gem 'rb-readline'
+  gem 'angular-rails-engine'
+  gem'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'
