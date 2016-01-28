@@ -48,7 +48,7 @@
     </div>
 </header>
 <section>
-<div class="l-column-col2">
+<div class="l-column-col2" ng-controller="cartComfirmController">
     <div class="l-column-col2__left">
         <div class="p-registerForm">
             <p class="p-registerForm__heading">注文内容の確認</p>
@@ -95,7 +95,7 @@
     </div>
     <div class="l-column-col2__right">
         <div class="c-button--cart">
-            <p class="c-button--cart__text"><a href="/carts/thanks">注文を確定する</a></p>
+            <p class="c-button--cart__text" ng-click="cartComfirm()">注文を確定する</p>
         </div>
         <table class="p-registerResult">
             <tbody>
