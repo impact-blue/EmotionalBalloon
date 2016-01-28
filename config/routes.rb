@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'api/products/ranking'         => 'api#ranking'
   get 'api/products/budget'          => 'api#budget'
   get 'api/products/detail'          => 'api#detail'
+  #post 'api/carts/confirm' => '#confirm'
 
 #下層ページ
   get 'company/agreement' => 'company#agreement'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   get 'carts/show' =>'carts#show'
   get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
+  post 'carts/confirm' => 'carts#thanks'
   get 'carts/thanks' => 'carts#thanks'
   post 'products/show'     => 'products#create_cart'
 
