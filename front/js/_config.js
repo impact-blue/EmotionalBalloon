@@ -5,7 +5,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/public/index.html'
         })
         .when('/products', {
-            templateUrl: '/template/public/product/list.html'
+            templateUrl: '/template/public/product/index.html'
         })
         .when('/products/ranking', {
             templateUrl: '/template/public/product/ranking.html'
