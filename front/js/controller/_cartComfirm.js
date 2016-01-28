@@ -9,7 +9,10 @@ app.controller('cartComfirmController', function($scope, $http) {
             url: '/api/carts/comfirm',
             data: $scope.test
         }).success(function(data, status, headers, config) {
-            console.log(data, status);
+            console.log(data);
+            if(data.data.result === 'success') {
+                location.href = "/carts/thanks";
+            }
         }).error(function(data, status, headers, config) {
             console.log(status);
         });
