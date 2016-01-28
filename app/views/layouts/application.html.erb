@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
+
+   <%= content_for(:json) %>
+
 </head>
 <body>
+
   <%= yield %>
+
 </body>
 </html>

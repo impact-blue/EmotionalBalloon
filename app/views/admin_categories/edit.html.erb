@@ -1,4 +1,4 @@
-<div class="l-admin" ng-controller="adminController">
+<div class="l-admin">
     <div class="l-admin__left">
         <ul class="l-admin__left__list">
             <li class="l-admin__left__list__child"><a href=""><i class="fa fa-pencil-square-o"></i>NEW POST</a>
@@ -16,10 +16,11 @@
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/products?filter=all">ALL</a></li>
-    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/products?filter=public">Public</a></li>
-    <li ng-class="{'on': search === '?filter=secret'}"><a href="/admin/products?filter=secret">Secret</a></li>
-    <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">None</a></li>
+    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/categories?filter=all">ALL</a></li>
+    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/categories/new">NEW</a></li>
+    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/categories?filter=public">Public</a></li>
+    <li ng-class="{'on': search === '?filter=secret'}"><a href="/admin/categories?filter=secret">Secret</a></li>
+    <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/categories?filter=none">None</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
     <table class="c-table">
@@ -43,75 +44,13 @@
         </tbody>
     </table>
 
-<% if @product.errors.any? %>
-<div>
-<br/>
-<br/>
-<br/>
-  <ul>
-    <% @product.errors.full_messages.each do |msg| %>
-      <li style="color: red"><%= msg %></li>
+    <%= form_for([:admin_categories, @category] , :url => {:action => 'create'}) do |f| %>
+      <p><%= f.label :名前 %></p>
+      <p><%= f.text_field :name , class: 'form-control' %><p>
+
+      <p><%= f.submit :新規カテゴリを作成する , class: "btn btn-primary"%><p>
     <% end %>
-  </ul>
-</div>
-<% end %>
-
-<ul class="p-categoryList u-mt-40">
-  <li>
-    <div class="categoryWrapper">
-      <p>商品の追加</p>
-      <%= form_for([:admins, @product] , :url => {:action => 'create'}) do |f| %>
-
-      <%= f.label :商品名 %>
-      <%= f.text_field :name , class: 'form-control' %>
-
-      <%= f.label :価格 %>
-      <%= f.number_field :price , class: 'form-control' %><br/>
-
-      <%= f.label :在庫 %>
-      <%= f.number_field :stocks , class: 'form-control' %><br/>
-
-      <%= f.label :コメント %>
-      <%= f.text_field :comment , class: 'form-control' %><br/>
-
-      <%= f.label :推薦分 %>
-      <%= f.text_area :recommended , class: 'form-control' %>
-
-      <%= f.label :キーワード %>
-      <%= f.text_field :keyword , class: 'form-control' %>
-
-    </br><br>
-
-    <%= f.label :カテゴリ %>
-    <br>
-    <%= collection_check_boxes(:product, :scene_ids, Scene.all, :id, :name) do |b| %>
-    <%= b.label {b.check_box + b.text } %>
-    <% end %>
-    <br>
-    <br>
-
-    <% @category_child.each do |c| %>
-    <%= c.name %>
-    <% end %>
-    <br>
-
-
-
-    <%= f.label :boxsize_id %>
-    <%= f.collection_select :boxsize_id, Boxsize.all, :id, :name , class: 'form-control'%>
-    <br>
-
-    <%= f.label :公開日 %>
-    <%= f.date_field :registration_date , class: 'form-control' %>
-
-    <%= f.submit :商品登録する , class: "btn btn-primary"%>
-
-      <!--  画像（複数)、送料の有無
-    -->
-    <% end %>
-  </div>
-</li>
-</ul>
+       <p><%= debug(params) if Rails.env.development? %></p>
 </div>
             </div>
         </div>

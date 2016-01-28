@@ -59,7 +59,7 @@ get "admin" => "admin#index"
 resources :admin_balloon_options
 #バルーンのオプションの選択--ここから
 
- resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories' do
+ resources :admin_categories, only:[:index,:new,:create,:edit,:update] , :path => 'admin/categories' do
  #,shallow: true do
   resources :admin_category_children, only:[:index,:new,:create,:update] , :path => 'sub_categories'
  end
