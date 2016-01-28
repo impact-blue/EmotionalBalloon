@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
   has_many :carts
 
   has_many :product_category_children
-  has_many :product_category_children, through: :product_category_child
+  has_many :category_children, through: :product_category_child
 
 
   #商品番号
@@ -35,7 +35,7 @@ class Product < ActiveRecord::Base
   #送料 validates :postage
 
   #コメント、推薦文、キーワード
-#validates :comment ,:keyword , :recommended
+  #validates :comment ,:keyword , :recommended
 
   #登録日
   validates :registration_date,  presence: { message: 'は必須です' }

@@ -1,3 +1,13 @@
+<%= content_for(:json) do %>
+<script>
+    var balloon_data = {
+        product_ranking{
+            date:title[<%= @products.first.name %>]
+        }
+    };
+</script>
+<% end %>
+
 <header id="js-header">
     <ul class="header__menu">
         <li><a href="/"><img src="/img/logo.png" alt="EmotionalBalloon"></a></li>
