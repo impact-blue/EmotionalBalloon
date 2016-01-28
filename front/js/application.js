@@ -120,6 +120,12 @@ app.controller('productShowController', ["$scope", "$http", function($scope, $ht
         localStorage.setItem("cart", JSON.stringify($scope.cartItem));
     };
 }]);
+app.directive('hobbeeBreadCrumb', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/ninja-customer.html'
+    };
+});
 },{"angular":9,"angular-bootstrap-datetimepicker":3,"angular-resource":5,"angular-route":7}],2:[function(require,module,exports){
 //! moment.js
 //! version : 2.11.1
