@@ -28,8 +28,9 @@ Rails.application.routes.draw do
   get 'carts/show' =>'carts#show'
   get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
-  post 'carts/confirm' => 'carts#thanks'
+  post 'api/carts/comfirm' => 'carts#api'
   get 'carts/thanks' => 'carts#thanks'
+  #post 'api/carts/confirm' => 'carts#thanks'
   post 'products/show'     => 'products#create_cart'
 
  # get 'feature/feature_list' => 'feature#show'
