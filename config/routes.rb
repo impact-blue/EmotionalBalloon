@@ -87,6 +87,9 @@ resources :admin_balloon_options
 
   get 'balloon_types/:id/edit'=> 'balloon_types#edit'
   patch 'balloon_types/:id'   => 'balloon_types#update'
+
+  resources :images,only:[:index,:new,:create],:path => 'admin/images'
+  get 'admin/images/get_image'=>'images#get_image'
 #--ここまで
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'

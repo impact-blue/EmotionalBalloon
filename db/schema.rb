@@ -80,9 +80,11 @@ ActiveRecord::Schema.define(version: 20160119081731) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.string   "image",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",               limit: 255
+    t.binary   "image",              limit: 16777215
+    t.string   "image_content_type", limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "orders", force: :cascade do |t|

@@ -1,0 +1,5 @@
+<% @images.each do |image| %>
+
+<%= image_tag(url_for(:action => 'get_image', :id => image.id)) %>
+
+<% end %>
