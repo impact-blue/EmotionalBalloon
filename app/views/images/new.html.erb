@@ -1,0 +1,12 @@
+<%= form_for([:images, @image] , :url => {:action => 'create'}) do |f| %>
+  <% if @image.errors.any? %>
+  <% end %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :image %>
+<%= f.file_field :image %>
+
+<%= f.submit 'save' %>
+
+<% end %>
