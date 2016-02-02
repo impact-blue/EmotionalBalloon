@@ -161,18 +161,15 @@ ActiveRecord::Schema.define(version: 20160119081731) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",              limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "image",             limit: 255
     t.integer  "price",             limit: 4
     t.integer  "stocks",            limit: 4
     t.integer  "postage",           limit: 4
     t.text     "comment",           limit: 65535
     t.text     "keyword",           limit: 65535
-    t.text     "recommended",       limit: 65535
     t.date     "registration_date"
     t.integer  "boxsize_id",        limit: 4
-    t.integer  "number",            limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "scenes", force: :cascade do |t|
