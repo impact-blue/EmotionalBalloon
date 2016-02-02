@@ -42,7 +42,6 @@ app.controller('cartComfirmController', function($scope, $http) {
             comment: "Hello, World!!"
         }
     };
-    console.log('hi');
     $scope.cartComfirm = function() {
         $http({
             method: 'POST',

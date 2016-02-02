@@ -37,7 +37,7 @@ gulp.task('sass', function(){
 });
 
 gulp.task('js', function(callback){
-    runSequence('concat:dev', callback);
+    runSequence('concat:dev', 'browserify', callback);
 });
 
 gulp.task('concat:dev', function(){
@@ -45,10 +45,6 @@ gulp.task('concat:dev', function(){
         .pipe(plumber())
         .pipe(concat('build.js'))
         .pipe(gulp.dest('./front/js'));
-    browserify({entries: ['./front/js/build.js']})
-        .bundle()
-        .pipe(source('application.js'))
-        .pipe(gulp.dest('./front/js/'));
 });
 
 gulp.task('concat:build', function(){
@@ -56,18 +52,15 @@ gulp.task('concat:build', function(){
         .pipe(plumber())
         .pipe(concat('build.js'))
         .pipe(gulp.dest('./front/js'));
+});
+
+gulp.task('browserify', function(){
     browserify({entries: ['./front/js/build.js']})
         .bundle()
+        .pipe(plumber())
         .pipe(source('application.js'))
         .pipe(gulp.dest('./front/js/'));
 });
-
-// gulp.task('browserify', function(){
-//     browserify({entries: ['./front/js/build.js']})
-//         .bundle()
-//         .pipe(source('application.js'))
-//         .pipe(gulp.dest('./front/js/'));
-// });
 
 gulp.task('copy', function(){
     gulp
@@ -155,8 +148,8 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', function(callback) {
-    runSequence('sass', 'concat:dev', 'ejs', 'connect', 'watch', callback);
+    runSequence('sass', 'concat:dev', 'browserify', 'ejs', 'connect', 'watch', callback);
 });
 gulp.task('build', function(callback){
-    runSequence('sass', 'js:build', 'ejs', 'copy', callback);
+    runSequence('sass', 'concat:build', 'browserify', 'ejs', 'copy', callback);
 });
