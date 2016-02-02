@@ -1,0 +1,112 @@
+<header>
+    <div class="header">
+        <div class="header__wrapper">
+            <div class="header__logo"><a href="/"><img src="/img/logo.png" alt="EmotionalBalloon"></a></div>
+            <ul class="header__menu">
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/products?scene=all">シーン別</a></p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="/products?scene=marriage">結婚式</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=babygift">出産祝い</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=birthday">誕生日</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?scene=open">開店祝い</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/products">予算別</a></p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="/products?max=5000">¥5,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=5000&max=6000">¥6,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=6000&max=7000">¥7,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=8000&max=9000">¥8,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=8000&max=9000">¥9,000</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?min=9000&max=10000">¥10,000</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/products?caracter=all">キャラクター</a></p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="products/?character=disney">ディズニー</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?character=sanrio">サンリオ</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?character=anpanman">アンパンマン</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?character=onepiece">ワンピース</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?character=yokai">妖怪ウォッチ</a></li>
+                        <li class="header__menu__list__child__text"><a href="/products?character=other">その他</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/products/ranking">ランキング</a></p>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">2</span></a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<section>
+<div class="l-column-col1">
+    <div class="p-categoryHead" style="background-image: url({{data.search_products.image}})" ng-if="data.search_products.image"></div>
+    <ul class="breadList u-pt-20">
+        <li><a href="">home</a></li>
+        <li><a href="">バルーン</a></li>
+        <li><a href="">東京</a></li>
+        <li>バルーン</li>
+    </ul>
+    <div class="p-categoryDescription p-categoryDescription--attention u-mt-20">
+        <p>10月14日（水）午前10時までのご注文で、最短のお届け日は10月15日（木）です</p>
+        <p>※関東方面の最短のお届けは10月15日（木）午後14～16時です<br />※東北地方などお届けに2日かかる地域は、10月16日（金）のお届けが最短となります<br />※関東方面へ15日（木）午前中お届けをご希望の場合はスペシャルお急ぎ便ページからご注文ください</p>
+    </div>
+    <div class="p-categoryDescription u-mt-20">
+        <p>{{data.search_products.title}}</p>
+        <p>{{data.search_products.description}}</p>
+    </div>
+    <ul class="p-spaceList u-mt-40">
+        <li ng-repeat="product in data.search_products.product_list">
+            <a href="/products/show">
+                <img src="{{product.image}}" alt="">
+                <div class="spaceWrapper">
+                    <p>{{product.name}}</p>
+                    <p>¥{{product.price}}</p>
+                    <p>{{product.description}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <ul class="c-nextButton">
+        <li class="c-nextButton__list">
+            <a href=""><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
+        </li>
+        <li class="c-nextButton__list">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
+        <li class="c-nextButton__list">
+            <a href=""><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
+        </li>
+    </ul>
+</div>
+</section>
+<footer class="u-mt-40">
+    <div class="footerContent">
+        <section>
+            <p>お探しの方へ</p>
+            <ul>
+                <li><a href="">ご利用の流れ</a></li>
+                <li><a href="">目的から探す</a></li>
+            </ul>
+        </section>
+        <section>
+            <p>バルーンについて</p>
+            <ul>
+                <li><a href="">利用規約</a></li>
+                <li><a href="">プライバシーポリシー</a></li>
+                <li><a href="">特定商取引法に基づく表示</a></li>
+                <li><a href="">よくある質問</a></li>
+                <li><a href="">運営会社</a></li>
+                <li><a href="">お問い合わせ</a></li>
+            </ul>
+        </section>
+    </div>
+    <p class="footerCopyright">Copyright (C) 2015 Emotional Balloon All Rights Reserved.</p>
+</footer>

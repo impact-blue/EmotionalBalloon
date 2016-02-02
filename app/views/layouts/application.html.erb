@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="balloonApp">
 <head>
   <title>EmotionalBalloon</title>
   <link rel="stylesheet" type="text/css" href="/css/application.css">
@@ -7,13 +7,9 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
-
-   <%= content_for(:json) %>
-
+  <%= yield :json %>
 </head>
 <body>
-
   <%= yield %>
-
 </body>
 </html>
