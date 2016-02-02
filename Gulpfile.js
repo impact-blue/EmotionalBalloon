@@ -13,7 +13,8 @@ var gulp = require('gulp'),
     modRewrite = require('connect-modrewrite'),
     ejs = require('gulp-ejs'),
     ngAnnotate = require('gulp-ng-annotate'),
-    browserify = require('gulp-browserify');
+    browserify = require('browserify'),
+    source = require('vinyl-source-stream');
 
 gulp.task('connect', function(){
     browserSync({
@@ -35,24 +36,38 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('js:dev', function(){
-    gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js'])
-        .pipe(plumber())
-        .pipe(concat('application.js'))
-        .pipe(browserify())
-        .pipe(ngAnnotate())
-        .pipe(gulp.dest('./front/js'));
+gulp.task('js', function(callback){
+    runSequence('concat:dev', callback);
 });
 
-gulp.task('js:build', function(){
+gulp.task('concat:dev', function(){
+    gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js'])
+        .pipe(plumber())
+        .pipe(concat('build.js'))
+        .pipe(gulp.dest('./front/js'));
+    browserify({entries: ['./front/js/build.js']})
+        .bundle()
+        .pipe(source('application.js'))
+        .pipe(gulp.dest('./front/js/'));
+});
+
+gulp.task('concat:build', function(){
     gulp.src(['./front/js/_balloon.js', './front/js/controller/*.js', './front/js/directive/*.js'])
         .pipe(plumber())
-        .pipe(concat('application.min.js'))
-        .pipe(browserify())
-        .pipe(ngAnnotate())
-        .pipe(uglify())
+        .pipe(concat('build.js'))
         .pipe(gulp.dest('./front/js'));
+    browserify({entries: ['./front/js/build.js']})
+        .bundle()
+        .pipe(source('application.js'))
+        .pipe(gulp.dest('./front/js/'));
 });
+
+// gulp.task('browserify', function(){
+//     browserify({entries: ['./front/js/build.js']})
+//         .bundle()
+//         .pipe(source('application.js'))
+//         .pipe(gulp.dest('./front/js/'));
+// });
 
 gulp.task('copy', function(){
     gulp
@@ -132,14 +147,16 @@ gulp.task('ejs', function(){
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/js/**/_*.js'], ['js:dev']);
+    gulp.watch(['./front/js/**/_*.js'], ['js']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
-    gulp.watch(['./**/*.html', './front/css/application.css', './front/js/application.js'], function(){
+    gulp.watch(['./front/html.html', './front/template/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', ['sass', 'js:dev', 'ejs', 'connect', 'watch']);
-gulp.task('build', function(){
-    runSequence('sass', 'js:build', 'ejs', 'copy');
+gulp.task('default', function(callback) {
+    runSequence('sass', 'concat:dev', 'ejs', 'connect', 'watch', callback);
+});
+gulp.task('build', function(callback){
+    runSequence('sass', 'js:build', 'ejs', 'copy', callback);
 });
