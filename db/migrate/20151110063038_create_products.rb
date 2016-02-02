@@ -4,11 +4,11 @@ class CreateProducts < ActiveRecord::Migration
       t.string  :name
       t.integer :price
       t.integer :stocks
-      t.integer :postage
       t.text    :comment
       t.text    :keyword
       t.date    :registration_date
       t.integer :boxsize_id
+      t.integer :count
 
       t.timestamps null: false
     end
