@@ -163,11 +163,11 @@ ActiveRecord::Schema.define(version: 20160119081731) do
     t.string   "name",              limit: 255
     t.integer  "price",             limit: 4
     t.integer  "stocks",            limit: 4
-    t.integer  "postage",           limit: 4
     t.text     "comment",           limit: 65535
     t.text     "keyword",           limit: 65535
     t.date     "registration_date"
     t.integer  "boxsize_id",        limit: 4
+    t.integer  "count",             limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
