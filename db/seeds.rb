@@ -1,15 +1,4 @@
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
-Product.create(:name =>'hello',:image => 'http://www.mansion-hyoka.com/arch_images/arch24_img02.jpg',:price => 10000)
+
 
 City.create(:name => '北海道', :roman =>'hokkaido')
 City.create(:name => '青森県', :roman =>'aomori')
