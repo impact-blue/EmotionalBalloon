@@ -10,29 +10,26 @@ class CartsController < ApplicationController
   def comfirm
   end
 
-  def thanks
+  def api
+    @product = Cart.new(cart_params)
+    success = {data:{result: "success"}}
+    if @product.save
+     # redirect_to carts_thanks_path
+      render json: success
+    else
+      redirect_to carts_thanks_path
+    end
   end
 
-  def create_cart
-    @cart = Cart.new(cart_params)
-    remote_ip = request.env["HTTP_X_FORWARDED_FOR"] || request.remote_ip
-    @cart.ip = set_ip
-    @cart.flag = 0
-    if @cart.save
-      redirect_to :back
-    else
-      render 'show'
-    end
+  def thanks
   end
 
   private
 
   def cart_params
-    params.require(:cart).permit(:product_id,:ip)
+    params.require(:cart).permit(:product_id)
   end
 
-  def set_ip
-    @ip = request.remote_ip
-  end
+
 
 end

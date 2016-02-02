@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'api/products/ranking'         => 'api#ranking'
   get 'api/products/budget'          => 'api#budget'
   get 'api/products/detail'          => 'api#detail'
+  #post 'api/carts/confirm' => '#confirm'
 
 #下層ページ
   get 'company/agreement' => 'company#agreement'
@@ -20,12 +21,16 @@ Rails.application.routes.draw do
 #productの一覧
   get 'products/show'  => 'products#show'
   get 'products/scene'     => 'products#scene'
+  get 'products' => 'products#index'
+  get 'products/ranking' => 'products#ranking'
 
 #カートの追加
   get 'carts/show' =>'carts#show'
   get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
+  post 'api/carts/comfirm' => 'carts#api'
   get 'carts/thanks' => 'carts#thanks'
+  #post 'api/carts/confirm' => 'carts#thanks'
   post 'products/show'     => 'products#create_cart'
 
  # get 'feature/feature_list' => 'feature#show'
@@ -82,6 +87,9 @@ resources :admin_balloon_options
 
   get 'balloon_types/:id/edit'=> 'balloon_types#edit'
   patch 'balloon_types/:id'   => 'balloon_types#update'
+
+  resources :images,only:[:index,:new,:create],:path => 'admin/images'
+  get 'admin/images/get_image'=>'images#get_image'
 #--ここまで
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'

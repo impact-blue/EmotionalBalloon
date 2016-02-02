@@ -17,7 +17,7 @@ app.config(["$routeProvider", "$locationProvider", "$httpProvider", function($ro
             templateUrl: '/template/public/index.html'
         })
         .when('/products', {
-            templateUrl: '/template/public/product/list.html'
+            templateUrl: '/template/public/product/index.html'
         })
         .when('/products/ranking', {
             templateUrl: '/template/public/product/ranking.html'
@@ -84,6 +84,26 @@ app.controller('adminController', ["$scope", "$http", function($scope, $http) {
 app.controller('balloonController', ["$scope", "$http", function($scope, $http) {
     $scope.data = balloon_data.data;
 }]);
+app.controller('cartComfirmController', ["$scope", "$http", function($scope, $http) {
+    $scope.test = {
+        sample1: 'HelloWorld!!',
+        sample2: 'hogehoge'
+    };
+    $scope.cartComfirm = function() {
+        $http({
+            method: 'POST',
+            url: '/api/carts/comfirm',
+            data: $scope.test
+        }).success(function(data, status, headers, config) {
+            console.log(data);
+            if(data.data.result === 'success') {
+                location.href = "/carts/thanks";
+            }
+        }).error(function(data, status, headers, config) {
+            console.log(status);
+        });
+    };
+}]);
 app.controller('cartShowController', ["$scope", "$http", function($scope, $http) {
     $scope.cartItem = cartItem;
     $scope.data = {};
@@ -99,16 +119,10 @@ app.controller('cartShowController', ["$scope", "$http", function($scope, $http)
 app.controller('productShowController', ["$scope", "$http", function($scope, $http) {
     $scope.is_cart = false;
     $scope.cartItem = cartItem;
-    $http({
-        method: 'GET',
-        url: '/api/products/detail.json'
-    }).success(function(data, status, headers, config) {
-        $scope.data = data.data;
-        angular.forEach($scope.cartItem, function(value, key){
-            if($scope.data.id === value) {
-                $scope.is_cart = true;
-            }
-        });
+    angular.forEach($scope.cartItem, function(value, key){
+        if($scope.data.id === value) {
+            $scope.is_cart = true;
+        }
     });
 
     $scope.toCart = function(id, flag) {
@@ -126,6 +140,12 @@ app.controller('productShowController', ["$scope", "$http", function($scope, $ht
         localStorage.setItem("cart", JSON.stringify($scope.cartItem));
     };
 }]);
+app.directive('hobbeeBreadCrumb', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'partials/ninja-customer.html'
+    };
+});
 },{"angular":9,"angular-bootstrap-datetimepicker":3,"angular-resource":5,"angular-route":7}],2:[function(require,module,exports){
 //! moment.js
 //! version : 2.11.1

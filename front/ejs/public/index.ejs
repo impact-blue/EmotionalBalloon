@@ -49,7 +49,7 @@
 </div>
 <h2 class="balloonHeading2">ランキング</h2>
 <ul class="p-spaceList p-spaceList--ranking">
-    <li ng-repeat="product in data.ranking_products.product_list">
+    <li ng-repeat="product in data.ranking_products.product_list | limitTo: 5">
         <a href="/products/show">
             <img src="{{product.image}}" alt="{{product.name}}">
             <div class="spaceWrapper">
