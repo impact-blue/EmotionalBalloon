@@ -36,15 +36,23 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('js', function(callback){
-    runSequence('concat:dev', 'browserify', callback);
+gulp.task('js:develop', function(callback){
+    runSequence('concat:develop', 'browserify:develop', callback);
 });
 
-gulp.task('concat:dev', function(){
+gulp.task('concat:develop', function(){
     gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js'])
         .pipe(plumber())
-        .pipe(concat('build.js'))
+        .pipe(concat('develop.js'))
         .pipe(gulp.dest('./front/js'));
+});
+
+gulp.task('browserify:develop', function(){
+    browserify({entries: ['./front/js/develop.js']})
+        .bundle()
+        .pipe(plumber())
+        .pipe(source('application.js'))
+        .pipe(gulp.dest('./front/js/'));
 });
 
 gulp.task('concat:build', function(){
@@ -54,11 +62,11 @@ gulp.task('concat:build', function(){
         .pipe(gulp.dest('./front/js'));
 });
 
-gulp.task('browserify', function(){
+gulp.task('browserify:build', function(){
     browserify({entries: ['./front/js/build.js']})
         .bundle()
         .pipe(plumber())
-        .pipe(source('application.js'))
+        .pipe(source('application.min.js'))
         .pipe(gulp.dest('./front/js/'));
 });
 
@@ -140,16 +148,16 @@ gulp.task('ejs', function(){
 
 gulp.task('watch', function(){
     gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/js/**/_*.js'], ['js']);
+    gulp.watch(['./front/js/**/_*.js'], ['js:develop']);
     gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
     gulp.watch(['./front/html.html', './front/template/*.html', './front/css/application.css', './front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', function(callback) {
-    runSequence('sass', 'concat:dev', 'browserify', 'ejs', 'connect', 'watch', callback);
+gulp.task('default', function() {
+    runSequence('sass', 'js:develop', 'ejs', 'connect', 'watch');
 });
 gulp.task('build', function(callback){
-    runSequence('sass', 'concat:build', 'browserify', 'ejs', 'copy', callback);
+    runSequence('sass', 'concat:build', 'browserify:build', 'ejs', 'copy', callback);
 });
