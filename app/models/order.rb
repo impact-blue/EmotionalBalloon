@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
   belongs_to :user, foreign_key: 'user_id'
   belongs_to :city
   belongs_to :scene
+  has_many   :order_product_infos
 
   enum order_status: { unconfirmed: 10, process: 20 , complete: 30 }
 
