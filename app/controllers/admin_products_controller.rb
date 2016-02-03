@@ -6,7 +6,7 @@ class AdminProductsController < ApplicationController
   end
 
   def index
-    @product = Product.all
+    @products = Product.all
   end
 
   def show
