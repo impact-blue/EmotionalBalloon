@@ -19,7 +19,6 @@ class AdminProductsController < ApplicationController
 
   def create
     @product = Product.new(create_params)
-    @product.number = 0
     if @product.save
       redirect_to admin_products_path, notice: '商品の追加が完了しました。'
     else
