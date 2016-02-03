@@ -6,7 +6,6 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :stocks
       t.text    :comment
       t.text    :keyword
-      t.date    :registration_date
       t.integer :boxsize_id
       t.integer :count
 
