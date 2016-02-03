@@ -38,11 +38,4 @@ class AdminCategoryChildrenController < ApplicationController
     params.require(:category_child).permit(:name,:category_id)
   end
 
-  def logged_in_admin_user
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to admin_login_path
-    end
-  end
-
 end

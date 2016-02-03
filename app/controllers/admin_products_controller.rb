@@ -49,11 +49,5 @@ class AdminProductsController < ApplicationController
     params.require(:product).permit(:name,:price,:stocks,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:chara_ids =>[]},{:balloon_type_ids =>[]})
   end
 
-  def logged_in_admin_user
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to admin_login_path
-    end
-  end
 
 end
