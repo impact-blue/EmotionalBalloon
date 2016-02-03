@@ -15,6 +15,28 @@
     <div class="l-admin__right">
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
+            <div class="l-admin__right__foot__content__body">
+    <table class="c-table">
+        <thead class="c-table__thread">
+            <tr class="c-table__row">
+                <th class="c-table__head small"></th>
+                <th class="c-table__head normal">新規受付</th>
+                <th class="c-table__head large">配達済み</th>
+                <th class="c-table__head large">在庫切れ商品</th>
+                <th class="c-table__head"></th>
+            </tr>
+        </thead>
+        <tbody class="c-table__body">
+            <tr class="c-table__row">
+                <td class="c-table__data"></td>
+                <td class="c-table__data"><%= @new %></td>
+                <td class="c-table__data"><%= @complete %></td>
+                <td class="c-table__data"><%= @no_stocks %></td>
+                <td class="c-table__data"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
             </div>
         </div>
     </div>
