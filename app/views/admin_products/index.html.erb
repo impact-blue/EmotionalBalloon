@@ -22,6 +22,7 @@
     <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">None</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
+現在の商品数：<%= @product_count %>
     <table class="c-table">
         <thead class="c-table__thread">
             <tr class="c-table__row">
@@ -33,7 +34,7 @@
             </tr>
         </thead>
         <tbody class="c-table__body">
-         <% @products.each do |product| %>
+        <% @products.each do |product| %>
             <tr class="c-table__row">
                 <td class="c-table__data"><%= product.id %></td>
                 <td class="c-table__data"><%= product.name %></td>
