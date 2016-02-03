@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
 
   def show
-    @cart = Cart.where(ip: request.remote_ip)
   end
 
   def register
@@ -35,10 +34,6 @@ class CartsController < ApplicationController
   end
 
   private
-
-  def cart_params
-    params.require(:cart).permit(:product_id)
-  end
 
   def user_params
     params = ActionController::Parameters.new(JSON.parse(request.body.read))
