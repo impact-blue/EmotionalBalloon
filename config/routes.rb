@@ -28,19 +28,19 @@ Rails.application.routes.draw do
   get 'carts/show' =>'carts#show'
   get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
-  post 'api/carts/comfirm' => 'carts#api'
+  post 'api/carts/comfirm' => 'carts#api' #購入
   get 'carts/thanks' => 'carts#thanks'
   #post 'api/carts/confirm' => 'carts#thanks'
-  post 'products/show'     => 'products#create_cart'
+#  post 'products/show'     => 'products#create_cart'
 
  # get 'feature/feature_list' => 'feature#show'
 
 #商品購入
-  post  'order/new'     =>  'orders#create'
-  patch  'order/new'    =>  'orders#create'
+  #post  'order/new'     =>  'orders#create'
+  #patch  'order/new'    =>  'orders#create'
 #顧客情報入力
-  get 'order/new'       =>  'orders#new'
-  get 'order/complete'  =>  'orders#complete'
+  #get 'order/new'       =>  'orders#new'
+  #get 'order/complete'  =>  'orders#complete'
 
 
 #以下管理画面のルーティング
