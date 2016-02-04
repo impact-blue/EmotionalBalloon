@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(version: 20160203051017) do
     t.text     "keyword",    limit: 65535
     t.integer  "boxsize_id", limit: 4
     t.integer  "count",      limit: 4
+    t.integer  "status",     limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

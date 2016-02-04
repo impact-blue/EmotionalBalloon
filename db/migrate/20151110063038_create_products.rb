@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text    :keyword
       t.integer :boxsize_id
       t.integer :count
+      t.integer :status
 
       t.timestamps null: false
     end

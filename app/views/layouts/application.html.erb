@@ -8,10 +8,11 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
 
-<% if @json_products.present? %>
+<% if @json_products.present? || @json_ranking_products.present? %>
 <script type="text/javascript">
     var balloon_data = {
         data: {
+            <% if @json_products.present? %>
             search_products: {
               title:"",
               discription:"",
@@ -19,7 +20,7 @@
               current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
               max_page:<%= @json_products.num_pages %>,
               product_list:[
-            <% @json_products.each do |p| %>
+                <% @json_products.each do |p| %>
                 {
                     id: <%= p.id %>,
                     name: "<%= p.name %>",
@@ -29,9 +30,23 @@
                     created_at: "<%= p.created_at %>"
                 },
                 <% end %>
-            ]
+              ]
+            }
+            <% end %>
+            <% if @json_ranking_products.present? %>
+            ranking_products:[
+              <% @json_ranking_products.each do |p| %>
+              {
+                id:<%= p.id %>,
+                name:"<%= p.name %>",
+                price:<%= p.price %>,
+                image:"",
+                discription:"<%= p.comment %>",
+              },
+              <% end %>
+            ],
+            <% end %>
         }
-      }
     };
 </script>
 <% end %>
