@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @cart = Cart.new
+    @json_detail_product = Product.find(params[:id])
   end
 
   def scene
