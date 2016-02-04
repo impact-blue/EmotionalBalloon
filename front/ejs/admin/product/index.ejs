@@ -1,9 +1,9 @@
 <% include ../parts/_header %>
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/products?filter=all">ALL</a></li>
-    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/products?filter=public">Public</a></li>
-    <li ng-class="{'on': search === '?filter=secret'}"><a href="/admin/products?filter=secret">Secret</a></li>
-    <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">None</a></li>
+    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/products?filter=all">すべて</a></li>
+    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/products?filter=public">公開</a></li>
+    <li ng-class="{'on': search === '?filter=secret'}"><a href="/admin/products?filter=secret">非公開</a></li>
+    <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">在庫なし</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
     <table class="c-table">
@@ -28,7 +28,7 @@
                 <td class="c-table__body__row__data">{{order.created_at}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="/admin/products/{{order.id}}">詳細を見る</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/products/{{order.id}}/edit">詳細を見る</a></p>
                     </div>
                 </td>
             </tr>
