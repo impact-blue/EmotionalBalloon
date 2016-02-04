@@ -8,6 +8,25 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
   <%= yield :json %>
+
+<script>
+    var balloon_data = {
+        product_ranking:{
+            product_list: [
+            <% @json_products.each do |p| %>
+                {
+                    id: <%= p.id %>,
+                    name: "<%= p.name %>",
+                    price: <%= p.price %>,
+                    description: <%= p.comment %>
+                },
+                <% end %>
+            ]
+            }
+        }
+    };
+</script>
+
 </head>
 <body>
   <%= yield %>
