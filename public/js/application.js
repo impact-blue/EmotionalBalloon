@@ -171,7 +171,7 @@ app.controller('productCreateController', function($scope, $http) {
                 'キーワード3',
                 'キーワード4'
             ],
-            size: 'large',
+            size: 230,
             status: true,
             scene: [
                 'marriage',

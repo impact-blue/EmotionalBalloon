@@ -164,13 +164,7 @@ app.controller('productCreateController', function($scope, $http) {
                 "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720175"
             ],
             description: "当店人気ナンバーワンのバルーン電報です。淡いピンクが輝いて、キレイな祝電です。ウェルカムボードの横に置いたり、高砂席の両サイドに飾ってもステキですよ。",
-            keywords: [
-                'キーワード1',
-                'キーワード2',
-                'キーワード3',
-                'キーワード4'
-            ],
-            size: 'large',
+            size: 230,
             status: true,
             scene: [
                 'marriage',
