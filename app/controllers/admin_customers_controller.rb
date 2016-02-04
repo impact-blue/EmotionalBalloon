@@ -5,13 +5,4 @@ class AdminCustomersController < ApplicationController
   @order = Order.where.not(user_id: nil)
   end
 
-  private
-
-  def logged_in_admin_user
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to admin_login_path
-    end
-  end
-
 end

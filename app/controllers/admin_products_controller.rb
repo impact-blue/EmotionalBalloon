@@ -6,7 +6,8 @@ class AdminProductsController < ApplicationController
   end
 
   def index
-    @product = Product.all
+    @products = Product.all
+    @product_count = Product.count
   end
 
   def show
@@ -19,7 +20,6 @@ class AdminProductsController < ApplicationController
 
   def create
     @product = Product.new(create_params)
-    @product.number = 0
     if @product.save
       redirect_to admin_products_path, notice: '商品の追加が完了しました。'
     else
@@ -49,11 +49,5 @@ class AdminProductsController < ApplicationController
     params.require(:product).permit(:name,:price,:stocks,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:chara_ids =>[]},{:balloon_type_ids =>[]})
   end
 
-  def logged_in_admin_user
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to admin_login_path
-    end
-  end
 
 end

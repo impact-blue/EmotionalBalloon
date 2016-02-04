@@ -1,4 +1,5 @@
 class AdminUsersController < ApplicationController
+    before_action :logged_in_admin_user
   layout 'header_admin'
   def show
     @admin_user = AdminUser.find(params[:id])

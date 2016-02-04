@@ -22,24 +22,27 @@
     <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">None</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
+現在の商品数：<%= @product_count %>
     <table class="c-table">
         <thead class="c-table__thread">
             <tr class="c-table__row">
                 <th class="c-table__head small">id</th>
-                <th class="c-table__head normal">status</th>
-                <th class="c-table__head large">user</th>
-                <th class="c-table__head large">date</th>
-                <th class="c-table__head">option</th>
+                <th class="c-table__head normal">name</th>
+                <th class="c-table__head large">price</th>
+                <th class="c-table__head large">stocks</th>
+                <th class="c-table__head">count</th>
             </tr>
         </thead>
         <tbody class="c-table__body">
-            <tr class="c-table__row" ng-repeat="order in data.order_list">
-                <td class="c-table__data"><a href="">{{order.id}}</a></td>
-                <td class="c-table__data">{{order.status}}</td>
-                <td class="c-table__data"><a href="">{{order.user.name}}</a></td>
-                <td class="c-table__data">{{order.date}}</td>
-                <td class="c-table__data">{{order.option}}</td>
+        <% @products.each do |product| %>
+            <tr class="c-table__row">
+                <td class="c-table__data"><%= product.id %></td>
+                <td class="c-table__data"><%= product.name %></td>
+                <td class="c-table__data"><%= product.price %></td>
+                <td class="c-table__data"><%= product.stocks %></td>
+                <td class="c-table__data"><%= product.count %></td>
             </tr>
+        <% end %>
         </tbody>
     </table>
 </div>
