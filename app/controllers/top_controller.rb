@@ -1,7 +1,7 @@
 class TopController < ApplicationController
 
   def index
-    @products = Product.all.page(params[:page]).per(5).order("created_at DESC")
+    @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")
   end
 
 end

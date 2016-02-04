@@ -1,18 +1,26 @@
 class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
-  before_action :json_index
+  before_action :set_json_index
 
   def new
     @product = Product.new
   end
 
   def index
-    @products = Product.all
+    @products = Product.all.includes(:balloon_types)
     @product_count = Product.count
+
+    if params[:filter] == "public"
+      @json_products = Product.where(status: 1).includes(:balloon_types).page(params[:page]).per(@page).order("created_at DESC")
+    elsif params[:filter] == "secret"
+      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at DESC")
+    elsif params[:filter] == "none"
+      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at DESC")
+    end
   end
 
   def show
-    @product = Product.all
+    @product = Product.all.includes(:balloon_types,:colors,:charas,:scenes,:boxsize)
   end
 
   def edit

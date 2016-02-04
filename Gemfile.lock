@@ -53,6 +53,9 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (8.2.1)
     capistrano (3.4.0)
       i18n
@@ -233,6 +236,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.9.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -254,6 +258,7 @@ DEPENDENCIES
   angular_rails_csrf
   better_errors
   binding_of_caller
+  bullet
   byebug
   capistrano
   capistrano-rails
