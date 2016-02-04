@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
 
-<% if @json_products.present? || @json_ranking_products.present? %>
+<% if @json_products.present? || @json_ranking_products.present? || @json_detail_product.present? %>
 <script type="text/javascript">
     var balloon_data = {
         data: {
@@ -40,11 +40,20 @@
                 id:<%= p.id %>,
                 name:"<%= p.name %>",
                 price:<%= p.price %>,
-                image:"",
-                discription:"<%= p.comment %>",
+                image:"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809",
+                description:"<%= p.comment %>",
               },
               <% end %>
-            ],
+            ]
+            <% end %>
+            <% if @json_detail_product.present? %>
+            detail_product: {
+              id:<%= @json_detail_product.id  %>,
+              name:"<%= @json_detail_product.name %>",
+              price:<%= @json_detail_product.price %>,
+              description:"<%= @json_detail_product.comment %>",
+              image:"",
+            }
             <% end %>
         }
     };

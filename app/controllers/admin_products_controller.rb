@@ -7,11 +7,13 @@ class AdminProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.includes(:balloon_types)
+    @products = Product.all
     @product_count = Product.count
 
-    if params[:filter] == "public"
-      @json_products = Product.where(status: 1).includes(:balloon_types).page(params[:page]).per(@page).order("created_at DESC")
+    if params[:filter] == "all"
+      @json_products = Product.all.page(params[:page]).per(@page).order("created_at DESC")
+    elsif params[:filter] == "public"
+      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("created_at DESC")
     elsif params[:filter] == "secret"
       @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at DESC")
     elsif params[:filter] == "none"
