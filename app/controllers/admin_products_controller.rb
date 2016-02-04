@@ -1,5 +1,6 @@
 class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
+  before_action :json_index
 
   def new
     @product = Product.new
