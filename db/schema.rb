@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119081731) do
+ActiveRecord::Schema.define(version: 20160203051017) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 20160119081731) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "name",       limit: 255
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.string   "ip",         limit: 255
-    t.integer  "product_id", limit: 4
-    t.integer  "flag",       limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -80,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160119081731) do
   end
 
   create_table "images", force: :cascade do |t|
+    t.integer  "product_id",         limit: 4
     t.string   "name",               limit: 255
     t.binary   "image",              limit: 16777215
     t.string   "image_content_type", limit: 255
@@ -87,25 +80,25 @@ ActiveRecord::Schema.define(version: 20160119081731) do
     t.datetime "updated_at",                          null: false
   end
 
+  create_table "order_product_infos", force: :cascade do |t|
+    t.integer  "order_id",   limit: 4
+    t.integer  "product_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "orders", force: :cascade do |t|
-    t.integer  "product_id",        limit: 4
-    t.integer  "product_number",    limit: 4
     t.integer  "payment_id",        limit: 4
     t.integer  "user_id",           limit: 4
     t.integer  "city_id",           limit: 4
     t.date     "order_date"
-    t.date     "delively_date"
     t.string   "delivery_address",  limit: 255
     t.string   "delivery_address2", limit: 255
     t.string   "option",            limit: 255
     t.integer  "scene_id",          limit: 4
-    t.string   "opponent",          limit: 255
     t.string   "order_status",      limit: 255
     t.integer  "price",             limit: 4
     t.integer  "postage",           limit: 4
-    t.integer  "commission",        limit: 4
-    t.integer  "tax",               limit: 4
-    t.integer  "coupon",            limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
@@ -138,20 +131,6 @@ ActiveRecord::Schema.define(version: 20160119081731) do
     t.datetime "updated_at",           null: false
   end
 
-  create_table "product_images", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
-    t.integer  "image_id",   limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "product_orders", force: :cascade do |t|
-    t.integer  "product_id", limit: 4
-    t.integer  "order_id",   limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "product_scenes", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "scene_id",   limit: 4
@@ -160,16 +139,15 @@ ActiveRecord::Schema.define(version: 20160119081731) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.integer  "price",             limit: 4
-    t.integer  "stocks",            limit: 4
-    t.text     "comment",           limit: 65535
-    t.text     "keyword",           limit: 65535
-    t.date     "registration_date"
-    t.integer  "boxsize_id",        limit: 4
-    t.integer  "count",             limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "name",       limit: 255
+    t.integer  "price",      limit: 4
+    t.integer  "stocks",     limit: 4
+    t.text     "comment",    limit: 65535
+    t.text     "keyword",    limit: 65535
+    t.integer  "boxsize_id", limit: 4
+    t.integer  "count",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "scenes", force: :cascade do |t|

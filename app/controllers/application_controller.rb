@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
   private
     def basic
       authenticate_or_request_with_http_basic do |user, pass|
@@ -23,5 +24,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
+  def logged_in_admin_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to admin_login_path
+    end
+  end
 
 end
