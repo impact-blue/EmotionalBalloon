@@ -514,14 +514,20 @@ h2.balloonHeading2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
 }
 .c-nextButton__list {
+  width: calc(200% / 5);
   font-size: 14px;
+  text-align: center;
+}
+.c-nextButton__list:nth-of-type(2) {
+  width: calc(100% / 5);
 }
 .c-nextButton__list__button {
   width: 120px;
+  margin: 0 auto;
   line-height: 40px;
   text-align: center;
   font-size: 12px;
