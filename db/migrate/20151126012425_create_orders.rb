@@ -1,9 +1,9 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.integer :payment_id
       t.integer :user_id
-      t.integer :city_id
+      t.string :city
+      t.string :payment_info
       t.date :order_date
       t.string :delivery_address
       t.string :delivery_address2

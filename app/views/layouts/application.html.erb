@@ -12,7 +12,6 @@
 <script type="text/javascript">
     var balloon_data = {
         data: {
-          <% if @json_products.present? || @json_ranking_products.present? || @json_detail_product.present? %>
             <% if @json_products.present? %>
             search_products: {
               title:"",
@@ -62,6 +61,22 @@
               description:"<%= @json_detail_product.comment %>",
             }
             <% end %>
+            <% if @json_order_list.present? %>
+            order_list:[
+              <% @json_order_list.each do |o| %>
+              {
+                id:<%= o.id %>,
+                family_name: "<%= o.user.family_name %>",
+                first_name: "<%= o.user.first_name%>",
+                price:<%= o.price%>,
+                status:"<%= o.order_status %>",
+                created_at:"<%= o.created_at %>",
+                payment_info:{
+                 method: "<%= o.payment_info %>"
+                }
+              },
+              <% end %>
+            ]
             <% end %>
         }
     };

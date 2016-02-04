@@ -53,6 +53,7 @@ get "admin" => "admin#index"
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
   post 'api/products/edit' => 'admin_products#api'
+  patch 'api/products/edit' => 'admin_products#api'
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'

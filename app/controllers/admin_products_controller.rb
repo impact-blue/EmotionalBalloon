@@ -32,6 +32,7 @@ class AdminProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @json_detail_product = Product.find(params[:id])
   end
 
   def create
@@ -65,7 +66,9 @@ class AdminProductsController < ApplicationController
       @product.count = 0
     elsif params[:id].present?
       @product = Product.find(params[:id])
+     # @json_detail_product = Product.find(params[:id])
     end
+    binding.pry
     @product.name = params[:data][:name]
     @product.price = params[:data][:price]
     @product.stocks = params[:data][:stock]
