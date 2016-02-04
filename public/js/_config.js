@@ -39,7 +39,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/admin/product/index.html'
         })
         .when('/admin/products/:id/edit', {
-            templateUrl: '/template/admin/product/index.html'
+            templateUrl: '/template/admin/product/edit.html'
         })
         .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html'
