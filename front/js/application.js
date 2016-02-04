@@ -22,7 +22,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/products/ranking', {
             templateUrl: '/template/public/product/ranking.html'
         })
-        .when('/products/show', {
+        .when('/products/show/:id', {
             templateUrl: '/template/public/product/show.html'
         })
         .when('/carts/show', {
