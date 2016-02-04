@@ -11,6 +11,7 @@ class CartsController < ApplicationController
   end
 
   def api
+    binding.pry
     @order = Order.new(order_params)
     @order.delivery_address = params[:data][:destination_info][:address1]
     @order.order_status = "unconfirmed"
@@ -22,7 +23,6 @@ class CartsController < ApplicationController
     @order.user.address2 = params[:data][:buyer_info][:address2]
     @order.user.email = params[:data][:buyer_info][:mail]
     @order.user.phone = params[:data][:buyer_info][:phone]
-
 
     params[:data][:product_info].each_with_index do |product_info,i|
       @order.order_product_infos.build
