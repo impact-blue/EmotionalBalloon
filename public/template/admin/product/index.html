@@ -54,7 +54,7 @@
         <li class="c-nextButton__list">
             <a href="/admin/products/?filter=all&page={{data.search_products.current_page - 1}}" ng-if="data.search_products.current_page > 1"><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
         </li>
-        <li class="c-nextButton__list ng-binding">2 / 5</li>
+        <li class="c-nextButton__list ng-binding">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
         <li class="c-nextButton__list">
             <a href="/admin/products/?filter=all&page={{data.search_products.current_page + 1}}" ng-if="data.search_products.current_page !== data.search_products.max_page"><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
         </li>
