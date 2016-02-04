@@ -3,7 +3,7 @@
 <head>
   <title>EmotionalBalloon</title>
   <link rel="stylesheet" type="text/css" href="/css/application.css">
-  <script src="/js/application.js"></script>
+  <script src="/js/application.min.js"></script>
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
@@ -16,7 +16,7 @@
               title:"",
               discription:"",
               image:"",
-              current_page:<%= params[:page] %>,
+              current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
               max_page:<%= @json_products.num_pages %>,
               product_list:[
             <% @json_products.each do |p| %>
