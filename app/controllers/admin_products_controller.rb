@@ -6,9 +6,14 @@ class AdminProductsController < ApplicationController
     @product = Product.new
   end
 
+
   def index
     @products = Product.all
     @product_count = Product.count
+
+    unless params[:filter].present?
+      redirect_to "/admin/products?filter=all"
+    end
 
     if params[:filter] == "all"
       @json_products = Product.all.page(params[:page]).per(@page).order("created_at DESC")
@@ -54,11 +59,43 @@ class AdminProductsController < ApplicationController
     redirect_to admin_products_path
   end
 
+  def api
+    if params[:id].nil?
+      @product = Product.new(product_params)
+    elsif params[:id].present?
+      @product = Product.find(params[:id])
+    end
+binding.pry
+    @product.name = params[:data][:name]
+    @product.price = params[:data][:price]
+    @product.stocks = params[:data][:stock]
+    @product.main_image = params[:data][:images][0]
+    @product.comment = params[:data][:desctiption]
+    @product.boxsize_id = params
+
+   # @product.user = User.new(user_params)
+    #@product.user.first_name = params[:data][:buyer_info][:family_name]
+
+    params[:data][:images].each_with_index do |product_info,i|
+      @product.images.build
+      @product.images[i].product_id = @product.id
+      @product.images[i].image = params[:data][:images][i]
+    end
+
+    if @product.save
+      render json: {data:{result:"success"}}
+    end
+  end
+
   private
 
   def create_params
     params.require(:product).permit(:name,:price,:stocks,:comment,:recommended,:keyword,:boxsize_id,:registration_date,{:scene_ids =>[]},{:color_ids =>[]},{:chara_ids =>[]},{:balloon_type_ids =>[]})
   end
 
+  def product_params
+    params = ActionController::Parameters.new(JSON.parse(request.body.read))
+    params.require(:data).permit(:id)
+  end
 
 end

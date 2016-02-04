@@ -4,9 +4,11 @@ class CreateProducts < ActiveRecord::Migration
       t.string  :name
       t.integer :price
       t.integer :stocks
+      t.binary :main_image, limit: 10.megabyte
+      t.string :main_image_content_type
       t.text    :comment
       t.text    :keyword
-      t.integer :boxsize_id
+      t.integer :size
       t.integer :count
       t.integer :status
 

@@ -11,6 +11,7 @@ class CartsController < ApplicationController
   end
 
   def api
+    binding.pry
     @order = Order.new(order_params)
     @order.delivery_address = params[:data][:destination_info][:address1]
     @order.order_status = "unconfirmed"

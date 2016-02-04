@@ -44,6 +44,7 @@ class ApplicationController < ActionController::Base
     balloon_type = params[:balloon_type]
     @page = 20
     @current_page = params[:page].to_i
+    balloon_data={}
 
 #    if min.present? && max.present?
 #      @json_products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at DESC")
