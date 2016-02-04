@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 20160203051017) do
     t.string   "name",         limit: 255
   end
 
-  create_table "boxsizes", force: :cascade do |t|
-    t.string   "boxsize",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "name",       limit: 255
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
@@ -139,16 +132,18 @@ ActiveRecord::Schema.define(version: 20160203051017) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "price",      limit: 4
-    t.integer  "stocks",     limit: 4
-    t.text     "comment",    limit: 65535
-    t.text     "keyword",    limit: 65535
-    t.integer  "boxsize_id", limit: 4
-    t.integer  "count",      limit: 4
-    t.integer  "status",     limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "name",                    limit: 255
+    t.integer  "price",                   limit: 4
+    t.integer  "stocks",                  limit: 4
+    t.binary   "main_image",              limit: 16777215
+    t.string   "main_image_content_type", limit: 255
+    t.text     "comment",                 limit: 65535
+    t.text     "keyword",                 limit: 65535
+    t.integer  "size",                    limit: 4
+    t.integer  "count",                   limit: 4
+    t.integer  "status",                  limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "scenes", force: :cascade do |t|

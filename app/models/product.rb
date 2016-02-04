@@ -10,7 +10,6 @@ class Product < ActiveRecord::Base
   has_many :order_product_infos
   has_many :product_scenes
   has_many :scenes, through: :product_scenes
-  belongs_to :boxsize
   has_many :carts
 
   has_many :product_category_children
@@ -41,6 +40,6 @@ class Product < ActiveRecord::Base
   #validates :registration_date,  presence: { message: 'は必須です' }
 
   #箱サイズ
-  validates :boxsize_id,  presence: { message: 'は必須です' }
+  #validates :boxsize_id,  presence: { message: 'は必須です' }
 
 end

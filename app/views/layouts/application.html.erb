@@ -8,10 +8,11 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
 
-<% if @json_products.present? || @json_ranking_products.present? || @json_detail_product.present? %>
+
 <script type="text/javascript">
     var balloon_data = {
         data: {
+          <% if @json_products.present? || @json_ranking_products.present? || @json_detail_product.present? %>
             <% if @json_products.present? %>
             search_products: {
               title:"",
@@ -40,25 +41,32 @@
                 id:<%= p.id %>,
                 name:"<%= p.name %>",
                 price:<%= p.price %>,
-                image:"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809",
+                image:"<%= p.main_image %>",
                 description:"<%= p.comment %>",
               },
               <% end %>
-            ]
+            ],
             <% end %>
             <% if @json_detail_product.present? %>
             detail_product: {
               id:<%= @json_detail_product.id  %>,
               name:"<%= @json_detail_product.name %>",
               price:<%= @json_detail_product.price %>,
+              <% if @json_detail_product.images.present? %>
+              images:[
+                  <% @json_detail_product.images.each do |p| %>
+                    "<%= p.image %>",
+                  <% end %>
+              ],
+              <% end %>
               description:"<%= @json_detail_product.comment %>",
-              image:"",
             }
+            <% end %>
             <% end %>
         }
     };
 </script>
-<% end %>
+
 </head>
 <body>
   <%= yield %>
