@@ -73,13 +73,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 app.controller('adminController', function($scope, $http) {
     $scope.path = location.pathname;
     $scope.search = location.search;
-
-    $http({
-        method: 'GET',
-        url: apiUrl[1]
-    }).success(function(data, status, headers, config) {
-        $scope.data = data.data;
-    });
+    $scope.data = balloon_data.data;
 });
 app.controller('balloonController', function($scope, $http) {
     $scope.data = balloon_data.data;
@@ -87,44 +81,44 @@ app.controller('balloonController', function($scope, $http) {
 app.controller('cartComfirmController', function($scope, $http) {
     $scope.comfirm = {
         data: {
-            product_info: [
-                {
-                    id: 123,
-                    number: 3
-                },
-                {
-                    id: 456,
-                    number: 1
-                },
-                {
-                    id: 789,
-                    number: 8
-                }
-            ],
-            buyer_info: {
-                family_name: "Wada",
-                first_name: "Hayato",
-                jointly: "hatoya",
-                postal_code: 3560058,
-                prefectures: "Saitamaken",
-                address1: "fujiminoshiohichuou1-10-9",
-                address2: null,
-                phone: 1111,
-                mail: "hatoya.web.design@gmail.com"
-            },
-            destination_info: {
-                family_name: "和田",
-                first_name: "隼人",
-                postal_code: 3560058,
-                prefectures: "埼玉県",
-                address1: "ふじみ野市大井中央1-10-9",
-                address2: null,
-                date: "timestump",
-                classification: "other"
-            },
-            payment_info: {
-                method: "credit"
-            },
+            // product_info: [
+            //     {
+            //         id: 123,
+            //         number: 3
+            //     },
+            //     {
+            //         id: 456,
+            //         number: 1
+            //     },
+            //     {
+            //         id: 789,
+            //         number: 8
+            //     }
+            // ],
+            // buyer_info: {
+            //     family_name: "Wada",
+            //     first_name: "Hayato",
+            //     jointly: "hatoya",
+            //     postal_code: 3560058,
+            //     prefectures: "Saitamaken",
+            //     address1: "fujiminoshiohichuou1-10-9",
+            //     address2: null,
+            //     phone: 1111,
+            //     mail: "hatoya.web.design@gmail.com"
+            // },
+            // destination_info: {
+            //     family_name: "和田",
+            //     first_name: "隼人",
+            //     postal_code: 3560058,
+            //     prefectures: "埼玉県",
+            //     address1: "ふじみ野市大井中央1-10-9",
+            //     address2: null,
+            //     date: "timestump",
+            //     classification: "other"
+            // },
+            // payment_info: {
+            //     method: "credit"
+            // },
             comment: "Hello, World!!"
         }
     };

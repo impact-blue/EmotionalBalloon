@@ -431,6 +431,24 @@ h2.balloonHeading2 {
   cursor: pointer;
 }
 
+.c-button--detail__text {
+  width: 70px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 24px;
+  font-size: 11px;
+  font-weight: normal;
+  background: #D83961;
+  border-radius: 3px;
+}
+.c-button--detail__text:hover {
+  opacity: 0.9;
+}
+.c-button--detail__text a {
+  display: block;
+  color: white;
+}
+
 .breadList {
   display: flex;
   margin-bottom: 20px;
@@ -467,42 +485,29 @@ h2.balloonHeading2 {
   border-collapse: separate;
   border-spacing: 0px 1px;
 }
-.c-table__row:nth-of-type(2n-1) {
+.c-table__thread__row:nth-of-type(2n-1), .c-table__body__row:nth-of-type(2n-1) {
   background: #f7f7f7;
 }
-.c-table__head {
+.c-table__thread__row__head {
+  font-size: 14px;
   border-left: 1px solid #555;
   background: white;
 }
-.c-table__head:first-child {
+.c-table__thread__row__head:first-child {
   border-left: none;
 }
-.c-table__head.small {
-  width: 50px;
-}
-.c-table__head.normal {
-  width: 120px;
-}
-.c-table__head.large {
-  width: 200px;
-}
-.c-table__data {
+.c-table__body__row__data {
+  max-width: 200px;
+  padding: 10px;
   text-align: center;
   border-top: 1px solid #555;
   border-left: 1px solid #555;
 }
-.c-table__data:first-child {
+.c-table__body__row__data:first-child {
   border-left: none;
 }
-.c-table__data:last-child {
-  text-align: left;
-  padding: 10px;
-}
-.c-table__data a {
-  text-decoration: underline;
-}
-.c-table__data a:hover {
-  opacity: 0.5;
+.c-table__body__row__data img {
+  width: 100%;
 }
 
 .c-nextButton {
