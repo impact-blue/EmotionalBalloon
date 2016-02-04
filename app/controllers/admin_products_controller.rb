@@ -62,17 +62,22 @@ class AdminProductsController < ApplicationController
   def api
     if params[:id].nil?
       @product = Product.new(product_params)
+      @product.count = 0
     elsif params[:id].present?
       @product = Product.find(params[:id])
     end
-binding.pry
     @product.name = params[:data][:name]
     @product.price = params[:data][:price]
     @product.stocks = params[:data][:stock]
     @product.main_image = params[:data][:images][0]
-    @product.comment = params[:data][:desctiption]
-    @product.boxsize_id = params
+    @product.comment = params[:data][:description]
+    @product.size = params[:data][:size]
 
+    if params[:data][:status] = "true"
+      @product.status = 1
+    elsif parama[:data][:status] = "false"
+      @product.status = 0
+    end
    # @product.user = User.new(user_params)
     #@product.user.first_name = params[:data][:buyer_info][:family_name]
 
@@ -81,6 +86,12 @@ binding.pry
       @product.images[i].product_id = @product.id
       @product.images[i].image = params[:data][:images][i]
     end
+
+    #params[:data][:scene].each_with_index do |product_info,i|
+    #  @product.scenes.build
+    #  @product.scenes[i].product_id = @product.id
+    #  @product.scenes[i].image = params[:data][:images][i]
+    #end
 
     if @product.save
       render json: {data:{result:"success"}}
