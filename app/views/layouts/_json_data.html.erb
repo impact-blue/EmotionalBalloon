@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html ng-app="balloonApp">
-<head>
-  <title>EmotionalBalloon</title>
-  <link rel="stylesheet" type="text/css" href="/css/application.css">
-  <script src="/js/application.js"></script>
-  <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <meta name="robots" content="noindex,nofollow">
-
-<% if @json_products.present? %>
 <script type="text/javascript">
     var balloon_data = {
         data: {
@@ -16,8 +5,8 @@
               title:"",
               discription:"",
               image:"",
-              current_page:<%= params[:page] %>,
-              max_page:<%= @json_products.num_pages %>,
+              current_page:2,
+              max_page:3,
               product_list:[
             <% @json_products.each do |p| %>
                 {
@@ -34,9 +23,3 @@
       }
     };
 </script>
-<% end %>
-</head>
-<body>
-  <%= yield %>
-</body>
-</html>
