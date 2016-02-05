@@ -34,6 +34,7 @@ gem 'unicorn'
   gem 'rb-readline'
   gem 'angular-rails-engine'
   gem'angular_rails_csrf'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'byebug'
