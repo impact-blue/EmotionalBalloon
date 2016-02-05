@@ -34,6 +34,11 @@ class CartsController < ApplicationController
     end
 
     if @order.save
+      params[:data][:product_info].each_with_index do |product_info,i|
+        @product = Product.find(product_info[:id])
+        @product.count += params[:data][:product_info][i][:count]
+        @product.save
+      end
       render json: {data:{result:"success"}}
     else
       redirect_to carts_thanks_path
