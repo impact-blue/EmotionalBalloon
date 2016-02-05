@@ -34,8 +34,9 @@ Rails.application.configure do
   :domain => 'smtp.gmail.com',
   :authentication => 'plain',
   :user_name => 'negai.m.nishimura@gmail.com',
-  :password => '81338133'
+  :password => 'fxatenblagmclhtf'
   }
+
 
     config.after_initialize do
     Bullet.enable  = true   # bullet を有効にする
@@ -44,18 +45,10 @@ Rails.application.configure do
     Bullet.alert   = true   # ブラウザのJavaScriptアラート
     Bullet.bullet_logger = true # Rails.root/log/bullet.log
     Bullet.console = true   # ブラウザの console.log の出力先
-    #Bullet.growl   = true   # Growl
-    #Bullet.xmpp = { :account  => 'bullets_account@jabber.org',
-    #                :password => 'bullets_password_for_jabber',
-    #                :receiver => 'your_account@jabber.org',
-    #                :show_online_status => true }
+
     Bullet.rails_logger = true # Railsのログ
-    #Bullet.bugsnag      = true # 総合デバッガツールbugsnag
-    #Bullet.airbrake     = true # Airbrake
-    #Bullet.raise        = true # Exceptionを発生
+
     Bullet.add_footer   = true # 画面の下部に表示
-    # include paths with any of these substrings in the stack trace,
-    # even if they are not in your main app
-    #Bullet.stacktrace_includes = [ 'your_gem', 'your_middleware' ]
+
   end
 end

@@ -33,17 +33,17 @@ class CartsController < ApplicationController
       @order.order_product_infos[i].product_id = product_info[:id]
     end
 
-
-
     if @order.save
       render json: {data:{result:"success"}}
     else
       redirect_to carts_thanks_path
-   #    render json: {data:{result:"success"}}
+   #  render json: {data:{result:"success"}}
     end
   end
 
   def thanks
+    @order = Order.find(1)
+    Mailer.buy_thanks_email(@order).deliver
   end
 
   private

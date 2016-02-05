@@ -120,7 +120,7 @@ Order.create(:user_id => '18',:payment_info => '銀行振込',:order_status => '
 Order.create(:user_id => '19',:payment_info => 'Amazon決済',:order_status => '新着',:price => '1800')
 Order.create(:user_id => '20',:payment_info => '楽天決済',:order_status => '未発送',:price => '1800')
 
-User.create(:family_name => '西村',:first_name => '健人')
+User.create(:family_name => '西村',:first_name => '健人',:email =>'negai.m.nishimura@gmail.com')
 User.create(:family_name => 'Wada',:first_name => 'Hayato')
 User.create(:family_name => '姓',:first_name => '名')
 User.create(:family_name => 'テスト',:first_name => 'テスト')
