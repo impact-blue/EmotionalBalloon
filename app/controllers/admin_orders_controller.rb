@@ -7,7 +7,6 @@ class AdminOrdersController < ApplicationController
   end
 
   def edit
-    
   end
 
 end

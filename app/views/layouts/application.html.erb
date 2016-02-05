@@ -13,70 +13,70 @@
     var balloon_data = {
         data: {
             <% if @json_products.present? %>
-            search_products: {
-              title:"",
-              discription:"",
-              image:"",
-              current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
-              max_page:<%= @json_products.num_pages %>,
-              product_list:[
-                <% @json_products.each do |p| %>
-                {
-                    id: <%= p.id %>,
-                    name: "<%= p.name %>",
-                    price: <%= p.price %>,
-                    stock: <%= p.stocks %>,
-                    count: <%= p.count %>,
-                    created_at: "<%= p.created_at %>"
-                },
-                <% end %>
-              ]
-            }
+              search_products: {
+                title:"",
+                discription:"",
+                image:"",
+                current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
+                max_page:<%= @json_products.num_pages %>,
+                product_list:[
+                  <% @json_products.each do |p| %>
+                    {
+                        id: <%= p.id %>,
+                        name: "<%= p.name %>",
+                        price: <%= p.price %>,
+                        stock: <%= p.stocks %>,
+                        count: <%= p.count %>,
+                        created_at: "<%= p.created_at %>"
+                    },
+                  <% end %>
+                ]
+              }
             <% end %>
             <% if @json_ranking_products.present? %>
-            ranking_products:[
-              <% @json_ranking_products.each do |p| %>
-              {
-                id:<%= p.id %>,
-                name:"<%= p.name %>",
-                price:<%= p.price %>,
-                image:"<%= p.main_image %>",
-                description:"<%= p.comment %>",
-              },
-              <% end %>
-            ],
+              ranking_products:[
+                <% @json_ranking_products.each do |p| %>
+                  {
+                    id:<%= p.id %>,
+                    name:"<%= p.name %>",
+                    price:<%= p.price %>,
+                    image:"<%= p.main_image %>",
+                    description:"<%= p.comment %>",
+                  },
+                <% end %>
+              ],
             <% end %>
             <% if @json_detail_product.present? %>
-            detail_product: {
-              id:<%= @json_detail_product.id  %>,
-              name:"<%= @json_detail_product.name %>",
-              price:<%= @json_detail_product.price %>,
-              <% if @json_detail_product.images.present? %>
-              images:[
+              detail_product: {
+                id:<%= @json_detail_product.id  %>,
+                name:"<%= @json_detail_product.name %>",
+                price:<%= @json_detail_product.price %>,
+                <% if @json_detail_product.images.present? %>
+                images:[
                   <% @json_detail_product.images.each do |p| %>
                     "<%= p.image %>",
                   <% end %>
-              ],
-              <% end %>
-              description:"<%= @json_detail_product.comment %>",
-            }
+                ],
+                <% end %>
+                description:"<%= @json_detail_product.comment %>",
+              }
             <% end %>
             <% if @json_order_list.present? %>
-            order_list:[
-              <% @json_order_list.each do |o| %>
-              {
-                id:<%= o.id %>,
-                family_name: "<%= o.user.family_name %>",
-                first_name: "<%= o.user.first_name%>",
-                price:<%= o.price%>,
-                status:"<%= o.order_status %>",
-                created_at:"<%= o.created_at %>",
-                payment_info:{
-                 method: "<%= o.payment_info %>"
-                }
-              },
-              <% end %>
-            ]
+              order_list:[
+                <% @json_order_list.each do |o| %>
+                  {
+                    id:<%= o.id %>,
+                    family_name: "<%= o.user.family_name %>",
+                    first_name: "<%= o.user.first_name%>",
+                    price:<%= o.price%>,
+                    status:"<%= o.order_status %>",
+                    created_at:"<%= o.created_at %>",
+                    payment_info:{
+                     method: "<%= o.payment_info %>"
+                    }
+                  },
+                <% end %>
+              ]
             <% end %>
         }
     };
