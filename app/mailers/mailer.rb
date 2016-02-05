@@ -8,4 +8,8 @@ class Mailer < ApplicationMailer
     #会社へのメールも設定する。
   end
 
+  def thanks_contact
+    #apiのコントローラーでメッセージの送信（保存した後で、リダイレクトする前）
+  end
+
 end
