@@ -59,6 +59,7 @@ get "admin" => "admin#index"
 #TODO: 設定のコントローラー作成
   resources :admin_settings,only:[:index],:path => 'admin/settings'
   get 'admin/settings/mail' => 'admin_settings#mail_setting'
+  patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
 
 resources :admin_balloon_options
 #バルーンのオプションの選択--ここから

@@ -214,6 +214,8 @@ Scene.create(:scene => 'babygift' ,:name => '出産祝い')
 Scene.create(:scene => 'birthday' ,:name => '誕生日')
 Scene.create(:scene => 'open' ,:name => '開店祝い')
 
+MailContent.create(:subject => 'エモーショナルバルーン：商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
+
 AdminUser.create(:name => 'impact',:email => 'impact1234@example.com',:password => 'impact1234')
 AdminUser.create(:name => 'kubota',:email => 'kubota@impact-blue.co.jp',:password => 'impact2016')
 AdminUser.create(:name => 'muraki',:email => 'muraki@impact-blue.co.jp',:password => 'impact2016')
