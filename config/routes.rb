@@ -31,17 +31,14 @@ Rails.application.routes.draw do
   post 'api/carts/comfirm' => 'carts#api' #購入
   get 'carts/thanks' => 'carts#thanks'
   #post 'api/carts/confirm' => 'carts#thanks'
-#  post 'products/show'     => 'products#create_cart'
-
+  #post 'products/show'     => 'products#create_cart'
  # get 'feature/feature_list' => 'feature#show'
-
 #商品購入
   #post  'order/new'     =>  'orders#create'
   #patch  'order/new'    =>  'orders#create'
 #顧客情報入力
   #get 'order/new'       =>  'orders#new'
   #get 'order/complete'  =>  'orders#complete'
-
 
 #以下管理画面のルーティング
   get   'admin/user/new'   => 'admin_users#new'
@@ -57,11 +54,11 @@ get "admin" => "admin#index"
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
-
 #管理画面の購入した人一覧
   resources :admin_customers,only: [:index,:show,:edit,:update,:destroy],:path => 'admin/customers'
 #TODO: 設定のコントローラー作成
   resources :admin_settings,only:[:index],:path => 'admin/settings'
+  get 'admin/settings/mail' => 'admin_settings#mail_setting'
 
 resources :admin_balloon_options
 #バルーンのオプションの選択--ここから

@@ -3,4 +3,6 @@ class AdminSettingsController < ApplicationController
   def index
   end
 
+  def mail_setting
+  end
 end
