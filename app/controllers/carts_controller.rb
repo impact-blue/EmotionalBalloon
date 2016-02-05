@@ -43,6 +43,7 @@ class CartsController < ApplicationController
 
   def thanks
     @order = Order.find(1)
+
     Mailer.buy_thanks_email(@order).deliver
   end
 

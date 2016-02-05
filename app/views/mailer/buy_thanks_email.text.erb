@@ -1,8 +1,3 @@
 <%= @order.user.family_name + @order.user.first_name %>様
 
-この度は、商品をご購入していただき、誠にありがとうございました。
-以下は、購入商品の詳細でございます。
-
-商品名：
-価格：
-配送日：
+<%= @mail_content.text %>
