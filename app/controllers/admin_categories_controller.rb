@@ -3,7 +3,6 @@ class AdminCategoriesController < ApplicationController
 
 def index
   @chara = Chara.all
-  @boxsize = Boxsize.all
   @color = Color.all
   @scene = Scene.all
   @balloon_type = BalloonType.all
