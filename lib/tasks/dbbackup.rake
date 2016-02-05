@@ -12,7 +12,7 @@ namespace :db do
     backup_file = "#{db_esc_path}/#{timestamp}.dump"
 
     cmd = nil
-    cmd = "MYSQL_PWD=#{configuration['password']} mysqldump -h #{db_server} -u #{configuration['username']} #{configuration['database']} > ~/var/backup_mysql#{backup_file}"
+    cmd = "MYSQL_PWD=#{configuration['password']} mysqldump -h #{db_server} -u #{configuration['username']} #{configuration['database']} > /var/backup_mysql#{backup_file}"
 
     puts cmd
     exec cmd
