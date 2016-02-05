@@ -13,7 +13,7 @@ class CartsController < ApplicationController
   def api
     @order = Order.new(order_params)
     @order.delivery_address = params[:data][:destination_info][:address1]
-    @order.order_status = "unconfirmed"
+    @order.order_status = "新着"
     @order.payment_info = params[:data][:payment_info][:method]
 
     @order.user = User.new(user_params)
@@ -24,9 +24,11 @@ class CartsController < ApplicationController
     @order.user.email = params[:data][:buyer_info][:mail]
     @order.user.phone = params[:data][:buyer_info][:phone]
 
-    @order.price = 111
-
+    @order.price = 0
     params[:data][:product_info].each_with_index do |product_info,i|
+      #商品の合計値段計算
+      @order.price += Product.find(product_info[:id]).price
+      #購入商品登録
       @order.order_product_infos.build
       @order.order_product_infos[i].product_id = product_info[:id]
     end

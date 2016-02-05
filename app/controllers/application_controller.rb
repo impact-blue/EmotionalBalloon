@@ -35,16 +35,15 @@ class ApplicationController < ActionController::Base
 
 
   def set_json_index
-    min = params[:min]
-    max = params[:max]
-    price = params[:price]
-    scene = params[:scene]
-    chara = params[:chara]
-    color = params[:color]
-    balloon_type = params[:balloon_type]
+#    min = params[:min]
+#    max = params[:max]
+#    price = params[:price]
+#    scene = params[:scene]
+#    chara = params[:chara]
+#    color = params[:color]
+#    balloon_type = params[:balloon_type]
     @page = 20
     @current_page = params[:page].to_i
-    balloon_data={}
 
 #    if min.present? && max.present?
 #      @json_products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at DESC")

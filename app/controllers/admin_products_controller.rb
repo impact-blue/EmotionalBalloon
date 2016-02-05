@@ -8,21 +8,20 @@ class AdminProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
-    @product_count = Product.count
+    #@product_count = Product.count
 
     unless params[:filter].present?
       redirect_to "/admin/products?filter=all"
     end
 
     if params[:filter] == "all"
-      @json_products = Product.all.page(params[:page]).per(@page).order("created_at DESC")
+      @json_products = Product.all.page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:filter] == "public"
-      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("created_at DESC")
+      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:filter] == "secret"
-      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at DESC")
+      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:filter] == "none"
-      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at DESC")
+      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at ASC")
     end
   end
 
@@ -68,7 +67,7 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:id])
      # @json_detail_product = Product.find(params[:id])
     end
-    binding.pry
+
     @product.name = params[:data][:name]
     @product.price = params[:data][:price]
     @product.stocks = params[:data][:stock]

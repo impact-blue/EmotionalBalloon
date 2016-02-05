@@ -52,7 +52,7 @@
                 name:"<%= @json_detail_product.name %>",
                 price:<%= @json_detail_product.price %>,
                 <% if @json_detail_product.images.present? %>
-                images:[
+                image:[
                   <% @json_detail_product.images.each do |p| %>
                     "<%= p.image %>",
                   <% end %>
