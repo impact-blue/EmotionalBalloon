@@ -27,7 +27,7 @@
                         price: <%= p.price %>,
                         stock: <%= p.stocks %>,
                         count: <%= p.count %>,
-                        created_at: "<%= p.created_at %>"
+                        created_at: "<%= p.created_at.strftime('%Y/%m/%d %H:%M:%S') %>"
                     },
                   <% end %>
                 ]
@@ -70,7 +70,7 @@
                     first_name: "<%= o.user.first_name%>",
                     price:<%= o.price%>,
                     status:"<%= o.order_status %>",
-                    created_at:"<%= o.created_at %>",
+                    created_at:"<%= o.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                     payment_info:{
                      method: "<%= o.payment_info %>"
                     }
