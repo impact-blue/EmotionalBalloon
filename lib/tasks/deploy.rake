@@ -2,10 +2,8 @@ namespace :deploy do
   desc "unicorn_quit"
   task(:quit){
     unicorn_signal :QUIT
-    cmd = "export SECRET_KEY_BASE=`bundle execrake secret`"
-    secret = capture :bundle, "exec rake secret"
-    execute "echo SECRET_KEY_BASE='#{secret}'"
-    execute :bundle, "bundle exec unicorn_rails -E production -c config/unicorn.rb"
+    cmd = "export SECRET_KEY_BASE=`bundle exec rake secret`"
+
     puts cmd
     exec cmd
   }

@@ -1,3 +1,5 @@
+require 'csv'
+
 class Product < ActiveRecord::Base
   has_many :product_colors
   has_many :colors, through: :product_colors
@@ -41,5 +43,7 @@ class Product < ActiveRecord::Base
 
   #箱サイズ
   #validates :boxsize_id,  presence: { message: 'は必須です' }
+
+
 
 end

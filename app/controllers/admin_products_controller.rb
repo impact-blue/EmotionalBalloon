@@ -23,6 +23,13 @@ class AdminProductsController < ApplicationController
     elsif params[:filter] == "none"
       @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at ASC")
     end
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data render_to_string, filename: "products-#{Time.now.to_date.to_s}.csv", type: :csv
+      end
+    end
   end
 
   def show
@@ -99,6 +106,7 @@ class AdminProductsController < ApplicationController
       render json: {data:{result:"success"}}
     end
   end
+
 
   private
 
