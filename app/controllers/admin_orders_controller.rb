@@ -17,7 +17,7 @@ class AdminOrdersController < ApplicationController
     end
 
     #CSVダウンロード
-    #<a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
+    #<a href="/admin/orders.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
       format.html
       format.csv do
