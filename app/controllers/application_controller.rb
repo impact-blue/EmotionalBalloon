@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
   def set_json_index
 #    min = params[:min]
 #    max = params[:max]
