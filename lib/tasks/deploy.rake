@@ -1,28 +1,26 @@
 namespace :deploy do
-  desc "deploy"
-  task :quit do
+  desc "unicorn_quit"
+  task(:quit){
     unicorn_signal :QUIT
-
-    cmd = nil
     cmd = "export SECRET_KEY_BASE=`rake secret`"
     puts cmd
     exec cmd
-  end
-
-  task :precompile do
-    cmd = nil
+  }
+  desc "assets_precompile"
+  task(:precompile){
     cmd = "bundle exec rake assets:precompile RAILS_ENV=production"
     puts cmd
     exec cmd
-  end
+  }
 
-  task :start do
+  desc "unicorn_start_production"
+  task(:start){
     cmd = nil
     cmd = "bundle exec unicorn_rails -E production -c config/unicorn.rb"
     puts cmd
     exec cmd
-  end
-
+  }
+  desc "deploy"
   task deploy: [:quit,:precompile,:start] do
   end
 
