@@ -1,0 +1,51 @@
+<div class="l-admin" ng-controller="adminController">
+    <div class="l-admin__left">
+        <ul class="l-admin__left__list">
+            <li class="l-admin__left__list__child"><a href="/admin/products/new"><i class="fa fa-pencil-square-o"></i>NEW POST</a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}"><a href="/admin"><i class="fa fa-home"></i>HOME</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}"><a href="/admin/products?filter=all"><i class="fa fa-gift"></i>PRODUCT</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}"><a href="/admin/orders/?filter=all"><i class="fa fa-shopping-cart"></i>ORDER</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}"><a href="/admin/categories"><i class="fa fa-tag"></i>CATEGORY</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}"><a href="/admin/customers"><i class="fa fa-user"></i>CUSTOMER</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}"><a href="/admin/settings"><i class="fa fa-cog"></i>SETTING</a></li>
+            <li class="l-admin__left__list__child"><a href=""><i class="fa fa-sign-out"></i>LOGOUT</a></li>
+        </ul>
+    </div>
+    <div class="l-admin__right">
+        <div class="l-admin__right__foot">
+            <div class="l-admin__right__foot__content">
+<ul class="l-admin__right__foot__content__list">
+    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/users">管理者一覧</a></li>
+    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/users/new">新規作成</a></li>
+</ul>
+<div class="l-admin__right__foot__content__body">
+    <table class="c-table">
+        <thread class="c-table__thread">
+            <tr class="c-table__thread__row">
+                <th class="c-table__thread__row__head">ID</th>
+                <th class="c-table__thread__row__head">名前</th>
+                <th class="c-table__thread__row__head">email</th>
+                <th class="c-table__thread__row__head">削除する</th>
+            </tr>
+        </thread>
+        <% @admin_users.each do |admin_user| %>
+        <tbody class="c-table__body">
+            <tr class="c-table__body__row">
+                <td class="c-table__body__row__data"><%= admin_user.id %></td>
+                <td class="c-table__body__row__data"><%= admin_user.name %></td>
+                <td class="c-table__body__row__data"><%= admin_user.email %></td>
+                <td class="c-table__body__row__data">
+                    <div class="c-button--detail">
+                        <p class="c-button--detail__text"><a href="/admin/users/<%= admin_user.id %>"onclick="return confirm('削除しても良いですか？')">削除する</a></p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <% end %>
+    </table>
+</div>
+            </div>
+        </div>
+    </div>
+</div>

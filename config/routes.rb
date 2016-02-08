@@ -41,11 +41,10 @@ Rails.application.routes.draw do
   #get 'order/complete'  =>  'orders#complete'
 
 #以下管理画面のルーティング
-  get   'admin/user/new'   => 'admin_users#new'
-  post  'admin/user/new'   => 'admin_users#create'
-
+  resources :admin_users,only: [:index,:new,:create],:path => 'admin/users'
+  get 'admin/users/:id' => 'admin_users#destroy'
 #管理画面ホーム
-get "admin" => "admin#index"
+  get "admin" => "admin#index"
 
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
@@ -94,6 +93,6 @@ resources :admin_balloon_options
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
-get  'logout'  => 'sessions#destroy' ,as: :logout
+get  'admin/logout'  => 'sessions#destroy' ,as: :logout
 
 end

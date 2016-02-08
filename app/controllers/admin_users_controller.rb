@@ -1,8 +1,7 @@
 class AdminUsersController < ApplicationController
-    before_action :logged_in_admin_user
-  layout 'header_admin'
-  def show
-    @admin_user = AdminUser.find(params[:id])
+  before_action :logged_in_admin_user
+  def index
+    @admin_users = AdminUser.all
   end
 
   def new
@@ -12,12 +11,17 @@ class AdminUsersController < ApplicationController
   def create
     @admin_user = AdminUser.new(user_params)
     if @admin_user.save
-      login @admin_user
       flash[:success] = "管理画面へようこそ"
-      redirect_to root_path
+      redirect_to action: 'index'
     else
       render 'new'
     end
+  end
+
+  def destroy
+    admin_user = AdminUser.find(params[:id])
+    admin_user.delete
+    redirect_to action: 'index'
   end
 
   private
