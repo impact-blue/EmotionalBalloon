@@ -24,6 +24,8 @@ class AdminProductsController < ApplicationController
       @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at ASC")
     end
 
+    #CSVダウンロード
+    #<a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
       format.html
       format.csv do

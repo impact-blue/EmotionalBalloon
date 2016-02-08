@@ -5,9 +5,9 @@ column_names = %w(id 名前 価格 在庫 コメント 購入回数 公開/非�
 
 csv_str = CSV.generate do |csv|
   csv << column_names
-  @json_products.each_with_index do |product,i|
+  @json_products.each do |product|
     csv << [
-    i,
+    product.id,
     product.name,
     product.price,
     product.stocks,

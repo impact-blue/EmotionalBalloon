@@ -51,7 +51,7 @@
         </tbody>
     </table>
 
-    <a href="/admin/products.csv/?filter=all">CSV</a>
+    <a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSVをダウンロード</a>
     <ul class="c-nextButton u-mt-10">
         <li class="c-nextButton__list">
             <a href="/admin/products/?filter=all&page={{data.search_products.current_page - 1}}" ng-if="data.search_products.current_page > 1"><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
