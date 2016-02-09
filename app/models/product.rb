@@ -15,9 +15,6 @@ class Product < ActiveRecord::Base
   has_many :scenes, through: :product_scenes
   has_many :carts
 
-  has_many :product_category_children
-  has_many :product_category_children, through: :product_category_child
-
   #商品名、在庫
   validates :name, presence: { message: 'は必須です' }
 
