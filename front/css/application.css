@@ -246,7 +246,7 @@ footer .footerCopyright {
   border: 10px solid transparent;
   border-right: 10px solid #555;
 }
-.l-admin__left__list__child:nth-of-type(2)::after, .l-admin__left__list__child:nth-of-type(5)::after, .l-admin__left__list__child:nth-of-type(6)::after {
+.l-admin__left__list__child:nth-of-type(2)::after, .l-admin__left__list__child:nth-of-type(6)::after {
   border-right: 10px solid white;
 }
 .l-admin__left__list__child a {
