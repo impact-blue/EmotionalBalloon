@@ -27,7 +27,7 @@ class AdminProductsController < ApplicationController
     #CSVダウンロード
     #<a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
-      format.html
+      format.html and return
       format.csv do
         send_data render_to_string, filename: "products-#{Time.now.to_date.to_s}.csv", type: :csv
       end
@@ -46,7 +46,7 @@ class AdminProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     if @product.save
-      redirect_to admin_products_path, notice: '商品の追加が完了しました。'
+      redirect_to "/admin/products?filter=all" , notice: '商品の追加が完了しました。'
     else
       render action: 'new'
     end
@@ -89,7 +89,7 @@ class AdminProductsController < ApplicationController
     elsif parama[:data][:status] = "false"
       @product.status = 0
     end
-   # @product.user = User.new(user_params)
+    #@product.user = User.new(user_params)
     #@product.user.first_name = params[:data][:buyer_info][:family_name]
 
     params[:data][:images].each_with_index do |product_info,i|
