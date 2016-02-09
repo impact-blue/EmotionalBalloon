@@ -3,9 +3,10 @@ require 'nkf'
 
 column_names = %w(id 名前 価格 在庫 コメント 購入回数 公開/非公開 作成日)
 
+  @products = Product.all.order("created_at ASC")
 csv_str = CSV.generate do |csv|
   csv << column_names
-  @json_products.each do |product|
+  @products.each do |product|
     csv << [
     product.id,
     product.name,
