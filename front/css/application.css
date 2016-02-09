@@ -1185,9 +1185,11 @@ h2.balloonHeading2 {
 .p-registerForm__wrapper__list__content.address input[type="text"] {
   width: 100%;
 }
-.p-registerForm__wrapper__list__content__radio input[type="radio"] {
+.p-registerForm__wrapper__list__content__radio input[type="radio"],
+.p-registerForm__wrapper__list__content__radio input[type="checkbox"] {
   margin-right: 5px;
   cursor: pointer;
+  outline: none;
 }
 .p-registerForm__wrapper__list__content__radio label {
   cursor: pointer;
