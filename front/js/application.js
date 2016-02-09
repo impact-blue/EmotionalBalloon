@@ -86,16 +86,16 @@ app.controller('cartComfirmController', function($scope, $http) {
         data: {
             product_info: [
                 {
-                    id: 123,
-                    number: 3
+                    id: 12,
+                    count: 3
                 },
                 {
-                    id: 456,
-                    number: 1
+                    id: 45,
+                    count: 1
                 },
                 {
-                    id: 789,
-                    number: 8
+                    id: 78,
+                    count: 8
                 }
             ],
             buyer_info: {
