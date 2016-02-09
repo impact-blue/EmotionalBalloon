@@ -88,11 +88,28 @@
                   {
                     id:<%= c.id %>,
                     name_en:"<%= c.name_en%>",
-                    name_ja:"<%= c.name_ja%>",
+                    name_jp:"<%= c.name_ja%>",
                     created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                   },
                 <% end %>
               ]
+            <% end %>
+            <% if @json_customer_list.present? %>
+              customer_list:{
+                current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
+                max_page:<%= @json_customer_list.num_pages %>,
+                customers:[
+                  <% @json_customer_list.each do |c| %>
+                    {
+                      id:<%= c.id %>,
+                      family_name: "<%= c.family_name %>",
+                      first_name: "<%= c.first_name%>",
+                      email:"<%= c.email %>",
+                      phone:<%= c.phone %>,
+                    },
+                  <% end %>
+                ]
+              }
             <% end %>
         }
     };

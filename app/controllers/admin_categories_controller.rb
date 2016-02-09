@@ -6,7 +6,7 @@ class AdminCategoriesController < ApplicationController
       @json_category_list = Scene.all + Chara.all
     elsif params[:filter] == "scene"
       @json_category_list = Scene.all
-    elsif params[:filter] == "chara"
+    elsif params[:filter] == "character"
       @json_category_list = Chara.all
     end
   end

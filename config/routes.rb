@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
 #管理画面の購入した人一覧
-  resources :admin_customers,only: [:index,:show,:edit,:update,:destroy],:path => 'admin/customers'
+  resources :admin_customers,only: [:index],:path => 'admin/customers'
 #TODO: 設定のコントローラー作成
   resources :admin_settings,only:[:index],:path => 'admin/settings'
   get 'admin/settings/mail' => 'admin_settings#mail_setting'
