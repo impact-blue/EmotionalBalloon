@@ -183,6 +183,11 @@ app.controller('loginController', function($scope, $http) {
             });
         }
     };
+    $scope.handleKeydown = function(e) {
+        if(e.which === 13) {
+            $scope.loginPost();
+        }
+    };
 });
 app.controller('productCreateController', function($scope, $http) {
     $scope.product_data = {
