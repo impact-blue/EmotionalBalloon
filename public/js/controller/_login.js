@@ -20,4 +20,9 @@ app.controller('loginController', function($scope, $http) {
             });
         }
     };
+    $scope.handleKeydown = function(e) {
+        if(e.which === 13) {
+            $scope.loginPost();
+        }
+    };
 });
