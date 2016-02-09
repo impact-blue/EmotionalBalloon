@@ -1,7 +1,8 @@
 class CreateScenes < ActiveRecord::Migration
   def change
     create_table :scenes do |t|
-      t.string :scene
+      t.string :name_en
+      t.string :name_ja
 
       t.timestamps null: false
     end

@@ -23,16 +23,9 @@ ActiveRecord::Schema.define(version: 20160205063213) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
 
-  create_table "balloon_types", force: :cascade do |t|
-    t.string   "balloon_type", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "name",         limit: 255
-  end
-
   create_table "charas", force: :cascade do |t|
-    t.string   "chara",      limit: 255
-    t.string   "name",       limit: 255
+    t.string   "name_en",    limit: 255
+    t.string   "name_ja",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -45,10 +38,10 @@ ActiveRecord::Schema.define(version: 20160205063213) do
   end
 
   create_table "colors", force: :cascade do |t|
-    t.string   "color",      limit: 255
+    t.string   "name_en",    limit: 255
+    t.string   "name_ja",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "name",       limit: 255
   end
 
   create_table "images", force: :cascade do |t|
@@ -90,20 +83,6 @@ ActiveRecord::Schema.define(version: 20160205063213) do
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "product_balloon_types", force: :cascade do |t|
-    t.integer  "product_id",      limit: 4
-    t.integer  "balloon_type_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  create_table "product_category_children", force: :cascade do |t|
-    t.integer  "product_id",        limit: 4
-    t.integer  "category_chird_id", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
   create_table "product_charas", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "chara_id",   limit: 4
@@ -141,10 +120,10 @@ ActiveRecord::Schema.define(version: 20160205063213) do
   end
 
   create_table "scenes", force: :cascade do |t|
-    t.string   "scene",      limit: 255
+    t.string   "name_en",    limit: 255
+    t.string   "name_ja",    limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "name",       limit: 255
   end
 
   create_table "users", force: :cascade do |t|

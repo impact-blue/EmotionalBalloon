@@ -82,6 +82,18 @@
                 <% end %>
               ]
             <% end %>
+            <% if @json_category_list.present? %>
+              category_list: [
+                <% @json_category_list.each do |c| %>
+                  {
+                    id:<%= c.id %>,
+                    name_en:"<%= c.name_en%>",
+                    name_ja:"<%= c.name_ja%>",
+                    created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                  },
+                <% end %>
+              ]
+            <% end %>
         }
     };
 </script>
