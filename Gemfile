@@ -35,6 +35,7 @@ gem 'unicorn'
   gem 'angular-rails-engine'
   gem'angular_rails_csrf'
 gem 'whenever', :require => false
+gem 'roo'
 
 group :development, :test do
   gem 'byebug'

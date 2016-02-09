@@ -109,6 +109,10 @@ class AdminProductsController < ApplicationController
     end
   end
 
+  def import
+    Product.import(params[:file])
+    redirect_to "/admin/products?filter=all"
+  end
 
   private
 
