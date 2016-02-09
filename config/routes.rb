@@ -53,8 +53,8 @@ Rails.application.routes.draw do
   patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
 
 #バルーンのオプションの選択--ここから
- resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories' do
- end
+ resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories'
+
 
   post 'colors/create'        => 'colors#create'
   post 'scenes/create'        => 'scenes#create'
