@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :admin_products,:path => 'admin/products'
   post 'api/products/edit' => 'admin_products#api'
   patch 'api/products/edit' => 'admin_products#api'
+  post 'admin/products/import' => 'admin_products#import'
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
