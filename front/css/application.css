@@ -444,6 +444,34 @@ h2.balloonHeading2 {
   color: white;
 }
 
+.c-buttonList {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.c-buttonList__list {
+  padding: 0 10px;
+  margin-left: 10px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #D83961;
+  cursor: pointer;
+  border: 1px solid #D83961;
+  transition: 0.3s;
+}
+.c-buttonList__list:hover {
+  color: white;
+  background: #D83961;
+}
+.c-buttonList__list:hover a {
+  color: white;
+}
+.c-buttonList__list a {
+  display: block;
+  color: #D83961;
+  transition: 0.3s;
+}
+
 .breadList {
   display: flex;
   margin-bottom: 20px;
