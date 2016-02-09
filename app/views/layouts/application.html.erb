@@ -105,11 +105,22 @@
                       family_name: "<%= c.family_name %>",
                       first_name: "<%= c.first_name%>",
                       email:"<%= c.email %>",
-                      phone:<%= c.phone %>,
+                      phone:"<%= c.phone %>",
                     },
                   <% end %>
                 ]
               }
+            <% end %>
+            <% if @json_admin_users.present? %>
+              admin_users:[
+                <% @json_admin_users.each do |a| %>
+                  {
+                    id:<%= a.id %>,
+                    name:"<%= a.name %>",
+                    email:"<%= a.email %>",
+                  }
+                <% end %>
+              ]
             <% end %>
         }
     };
