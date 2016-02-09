@@ -6,6 +6,9 @@ def index
   @color = Color.all
   @scene = Scene.all
   @balloon_type = BalloonType.all
+
+  unless params[:filter]
+  end
 end
 
 def edit

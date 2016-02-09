@@ -76,7 +76,6 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:id])
      # @json_detail_product = Product.find(params[:id])
     end
-
     @product.name = params[:data][:name]
     @product.price = params[:data][:price]
     @product.stocks = params[:data][:stock]
