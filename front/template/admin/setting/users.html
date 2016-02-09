@@ -68,7 +68,7 @@
                 <th class="c-table__thread__row__head">ID</th>
                 <th class="c-table__thread__row__head">名前</th>
                 <th class="c-table__thread__row__head">メールアドレス</th>
-                <th class="c-table__thread__row__head">詳細</th>
+                <th class="c-table__thread__row__head">削除</th>
             </tr>
         </thread>
         <tbody class="c-table__body">
@@ -78,7 +78,7 @@
                 <td class="c-table__body__row__data">{{user.email}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="">詳細を見る</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/settings/users/{{user.id}}">削除する</a></p>
                     </div>
                 </td>
             </tr>
