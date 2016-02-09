@@ -7,20 +7,12 @@
         height: 100%;
         text-align: center;
         background: #0a9b94;
-        a {
-            font-size: 11px;
-            color: white;
-            transition: 0.3s;
-            &:hover {
-                opacity: 0.8;
-            }
-        }
         &__list {
             position: relative;
             &::after {
                 content: "";
                 position: absolute;
-                top: 73px;
+                top: 55px;
                 left: 10px;
                 width: 60px;
                 height: 2px;
@@ -28,13 +20,12 @@
             }
             &__child {
                 position: relative;
-                margin-bottom: 10px;
-                padding-top: 40px;
+                margin: 20px 0;
                 &.on {
                     &::after {
                         content: "";
                         position: absolute;
-                        top: 30px;
+                        top: 15px;
                         right: 0;
                         width: 0;
                         height: 0;
@@ -49,12 +40,16 @@
                         border-right: 10px solid white;
                     }
                 }
+                a {
+                    display: block;
+                    font-size: 11px;
+                    color: white;
+                    transition: 0.3s;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
                 i {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    margin-top: -20px;
-                    margin-left: -14px;
                     font-size: 30px;
                 }
             }

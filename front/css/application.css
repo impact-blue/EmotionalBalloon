@@ -220,21 +220,13 @@ footer .footerCopyright {
   text-align: center;
   background: #0a9b94;
 }
-.l-admin__left a {
-  font-size: 11px;
-  color: white;
-  transition: 0.3s;
-}
-.l-admin__left a:hover {
-  opacity: 0.8;
-}
 .l-admin__left__list {
   position: relative;
 }
 .l-admin__left__list::after {
   content: "";
   position: absolute;
-  top: 73px;
+  top: 55px;
   left: 10px;
   width: 60px;
   height: 2px;
@@ -242,13 +234,12 @@ footer .footerCopyright {
 }
 .l-admin__left__list__child {
   position: relative;
-  margin-bottom: 10px;
-  padding-top: 40px;
+  margin: 20px 0;
 }
 .l-admin__left__list__child.on::after {
   content: "";
   position: absolute;
-  top: 30px;
+  top: 15px;
   right: 0;
   width: 0;
   height: 0;
@@ -258,12 +249,16 @@ footer .footerCopyright {
 .l-admin__left__list__child:nth-of-type(2)::after, .l-admin__left__list__child:nth-of-type(5)::after, .l-admin__left__list__child:nth-of-type(6)::after {
   border-right: 10px solid white;
 }
+.l-admin__left__list__child a {
+  display: block;
+  font-size: 11px;
+  color: white;
+  transition: 0.3s;
+}
+.l-admin__left__list__child a:hover {
+  opacity: 0.8;
+}
 .l-admin__left__list__child i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -20px;
-  margin-left: -14px;
   font-size: 30px;
 }
 .l-admin__right {
