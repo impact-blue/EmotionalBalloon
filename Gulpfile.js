@@ -133,10 +133,8 @@ gulp.task('copy', function(){
         .pipe(gulp.dest('./app/views/admin_customers/'));
     gulp
         .src(['./front/template/admin/setting/*.html'])
-        .pipe(rename(function(path) {
-            path.extname = '.html.erb';
-        }))
-        .pipe(gulp.dest('./app/views/admin_settings/'));
+        .pipe(rename('index.html.erb'))
+        .pipe(gulp.dest('./app/views/admin_users/'));
 });
 
 gulp.task('ejs', function(){

@@ -56,8 +56,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/customers', {
             templateUrl: '/template/admin/customer/index.html'
         })
-        .when('/admin/settings', {
-            templateUrl: '/template/admin/setting/index.html'
+        .when('/admin/settings/users', {
+            templateUrl: '/template/admin/setting/users.html'
         })
         .otherwise({
             redirectTo: '/'
