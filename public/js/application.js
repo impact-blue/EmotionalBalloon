@@ -50,6 +50,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html'
         })
+        .when('/admin/products/new', {
+            templateUrl: '/template/admin/product/edit.html'
+        })
         .when('/admin/products/:id/edit', {
             templateUrl: '/template/admin/product/edit.html'
         })
@@ -77,6 +80,7 @@ app.controller('adminController', function($scope, $http) {
     $scope.path = location.pathname;
     $scope.search = location.search;
     $scope.data = balloon_data.data;
+    console.log($scope.search);
 });
 app.controller('balloonController', function($scope, $http) {
     $scope.data = balloon_data.data;
@@ -86,16 +90,16 @@ app.controller('cartComfirmController', function($scope, $http) {
         data: {
             product_info: [
                 {
-                    id: 123,
-                    number: 3
+                    id: 12,
+                    count: 3
                 },
                 {
-                    id: 456,
-                    number: 1
+                    id: 45,
+                    count: 1
                 },
                 {
-                    id: 789,
-                    number: 8
+                    id: 78,
+                    count: 8
                 }
             ],
             buyer_info: {
