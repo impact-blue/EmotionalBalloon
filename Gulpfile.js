@@ -135,6 +135,10 @@ gulp.task('copy', function(){
         .src(['./front/template/admin/setting/*.html'])
         .pipe(rename('index.html.erb'))
         .pipe(gulp.dest('./app/views/admin_users/'));
+    gulp
+        .src(['./front/template/admin/login.html'])
+        .pipe(rename('new.html.erb'))
+        .pipe(gulp.dest('./app/views/sessions/'));
 });
 
 gulp.task('ejs', function(){

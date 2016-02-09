@@ -46,6 +46,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin', {
             templateUrl: '/template/admin/index.html'
         })
+        .when('/admin/login', {
+            templateUrl: '/template/admin/login.html'
+        })
         .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html'
         })
@@ -157,6 +160,29 @@ app.controller('cartShowController', function($scope, $http) {
             angular.merge($scope.data, data.data);
         });
     });
+});
+app.controller('loginController', function($scope, $http) {
+    $scope.loginInfo = {
+        session: {
+            email: '',
+            password: ''
+        }
+    };
+    $scope.loginPost = function() {
+        if($scope.loginInfo.session.email && $scope.loginInfo.session.password) {
+            $http({
+                method: 'POST',
+                url: '/admin/login',
+                data: $scope.loginInfo
+            }).success(function(data, status, headers, config) {
+                if(data.data.result === 'success') {
+                    location.href = "/admin";
+                }
+            }).error(function(data, status, headers, config) {
+                console.log(status);
+            });
+        }
+    };
 });
 app.controller('productCreateController', function($scope, $http) {
     $scope.product_data = {

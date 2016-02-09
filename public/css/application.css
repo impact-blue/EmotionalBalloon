@@ -326,6 +326,51 @@ footer .footerCopyright {
   overflow: scroll;
 }
 
+.l-admin--login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: #0a9b94;
+}
+.l-admin--login .l-admin__wrapper__heading {
+  font-size: 40px;
+}
+.l-admin--login .l-admin__wrapper__form__block {
+  text-align: center;
+  margin-top: 20px;
+}
+.l-admin--login .l-admin__wrapper__form__block__input {
+  width: 350px;
+  color: white;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  background: #0a9b94;
+  border: none;
+  border-bottom: 2px solid white;
+}
+.l-admin--login .l-admin__wrapper__form__block__input::-webkit-input-placeholder {
+  color: white;
+  font-size: 20px;
+}
+.l-admin--login .l-admin__wrapper__form__button {
+  width: 300px;
+  line-height: 40px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.l-admin--login .l-admin__wrapper__form__button:hover {
+  color: #0a9b94;
+  background: white;
+}
+
 .l-column-col1 {
   width: 1000px;
   margin: 50px auto 0 auto;

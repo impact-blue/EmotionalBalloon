@@ -35,6 +35,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin', {
             templateUrl: '/template/admin/index.html'
         })
+        .when('/admin/login', {
+            templateUrl: '/template/admin/login.html'
+        })
         .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html'
         })
