@@ -52,8 +52,6 @@ Rails.application.routes.draw do
   get 'admin/settings/mail' => 'admin_settings#mail_setting'
   patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
 
-resources :admin_balloon_options
-
 #バルーンのオプションの選択--ここから
  resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories' do
  end
