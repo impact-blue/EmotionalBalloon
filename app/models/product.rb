@@ -18,37 +18,18 @@ class Product < ActiveRecord::Base
   has_many :product_category_children
   has_many :product_category_children, through: :product_category_child
 
-
-  #商品番号
-  #validates :number,  presence: { message: 'は必須です' }
-
-  #商品名
- # validates :name,  presence: { message: 'は必須です' }
-
-  #画像
-  #validates :image
+  #商品名、在庫
+  validates :name, presence: { message: 'は必須です' }
 
   #価格,
-  #validates :price,  :numericality => { :only_integer => true , message: 'は必須です'}
+  validates :price, :stocks,  :numericality => { :only_integer => true , message: 'は必須です'}
 
-  #在庫
-#  validates :stocks,  presence: { message: 'は必須です' }
-
-  #送料 validates :postage
-
-  #コメント、推薦文、キーワード
-#validates :comment ,:keyword , :recommended
-
-  #登録日
-  #validates :registration_date,  presence: { message: 'は必須です' }
-
-  #箱サイズ
-  #validates :boxsize_id,  presence: { message: 'は必須です' }
+  #コメント
+  #validates :comment
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
-    binding.pry
-    header = spreadsheet.row(1)
+    header = ["id","name","price","stocks","comment","count","status","created_at"]
 
     (2..spreadsheet.last_row).each do |i|
       # {カラム名 => 値, ...} のハッシュを作成する
@@ -75,7 +56,7 @@ class Product < ActiveRecord::Base
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["name", "price","stocks","count","created_at"]
+    ["name", "price","stocks","comment","keyword","size","status","count"]
   end
 
 end
