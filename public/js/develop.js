@@ -204,12 +204,12 @@ app.controller('productCreateController', function($scope, $http) {
             description: "当店人気ナンバーワンのバルーン電報です。淡いピンクが輝いて、キレイな祝電です。ウェルカムボードの横に置いたり、高砂席の両サイドに飾ってもステキですよ。",
             size: 230,
             status: true,
-            scene: [
+            scenes: [
                 'marriage',
                 'babygift',
                 'birthday'
             ],
-            character: [
+            characters: [
                 'pokemon',
                 'disney',
                 'onepiece'
