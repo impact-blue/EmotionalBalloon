@@ -1,15 +1,54 @@
 <div class="l-admin" ng-controller="adminController">
     <div class="l-admin__left">
         <ul class="l-admin__left__list">
-            <li class="l-admin__left__list__child"><a href="/admin/products/new"><i class="fa fa-pencil-square-o"></i>NEW POST</a>
+            <li class="l-admin__left__list__child">
+                <a href="/admin/products/new">
+                    <p><i class="fa fa-pencil-square-o"></i></p>
+                    <p>NEW POST</p>
+                </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}"><a href="/admin"><i class="fa fa-home"></i>HOME</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}"><a href="/admin/products?filter=all"><i class="fa fa-gift"></i>PRODUCT</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}"><a href="/admin/orders/?filter=all"><i class="fa fa-shopping-cart"></i>ORDER</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}"><a href="/admin/categories"><i class="fa fa-tag"></i>CATEGORY</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}"><a href="/admin/customers"><i class="fa fa-user"></i>CUSTOMER</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}"><a href="/admin/settings"><i class="fa fa-cog"></i>SETTING</a></li>
-            <li class="l-admin__left__list__child"><a href=""><i class="fa fa-sign-out"></i>LOGOUT</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+                <a href="/admin">
+                    <p><i class="fa fa-home"></i></p>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+                <a href="/admin/products?filter=all">
+                    <p><i class="fa fa-gift"></i></p>
+                    <p>PRODUCT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+                <a href="/admin/orders/?filter=all">
+                    <p><i class="fa fa-shopping-cart"></i></p>
+                    <p>ORDER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+                <a href="/admin/categories">
+                    <p><i class="fa fa-tag"></i></p>
+                    <p>CATEGORY</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+                <a href="/admin/customers">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>CUSTOMER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings">
+                    <p><i class="fa fa-cog"></i></p>
+                    <p>SETTING</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child">
+                <a href="">
+                    <p><i class="fa fa-sign-out"></i></p>
+                    <p>LOGOUT</p>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="l-admin__right">
@@ -22,6 +61,11 @@
     <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/products?filter=none">在庫なし</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
+    <div class="c-buttonList">
+        <p class="c-buttonList__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
+        <p class="c-buttonList__list">CSVインポート</p>
+        <p class="c-buttonList__list"><a href="/admin/products/new">新規登録</a></p>
+    </div>
     <table class="c-table">
         <thread class="c-table__thread">
             <tr class="c-table__thread__row">
@@ -50,12 +94,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSVをダウンロード</a>
-    <%= form_tag admin_products_import_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag "インポート" %>
-    <% end %>
     <ul class="c-nextButton u-mt-10">
         <li class="c-nextButton__list">
             <a href="/admin/products/?filter=all&page={{data.search_products.current_page - 1}}" ng-if="data.search_products.current_page > 1"><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
