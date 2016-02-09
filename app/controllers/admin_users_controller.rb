@@ -1,7 +1,8 @@
 class AdminUsersController < ApplicationController
   before_action :logged_in_admin_user
+
   def index
-    @admin_users = AdminUser.all
+    @json_admin_users = AdminUser.all
   end
 
   def new
