@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   get 'carts/thanks' => 'carts#thanks'
 
 #以下管理画面のルーティング
-  resources :admin_users,only: [:index,:new,:create],:path => 'admin/users'
-  get 'admin/users/:id' => 'admin_users#destroy'
+  resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'
+  get 'admin/settings/users/:id' => 'admin_users#destroy'
 #管理画面ホーム
   get "admin" => "admin#index"
 
