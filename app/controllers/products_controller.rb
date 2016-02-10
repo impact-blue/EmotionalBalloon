@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     elsif params[:scene].present?
       @json_products =
         Product.where(status: 1).includes(:scenes)
-          .merge(ProductScene
+          .merge(ProductScene.order("product_id asc")
             .where(scene_id: Scene
               .find_by(
                   name_en: "#{params[:scene]}"
@@ -26,13 +26,14 @@ class ProductsController < ApplicationController
     elsif params[:character].present?
       @json_products =
         Product.where(status: 1).includes(:charas)
-          .merge(ProductChara
+          .merge(ProductChara.order("product_id asc")
             .where(chara_id: Chara
               .find_by(
                   name_en: "#{params[:character]}"
               )
             )
           ).references(:chara).page(params[:page]).per(20)
+
     end
 
     #予算別
