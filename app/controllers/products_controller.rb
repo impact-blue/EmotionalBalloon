@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
               )
             )
           ).references(:scene).page(params[:page]).per(20)
-          .order("Products.created_at desc")
     end
     #キャラクター検索
     #キャラクターの綴りがおかしい。(all)
