@@ -1,6 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'csv'
+require 'nkf'
+require 'roo'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,6 +24,7 @@ module EmotionalBalloon
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.autoload_paths += %W(#{Rails.root}/lib)
   end
 
 end

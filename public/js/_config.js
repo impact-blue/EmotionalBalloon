@@ -10,7 +10,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/products/ranking', {
             templateUrl: '/template/public/product/ranking.html'
         })
-        .when('/products/show', {
+        .when('/products/show/:id', {
             templateUrl: '/template/public/product/show.html'
         })
         .when('/carts/show', {
@@ -35,8 +35,17 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin', {
             templateUrl: '/template/admin/index.html'
         })
+        .when('/admin/login', {
+            templateUrl: '/template/admin/login.html'
+        })
         .when('/admin/products', {
             templateUrl: '/template/admin/product/index.html'
+        })
+        .when('/admin/products/new', {
+            templateUrl: '/template/admin/product/edit.html'
+        })
+        .when('/admin/products/:id/edit', {
+            templateUrl: '/template/admin/product/edit.html'
         })
         .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html'
@@ -44,11 +53,14 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/categories', {
             templateUrl: '/template/admin/category/index.html'
         })
+        .when('/admin/categories/:id/edit', {
+            templateUrl: '/template/admin/category/index.html'
+        })
         .when('/admin/customers', {
             templateUrl: '/template/admin/customer/index.html'
         })
-        .when('/admin/settings', {
-            templateUrl: '/template/admin/setting/index.html'
+        .when('/admin/settings/users', {
+            templateUrl: '/template/admin/setting/users.html'
         })
         .otherwise({
             redirectTo: '/'

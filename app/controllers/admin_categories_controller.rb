@@ -2,20 +2,33 @@ class AdminCategoriesController < ApplicationController
   before_action :logged_in_admin_user
 
   def index
-    @category = Category.all
+    if params[:filter] == "all"
+      @json_category_list = Scene.all + Chara.all
+    elsif params[:filter] == "scene"
+      @json_category_list = Scene.all
+    elsif params[:filter] == "character"
+      @json_category_list = Chara.all
+    end
   end
 
-  def new
-    @category = Category.new
+  def scene_index
+
+  end
+
+  def chara_index
+    @json_category_list = Chara.all
+  end
+
+  def edit
+
   end
 
   def create
-    @category = Category.new(create_params)
-
-    if @category.save
-      redirect_to admin_categories_path
+    @boxsize = Boxsize.new(create_params)
+    if @boxsize.save
+      redirect_to  admin_balloon_options_path
     else
-      render action: 'new'
+      render admin_balloon_options_path
     end
   end
 
@@ -24,26 +37,21 @@ class AdminCategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
-    if @category.update_attributes(create_params)
+    @boxsize = Boxsize.find(params[:id])
+    if @boxsize.update_attributes(create_params)
       flash[:success] = "編集しました"
-      redirect_to admin_products_path, notice: '商品の編集が完了しました。'
+      redirect_to admin_balloon_options_path, notice: '商品の編集が完了しました。'
     else
-      render 'edit'
+      render 'index'
     end
   end
+
 
   private
 
   def create_params
-    params.require(:category).permit(:name)
+    params.require(:boxsize).permit(:id,:boxsize)
   end
 
-  def logged_in_admin_user
-    unless logged_in?
-      flash[:danger] = "ログインしてください"
-      redirect_to admin_login_path
-    end
-  end
 
 end

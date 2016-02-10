@@ -7,7 +7,140 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
-  <%= yield :json %>
+
+
+<script type="text/javascript">
+    var balloon_data = {
+        data: {
+            <% if @json_products.present? %>
+              search_products: {
+                title:"",
+                discription:"",
+                image:"",
+                current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
+                max_page:<%= @json_products.num_pages %>,
+                product_list:[
+                  <% @json_products.each do |p| %>
+                    {
+                        id:    <%= p.id %>,
+                        name: "<%= p.name %>",
+                        price: <%= p.price %>,
+                        stock: <%= p.stocks %>,
+                        count: <%= p.count %>,
+                        created_at: "<%= p.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                        image:"<%= p.main_image %>"
+                    },
+                  <% end %>
+                ]
+              }
+            <% end %>
+            <% if @json_ranking_products.present? %>
+              ranking_products:[
+                <% @json_ranking_products.each do |p| %>
+                  {
+                    id:<%= p.id %>,
+                    name:"<%= p.name %>",
+                    price:<%= p.price %>,
+                    image:"<%= p.main_image %>",
+                    description:"<%= p.comment %>",
+                  },
+                <% end %>
+              ],
+            <% end %>
+            <% if @json_detail_product.present? %>
+              detail_product: {
+                id:          <%= @json_detail_product.id  %>,
+                name:       "<%= @json_detail_product.name %>",
+                price:       <%= @json_detail_product.price %>,
+                stocks:      <%= @json_detail_product.stocks %>,
+                description:"<%= @json_detail_product.comment %>",
+                count:       <%= @json_detail_product.count %>,
+                status:      <%= @json_detail_product.status %>,
+                created_at: "<%= @json_detail_product.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                <% if @json_detail_product.images.present? %>
+                image:[
+                  <% @json_detail_product.images.each do |p| %>
+                    "<%= p.image %>",
+                  <% end %>
+                ],
+                <% end %>
+                <% if @json_detail_product.product_scenes.present? %>
+                scenes: [
+                  <% @json_detail_product.product_scenes.each do |s| %>
+                    "<%= s.scene.name_en %>",
+                  <% end %>
+                ],
+                <% end %>
+                <% if @json_detail_product.product_charas.present? %>
+                characters: [
+                  <% @json_detail_product.product_charas.each do |c| %>
+                    "<%= c.chara.name_en%>",
+                  <% end %>
+                ]
+                <% end %>
+              }
+            <% end %>
+            <% if @json_order_list.present? %>
+              order_list:[
+                <% @json_order_list.each do |o| %>
+                  {
+                    id:<%= o.id %>,
+                    family_name: "<%= o.user.family_name %>",
+                    first_name: "<%= o.user.first_name%>",
+                    price:<%= o.price%>,
+                    status:"<%= o.order_status %>",
+                    created_at:"<%= o.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                    payment_info:{
+                     method: "<%= o.payment_info %>"
+                    }
+                  },
+                <% end %>
+              ]
+            <% end %>
+            <% if @json_category_list.present? %>
+              category_list: [
+                <% @json_category_list.each do |c| %>
+                  {
+                    id:<%= c.id %>,
+                    name_en:"<%= c.name_en%>",
+                    name_jp:"<%= c.name_ja%>",
+                    created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                  },
+                <% end %>
+              ]
+            <% end %>
+            <% if @json_customer_list.present? %>
+              customer_list:{
+                current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
+                max_page:<%= @json_customer_list.num_pages %>,
+                customers:[
+                  <% @json_customer_list.each do |c| %>
+                    {
+                      id:<%= c.id %>,
+                      family_name: "<%= c.family_name %>",
+                      first_name: "<%= c.first_name%>",
+                      email:"<%= c.email %>",
+                      phone:"<%= c.phone %>",
+                    },
+                  <% end %>
+                ]
+              }
+            <% end %>
+            <% if @json_admin_users.present? %>
+              admin_users:[
+                <% @json_admin_users.each do |a| %>
+                  {
+                    id:<%= a.id %>,
+                    name:"<%= a.name %>",
+                    email:"<%= a.email %>",
+                  },
+                <% end %>
+              ]
+            <% end %>
+        }
+    };
+</script>
+
 </head>
 <body>
   <%= yield %>

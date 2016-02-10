@@ -59,9 +59,11 @@
                     }
                 }
                 &__radio {
-                    input[type="radio"] {
+                    input[type="radio"],
+                    input[type="checkbox"] {
                         margin-right: 5px;
                         cursor: pointer;
+                        outline: none;
                     }
                     label {
                         cursor: pointer;

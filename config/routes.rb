@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'company/contact'   => 'company#contact'
 
 #productの一覧
-  get 'products/show'  => 'products#show'
+  get 'products/show/:id'  => 'products#show'
   get 'products/scene'     => 'products#scene'
   get 'products' => 'products#index'
   get 'products/ranking' => 'products#ranking'
@@ -28,48 +28,33 @@ Rails.application.routes.draw do
   get 'carts/show' =>'carts#show'
   get 'carts/register' => 'carts#register'
   get 'carts/comfirm' => 'carts#comfirm'
-  post 'api/carts/comfirm' => 'carts#api'
+  post 'api/carts/comfirm' => 'carts#api' #購入
   get 'carts/thanks' => 'carts#thanks'
-  #post 'api/carts/confirm' => 'carts#thanks'
-  post 'products/show'     => 'products#create_cart'
-
- # get 'feature/feature_list' => 'feature#show'
-
-#商品購入
-  post  'order/new'     =>  'orders#create'
-  patch  'order/new'    =>  'orders#create'
-#顧客情報入力
-  get 'order/new'       =>  'orders#new'
-  get 'order/complete'  =>  'orders#complete'
-
 
 #以下管理画面のルーティング
-  get   'admin/user/new'   => 'admin_users#new'
-  post  'admin/user/new'   => 'admin_users#create'
-
+  resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'
+  get 'admin/settings/users/:id' => 'admin_users#destroy'
 #管理画面ホーム
-get "admin" => "admin#index"
+  get "admin" => "admin#index"
 
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
+  post 'api/products/edit' => 'admin_products#api'
+  patch 'api/products/edit' => 'admin_products#api'
+  post 'admin/products/import' => 'admin_products#import'
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
-
 #管理画面の購入した人一覧
-  resources :admin_customers,only: [:index,:show,:edit,:update,:destroy],:path => 'admin/customers'
+  resources :admin_customers,only: [:index],:path => 'admin/customers'
 #TODO: 設定のコントローラー作成
   resources :admin_settings,only:[:index],:path => 'admin/settings'
+  get 'admin/settings/mail' => 'admin_settings#mail_setting'
+  patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
 
-resources :admin_balloon_options
 #バルーンのオプションの選択--ここから
+ resources :admin_categories, only:[:index,:edit,:new,:create,:update] , :path => 'admin/categories'
 
- resources :admin_categories, only:[:index,:new,:create,:edit,:update] , :path => 'admin/categories' do
- #,shallow: true do
-  resources :admin_category_children, only:[:index,:new,:create,:update] , :path => 'sub_categories'
- end
-
-  get 'admin_balloon_options' => 'admin_balloon_options#create_boxsize'
 
   post 'colors/create'        => 'colors#create'
   post 'scenes/create'        => 'scenes#create'
@@ -94,6 +79,6 @@ resources :admin_balloon_options
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
-get  'logout'  => 'sessions#destroy' ,as: :logout
+get  'admin/logout'  => 'sessions#destroy' ,as: :logout
 
 end

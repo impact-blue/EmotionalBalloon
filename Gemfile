@@ -34,12 +34,15 @@ gem 'unicorn'
   gem 'rb-readline'
   gem 'angular-rails-engine'
   gem'angular_rails_csrf'
+gem 'whenever', :require => false
+gem 'roo'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
 end
 
 group :development do
