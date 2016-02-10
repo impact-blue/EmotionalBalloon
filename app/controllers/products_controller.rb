@@ -73,7 +73,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @json_detail_product = Product.find(params[:id])
+    @json_detail_product = Product.includes(:scenes,:charas).find(params[:id])
   end
 
   def ranking

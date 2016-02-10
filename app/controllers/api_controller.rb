@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 #TODO: before_action
 #出力例http://localhost:3000/api/product/search.json?page=2&min=100&max2000
-
+#使ってないかも？
 
   def apis_product_search
     min = params[:min]
