@@ -22,18 +22,15 @@ class ProductsController < ApplicationController
       @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(@page).order("created_at DESC")
       @current_page = params[:page].to_i
     elsif scene.present? #シーン別
-      @products = Kaminari.paginate_array(Product.includes(:scenes).where('scene = ?', params[:scene]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @products = Kaminari.paginate_array(Product.includes(:scenes).where('name_en = ?', params[:name_en]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@page)
       @current_page = params[:page].to_i
 
     elsif chara.present? #キャラクター別
-      @products = Kaminari.paginate_array(Product.includes(:charas).where('chara = ?', params[:chara]).references(:chara).order("products.created_at DESC")).page(params[:page]).per(@page)
+      @products = Kaminari.paginate_array(Product.includes(:charas).where('name_en = ?', params[:name_en]).references(:chara).order("products.created_at DESC")).page(params[:page]).per(@page)
       @current_page = params[:page].to_i
 
     elsif color.present? #色別
       @products = Kaminari.paginate_array(Product.includes(:colors).where('color = ?', params[:color]).references(:color).order("products.created_at DESC")).page(params[:page]).per(@page)
-      @current_page = params[:page].to_i
-    elsif balloon_type.present? #バルーンタイプ別
-      @products = Kaminari.paginate_array(Product.includes(:balloon_types).where('balloon_type = ?', params[:balloon_type]).references(:balloon_type).order("products.created_at DESC")).page(params[:page]).per(@page)
       @current_page = params[:page].to_i
 #条件なし
     else

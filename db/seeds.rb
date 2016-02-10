@@ -203,7 +203,9 @@ Chara.create(:name_en => 'sanrio',:name_ja => 'サンリオ')
 Chara.create(:name_en => 'anpanman',:name_ja => 'アンパンマン')
 Chara.create(:name_en => 'onepiece',:name_ja => 'ワンピース')
 Chara.create(:name_en => 'yokai',:name_ja => '妖怪ウォッチ')
+Chara.create(:name_en => 'pokemon',:name_ja => 'ポケモン')
 Chara.create(:name_en => 'other',:name_ja => 'その他')
+
 
 Color.create(:name_en => 'white', :name_ja => '白色')
 Color.create(:name_en => 'pink' , :name_ja => 'ピンク')
