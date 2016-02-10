@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
           .merge(ProductScene.order("product_id asc")
             .where(scene_id: Scene
               .find_by(
-                  name_en: "#{params[:scene]}"
+                  "name_en = ?" , params[:scene]
               )
             )
           ).references(:scene).page(params[:page]).per(20)
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
           .merge(ProductChara.order("product_id asc")
             .where(chara_id: Chara
               .find_by(
-                  name_en: "#{params[:character]}"
+                  "name_en = ?" , params[:character]
               )
             )
           ).references(:chara).page(params[:page]).per(20)
@@ -76,13 +76,8 @@ class ProductsController < ApplicationController
     @json_detail_product = Product.find(params[:id])
   end
 
-  def scene
-  end
-
-  def register
-  end
-
-  def confirm
+  def ranking
+    @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")
   end
 
 #  def create_cart
@@ -97,8 +92,6 @@ class ProductsController < ApplicationController
 #    end
 #  end
 
-  def cart
-  end
 
   private
 
