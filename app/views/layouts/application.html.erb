@@ -22,12 +22,13 @@
                 product_list:[
                   <% @json_products.each do |p| %>
                     {
-                        id: <%= p.id %>,
+                        id:    <%= p.id %>,
                         name: "<%= p.name %>",
                         price: <%= p.price %>,
                         stock: <%= p.stocks %>,
                         count: <%= p.count %>,
-                        created_at: "<%= p.created_at.strftime('%Y/%m/%d %H:%M:%S') %>"
+                        created_at: "<%= p.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                        image:"<%= p.main_image %>"
                     },
                   <% end %>
                 ]
@@ -48,14 +49,14 @@
             <% end %>
             <% if @json_detail_product.present? %>
               detail_product: {
-                id:<%= @json_detail_product.id  %>,
-                name:"<%= @json_detail_product.name %>",
-                price:<%= @json_detail_product.price %>,
-                stocks:<%= @json_detail_product.stocks %>,
+                id:          <%= @json_detail_product.id  %>,
+                name:       "<%= @json_detail_product.name %>",
+                price:       <%= @json_detail_product.price %>,
+                stocks:      <%= @json_detail_product.stocks %>,
                 description:"<%= @json_detail_product.comment %>",
-                count:<%= @json_detail_product.count %>,
-                status:<%= @json_detail_product.status %>,
-                created_at:"<%= @json_detail_product.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                count:       <%= @json_detail_product.count %>,
+                status:      <%= @json_detail_product.status %>,
+                created_at: "<%= @json_detail_product.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                 <% if @json_detail_product.images.present? %>
                 image:[
                   <% @json_detail_product.images.each do |p| %>

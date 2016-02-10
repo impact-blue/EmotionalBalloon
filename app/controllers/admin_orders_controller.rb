@@ -5,7 +5,7 @@ class AdminOrdersController < ApplicationController
   def index
     @json_order_list = Order.all.includes(:user).order("created_at ASC")
     unless params[:filter].present?
-      redirect_to "/admin/orders/?filter=all"
+      redirect_to "/admin/orders/?filter=all" and return
     end
 
     if params[:filter] == "unconfirmed"
