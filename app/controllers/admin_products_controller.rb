@@ -64,7 +64,6 @@ class AdminProductsController < ApplicationController
   end
 
   def api
-
     if params[:id].nil?
       @product = Product.new(product_params)
       @product.count = 0
@@ -86,23 +85,39 @@ class AdminProductsController < ApplicationController
       @product.status = 0
     end
 
-    params[:data][:images].each_with_index do |product_info,i|
-      @product.images.build
-      @product.images[i].product_id = @product.id
-      @product.images[i].image = params[:data][:images][i]
+    if params[:data][:images].present?
+      params[:data][:images].each_with_index do |product_info,i|
+        @product.images.build
+        @product.images[i].product_id = @product.id
+        @product.images[i].image = params[:data][:images][i]
+      end
     end
 
-    params[:data][:scenes].each_with_index do |product_info,i|
-      @product.product_scenes.build
-      @product.product_scenes[i].product_id = @product.id
-      @product.product_scenes[i].scene_id = Scene.find_by(name_en: product_info).id
+    if params[:data][:scenes].present?
+      params[:data][:scenes].each_with_index do |product_info,i|
+        @product.product_scenes.build
+        @product.product_scenes[i].product_id = @product.id
+        @product.product_scenes[i].scene_id = Scene.find_by(name_en: product_info).id
+      end
     end
 
-    params[:data][:characters].each_with_index do |product_info,i|
-      @product.product_charas.build
-      @product.product_charas[i].product_id = @product.id
-      @product.product_charas[i].chara_id = Chara.find_by(name_en: product_info).id
+    if params[:data][:characters].present?
+      params[:data][:characters].each_with_index do |product_info,i|
+        @product.product_charas.build
+        @product.product_charas[i].product_id = @product.id
+        @product.product_charas[i].chara_id = Chara.find_by(name_en: product_info).id
+      end
     end
+
+
+    if params[:data][:color].present?
+      params[:data][:colors].each_with_index do |product_info,i|
+        @product.product_colors.build
+        @product.product_colors[i].product_id = @product.id
+        @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
+      end
+    end
+
     #保存
     if @product.save
       render json: {data:{result:"success"}}
