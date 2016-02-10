@@ -1,7 +1,8 @@
 class CreateColors < ActiveRecord::Migration
   def change
     create_table :colors do |t|
-      t.string :color
+      t.string :name_en
+      t.string :name_ja
 
       t.timestamps null: false
     end

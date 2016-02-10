@@ -47,7 +47,7 @@
         </div>
     </div>
 </header>
-<section>
+<section ng-controller="balloonController">
 <div class="p-topHead">
     <div class="topHead__text">
         <p>そうだ、バルーンをプレゼントしよう</p>
@@ -98,8 +98,8 @@
 </div>
 <h2 class="balloonHeading2">ランキング</h2>
 <ul class="p-spaceList p-spaceList--ranking">
-    <li ng-repeat="product in data.ranking_products.product_list | limitTo: 5">
-        <a href="/products/show">
+    <li ng-repeat="product in data.ranking_products | limitTo: 5">
+        <a href="/products/show/{{product.id}}">
             <img src="{{product.image}}" alt="{{product.name}}">
             <div class="spaceWrapper">
                 <p>{{product.name}}</p>
@@ -171,5 +171,5 @@
             </ul>
         </section>
     </div>
-    <p class="footerCopyright">Copyright (C) 2015 Emotional Balloon All Rights Reserved.</p>
+    <p class="footerCopyright">Copyright (C) 2016 Emotional Balloon All Rights Reserved.</p>
 </footer>

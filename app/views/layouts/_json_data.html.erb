@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    var balloon_data = {
+        data: {
+            search_products: {
+              title:"",
+              discription:"",
+              image:"",
+              current_page:2,
+              max_page:3,
+              product_list:[
+            <% @json_products.each do |p| %>
+                {
+                    id: <%= p.id %>,
+                    name: "<%= p.name %>",
+                    price: <%= p.price %>,
+                    stock: <%= p.stocks %>,
+                    count: <%= p.count %>,
+                    created_at: "<%= p.created_at %>"
+                },
+                <% end %>
+            ]
+        }
+      }
+    };
+</script>

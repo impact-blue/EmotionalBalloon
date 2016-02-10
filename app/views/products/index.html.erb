@@ -47,7 +47,7 @@
         </div>
     </div>
 </header>
-<section>
+<section ng-controller="balloonController">
 <div class="l-column-col1">
     <div class="p-categoryHead" style="background-image: url({{data.search_products.image}})" ng-if="data.search_products.image"></div>
     <ul class="breadList u-pt-20">
@@ -66,7 +66,7 @@
     </div>
     <ul class="p-spaceList u-mt-40">
         <li ng-repeat="product in data.search_products.product_list">
-            <a href="/products/show">
+            <a href="/products/show/{{product.id}}">
                 <img src="{{product.image}}" alt="">
                 <div class="spaceWrapper">
                     <p>{{product.name}}</p>
@@ -108,5 +108,5 @@
             </ul>
         </section>
     </div>
-    <p class="footerCopyright">Copyright (C) 2015 Emotional Balloon All Rights Reserved.</p>
+    <p class="footerCopyright">Copyright (C) 2016 Emotional Balloon All Rights Reserved.</p>
 </footer>
