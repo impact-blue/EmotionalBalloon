@@ -63,6 +63,20 @@
                   <% end %>
                 ],
                 <% end %>
+                <% if @json_detail_product.product_scenes.present? %>
+                scenes: [
+                  <% @json_detail_product.product_scenes.each do |s| %>
+                    "<%= s.scene.name_en %>",
+                  <% end %>
+                ],
+                <% end %>
+                <% if @json_detail_product.product_charas.present? %>
+                characters: [
+                  <% @json_detail_product.product_charas.each do |c| %>
+                    "<%= c.chara.name_en%>",
+                  <% end %>
+                ]
+                <% end %>
               }
             <% end %>
             <% if @json_order_list.present? %>

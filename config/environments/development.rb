@@ -49,6 +49,8 @@ Rails.application.configure do
     Bullet.rails_logger = true # Railsのログ
 
     Bullet.add_footer   = true # 画面の下部に表示
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Product', association: :scenes
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Product', association: :charas
 
   end
 end

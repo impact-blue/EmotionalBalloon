@@ -34,13 +34,8 @@ class AdminProductsController < ApplicationController
     end
   end
 
-  def show
-    @product = Product.all.includes(:balloon_types,:colors,:charas,:scenes,:boxsize)
-  end
-
   def edit
-    @product = Product.find(params[:id])
-    @json_detail_product = Product.find(params[:id])
+    @json_detail_product = Product.includes(:charas,:scenes).find(params[:id])
   end
 
   def create
@@ -69,6 +64,7 @@ class AdminProductsController < ApplicationController
   end
 
   def api
+
     if params[:id].nil?
       @product = Product.new(product_params)
       @product.count = 0
@@ -76,6 +72,7 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:id])
      # @json_detail_product = Product.find(params[:id])
     end
+
     @product.name = params[:data][:name]
     @product.price = params[:data][:price]
     @product.stocks = params[:data][:stock]
@@ -88,8 +85,6 @@ class AdminProductsController < ApplicationController
     elsif parama[:data][:status] = "false"
       @product.status = 0
     end
-    #@product.user = User.new(user_params)
-    #@product.user.first_name = params[:data][:buyer_info][:family_name]
 
     params[:data][:images].each_with_index do |product_info,i|
       @product.images.build
@@ -97,12 +92,18 @@ class AdminProductsController < ApplicationController
       @product.images[i].image = params[:data][:images][i]
     end
 
-    #params[:data][:scene].each_with_index do |product_info,i|
-    #  @product.scenes.build
-    #  @product.scenes[i].product_id = @product.id
-    #  @product.scenes[i].image = params[:data][:images][i]
-    #end
+    params[:data][:scenes].each_with_index do |product_info,i|
+      @product.product_scenes.build
+      @product.product_scenes[i].product_id = @product.id
+      @product.product_scenes[i].scene_id = Scene.find_by(name_en: product_info).id
+    end
 
+    params[:data][:characters].each_with_index do |product_info,i|
+      @product.product_charas.build
+      @product.product_charas[i].product_id = @product.id
+      @product.product_charas[i].chara_id = Chara.find_by(name_en: product_info).id
+    end
+    #保存
     if @product.save
       render json: {data:{result:"success"}}
     end
