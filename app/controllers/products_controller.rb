@@ -33,12 +33,13 @@ class ProductsController < ApplicationController
               )
             )
           ).references(:chara).page(params[:page]).per(20)
-
     end
 
     #予算別
     if params[:min].present? && params[:max].present?
       @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+    elsif params[:max].present?
+      @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     end
 
   #以下は旧仕様
