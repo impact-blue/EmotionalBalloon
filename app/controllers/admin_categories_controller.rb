@@ -20,7 +20,7 @@ class AdminCategoriesController < ApplicationController
   end
 
   def edit
-    @boxsize = Boxsize.find(params[:id])
+
   end
 
   def create
