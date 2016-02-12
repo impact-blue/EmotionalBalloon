@@ -34,6 +34,14 @@ Rails.application.routes.draw do
 #以下管理画面のルーティング
   resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'
   get 'admin/settings/users/:id' => 'admin_users#destroy'
+
+  #TODO: 設定のコントローラー作成
+  resources :admin_settings,only:[:index],:path => 'admin/settings'
+  get 'admin/settings/mail' => 'admin_settings#mail_setting'
+  patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
+  get 'admin/settings/agreement' => 'admin_settings#edit_agreement'
+  patch 'admin/settings/agreement' => 'admin_settings#update_agreement'
+
 #管理画面ホーム
   get "admin" => "admin#index"
 
@@ -47,10 +55,6 @@ Rails.application.routes.draw do
   resources :admin_orders,:path  =>  'admin/orders'
 #管理画面の購入した人一覧
   resources :admin_customers,only: [:index],:path => 'admin/customers'
-#TODO: 設定のコントローラー作成
-  resources :admin_settings,only:[:index],:path => 'admin/settings'
-  get 'admin/settings/mail' => 'admin_settings#mail_setting'
-  patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
 
 #バルーンのオプションの選択--ここから
  resources :admin_categories, only:[:index,:edit,:new,:create,:update] , :path => 'admin/categories'

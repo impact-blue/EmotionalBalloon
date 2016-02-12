@@ -15,6 +15,11 @@
     <div class="l-admin__right">
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
+            <ul class="l-admin__right__foot__content__list">
+    <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
+    <li ng-class="{'on': path === ''}"><a href="/admin/settings/mail">メールテンプレート</a></li>
+    <li ng-class="{'on': path === ''}"><a href="/admin/settings/agreement">利用規約</a></li>
+</ul>
                 <br>
                 <%= form_for([:admin_settings, @mail_content] , :url => {:action => 'update_mail_content'}) do |f| %>
                 <p>件名</p>

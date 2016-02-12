@@ -16,10 +16,26 @@ class AdminSettingsController < ApplicationController
     end
   end
 
+  def edit_agreement
+    @agreement = Agreement.find(1)
+  end
+
+  def update_agreement
+    @agreement = Agreement.find(1)
+    if @agreement.update_attributes(agreement_params)
+      redirect_to '/admin'
+    else
+      render 'edit_agreement'
+    end
+  end
 
   private
 
   def mail_params
     params.require(:mail_content).permit(:subject,:text)
+  end
+
+  def agreement_params
+    params.require(:agreement).permit(:content)
   end
 end
