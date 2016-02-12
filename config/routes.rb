@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'
   get 'admin/settings/users/:id' => 'admin_users#destroy'
 
-  #TODO: 設定のコントローラー作成
   resources :admin_settings,only:[:index],:path => 'admin/settings'
   get 'admin/settings/mail' => 'admin_settings#mail_setting'
   patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
@@ -43,6 +42,8 @@ Rails.application.routes.draw do
   patch 'admin/settings/agreement' => 'admin_settings#update_agreement'
   get 'admin/settings/traderule' => 'admin_settings#edit_trade_rule'
   patch 'admin/settings/traderule' => 'admin_settings#update_trade_rule'
+  get 'admin/settings/company' => 'admin_settings#edit_company'
+  patch 'admin/settings/company' => 'admin_settings#update_company'
 
 #管理画面ホーム
   get "admin" => "admin#index"

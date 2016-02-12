@@ -63,23 +63,19 @@
         </ul>
         <div class="l-admin__right__foot__content__full" ng-controller="productCreateController">
     <div class="p-registerForm">
-        <%= form_for([:admin_settings, @trade_rule] , :url => {:action => 'update_trade_rule'}) do |f| %>
-        <p class="p-registerForm__heading">特商法の記述</p>
+        <%= form_for([:admin_settings, @company] , :url => {:action => 'update_company'}) do |f| %>
+        <p class="p-registerForm__heading">会社概要</p>
         <ul class="p-registerForm__wrapper">
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">販売事業者</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :company %></div>
+                <p class="p-registerForm__wrapper__list__text">会社名</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :name %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">販売責任者</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :supervisor %></div>
-            </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">所在地（郵便番号)</p>
+                <p class="p-registerForm__wrapper__list__text">郵便番号</p>
                 <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :postal_code %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">所在地（住所）</p>
+                <p class="p-registerForm__wrapper__list__text">住所</p>
                 <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :address %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
@@ -87,36 +83,36 @@
                 <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :phone %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">営業時間</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :business_hours %></div>
+                <p class="p-registerForm__wrapper__list__text">代表</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :ceo %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">メールアドレス</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :mail %></div>
+                <p class="p-registerForm__wrapper__list__text">設立日</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :foundation_day %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">ホームページ</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :homepage %></div>
+                <p class="p-registerForm__wrapper__list__text">資本金</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :capital %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">販売価格</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :price %></div>
+                <p class="p-registerForm__wrapper__list__text">商号</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :trade_name %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">代金以外の必要料金</p>
+                <p class="p-registerForm__wrapper__list__text">従業員数</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :proper %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">商品代金以外の必要料金</p>
                 <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :special_price %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">返品について</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :cancel_info %></div>
             </li>
             <li class="p-registerForm__wrapper__list required">
                 <p class="p-registerForm__wrapper__list__text">お支払い方法</p>
                 <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :payment_info %></div>
-            </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">引渡期限</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :delivery_deadline %></div>
-            </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">キャンセルについて</p>
-                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :cancel_info %></div>
             </li>
         </ul>
     </div>

@@ -54,34 +54,31 @@
   <div class="l-admin__right">
     <div class="l-admin__right__foot">
       <div class="l-admin__right__foot__content">
+
         <ul class="l-admin__right__foot__content__list">
           <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
           <li ng-class="{'on': path === ''}"><a href="/admin/settings/mail">メールテンプレート</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/company">会社概要</a></li>
           <li ng-class="{'on': path === ''}"><a href="/admin/settings/agreement">利用規約</a></li>
           <li ng-class="{'on': path === ''}"><a href="/admin/settings/traderule">特定商法の記述</a></li>
         </ul>
         <div class="l-admin__right__foot__content__body">
-              <table class="c-table">
-        <thread class="c-table__thread">
-            <tr class="c-table__thread__row">
-                <th class="c-table__thread__row__head">利用規約</th>
-                <th class="c-table__thread__row__head">内容</th>
-            </tr>
-        </thread>
-        <tbody class="c-table__body">
-            <tr class="c-table__body__row" >
-              <td class="c-table__body__row__data">内容</td>
-              <td class="c-table__body__row__data">
-              <div class="p-registerForm__wrapper__list__content">
-              <%= form_for([:admin_settings, @agreement] , :url => {:action => 'update_agreement'}) do |f| %>
-              <%= f.text_area :content %>
-              <%= f.submit :編集する ,class: 'c-button--cart__text' %>
-              <% end %>
-            </div>
-              </td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="l-admin__right__foot__content__full" ng-controller="productCreateController">
+    <div class="p-registerForm">
+        <p class="p-registerForm__heading">利用規約</p>
+        <%= form_for([:admin_settings, @agreement] , :url => {:action => 'update_agreement'}) do |f| %>
+        <ul class="p-registerForm__wrapper">
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">内容</p>
+                <div class="p-registerForm__wrapper__list__content"><%= f.text_area :content %></div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-button--cart">
+        <%= f.submit :編集する ,class: 'c-button--cart__text' %>
+        <% end %>
+    </div>
+</div>
 
         </div>
       </div>

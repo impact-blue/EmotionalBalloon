@@ -279,6 +279,7 @@ MailContent.create(:subject => 'エモーショナルバルーン：商品の購
 
 Agreement.create(:content => '利用規約の内容です。')
 Traderule.create(:company => 'インパクトブルー')
+Company.create(:name => '株式会社インパクトブルー')
 
 AdminUser.create(:name => 'impact',:email => 'impact1234@example.com',:password => 'impact1234')
 AdminUser.create(:name => 'kubota',:email => 'kubota@impact-blue.co.jp',:password => 'impact2016')
