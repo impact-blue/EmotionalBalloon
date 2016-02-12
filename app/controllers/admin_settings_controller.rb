@@ -29,6 +29,19 @@ class AdminSettingsController < ApplicationController
     end
   end
 
+  def edit_trade_rule
+    @trade_rule = Traderule.find(1)
+  end
+
+  def update_trade_rule
+    @trade_rule = Traderule.find(1)
+    if @trade_rule.update_attributes(trade_rule_params)
+      redirect_to '/admin'
+    else
+      render 'edit_trade_rule'
+    end
+  end
+
   private
 
   def mail_params
@@ -37,5 +50,9 @@ class AdminSettingsController < ApplicationController
 
   def agreement_params
     params.require(:agreement).permit(:content)
+  end
+
+  def trade_rule_params
+    params.require(:traderule).permit(:company,:supervisor,:postal_code,:address,:phone,:business_hours,:mail,:homepage,:price,:special_price,:payment_info,:delivery_deadline,:cancel_info)
   end
 end
