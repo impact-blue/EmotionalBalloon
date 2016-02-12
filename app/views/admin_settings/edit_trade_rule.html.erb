@@ -1,0 +1,187 @@
+<div class="l-admin" ng-controller="adminController">
+  <div class="l-admin__left">
+    <ul class="l-admin__left__list">
+      <li class="l-admin__left__list__child">
+        <a href="/admin/products/new">
+          <p><i class="fa fa-pencil-square-o"></i></p>
+          <p>NEW POST</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+        <a href="/admin">
+          <p><i class="fa fa-home"></i></p>
+          <p>HOME</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+        <a href="/admin/products?filter=all">
+          <p><i class="fa fa-gift"></i></p>
+          <p>PRODUCT</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+        <a href="/admin/orders/?filter=all">
+          <p><i class="fa fa-shopping-cart"></i></p>
+          <p>ORDER</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+        <a href="/admin/categories?filter=all">
+          <p><i class="fa fa-tag"></i></p>
+          <p>CATEGORY</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+        <a href="/admin/customers">
+          <p><i class="fa fa-user"></i></p>
+          <p>CUSTOMER</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+        <a href="/admin/settings">
+          <p><i class="fa fa-cog"></i></p>
+          <p>SETTING</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child">
+        <a href="">
+          <p><i class="fa fa-sign-out"></i></p>
+          <p>LOGOUT</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="l-admin__right">
+    <div class="l-admin__right__foot">
+      <div class="l-admin__right__foot__content">
+        <ul class="l-admin__right__foot__content__list">
+          <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/mail">メールテンプレート</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/agreement">利用規約</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/traderule">特定商法の記述</a></li>
+        </ul>
+        <div class="l-admin__right__foot__content__body">
+              <table class="c-table">
+        <thread class="c-table__thread">
+            <tr class="c-table__thread__row">
+                <th class="c-table__thread__row__head">利用規約</th>
+                <th class="c-table__thread__row__head">内容</th>
+            </tr>
+        </thread>
+        <tbody class="c-table__body">
+        <%= form_for([:admin_settings, @trade_rule] , :url => {:action => 'update_trade_rule'}) do |f| %>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">販売事業者</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :company %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">販売責任者</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :supervisor %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">所在地（郵便番号)</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :postal_code %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">所在地（住所）</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :adress %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">電話番号</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :phone %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">営業時間</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :business_hours %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">メールアドレス</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :mail %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">ホームページ</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :homepage %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">販売価格</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :price %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">代金以外の必要料金</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :special_price %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">お支払い方法</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :payment_info %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">引渡期限</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :delivery_deadline %>
+              </div>
+              </td>
+            </tr>
+            <tr class="c-table__body__row" >
+              <td class="c-table__body__row__data">キャンセルについて</td>
+              <td class="c-table__body__row__data">
+              <div class="p-registerForm__wrapper__list__content">
+                <%= f.text_field :cancel_info %>
+              </div>
+              </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <%= f.submit :編集する ,class: 'c-button--cart__text' %>
+              <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,6 +19,7 @@
     <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
     <li ng-class="{'on': path === ''}"><a href="/admin/settings/mail">メールテンプレート</a></li>
     <li ng-class="{'on': path === ''}"><a href="/admin/settings/agreement">利用規約</a></li>
+    <li ng-class="{'on': path === ''}"><a href="/admin/settings/traderule">特定商法の記述</a></li>
 </ul>
                 <br>
                 <%= form_for([:admin_settings, @mail_content] , :url => {:action => 'update_mail_content'}) do |f| %>

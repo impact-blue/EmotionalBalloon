@@ -278,6 +278,7 @@ Scene.create(:name_en => 'open' ,:name_ja => '開店祝い')
 MailContent.create(:subject => 'エモーショナルバルーン：商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
 
 Agreement.create(:content => '利用規約の内容です。')
+Traderule.create(:company => 'インパクトブルー')
 
 AdminUser.create(:name => 'impact',:email => 'impact1234@example.com',:password => 'impact1234')
 AdminUser.create(:name => 'kubota',:email => 'kubota@impact-blue.co.jp',:password => 'impact2016')
