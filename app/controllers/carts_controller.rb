@@ -14,28 +14,24 @@ class CartsController < ApplicationController
 
   def purchase
     webpay = WebPay.new(WEBPAY_SECRET_KEY)
-
+        binding.pry
     # WebPay上での顧客の情報を作成
     customer = webpay.customer.create(card: params['webpay-token'])
-
+    @order = Order.find(16)
     # 顧客情報を使って支払い
     webpay.charge.create(
-      amount: 10000,
+      amount: @order.price,
       currency: 'jpy',
       customer: customer.id
     )
-    @order = Order.new
-    @order.user = User.new
-    @order.payment_info = customer.id
-    @order.save
-    binding.pry
+
     redirect_to action: 'thanks'
   rescue WebPay::ErrorResponse::CardError => e
     # エラーハンドリング。発生する例外の種類がいくつか用意されているので、内容に応じて処理を書く
   end
 
   def api
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.delivery_address = params[:data][:destination_info][:address1]
     @order.order_status = "新着"
     @order.payment_info = params[:data][:payment_info][:method]
@@ -57,6 +53,8 @@ class CartsController < ApplicationController
       @order.order_product_infos[i].product_id = product_info[:id]
     end
 
+    User.create(:family_name => "カード作った人です")
+#一回オーダーを保存して、リダイレクトする前に、カード情報を作成。そして、その時にオーダー情報を上書き。
     if @order.save
       params[:data][:product_info].each_with_index do |product_info,i|
         @product = Product.find(product_info[:id])
