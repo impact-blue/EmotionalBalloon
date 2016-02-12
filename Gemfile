@@ -36,6 +36,7 @@ gem 'unicorn'
   gem'angular_rails_csrf'
 gem 'whenever', :require => false
 gem 'roo'
+gem 'webpay'
 
 group :development, :test do
   gem 'byebug'
