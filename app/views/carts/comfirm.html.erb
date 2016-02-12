@@ -296,6 +296,9 @@
         <div class="c-button--cart">
             <p class="c-button--cart__text" ng-click="cartComfirm()">注文を確定する</p>
         </div>
+        <%= form_tag(action: :purchase, method: :post) do %>
+<script src="https://checkout.webpay.jp/v1/" class="webpay-button" data-key="<%= WEBPAY_PUBLIC_KEY %>"></script>
+<% end %>
         <table class="p-registerResult">
             <tbody>
                 <tr class="p-registerResult__row">

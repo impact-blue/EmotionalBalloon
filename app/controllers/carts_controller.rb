@@ -1,3 +1,5 @@
+require "webpay"
+
 class CartsController < ApplicationController
 
   def show
@@ -8,6 +10,28 @@ class CartsController < ApplicationController
 
   def comfirm
     @user = User.new
+  end
+
+  def purchase
+    webpay = WebPay.new(WEBPAY_SECRET_KEY)
+
+    # WebPay上での顧客の情報を作成
+    customer = webpay.customer.create(card: params['webpay-token'])
+
+    # 顧客情報を使って支払い
+    webpay.charge.create(
+      amount: 10000,
+      currency: 'jpy',
+      customer: customer.id
+    )
+    @order = Order.new
+    @order.user = User.new
+    @order.payment_info = customer.id
+    @order.save
+    binding.pry
+    redirect_to action: 'thanks'
+  rescue WebPay::ErrorResponse::CardError => e
+    # エラーハンドリング。発生する例外の種類がいくつか用意されているので、内容に応じて処理を書く
   end
 
   def api
