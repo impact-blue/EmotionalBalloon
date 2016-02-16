@@ -17,13 +17,11 @@ class CartsController < ApplicationController
     @order.payment_info = params[:data][:payment_info][:method]
 
     @order.user = User.new(user_params)
-    @order.user.family_name = params[:data][:buyer_info][:family_name]
-    @order.user.first_name = params[:data][:buyer_info][:first_name]
-    @order.user.address = params[:data][:buyer_info][:address1]
-    @order.user.address2 = params[:data][:buyer_info][:address2]
+    @order.user.address = params[:data][:buyer_info][:address]
     @order.user.email = params[:data][:buyer_info][:mail]
     @order.user.phone = params[:data][:buyer_info][:phone]
 
+    @order.user.user_names.build
     @order.price = 0
     params[:data][:product_info].each_with_index do |product_info,i|
       #商品の合計値段計算
@@ -33,6 +31,8 @@ class CartsController < ApplicationController
       @order.order_product_infos[i].product_id = product_info[:id]
     end
 
+
+
     if @order.save
       params[:data][:product_info].each_with_index do |product_info,i|
         @product = Product.find(product_info[:id])
@@ -41,8 +41,16 @@ class CartsController < ApplicationController
       end
       render json: {data:{result:"success"}}
     else
-      redirect_to carts_thanks_path
-   #  render json: {data:{result:"success"}}
+      render json: {data:
+                          {result:"error",
+                           "message":
+                            @order.errors.full_messages.each do |msg|
+                              [
+                                "msg",
+                              ]
+                            end
+                          }
+                   }
     end
   end
 
@@ -59,9 +67,13 @@ class CartsController < ApplicationController
     params.require(:data).permit(:id,:number)
   end
 
-  def order_params
+  def user_name_params
     params = ActionController::Parameters.new(JSON.parse(request.body.read))
     params.require(:data).permit(:id)
+  end
+
+  def order_params
+    params.require(:data).permit(:id,:phone,:postal_code,:city,:delivery_address,:order_status)
   end
 
   def order_product_params

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212041653) do
+ActiveRecord::Schema.define(version: 20160216045120) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -83,6 +83,14 @@ ActiveRecord::Schema.define(version: 20160212041653) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "order_delivery_names", force: :cascade do |t|
+    t.integer  "order_id",    limit: 4
+    t.string   "family_name", limit: 255
+    t.string   "first_name",  limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "order_product_infos", force: :cascade do |t|
     t.integer  "order_id",   limit: 4
     t.integer  "product_id", limit: 4
@@ -91,19 +99,19 @@ ActiveRecord::Schema.define(version: 20160212041653) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",           limit: 4
-    t.string   "city",              limit: 255
-    t.string   "payment_info",      limit: 255
+    t.integer  "user_id",          limit: 4
+    t.integer  "postal_code",      limit: 4
+    t.string   "city",             limit: 255
+    t.string   "delivery_address", limit: 255
+    t.integer  "phone",            limit: 4
     t.date     "order_date"
-    t.string   "delivery_address",  limit: 255
-    t.string   "delivery_address2", limit: 255
-    t.string   "option",            limit: 255
-    t.integer  "scene_id",          limit: 4
-    t.string   "order_status",      limit: 255
-    t.integer  "price",             limit: 4
-    t.integer  "postage",           limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "payment_info",     limit: 255
+    t.string   "option",           limit: 255
+    t.integer  "scene_id",         limit: 4
+    t.string   "order_status",     limit: 255
+    t.integer  "price",            limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "product_charas", force: :cascade do |t|
@@ -167,19 +175,22 @@ ActiveRecord::Schema.define(version: 20160212041653) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "user_names", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.string   "user_family_name", limit: 255
+    t.string   "user_first_name",  limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "family_name",     limit: 255
-    t.string   "first_name",      limit: 255
-    t.string   "first_name_kana", limit: 255
-    t.string   "last_name_kana",  limit: 255
-    t.string   "email",           limit: 255
-    t.string   "phone",           limit: 255
-    t.integer  "postal_code",     limit: 4
-    t.integer  "city_id",         limit: 4
-    t.string   "address",         limit: 255
-    t.string   "address2",        limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "email",       limit: 255
+    t.string   "phone",       limit: 255
+    t.integer  "postal_code", limit: 4
+    t.string   "city",        limit: 255
+    t.string   "address",     limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

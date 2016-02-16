@@ -2,5 +2,5 @@ class OrderProductInfo < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
 
-  accepts_nested_attributes_for :order
+  validates :order_id,:product_id,presence: {message: 'は必須です'}
 end
