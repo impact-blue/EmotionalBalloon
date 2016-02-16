@@ -193,7 +193,6 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
-
   activerecord:
       models:
         product: 商品
@@ -220,4 +219,7 @@ ja:
           postal_code: 郵便番号（お届け先）
           city: 都道府県（お届け先）
           order_product_infos: カート内商品
-          order_delivery_name_order:
+        order/order_delivery_names:
+          order_id: 注文情報
+          order_family_name: 姓（お届け先）
+          order_first_name: 名（お届け先）

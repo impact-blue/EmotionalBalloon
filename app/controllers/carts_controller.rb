@@ -32,7 +32,6 @@ class CartsController < ApplicationController
     end
 
 
-
     if @order.save
       params[:data][:product_info].each_with_index do |product_info,i|
         @product = Product.find(product_info[:id])
@@ -41,7 +40,6 @@ class CartsController < ApplicationController
       end
       render json: {data:{result:"success"}}
     else
-
       render json: {data:
                           {result:"error",
                            "message":
