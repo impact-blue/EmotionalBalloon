@@ -199,7 +199,7 @@ ja:
         product: 商品
         user: ユーザー
         order: 注文
-        order_product_info: カート内商品
+        order_delivery_name: 名前（お届け先）
       attributes:
         product:
           name: 商品
@@ -207,18 +207,17 @@ ja:
           stocks: 在庫
           registration_date: 商品の登録日
         user:
-         email: メールアドレス（購入者）
-         address: 住所（購入者）
-         email_confirmation: メールアドレス（確認）
-         city: 都道府県（購入者）
-         phone: 電話番号（購入者）
-         postal_code: 郵便番号（購入者）
+          email: メールアドレス（購入者）
+          address: 住所（購入者）
+          email_confirmation: メールアドレス（確認）
+          city: 都道府県（購入者）
+          phone: 電話番号（購入者）
+          postal_code: 郵便番号（購入者）
         order:
-         delivery_address: 市区群町村(お届け先)
-         user_id: お客様情報の入力（お届け先）
-         phone: 電話番号（お届け先）
-         postal_code: 郵便番号（お届け先）
-         city: 都道府県（お届け先）
-        order_product_info:
-         order_id: 購入者情報
-         product_id: 商品情報
+          delivery_address: 市区群町村(お届け先)
+          user_id: お客様情報の入力（お届け先）
+          phone: 電話番号（お届け先）
+          postal_code: 郵便番号（お届け先）
+          city: 都道府県（お届け先）
+          order_product_infos: カート内商品
+          order_delivery_name_order:

@@ -20,8 +20,8 @@ class CartsController < ApplicationController
     @order.user.address = params[:data][:buyer_info][:address]
     @order.user.email = params[:data][:buyer_info][:mail]
     @order.user.phone = params[:data][:buyer_info][:phone]
-
     @order.user.user_names.build
+    @order.order_delivery_names.build
     @order.price = 0
     params[:data][:product_info].each_with_index do |product_info,i|
       #商品の合計値段計算
@@ -41,6 +41,7 @@ class CartsController < ApplicationController
       end
       render json: {data:{result:"success"}}
     else
+
       render json: {data:
                           {result:"error",
                            "message":

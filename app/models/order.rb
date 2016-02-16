@@ -5,6 +5,10 @@ class Order < ActiveRecord::Base
   belongs_to :scene
   has_many   :order_product_infos
   has_many :order_delivery_names
+  #has_many :user_names
+
+  accepts_nested_attributes_for :order_delivery_names
+
 
   validates :user_id,:price, presence: true,
                                            numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
