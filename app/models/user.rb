@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :user_names
 
   accepts_nested_attributes_for :order
-
+  accepts_nested_attributes_for :user_names
   #emailのバリデーション
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: {message: 'は必須です'},

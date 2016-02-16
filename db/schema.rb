@@ -84,11 +84,11 @@ ActiveRecord::Schema.define(version: 20160216045120) do
   end
 
   create_table "order_delivery_names", force: :cascade do |t|
-    t.integer  "order_id",    limit: 4
-    t.string   "family_name", limit: 255
-    t.string   "first_name",  limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "order_id",          limit: 4
+    t.string   "order_family_name", limit: 255
+    t.string   "order_first_name",  limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "order_product_infos", force: :cascade do |t|
