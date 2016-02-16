@@ -223,3 +223,7 @@ ja:
           order_id: 注文情報
           order_family_name: 姓（お届け先）
           order_first_name: 名（お届け先）
+        user/user_names:
+          user_id: 注文者情報
+          user_family_name: 姓（注文者）
+          user_first_name: 名（注文者）

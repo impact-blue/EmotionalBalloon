@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   #has_many :user_names
 
   accepts_nested_attributes_for :order_delivery_names
-
+  accepts_nested_attributes_for :user
 
   validates :user_id,:price, presence: true,
                                            numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
