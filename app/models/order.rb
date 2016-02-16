@@ -4,13 +4,28 @@ class Order < ActiveRecord::Base
   belongs_to :city
   belongs_to :scene
   has_many   :order_product_infos
+  has_many :order_delivery_names
 
-#  enum order_status: { unconfirmed: 10, process: 20 , complete: 30 }
+  validates :user_id,:price, presence: true,
+                                           numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
+  #phoneのバリデーション
+  validates :phone, presence:  { message: 'は必須です' },
+                    length: { in: 10..15 , message: 'は10桁から15桁です。'},
+                    numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
 
-  #姓名
- # validates :delivery_address,:delivery_address2,
- # presence: { message: 'は必須です' }
+  #postal_codeのバリデーション
+  validates :postal_code, presence: { message: 'は必須です' },
+                          numericality: {only_integer: true, :message => "は半角数字のみ入力できます" },
+                          length: {maximum: 9,wrong_length: 'の桁数が違います。'}
 
+  #cityのバリデーション
+  validates :city, presence: { message: 'は必須です' },
+                   exclusion: { in: %w({ }  . [ ] ) }
+
+  #addressのバリデーション
+  validates :delivery_address, presence: { message: 'は必須です' },
+                      exclusion: { in: %w({ }  . [ ] ) }
+  validates :order_status, exclusion: { in: %w({ }  . [ ] ) }
 
 
 end

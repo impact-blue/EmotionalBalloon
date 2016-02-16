@@ -9,10 +9,12 @@ class Product < ActiveRecord::Base
   has_many :product_balloon_types
   has_many :balloon_types, through: :product_balloon_types
   has_many :images
-  has_many :orders, through: :order_product_info
-  has_many :order_product_infos
   has_many :product_scenes
   has_many :scenes, through: :product_scenes
+
+  has_many :orders, through: :order_product_info
+  has_many :order_product_infos
+
   has_many :carts
 
   #商品名、在庫
