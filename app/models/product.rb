@@ -38,7 +38,7 @@ class Product < ActiveRecord::Base
       product = find_by(id: row["id"]) || new
       # CSVからデータを取得し、設定する
       product.attributes = row.to_hash.slice(*updatable_attributes)
-      # 保存する
+      # 保存する、失敗はロールバック
       product.save!
     end
   end
