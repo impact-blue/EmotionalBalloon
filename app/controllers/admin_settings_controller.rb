@@ -3,13 +3,25 @@ class AdminSettingsController < ApplicationController
   def index
   end
 
-  def mail_setting
-    @mail_content = MailContent.find(1)
+  def edit_mail_setting
+    @card_mail_content = MailContent.find(1)
+    @bank_mail_content = MailContent.find(2)
   end
 
-  def update_mail_content
-    @mail_content = MailContent.find(1)
-    if @mail_content.update_attributes(mail_params)
+#編集機能が、まだカードのみ対応
+  def update_card_mail_content
+    @card_mail_content = MailContent.find(1)
+    if @card_mail_content.update_attributes(mail_params)
+      redirect_to '/admin'
+    else
+      render 'mail_setting'
+    end
+  end
+
+  def update_bank_mail_content
+    binding.pry
+    @bank_mail_content = MailContent.find(2)
+    if @bank_mail_content.update_attributes(mail_params)
       redirect_to '/admin'
     else
       render 'mail_setting'

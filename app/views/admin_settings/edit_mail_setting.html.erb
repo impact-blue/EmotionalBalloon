@@ -22,13 +22,22 @@
     <li ng-class="{'on': path === ''}"><a href="/admin/settings/traderule">特定商法の記述</a></li>
 </ul>
                 <br>
-                <%= form_for([:admin_settings, @mail_content] , :url => {:action => 'update_mail_content'}) do |f| %>
+                <%= form_for([:admin_settings, @card_mail_content] , :url => {:action => 'update_card_mail_content'}) do |c| %>
                 <p>件名</p>
-                <%= f.text_area :subject , class: 'form-control' %>
+                <%= c.text_area :subject , class: 'form-control' %>
                 <p>本文</p>
-                <%= f.text_area :text , class: 'form-control' %>
+                <%= c.text_area :text , class: 'form-control' %>
 
-                <%= f.submit :編集する , class: "btn btn-primary"%>
+                <%= c.submit :編集する , class: "btn btn-primary"%>
+                <% end %>
+
+                <%= form_for([:admin_settings, @bank_mail_content] , :url => {:action => 'update_bank_mail_content'}) do |b| %>
+                <p>件名</p>
+                <%= b.text_area :subject , class: 'form-control' %>
+                <p>本文</p>
+                <%= b.text_area :text , class: 'form-control' %>
+
+                <%= b.submit :編集する , class: "btn btn-primary"%>
                 <% end %>
 
             </div>

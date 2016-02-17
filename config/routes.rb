@@ -36,8 +36,9 @@ Rails.application.routes.draw do
   get 'admin/settings/users/:id' => 'admin_users#destroy'
 
   resources :admin_settings,only:[:index],:path => 'admin/settings'
-  get 'admin/settings/mail' => 'admin_settings#mail_setting'
-  patch 'admin/settings/mail' => 'admin_settings#update_mail_content'
+  get 'admin/settings/mail' => 'admin_settings#edit_mail_setting'
+  patch 'admin/settings/mail' => 'admin_settings#update_card_mail_content'
+  patch 'admin/settings/mail' => 'admin_settings#update_bank_mail_content'
   get 'admin/settings/agreement' => 'admin_settings#edit_agreement'
   patch 'admin/settings/agreement' => 'admin_settings#update_agreement'
   get 'admin/settings/traderule' => 'admin_settings#edit_trade_rule'
