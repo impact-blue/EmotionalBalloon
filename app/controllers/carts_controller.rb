@@ -10,6 +10,7 @@ class CartsController < ApplicationController
     @user = User.new
   end
 
+
   def api
     @order = Order.new(order_params)
     @order.delivery_address = params[:data][:destination_info][:address1]
@@ -31,7 +32,7 @@ class CartsController < ApplicationController
       @order.order_product_infos[i].product_id = product_info[:id]
     end
 
-
+#トランザクションで全て保存のみに対応にする。
     if @order.save
       params[:data][:product_info].each_with_index do |product_info,i|
         @product = Product.find(product_info[:id])
