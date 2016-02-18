@@ -390,6 +390,76 @@ footer .footerCopyright {
   width: 400px;
 }
 
+.l-column-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.l-column-register__head {
+  margin: 0 auto;
+  padding: 20px;
+  width: 800px;
+  background: white;
+  border: 1px solid #aaa;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+.l-column-register__foot__progress {
+  position: relative;
+  width: 800px;
+  margin: 20px auto;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #aaa;
+  background: white;
+}
+.l-column-register__foot__progress__per {
+  height: 30px;
+  background: #D83961;
+  transition: 0.3s;
+}
+.l-column-register__foot__progress__num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+}
+.l-column-register__foot__progress__num.pink {
+  color: #D83961;
+}
+.l-column-register__foot__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.l-column-register__foot__wrapper__button {
+  display: none;
+  padding: 0 200px;
+  line-height: 40px;
+  color: white;
+  background: rgba(216, 57, 97, 0.4);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.l-column-register__foot__wrapper__button.on {
+  background: #D83961;
+  pointer-events: auto;
+}
+.l-column-register__foot__wrapper__button.show {
+  display: block;
+}
+.l-column-register__foot__wrapper__button:first-child {
+  display: block;
+  padding: 0 20px;
+  margin-right: 10px;
+}
+
 h2.balloonHeading2 {
   font-size: 32px;
   text-align: center;
@@ -1131,18 +1201,30 @@ h2.balloonHeading2 {
   width: 140px;
 }
 
-.p-registerForm__heading {
+.p-registerForm__block {
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+  height: 0;
+  overflow: hidden;
+}
+.p-registerForm__block.on {
+  opacity: 1;
+  pointer-events: auto;
+  height: auto;
+}
+.p-registerForm__block__heading {
   font-size: 18px;
   padding-left: 6px;
   border-left: 4px solid #D83961;
 }
-.p-registerForm__wrapper__list {
+.p-registerForm__block__wrapper__list {
   position: relative;
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 5px;
 }
-.p-registerForm__wrapper__list.required::after {
+.p-registerForm__block__wrapper__list.required::after {
   content: "必須";
   position: absolute;
   top: calc(50% - 10px);
@@ -1154,44 +1236,44 @@ h2.balloonHeading2 {
   color: white;
   background: #D83961;
 }
-.p-registerForm__wrapper__list__text {
+.p-registerForm__block__wrapper__list__text {
   width: 160px;
   padding-left: 10px;
   font-size: 14px;
   font-weight: bold;
 }
-.p-registerForm__wrapper__list__content {
+.p-registerForm__block__wrapper__list__content {
   width: calc(100% - 160px);
 }
-.p-registerForm__wrapper__list__content input[type="text"] {
+.p-registerForm__block__wrapper__list__content input[type="text"] {
   width: calc(50% - 5px);
   line-height: 33px;
   font-size: 12px;
   margin-right: 5px;
   border: 1px solid #c8c8c8;
 }
-.p-registerForm__wrapper__list__content textarea {
+.p-registerForm__block__wrapper__list__content textarea {
   width: 100%;
   height: 80px;
   font-size: 12px;
   border: 1px solid #c8c8c8;
 }
-.p-registerForm__wrapper__list__content.postal input[type="text"] {
-  width: calc(31.4% + 5px);
+.p-registerForm__block__wrapper__list__content.postal input[type="text"] {
+  width: calc(100% / 3 - 4px);
 }
-.p-registerForm__wrapper__list__content.postal input[type="text"]:last-child {
+.p-registerForm__block__wrapper__list__content.postal input[type="text"]:last-child {
   margin-right: 0;
 }
-.p-registerForm__wrapper__list__content.address input[type="text"] {
+.p-registerForm__block__wrapper__list__content.address input[type="text"] {
   width: 100%;
 }
-.p-registerForm__wrapper__list__content__radio input[type="radio"],
-.p-registerForm__wrapper__list__content__radio input[type="checkbox"] {
+.p-registerForm__block__wrapper__list__content__radio input[type="radio"],
+.p-registerForm__block__wrapper__list__content__radio input[type="checkbox"] {
   margin-right: 5px;
   cursor: pointer;
   outline: none;
 }
-.p-registerForm__wrapper__list__content__radio label {
+.p-registerForm__block__wrapper__list__content__radio label {
   cursor: pointer;
 }
 
