@@ -438,18 +438,19 @@ footer .footerCopyright {
 }
 .l-column-register__foot__wrapper__button {
   display: none;
+  position: relative;
   padding: 0 200px;
   line-height: 40px;
-  color: white;
-  background: rgba(216, 57, 97, 0.4);
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  border: 2px solid #D83961;
   pointer-events: none;
   cursor: pointer;
   transition: 0.3s;
+  opacity: 0.3;
 }
 .l-column-register__foot__wrapper__button.on {
-  background: #D83961;
   pointer-events: auto;
+  opacity: 1;
 }
 .l-column-register__foot__wrapper__button.show {
   display: block;
@@ -458,6 +459,21 @@ footer .footerCopyright {
   display: block;
   padding: 0 20px;
   margin-right: 10px;
+  color: white;
+  background: #D83961;
+  border: 2px solid #D83961;
+}
+.l-column-register__foot__wrapper__button__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #D83961;
+  transition: 0.3s;
+}
+.l-column-register__foot__wrapper__button__text {
+  position: relative;
+  color: white;
 }
 
 h2.balloonHeading2 {
