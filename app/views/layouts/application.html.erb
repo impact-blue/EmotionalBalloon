@@ -32,7 +32,7 @@
                     },
                   <% end %>
                 ]
-              }
+              },
             <% end %>
             <% if @json_ranking_products.present? %>
               ranking_products:[
@@ -79,7 +79,7 @@
                   <% end %>
                 ]
                 <% end %>
-              }
+              },
             <% end %>
             <% if @json_order_list.present? %>
               order_list:[
@@ -96,7 +96,7 @@
                     }
                   },
                 <% end %>
-              ]
+              ],
             <% end %>
             <% if @json_category_list.present? %>
               category_list: [
@@ -108,7 +108,7 @@
                     created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                   },
                 <% end %>
-              ]
+              ],
             <% end %>
             <% if @json_customer_list.present? %>
               customer_list:{
@@ -125,7 +125,7 @@
                     },
                   <% end %>
                 ]
-              }
+              },
             <% end %>
             <% if @json_admin_users.present? %>
               admin_users:[
@@ -136,10 +136,21 @@
                     email:"<%= a.email %>",
                   },
                 <% end %>
-              ]
+              ],
+            <% end %>
+            <% if @json_scene_list.present? %>
+              scene_list:[
+                <% @json_scene_list.each do |s| %>
+                  {
+                    id: <%= s.id %>,
+                    name_en: "<%= s.name_en %>",
+                    name_jp: "<%= s.name_ja %>"
+                  },
+                <% end %>
+              ],
             <% end %>
             <% if @json_chara_list.present? %>
-              scene_list:[
+              chara_list:[
                 <% @json_chara_list.each do |s| %>
                   {
                     id: <%= s.id %>,
@@ -147,7 +158,7 @@
                     name_jp: "<%= s.name_ja %>"
                   },
                 <% end %>
-              ]
+              ],
             <% end %>
 
         }
