@@ -391,7 +391,10 @@ footer .footerCopyright {
 }
 
 .l-column-register {
-  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .l-column-register__head {
   margin: 0 auto;
@@ -431,20 +434,28 @@ footer .footerCopyright {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .l-column-register__foot__wrapper__button {
+  display: none;
   padding: 0 200px;
   line-height: 40px;
   color: white;
   background: rgba(216, 57, 97, 0.4);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   pointer-events: none;
   cursor: pointer;
+  transition: 0.3s;
 }
 .l-column-register__foot__wrapper__button.on {
   background: #D83961;
   pointer-events: auto;
 }
+.l-column-register__foot__wrapper__button.show {
+  display: block;
+}
 .l-column-register__foot__wrapper__button:first-child {
+  display: block;
   padding: 0 20px;
   margin-right: 10px;
 }

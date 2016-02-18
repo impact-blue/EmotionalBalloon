@@ -16,7 +16,10 @@
     }
 }
 .l-column-register {
-    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     &__head {
         margin: 0 auto;
         padding: 20px;
@@ -56,18 +59,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 20px;
             &__button {
+                display: none;
                 padding: 0 200px;
                 line-height: 40px;
                 color: white;
                 background: rgba($brandColor, 0.4);
+                box-shadow: 3px 3px 5px rgba(black, 0.1);
                 pointer-events: none;
                 cursor: pointer;
+                transition: 0.3s;
                 &.on {
                     background: $brandColor;
                     pointer-events: auto;
                 }
+                &.show {
+                    display: block;
+                }
                 &:first-child {
+                    display: block;
                     padding: 0 20px;
                     margin-right: 10px;
                 }

@@ -314,9 +314,28 @@ app.controller('cartRegisterController', function($scope, $http) {
         $scope.comfirmFlag = {
             step1: $scope.formFlag.buyer_name && $scope.formFlag.buyer_postal && $scope.formFlag.buyer_prefectures && $scope.formFlag.buyer_address && $scope.formFlag.buyer_phone && $scope.formFlag.buyer_mail,
             step2: $scope.formFlag.destination_name && $scope.formFlag.destination_postal && $scope.formFlag.destination_prefectures && $scope.formFlag.destination_address && $scope.formFlag.destination_phone,
-            step3: false
+            step3: true
         };
     }, true);
+
+    $scope.sendCart = function() {
+        var sendData = {
+            data: $scope.formContent
+        }
+        $http({
+            method: 'POST',
+            url: '/api/carts/comfirm',
+            data: sendData
+        }).success(function(data, status, headers, config) {
+            if(data.data.result === 'success') {
+                location.href = "/carts/thanks";
+            } else {
+                alert(data.data.message);
+            }
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
+    };
 });
 app.controller('cartShowController', function($scope, $http) {
     $scope.cartItem = cartItem;
