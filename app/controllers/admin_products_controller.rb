@@ -67,11 +67,11 @@ class AdminProductsController < ApplicationController
   end
 
   def api
-    if params[:id].nil?
+    if params[:data][:id].nil?
       @product = Product.new(product_params)
       @product.count = 0
-    elsif params[:id].present?
-      @product = Product.find(params[:id])
+    elsif params[:data][:id].present?
+      @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
 
