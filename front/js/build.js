@@ -119,6 +119,20 @@ app.controller('cartRegisterController', function($scope, $http) {
 
     $scope.progressPer = 0;
     $scope.formContent = {
+        product_info: [
+            {
+                id: 12,
+                count: 3
+            },
+            {
+                id: 45,
+                count: 1
+            },
+            {
+                id: 78,
+                count: 8
+            }
+        ],
         buyer_info: {
             family_name: null,
             first_name: null,
@@ -249,7 +263,7 @@ app.controller('cartRegisterController', function($scope, $http) {
     $scope.sendCart = function() {
         var sendData = {
             data: $scope.formContent
-        }
+        };
         $http({
             method: 'POST',
             url: '/api/carts/comfirm',
