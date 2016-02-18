@@ -47,7 +47,9 @@ class CartsController < ApplicationController
       @order.phone = params[:data][:destination_info][:phone]
       #@order.date
       @order.payment_info     = params[:data][:payment_info][:method]
-      @order.order_status     = "新着"
+      #カードの場合は入金済み
+      @order.order_status     = "未入金"
+
 
       @order.user = User.new(user_params)
       @order.user.email       = params[:data][:buyer_info][:mail]

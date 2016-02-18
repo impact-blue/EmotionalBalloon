@@ -139,7 +139,7 @@
               ],
             <% end %>
             <% if @json_scene_list.present? %>
-              scenes:[
+              scene_list:[
                 <% @json_scene_list.each do |s| %>
                   {
                     id: <%= s.id %>,
@@ -150,7 +150,7 @@
               ],
             <% end %>
             <% if @json_chara_list.present? %>
-              characters:[
+              character_list:[
                 <% @json_chara_list.each do |s| %>
                   {
                     id: <%= s.id %>,

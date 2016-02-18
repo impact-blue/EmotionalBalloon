@@ -165,7 +165,7 @@ Order.create(:user_id => '1' ,
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '新着'    )
+             :order_status => '未入金'    )
 
 Order.create(:user_id => '2' ,
              :price => '7500'  ,
@@ -300,7 +300,7 @@ Order.create(:user_id => '16',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '新着' )
+             :order_status => '未入金' )
 
 Order.create(:user_id => '17',
              :price => '30000' ,
@@ -309,7 +309,7 @@ Order.create(:user_id => '17',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '新着' )
+             :order_status => '未入金' )
 
 Order.create(:user_id => '18',
              :price => '7500'  ,
@@ -327,7 +327,7 @@ Order.create(:user_id => '19',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '新着' )
+             :order_status => '未入金' )
 
 Order.create(:user_id => '20',
              :price => '1800'  ,

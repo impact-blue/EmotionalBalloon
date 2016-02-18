@@ -9,7 +9,7 @@ class AdminOrdersController < ApplicationController
     end
 
     if params[:filter] == "unconfirmed"
-      @json_order_list = Order.where(order_status: "新着"  ).includes(:user,user: :user_names)
+      @json_order_list = Order.where(order_status: "未入金"  ).includes(:user,user: :user_names)
     elsif params[:filter] ==  "process"
       @json_order_list = Order.where(order_status: "未発送").includes(:user,user: :user_names)
     elsif params[:filter] == "complete"
