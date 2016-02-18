@@ -1,6 +1,6 @@
 class OrderProductInfo < ActiveRecord::Base
-  belongs_to :order
+  belongs_to :order, foreign_key: 'order_id'
   belongs_to :product
 
-  accepts_nested_attributes_for :order
+  validates :product_id,presence: true
 end

@@ -193,30 +193,37 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
-
   activerecord:
       models:
         product: 商品
         user: ユーザー
         order: 注文
+        order_delivery_name: 名前（お届け先）
       attributes:
         product:
-          product: 商品
-          number: 商品番号
+          name: 商品
           price: 価格
           stocks: 在庫
           registration_date: 商品の登録日
         user:
-         first_name: 姓
-         first_name_kana: 姓（フリガナ）
-         last_name: 名
-         last_name_kana: 名（フリガナ）
-         address: 市区群町村
-         address2: 番地・建物
-         email_confirmation: メールアドレス（確認）
-         phone: 電話番号
-         postal_code: 郵便番号
+          email: メールアドレス（購入者）
+          address: 住所（購入者）
+          email_confirmation: メールアドレス（確認）
+          city: 都道府県（購入者）
+          phone: 電話番号（購入者）
+          postal_code: 郵便番号（購入者）
         order:
-         delivery_address: 市区群町村(お届け先)
-         delivery_address2: 番地・建物（お届け先）
-         user_id: お客様情報の入力（お届け先）
+          delivery_address: 市区群町村(お届け先)
+          user_id: お客様情報の入力（お届け先）
+          phone: 電話番号（お届け先）
+          postal_code: 郵便番号（お届け先）
+          city: 都道府県（お届け先）
+          order_product_infos: カート内商品
+        order/order_delivery_names:
+          order_id: 注文情報
+          order_family_name: 姓（お届け先）
+          order_first_name: 名（お届け先）
+        user/user_names:
+          user_id: 注文者情報
+          user_family_name: 姓（注文者）
+          user_first_name: 名（注文者）

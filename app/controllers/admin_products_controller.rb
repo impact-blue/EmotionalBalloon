@@ -122,6 +122,8 @@ class AdminProductsController < ApplicationController
     #保存
     if @product.save
       render json: {data:{result:"success"}}
+    else
+      render json: {data:{result:"false"}}
     end
   end
 
