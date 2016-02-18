@@ -3,17 +3,17 @@ class AdminOrdersController < ApplicationController
   before_action :set_json_index
 
   def index
-    @json_order_list = Order.all.includes(:user).order("created_at ASC")
+    @json_order_list = Order.all.includes(:user,user: :user_names).order("created_at ASC")
     unless params[:filter].present?
       redirect_to "/admin/orders/?filter=all" and return
     end
 
     if params[:filter] == "unconfirmed"
-      @json_order_list = Order.where(order_status: "新着").includes(:user)
+      @json_order_list = Order.where(order_status: "新着"  ).includes(:user,user: :user_names)
     elsif params[:filter] ==  "process"
-      @json_order_list = Order.where(order_status: "未発送").includes(:user)
+      @json_order_list = Order.where(order_status: "未発送").includes(:user,user: :user_names)
     elsif params[:filter] == "complete"
-      @json_order_list = Order.where(order_status: "完了").includes(:user)
+      @json_order_list = Order.where(order_status: "完了"  ).includes(:user,user: :user_names)
     end
 
     #CSVダウンロード

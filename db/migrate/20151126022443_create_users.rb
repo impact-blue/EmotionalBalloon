@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :email
       t.string :phone
-      t.integer :postal_code
+      t.string :postal_code
       t.string :city
       t.string :address
 
