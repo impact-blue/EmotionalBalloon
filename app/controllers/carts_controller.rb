@@ -75,6 +75,9 @@ class CartsController < ApplicationController
           @product.save!
       end
 
+       #商品の在庫を減らすアクション
+
+
       #トランザクションで全て保存のみに対応にする。
       if @order.save!
         render json: {data:{result:"success"}}
