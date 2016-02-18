@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205063213) do
+ActiveRecord::Schema.define(version: 20160216045120) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20160205063213) do
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+
+  create_table "agreements", force: :cascade do |t|
+    t.string   "content",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "charas", force: :cascade do |t|
     t.string   "name_en",    limit: 255
@@ -44,6 +50,23 @@ ActiveRecord::Schema.define(version: 20160205063213) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.string   "postal_code",    limit: 255
+    t.string   "address",        limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "ceo",            limit: 255
+    t.string   "foundation_day", limit: 255
+    t.string   "capital",        limit: 255
+    t.string   "trade_name",     limit: 255
+    t.string   "proper",         limit: 255
+    t.string   "special_price",  limit: 255
+    t.string   "cancel_info",    limit: 255
+    t.string   "payment_info",   limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer  "product_id",         limit: 4
     t.string   "name",               limit: 255
@@ -60,6 +83,14 @@ ActiveRecord::Schema.define(version: 20160205063213) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "order_delivery_names", force: :cascade do |t|
+    t.integer  "order_id",          limit: 4
+    t.string   "order_family_name", limit: 255
+    t.string   "order_first_name",  limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "order_product_infos", force: :cascade do |t|
     t.integer  "order_id",   limit: 4
     t.integer  "product_id", limit: 4
@@ -68,19 +99,19 @@ ActiveRecord::Schema.define(version: 20160205063213) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",           limit: 4
-    t.string   "city",              limit: 255
-    t.string   "payment_info",      limit: 255
+    t.integer  "user_id",          limit: 4
+    t.integer  "price",            limit: 4
+    t.string   "postal_code",      limit: 255
+    t.string   "city",             limit: 255
+    t.string   "delivery_address", limit: 255
+    t.string   "payment_info",     limit: 255
+    t.string   "order_status",     limit: 255
+    t.string   "phone",            limit: 255
+    t.string   "option",           limit: 255
+    t.integer  "scene_id",         limit: 4
     t.date     "order_date"
-    t.string   "delivery_address",  limit: 255
-    t.string   "delivery_address2", limit: 255
-    t.string   "option",            limit: 255
-    t.integer  "scene_id",          limit: 4
-    t.string   "order_status",      limit: 255
-    t.integer  "price",             limit: 4
-    t.integer  "postage",           limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "product_charas", force: :cascade do |t|
@@ -126,19 +157,40 @@ ActiveRecord::Schema.define(version: 20160205063213) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "traderules", force: :cascade do |t|
+    t.string   "company",           limit: 255
+    t.string   "supervisor",        limit: 255
+    t.string   "postal_code",       limit: 255
+    t.string   "address",           limit: 255
+    t.string   "phone",             limit: 255
+    t.string   "business_hours",    limit: 255
+    t.string   "mail",              limit: 255
+    t.string   "homepage",          limit: 255
+    t.string   "price",             limit: 255
+    t.string   "special_price",     limit: 255
+    t.string   "payment_info",      limit: 255
+    t.string   "delivery_deadline", limit: 255
+    t.string   "cancel_info",       limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "user_names", force: :cascade do |t|
+    t.integer  "user_id",          limit: 4
+    t.string   "user_family_name", limit: 255
+    t.string   "user_first_name",  limit: 255
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "family_name",     limit: 255
-    t.string   "first_name",      limit: 255
-    t.string   "first_name_kana", limit: 255
-    t.string   "last_name_kana",  limit: 255
-    t.string   "email",           limit: 255
-    t.string   "phone",           limit: 255
-    t.integer  "postal_code",     limit: 4
-    t.integer  "city_id",         limit: 4
-    t.string   "address",         limit: 255
-    t.string   "address2",        limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "email",       limit: 255
+    t.string   "phone",       limit: 255
+    t.string   "postal_code", limit: 255
+    t.string   "city",        limit: 255
+    t.string   "address",     limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

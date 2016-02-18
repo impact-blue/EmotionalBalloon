@@ -1,0 +1,128 @@
+<div class="l-admin" ng-controller="adminController">
+  <div class="l-admin__left">
+    <ul class="l-admin__left__list">
+      <li class="l-admin__left__list__child">
+        <a href="/admin/products/new">
+          <p><i class="fa fa-pencil-square-o"></i></p>
+          <p>NEW POST</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+        <a href="/admin">
+          <p><i class="fa fa-home"></i></p>
+          <p>HOME</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+        <a href="/admin/products?filter=all">
+          <p><i class="fa fa-gift"></i></p>
+          <p>PRODUCT</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+        <a href="/admin/orders/?filter=all">
+          <p><i class="fa fa-shopping-cart"></i></p>
+          <p>ORDER</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+        <a href="/admin/categories?filter=all">
+          <p><i class="fa fa-tag"></i></p>
+          <p>CATEGORY</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+        <a href="/admin/customers">
+          <p><i class="fa fa-user"></i></p>
+          <p>CUSTOMER</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+        <a href="/admin/settings">
+          <p><i class="fa fa-cog"></i></p>
+          <p>SETTING</p>
+        </a>
+      </li>
+      <li class="l-admin__left__list__child">
+        <a href="">
+          <p><i class="fa fa-sign-out"></i></p>
+          <p>LOGOUT</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="l-admin__right">
+    <div class="l-admin__right__foot">
+      <div class="l-admin__right__foot__content">
+        <ul class="l-admin__right__foot__content__list">
+          <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/mail">メールテンプレート</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/company">会社概要</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/agreement">利用規約</a></li>
+          <li ng-class="{'on': path === ''}"><a href="/admin/settings/traderule">特定商法の記述</a></li>
+        </ul>
+        <div class="l-admin__right__foot__content__full" ng-controller="productCreateController">
+    <div class="p-registerForm">
+        <%= form_for([:admin_settings, @company] , :url => {:action => 'update_company'}) do |f| %>
+        <p class="p-registerForm__heading">会社概要</p>
+        <ul class="p-registerForm__wrapper">
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">会社名</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :name %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">郵便番号</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :postal_code %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">住所</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :address %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">電話番号</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :phone %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">代表</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :ceo %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">設立日</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :foundation_day %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">資本金</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :capital %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">商号</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :trade_name %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">従業員数</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :proper %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">商品代金以外の必要料金</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :special_price %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">返品について</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :cancel_info %></div>
+            </li>
+            <li class="p-registerForm__wrapper__list required">
+                <p class="p-registerForm__wrapper__list__text">お支払い方法</p>
+                <div class="p-registerForm__wrapper__list__content address"><%= f.text_field :payment_info %></div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-button--cart">
+       <%= f.submit :変更する ,class: 'c-button--cart__text' %>
+              <% end %>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
