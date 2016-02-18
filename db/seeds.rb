@@ -158,47 +158,232 @@ ProductChara.create(:product_id => '10' , :chara_id =>'3' )
 ProductChara.create(:product_id => '60' , :chara_id =>'4' )
 
 
-Order.create(:user_id => '1' ,:payment_info => 'クレジット' ,:delivery_address => ''  ,:order_status => '新着',:price => '1800')
-Order.create(:user_id => '2' ,:payment_info => '楽天決済'   ,:delivery_address => ''  ,:order_status => '未発送',:price => '7500')
-Order.create(:user_id => '3' ,:payment_info => '銀行振込'   ,:delivery_address => ''  ,:order_status => '完了',:price => '7300')
-Order.create(:user_id => '4' ,:payment_info => 'クレジット' ,:delivery_address => ''  ,:order_status => '完了',:price => '30000')
-Order.create(:user_id => '5' ,:payment_info => '楽天決済'   ,:delivery_address => ''  ,:order_status => '未発送',:price => '1800')
-Order.create(:user_id => '6' ,:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '完了',:price => '7500')
-Order.create(:user_id => '7' ,:payment_info => 'クレジット' ,:delivery_address => ''  ,:order_status => '未発送',:price => '7300')
-Order.create(:user_id => '8' ,:payment_info => '銀行振込'   ,:delivery_address => ''  ,:order_status => '完了',:price => '30000')
-Order.create(:user_id => '9' ,:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '完了',:price => '1800')
-Order.create(:user_id => '10',:payment_info => '楽天決済'   ,:delivery_address => ''  ,:order_status => '完了',:price => '30000')
-Order.create(:user_id => '11',:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '完了',:price => '7500')
-Order.create(:user_id => '12',:payment_info => 'クレジット' ,:delivery_address => ''  ,:order_status => '未発送',:price => '30000')
-Order.create(:user_id => '13',:payment_info => '銀行振込'   ,:delivery_address => ''  ,:order_status => '完了',:price => '7300')
-Order.create(:user_id => '14',:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '完了',:price => '1800')
-Order.create(:user_id => '15',:payment_info => 'クレジット' ,:delivery_address => ''  ,:order_status => '未発送',:price => '30000')
-Order.create(:user_id => '16',:payment_info => '銀行振込'   ,:delivery_address => ''  ,:order_status => '新着',:price => '7500')
-Order.create(:user_id => '17',:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '新着',:price => '30000')
-Order.create(:user_id => '18',:payment_info => '銀行振込'   ,:delivery_address => ''  ,:order_status => '未発送',:price => '7500')
-Order.create(:user_id => '19',:payment_info => 'Amazon決済' ,:delivery_address => ''  ,:order_status => '新着',:price => '1800')
-Order.create(:user_id => '20',:payment_info => '楽天決済'   ,:delivery_address => ''  ,:order_status => '未発送',:price => '1800')
+Order.create(:user_id => '1' ,
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'クレジット' ,
+             :phone => '08012345678',
+             :order_status => '新着'    )
 
-User.create(:email =>'a@gmail.com'    ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com'  ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com'         ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com'  ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com' ,:phone => '12340901234')
-User.create(:email =>'test@test.com'   ,:phone => '08012345678')
-User.create(:email =>'test@test.com'   ,:phone => '12340901234')
-User.create(:email =>'test@test.com'   ,:phone => '08012345678')
-User.create(:email =>'test@test.com'   ,:phone => '08012345678')
-User.create(:email =>'test@test.com'   ,:phone => '12340901234')
-User.create(:email =>'test@test.com',:phone => '08012345678')
-User.create(:email =>'a@gmail.com'         ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com' ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com' ,:phone => '12340901234')
-User.create(:email =>'a@gmail.com'  ,:phone => '08012345678')
-User.create(:email =>'a@gmail.com'     ,:phone => '08012345678')
-User.create(:email =>'test@test.com'   ,:phone => '12340901234')
-User.create(:email =>'test@test.com'   ,:phone => '08012345678')
-User.create(:email =>'test@test.com'   ,:phone => '08012345678')
-User.create(:email =>'test@test.com',:phone => '08012345678')
+Order.create(:user_id => '2' ,
+             :price => '7500'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '楽天決済'   ,
+             :phone => '08012345678',
+             :order_status => '未発送' )
+
+Order.create(:user_id => '3' ,
+             :price => '7300'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '銀行振込'   ,
+             :phone => '08012345678',
+             :order_status => '完了'   )
+
+Order.create(:user_id => '4' ,
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'クレジット' ,
+             :phone => '08012345678',
+             :order_status => '完了'   )
+
+Order.create(:user_id => '5' ,
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '楽天決済'   ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+Order.create(:user_id => '6' ,
+             :price => '7500'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '完了' )
+
+Order.create(:user_id => '7' ,
+             :price => '7300'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'クレジット' ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+Order.create(:user_id => '8' ,
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '銀行振込'   ,
+             :phone => '08012345678',
+             :order_status => '完了'   )
+
+Order.create(:user_id => '9' ,
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '完了' )
+
+Order.create(:user_id => '10',
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '楽天決済'   ,
+             :phone => '08012345678',
+             :order_status => '完了'  )
+
+Order.create(:user_id => '11',
+             :price => '7500'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '完了' )
+
+Order.create(:user_id => '12',
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'クレジット' ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+Order.create(:user_id => '13',
+             :price => '7300'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '銀行振込'   ,
+             :phone => '08012345678',
+             :order_status => '完了' )
+
+Order.create(:user_id => '14',
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '完了' )
+
+Order.create(:user_id => '15',
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'クレジット' ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+Order.create(:user_id => '16',
+             :price => '7500'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '銀行振込'   ,
+             :phone => '08012345678',
+             :order_status => '新着' )
+
+Order.create(:user_id => '17',
+             :price => '30000' ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '新着' )
+
+Order.create(:user_id => '18',
+             :price => '7500'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '銀行振込'   ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+Order.create(:user_id => '19',
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => 'Amazon決済' ,
+             :phone => '08012345678',
+             :order_status => '新着' )
+
+Order.create(:user_id => '20',
+             :price => '1800'  ,
+             :postal_code => '2150987',
+             :city => '東京都',
+             :delivery_address => '中央区',
+             :payment_info => '楽天決済'   ,
+             :phone => '08012345678',
+             :order_status => '未発送')
+
+
+
+
+
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:email =>'test@test.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+
+UserName.create(:user_id =>  '1' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '2' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '3' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '4' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '5' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '6' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '7' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '8' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '9' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '10' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '11' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '12' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '13' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '14' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '15' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '16' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '17' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '18' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '19' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+UserName.create(:user_id =>  '20' ,:user_family_name => 'テスト', :user_first_name => '太郎')
+
 
 Image.create(:product_id =>'2',:image =>"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809")
 Image.create(:product_id =>'2',:image =>"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809")

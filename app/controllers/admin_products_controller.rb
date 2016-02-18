@@ -8,6 +8,7 @@ class AdminProductsController < ApplicationController
 
 
   def index
+    #全商品個数の表示
     #@product_count = Product.count
 
     unless params[:filter].present?
@@ -36,6 +37,8 @@ class AdminProductsController < ApplicationController
 
   def edit
     @json_detail_product = Product.includes(:charas,:scenes).find(params[:id])
+    @json_scene_list = Scene.all
+    @json_chara_list = Chara.all
   end
 
   def create
@@ -109,7 +112,6 @@ class AdminProductsController < ApplicationController
       end
     end
 
-
     if params[:data][:color].present?
       params[:data][:colors].each_with_index do |product_info,i|
         @product.product_colors.build
@@ -117,7 +119,7 @@ class AdminProductsController < ApplicationController
         @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
       end
     end
-binding.pry
+
     #保存
     if @product.save
       render json: {data:{result:"success"}}

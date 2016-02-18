@@ -53,6 +53,7 @@
                 name:       "<%= @json_detail_product.name %>",
                 price:       <%= @json_detail_product.price %>,
                 stocks:      <%= @json_detail_product.stocks %>,
+                size:     <%= @json_detail_product.size %>,
                 description:"<%= @json_detail_product.comment %>",
                 count:       <%= @json_detail_product.count %>,
                 status:      <%= @json_detail_product.status %>,
@@ -137,6 +138,18 @@
                 <% end %>
               ]
             <% end %>
+            <% if @json_chara_list.present? %>
+              scene_list:[
+                <% @json_chara_list.each do |s| %>
+                  {
+                    id: <%= s.id %>,
+                    name_en: "<%= s.name_en %>",
+                    name_jp: "<%= s.name_ja %>"
+                  },
+                <% end %>
+              ]
+            <% end %>
+
         }
     };
 </script>

@@ -18,10 +18,10 @@ class Product < ActiveRecord::Base
   has_many :carts
 
   #商品名
-  validates :name,:comment
+  validates :name,:comment,
     presence: { message: 'は必須です' }
   #価格,在庫
-  validates :price, :stocks,:size,:count,:status
+  validates :price, :stocks,:size,:count,:status,
     presence: { message: 'は必須です'},
     numericality: { :only_integer => true , message: 'は必須です'}
 
