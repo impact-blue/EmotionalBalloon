@@ -15,3 +15,74 @@
         width: 400px;
     }
 }
+.l-column-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    &__head {
+        margin: 0 auto;
+        padding: 20px;
+        width: 800px;
+        background: white;
+        border: 1px solid #aaa;
+        box-shadow: 3px 3px 5px rgba(black, 0.1);
+    }
+    &__foot {
+        &__progress {
+            position: relative;
+            width: 800px;
+            margin: 20px auto;
+            box-shadow: 3px 3px 5px rgba(black, 0.1);
+            border: 1px solid #aaa;
+            background: white;
+            &__per {
+                height: 30px;
+                background: $brandColor;
+                transition: 0.3s;
+            }
+            &__num {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                color: white;
+                font-size: 14px;
+                line-height: 30px;
+                text-align: center;
+                &.pink {
+                    color: $brandColor;
+                }
+            }
+        }
+        &__wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            &__button {
+                display: none;
+                padding: 0 200px;
+                line-height: 40px;
+                color: white;
+                background: rgba($brandColor, 0.4);
+                box-shadow: 3px 3px 5px rgba(black, 0.1);
+                pointer-events: none;
+                cursor: pointer;
+                transition: 0.3s;
+                &.on {
+                    background: $brandColor;
+                    pointer-events: auto;
+                }
+                &.show {
+                    display: block;
+                }
+                &:first-child {
+                    display: block;
+                    padding: 0 20px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

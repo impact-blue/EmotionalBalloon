@@ -1,72 +1,84 @@
 .p-registerForm {
-    &__heading {
-        font-size: 18px;
-        padding-left: 6px;
-        border-left: 4px solid $brandColor;
-    }
-    &__wrapper {
-        &__list {
-            position: relative;
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-            &.required {
-                &::after {
-                    content: "必須";
-                    position: absolute;
-                    top: calc(50% - 10px);
-                    left: 115px;
-                    width: 34px;
-                    line-height: 20px;
-                    font-size: 12px;
-                    text-align: center;
-                    color: white;
-                    background: $brandColor;
+    &__block {
+        opacity: 0;
+        pointer-events: none;
+        transition: 1s;
+        height: 0;
+        overflow: hidden;
+        &.on {
+            opacity: 1;
+            pointer-events: auto;
+            height: auto;
+        }
+        &__heading {
+            font-size: 18px;
+            padding-left: 6px;
+            border-left: 4px solid $brandColor;
+        }
+        &__wrapper {
+            &__list {
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-top: 5px;
+                &.required {
+                    &::after {
+                        content: "必須";
+                        position: absolute;
+                        top: calc(50% - 10px);
+                        left: 115px;
+                        width: 34px;
+                        line-height: 20px;
+                        font-size: 12px;
+                        text-align: center;
+                        color: white;
+                        background: $brandColor;
+                    }
                 }
-            }
-            &__text {
-                width: 160px;
-                padding-left: 10px;
-                font-size: 14px;
-                font-weight: bold;
-            }
-            &__content {
-                width: calc(100% - 160px);
-                input[type="text"] {
-                    width: calc(50% - 5px);
-                    line-height: 33px;
-                    font-size: 12px;
-                    margin-right: 5px;
-                    border: 1px solid #c8c8c8;;
+                &__text {
+                    width: 160px;
+                    padding-left: 10px;
+                    font-size: 14px;
+                    font-weight: bold;
                 }
-                textarea {
-                    width: 100%;
-                    height: 80px;
-                    font-size: 12px;
-                    border: 1px solid #c8c8c8;
-                }
-                &.postal {
+                &__content {
+                    width: calc(100% - 160px);
                     input[type="text"] {
-                        width: calc(31.4% + 5px);
-                        &:last-child {
-                            margin-right: 0;
+                        width: calc(50% - 5px);
+                        line-height: 33px;
+                        font-size: 12px;
+                        margin-right: 5px;
+                        border: 1px solid #c8c8c8;;
+                    }
+                    textarea {
+                        width: 100%;
+                        height: 80px;
+                        font-size: 12px;
+                        border: 1px solid #c8c8c8;
+                    }
+                    &.postal {
+                        input[type="text"] {
+                            width: calc(100% / 3 - 4px);
+                            &:last-child {
+                                margin-right: 0;
+                            }
                         }
                     }
-                }
-                &.address {
-                    input[type="text"] {
-                        width: 100%;
+                    &.address {
+                        input[type="text"] {
+                            width: 100%;
+                        }
                     }
-                }
-                &__radio {
-                    input[type="radio"],
-                    input[type="checkbox"] {
-                        margin-right: 5px;
-                        cursor: pointer;
-                        outline: none;
-                    }
-                    label {
-                        cursor: pointer;
+                    &__radio {
+                        input[type="radio"],
+                        input[type="checkbox"] {
+                            margin-right: 5px;
+                            cursor: pointer;
+                            outline: none;
+                        }
+                        label {
+                            cursor: pointer;
+                        }
                     }
                 }
             }
