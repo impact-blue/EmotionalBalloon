@@ -10,6 +10,24 @@ class CartsController < ApplicationController
     @user = User.new
   end
 
+  def purchase
+    webpay = WebPay.new(WEBPAY_SECRET_KEY)
+        binding.pry
+    # WebPay上での顧客の情報を作成
+    customer = webpay.customer.create(card: params['webpay-token'])
+    @order = Order.find(16)
+    # 顧客情報を使って支払い
+    webpay.charge.create(
+      amount: @order.price,
+      currency: 'jpy',
+      customer: customer.id
+    )
+
+    redirect_to action: 'thanks'
+  rescue WebPay::ErrorResponse::CardError => e
+    # エラーハンドリング。発生する例外の種類がいくつか用意されているので、内容に応じて処理を書く
+  end
+
 
   def api
     ActiveRecord::Base.transaction do
@@ -76,7 +94,7 @@ class CartsController < ApplicationController
   end
 
   def thanks
-    @order = Order.find(1)
+    @order = Order.find(3)
 
     #Mailer.buy_thanks_email(@order).deliver
   end

@@ -26,6 +26,10 @@ class AdminCategoriesController < ApplicationController
   def create
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
   def update
   end
 

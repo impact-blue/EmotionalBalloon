@@ -4,6 +4,7 @@ class AdminProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @category_child = CategoryChild.all
   end
 
 
