@@ -1,50 +1,49 @@
 <% include ../parts/_header %>
 <div class="l-admin__right__foot__content__full" ng-controller="productCreateController">
     <div class="p-registerForm">
-        <p class="p-registerForm__heading">商品登録</p>
-        <ul class="p-registerForm__wrapper">
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">商品名</p>
-                <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="サンプル"></div>
+        <p class="p-registerForm__block__heading">商品登録</p>
+        <ul class="p-registerForm__block__wrapper">
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">商品名</p>
+                <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="商品名" ng-model="product_data.name"></div>
             </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">値段</p>
-                <div class="p-registerForm__wrapper__list__content address"><input type="text" placeholder="4500"></div>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">値段</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="5000" ng-model="product_data.price"></div>
             </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">在庫数</p>
-                <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="100"></div>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">在庫数</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="10" ng-model="product_data.stock"></div>
             </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">サイズ</p>
-                <div class="p-registerForm__wrapper__list__content"><input type="text" placeholder="210"></div>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">サイズ</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="120" ng-model="product_data.size"></div>
             </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">説明文</p>
-                <div class="p-registerForm__wrapper__list__content"><textarea name=""></textarea></div>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">説明文</p>
+                <div class="p-registerForm__block__wrapper__list__content"><textarea name="" placeholder="説明文" ng-model="product_data.description"></textarea></div>
             </li>
-            <li class="p-registerForm__wrapper__list">
-                <p class="p-registerForm__wrapper__list__text">シーン</p>
-                <div class="p-registerForm__wrapper__list__content">
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="scene" id="scene1" placeholder=""><label for="scene1">結婚式</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="scene" id="scene2" placeholder=""><label for="scene2">出産祝い</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="scene" id="scene3" placeholder=""><label for="scene3">誕生日</label></p>
+            <li class="p-registerForm__block__wrapper__list">
+                <p class="p-registerForm__block__wrapper__list__text">シーン</p>
+                <div class="p-registerForm__block__wrapper__list__content">
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">結婚式</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">出産祝い</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">誕生日</label></p>
                 </div>
             </li>
-            <li class="p-registerForm__wrapper__list">
-                <p class="p-registerForm__wrapper__list__text">キャラクター</p>
-                <div class="p-registerForm__wrapper__list__content">
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="caracter" id="caracter1" placeholder=""><label for="caracter1">ディズニー</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="caracter" id="caracter2" placeholder=""><label for="caracter2">サンリオ</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="caracter" id="caracter3" placeholder=""><label for="caracter3">ワンピース</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="checkbox" name="caracter" id="caracter4" placeholder=""><label for="caracter4">妖怪ウォッチ</label></p>
+            <li class="p-registerForm__block__wrapper__list">
+                <p class="p-registerForm__block__wrapper__list__text">キャラクター</p>
+                <div class="p-registerForm__block__wrapper__list__content">
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">結婚式</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">出産祝い</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">誕生日</label></p>
                 </div>
             </li>
-            <li class="p-registerForm__wrapper__list required">
-                <p class="p-registerForm__wrapper__list__text">状態</p>
-                <div class="p-registerForm__wrapper__list__content">
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">公開</label></p>
-                    <p class="p-registerForm__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">非公開</label></p>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">状態</p>
+                <div class="p-registerForm__block__wrapper__list__content">
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">公開</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">非公開</label></p>
                 </div>
             </li>
         </ul>
