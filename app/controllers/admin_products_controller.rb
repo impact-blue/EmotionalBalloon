@@ -81,12 +81,7 @@ class AdminProductsController < ApplicationController
     @product.main_image = params[:data][:images][0]
     @product.comment = params[:data][:description]
     @product.size = params[:data][:size]
-
-    if params[:data][:status] = "true"
-      @product.status = 1
-    elsif parama[:data][:status] = "false"
-      @product.status = 0
-    end
+    @product.status = params[:data][:status]
 
     if params[:data][:images].present?
       params[:data][:images].each_with_index do |product_info,i|
