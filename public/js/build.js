@@ -117,7 +117,7 @@ app.controller('cartRegisterController', function($scope, $http) {
         $scope.stepFlag++;
     };
 
-    $scope.progressPer = 0;
+    $scope.progressPer = [0, 0, 0];
     $scope.formContent = {
         product_info: [
             {
@@ -166,17 +166,21 @@ app.controller('cartRegisterController', function($scope, $http) {
         comment: null
     };
     $scope.formFlag = {
-        buyer_name: false,
-        buyer_postal: false,
-        buyer_prefectures: false,
-        buyer_address: false,
-        buyer_phone: false,
-        buyer_mail: false,
-        destination_name: false,
-        destination_postal: false,
-        destination_prefectures: false,
-        destination_address: false,
-        destination_class: false,
+        buyer_info: {
+            name: false,
+            postal: false,
+            prefectures: false,
+            address: false,
+            phone: false,
+            mail: false
+        },
+        destination_info: {
+            name: false,
+            postal: false,
+            prefectures: false,
+            address: false,
+            phone: false
+        },
         payment: false
     };
     $scope.comfirmFlag = {
@@ -185,86 +189,95 @@ app.controller('cartRegisterController', function($scope, $http) {
         step3: false
     };
     $scope.$watch('formContent', function(newVal, oldVal) {
-        var flagLength = 0;
+        var flagLength = [0, 0, 0];
         /* Buyer Name */
         if($scope.formContent.buyer_info.name[0].family_name && $scope.formContent.buyer_info.name[0].first_name) {
-            $scope.formFlag.buyer_name = true;
+            $scope.formFlag.buyer_info.name = true;
         } else {
-            $scope.formFlag.buyer_name = false;
+            $scope.formFlag.buyer_info.name = false;
         }
         /* Buyer Postal Code */
         if($scope.formContent.buyer_info.postal_code) {
-            $scope.formFlag.buyer_postal = true;
+            $scope.formFlag.buyer_info.postal = true;
         } else {
-            $scope.formFlag.buyer_postal = false;
+            $scope.formFlag.buyer_info.postal = false;
         }
         /* Buyer Prefectures */
         if($scope.formContent.buyer_info.prefectures) {
-            $scope.formFlag.buyer_prefectures = true;
+            $scope.formFlag.buyer_info.prefectures = true;
         } else {
-            $scope.formFlag.buyer_prefectures = false;
+            $scope.formFlag.buyer_info.prefectures = false;
         }
         /* Buyer Address */
         if($scope.formContent.buyer_info.address) {
-            $scope.formFlag.buyer_address = true;
+            $scope.formFlag.buyer_info.address = true;
         } else {
-            $scope.formFlag.buyer_address = false;
+            $scope.formFlag.buyer_info.address = false;
         }
         /* Buyer Phone */
         if($scope.formContent.buyer_info.phone) {
-            $scope.formFlag.buyer_phone = true;
+            $scope.formFlag.buyer_info.phone = true;
         } else {
-            $scope.formFlag.buyer_phone = false;
+            $scope.formFlag.buyer_info.phone = false;
         }
         /* Buyer Mail */
         if($scope.formContent.buyer_info.mail) {
-            $scope.formFlag.buyer_mail = true;
+            $scope.formFlag.buyer_info.mail = true;
         } else {
-            $scope.formFlag.buyer_mail = false;
+            $scope.formFlag.buyer_info.mail = false;
         }
         /* Destination Name */
         if($scope.formContent.destination_info.name[0].family_name && $scope.formContent.destination_info.name[0].first_name) {
-            $scope.formFlag.destination_name = true;
+            $scope.formFlag.destination_info.name = true;
         } else {
-            $scope.formFlag.destination_name = false;
+            $scope.formFlag.destination_info.name = false;
         }
         /* Destination Postal Code */
         if($scope.formContent.destination_info.postal_code) {
-            $scope.formFlag.destination_postal = true;
+            $scope.formFlag.destination_info.postal = true;
         } else {
-            $scope.formFlag.destination_postal = false;
+            $scope.formFlag.destination_info.postal = false;
         }
         /* Destination Prefecture */
         if($scope.formContent.destination_info.prefectures) {
-            $scope.formFlag.destination_prefectures = true;
+            $scope.formFlag.destination_info.prefectures = true;
         } else {
-            $scope.formFlag.destination_prefectures = false;
+            $scope.formFlag.destination_info.prefectures = false;
         }
         /* Destination Address */
         if($scope.formContent.destination_info.address) {
-            $scope.formFlag.destination_address = true;
+            $scope.formFlag.destination_info.address = true;
         } else {
-            $scope.formFlag.destination_address = false;
+            $scope.formFlag.destination_info.address = false;
         }
         /* Destination Phone */
         if($scope.formContent.destination_info.phone) {
-            $scope.formFlag.destination_phone = true;
+            $scope.formFlag.destination_info.phone = true;
         } else {
-            $scope.formFlag.destination_phone = false;
+            $scope.formFlag.destination_info.phone = false;
         }
         /* Destination Class */
         /* Payment */
 
-        angular.forEach($scope.formFlag, function(value, key){
+        angular.forEach($scope.formFlag.buyer_info, function(value, key){
             if(value) {
-                flagLength++;
+                flagLength[0]++;
             }
         });
-        $scope.progressPer = flagLength * 10;
+        $scope.progressPer[0] = flagLength[0] * 100 / 6;
+        angular.forEach($scope.formFlag.destination_info, function(value, key){
+            if(value) {
+                flagLength[1]++;
+            }
+        });
+        $scope.progressPer[1] = flagLength[1] * 100 / 5;
+        if($scope.formFlag.payment) {
+            $scope.progressPer[2] = 100;
+        }
 
         $scope.comfirmFlag = {
-            step1: $scope.formFlag.buyer_name && $scope.formFlag.buyer_postal && $scope.formFlag.buyer_prefectures && $scope.formFlag.buyer_address && $scope.formFlag.buyer_phone && $scope.formFlag.buyer_mail,
-            step2: $scope.formFlag.destination_name && $scope.formFlag.destination_postal && $scope.formFlag.destination_prefectures && $scope.formFlag.destination_address && $scope.formFlag.destination_phone,
+            step1: $scope.formFlag.buyer_info.name && $scope.formFlag.buyer_info.postal && $scope.formFlag.buyer_info.prefectures && $scope.formFlag.buyer_info.address && $scope.formFlag.buyer_info.phone && $scope.formFlag.buyer_info.mail,
+            step2: $scope.formFlag.destination_info.name && $scope.formFlag.destination_info.postal && $scope.formFlag.destination_info.prefectures && $scope.formFlag.destination_info.address && $scope.formFlag.destination_info.phone,
             step3: true
         };
     }, true);
@@ -330,58 +343,53 @@ app.controller('loginController', function($scope, $http) {
 });
 app.controller('productCreateController', function($scope, $http) {
     $scope.product_data = {
-        data: {
-            name: "テスト",
-            price: 2000,
-            stock: 10,
-            images: [
-                "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172",
-                "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720173",
-                "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720174",
-                "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720175"
-            ],
-            description: "当店人気ナンバーワンのバルーン電報です。淡いピンクが輝いて、キレイな祝電です。ウェルカムボードの横に置いたり、高砂席の両サイドに飾ってもステキですよ。",
-            size: 230,
-            status: true,
-            scenes: [
-                'marriage',
-                'babygift',
-                'birthday'
-            ],
-            characters: [
-                'pokemon',
-                'disney',
-                'onepiece'
-            ]
-        }
+        id: null,
+        name: null,
+        price: null,
+        stock: null,
+        images: [
+            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172",
+            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720173",
+            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720174",
+            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720175"
+        ],
+        description: null,
+        size: null,
+        status: null,
+        scenes: [],
+        characters: []
     };
     $scope.editProduct = function() {
-        console.log($scope.product_data);
+        var sendData = {
+            data: $scope.product_data
+        }
         if(location.pathname === '/admin/products/new') {
             $http({
                 method: 'POST',
                 url: '/api/products/edit',
-                data: $scope.product_data
+                data: sendData
             }).success(function(data, status, headers, config) {
-                console.log(data);
                 if(data.data.result === 'success') {
                     location.href = "/admin/products";
+                } else {
+                    alert(data.data.message);
                 }
             }).error(function(data, status, headers, config) {
-                console.log(status);
+                alert(status);
             });
         } else {
             $http({
                 method: 'PATCH',
                 url: '/api/products/edit',
-                data: $scope.product_data
+                data: sendData
             }).success(function(data, status, headers, config) {
-                console.log(data);
                 if(data.data.result === 'success') {
                     location.href = "/admin/products";
+                } else {
+                    alert(data.data.message);
                 }
             }).error(function(data, status, headers, config) {
-                console.log(status);
+                alert(status);
             });
         }
     };

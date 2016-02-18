@@ -161,10 +161,22 @@
         <div class="l-column-register__foot">
             <div class="l-column-register__foot__wrapper">
                 <div class="l-column-register__foot__wrapper__button" ng-class="{'on': stepFlag !== 1}" ng-click="prevForm()"><i class="fa fa-arrow-left"></i></div>
-                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step1, 'show': stepFlag === 1}" ng-click="nextForm()">次へ進む</div>
-                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step2, 'show': stepFlag === 2}" ng-click="nextForm()">次へ進む</div>
-                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step3, 'show': stepFlag === 3}" ng-click="nextForm()">注文を確認する</div>
-                <div class="l-column-register__foot__wrapper__button on" ng-class="{'show': stepFlag === 4}" ng-click="sendCart()">注文を確定する</div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step1, 'show': stepFlag === 1}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[0]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">次へ進む</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step2, 'show': stepFlag === 2}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[1]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">次へ進む</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step3, 'show': stepFlag === 3}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[2]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">注文を確認する</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button on" ng-class="{'show': stepFlag === 4}" ng-click="sendCart()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: 100%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">注文を確定する</p>
+                </div>
             </div>
         </div>
     </div>
