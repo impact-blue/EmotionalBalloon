@@ -1,4 +1,11 @@
 class Chara < ActiveRecord::Base
   has_many :product_charas
   has_many :products, through: :product_charas
+
+  validates :name_en,
+    presence: true,
+    format: { with: /^[a-zA-Z]+$/}
+
+  validates :name_ja,
+    presence: true
 end
