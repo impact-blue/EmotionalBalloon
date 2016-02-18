@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_one :order, :dependent => :destroy
-  belongs_to :city
   has_many :user_names
 
   accepts_nested_attributes_for :order
