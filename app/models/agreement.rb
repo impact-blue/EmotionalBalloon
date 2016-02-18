@@ -1,4 +1,4 @@
 class Agreement < ActiveRecord::Base
 
-  varidates :content, presence: true
+  validates :content, presence: true
 end

@@ -100,16 +100,16 @@ ActiveRecord::Schema.define(version: 20160216045120) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",          limit: 4
-    t.integer  "postal_code",      limit: 4
+    t.integer  "price",            limit: 4
+    t.string   "postal_code",      limit: 255
     t.string   "city",             limit: 255
     t.string   "delivery_address", limit: 255
-    t.integer  "phone",            limit: 4
-    t.date     "order_date"
     t.string   "payment_info",     limit: 255
+    t.string   "order_status",     limit: 255
+    t.string   "phone",            limit: 255
     t.string   "option",           limit: 255
     t.integer  "scene_id",         limit: 4
-    t.string   "order_status",     limit: 255
-    t.integer  "price",            limit: 4
+    t.date     "order_date"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 20160216045120) do
   create_table "users", force: :cascade do |t|
     t.string   "email",       limit: 255
     t.string   "phone",       limit: 255
-    t.integer  "postal_code", limit: 4
+    t.string   "postal_code", limit: 255
     t.string   "city",        limit: 255
     t.string   "address",     limit: 255
     t.datetime "created_at",              null: false
