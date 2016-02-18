@@ -206,8 +206,12 @@ app.controller('cartRegisterController', function($scope, $http) {
             }
         ],
         buyer_info: {
-            family_name: null,
-            first_name: null,
+            name: [
+                {
+                    family_name: null,
+                    first_name: null,
+                }
+            ],
             postal_code: null,
             prefectures: null,
             address: null,
@@ -215,16 +219,21 @@ app.controller('cartRegisterController', function($scope, $http) {
             mail: null
         },
         destination_info: {
-            name: [],
+            name: [
+                {
+                    family_name: null,
+                    first_name: null,
+                }
+            ],
             postal_code: null,
             prefectures: null,
-            address1: null,
-            address2: null,
+            address: null,
             date: null,
             classification: null
         },
         payment_info: {
-            method: null
+            method: "credit",
+            token: "cus_cWq8H4al7ceo9bs"
         },
         comment: null
     };
@@ -250,7 +259,7 @@ app.controller('cartRegisterController', function($scope, $http) {
     $scope.$watch('formContent', function(newVal, oldVal) {
         var flagLength = 0;
         /* Buyer Name */
-        if($scope.formContent.buyer_info.family_name && $scope.formContent.buyer_info.first_name) {
+        if($scope.formContent.buyer_info.name[0].family_name && $scope.formContent.buyer_info.name[0].first_name) {
             $scope.formFlag.buyer_name = true;
         } else {
             $scope.formFlag.buyer_name = false;
@@ -286,7 +295,7 @@ app.controller('cartRegisterController', function($scope, $http) {
             $scope.formFlag.buyer_mail = false;
         }
         /* Destination Name */
-        if($scope.formContent.destination_info.family_name && $scope.formContent.destination_info.first_name) {
+        if($scope.formContent.destination_info.name[0].family_name && $scope.formContent.destination_info.name[0].first_name) {
             $scope.formFlag.destination_name = true;
         } else {
             $scope.formFlag.destination_name = false;
