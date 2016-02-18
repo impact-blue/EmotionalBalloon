@@ -16,9 +16,24 @@ app.controller('cartComfirmController', function($scope, $http) {
                 }
             ],
             buyer_info: {
-                family_name: "Wada",
-                first_name: "Hayato",
-                jointly: "hatoya",
+                name: [
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    }
+                ],
                 postal_code: 3560058,
                 prefectures: "Saitamaken",
                 address1: "fujiminoshiohichuou1-10-9",
@@ -27,8 +42,24 @@ app.controller('cartComfirmController', function($scope, $http) {
                 mail: "hatoya.web.design@gmail.com"
             },
             destination_info: {
-                family_name: "和田",
-                first_name: "隼人",
+                name: [
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    },
+                    {
+                        family_name: "Wada",
+                        first_name: "Hayato",
+                    }
+                ],
                 postal_code: 3560058,
                 prefectures: "埼玉県",
                 address1: "ふじみ野市大井中央1-10-9",

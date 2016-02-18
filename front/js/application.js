@@ -318,6 +318,25 @@ app.controller('cartRegisterController', function($scope, $http) {
             step3: true
         };
     }, true);
+
+    $scope.sendCart = function() {
+        var sendData = {
+            data: $scope.formContent
+        }
+        $http({
+            method: 'POST',
+            url: '/api/carts/comfirm',
+            data: sendData
+        }).success(function(data, status, headers, config) {
+            if(data.data.result === 'success') {
+                location.href = "/carts/thanks";
+            } else {
+                alert(data.data.message);
+            }
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
+    };
 });
 app.controller('cartShowController', function($scope, $http) {
     $scope.cartItem = cartItem;
