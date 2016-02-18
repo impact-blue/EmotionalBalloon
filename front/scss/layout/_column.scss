@@ -62,17 +62,18 @@
             margin-top: 20px;
             &__button {
                 display: none;
+                position: relative;
                 padding: 0 200px;
                 line-height: 40px;
-                color: white;
-                background: rgba($brandColor, 0.4);
                 box-shadow: 3px 3px 5px rgba(black, 0.1);
+                border: 2px solid $brandColor;
                 pointer-events: none;
                 cursor: pointer;
                 transition: 0.3s;
+                opacity: 0.3;
                 &.on {
-                    background: $brandColor;
                     pointer-events: auto;
+                    opacity: 1;
                 }
                 &.show {
                     display: block;
@@ -81,6 +82,21 @@
                     display: block;
                     padding: 0 20px;
                     margin-right: 10px;
+                    color: white;
+                    background: $brandColor;
+                    border: 2px solid $brandColor;
+                }
+                &__progress {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    background: $brandColor;
+                    transition: 0.3s;
+                }
+                &__text {
+                    position: relative;
+                    color: white;
                 }
             }
         }
