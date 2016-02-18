@@ -28,15 +28,4 @@ class User < ActiveRecord::Base
   #addressのバリデーション
   validates :address, presence: { message: 'は必須です' },
                       exclusion: { in: %w({ }  . [ ] ) }
-
-
- # validates_confirmation_of :email
-
-
-  #validates :email, presence: { message: 'は必須です' }
-
-  #validates :email_confirmation, presence: { message: 'は必須です' }
-  #正規表現修正
-  #validates :phone,:postal_code,
-  #numericality: { only_integer: true , :message => "は半角数字のみ入力できます" },
 end
