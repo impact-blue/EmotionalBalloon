@@ -4,7 +4,7 @@ class Chara < ActiveRecord::Base
 
   validates :name_en,
     presence: true,
-    format: { with: /^[a-zA-Z]+$/}
+    format: { with: /\A[a-zA-Z]+\z/}
 
   validates :name_ja,
     presence: true
