@@ -13,16 +13,6 @@ class CartsController < ApplicationController
 
   def api
     @order = Order.new(order_params)
-    @order.delivery_address = params[:data][:destination_info][:address1]
-    @order.order_status = "新着"
-    @order.payment_info = params[:data][:payment_info][:method]
-
-    @order.user = User.new(user_params)
-    @order.user.address = params[:data][:buyer_info][:address]
-    @order.user.email = params[:data][:buyer_info][:mail]
-    @order.user.phone = params[:data][:buyer_info][:phone]
-    @order.user.user_names.build
-    @order.order_delivery_names.build
     @order.price = 0
     params[:data][:product_info].each_with_index do |product_info,i|
       #商品の合計値段計算
@@ -32,13 +22,33 @@ class CartsController < ApplicationController
       @order.order_product_infos[i].product_id = product_info[:id]
     end
 
-#トランザクションで全て保存のみに対応にする。
-    if @order.save
-      params[:data][:product_info].each_with_index do |product_info,i|
+    @order.postal_code      = params[:data][:destination_info][:postal_code]
+    @order.city             = params[:data][:destination_info][:prefectures]
+    @order.delivery_address = params[:data][:destination_info][:address1]
+    #@order.phone = params[:date][:destination_info][:phone]
+    #@order.date
+    @order.payment_info     = params[:data][:payment_info][:method]
+    @order.order_status     = "新着"
+
+    @order.user = User.new(user_params)
+    @order.user.email       = params[:data][:buyer_info][:mail]
+    @order.user.phone       = params[:data][:buyer_info][:phone]
+    @order.user.postal_code = params[:data][:buyer_info][:postal_code]
+    @order.user.city        = params[:data][:buyer_info][:prefectures]
+    @order.user.address     = params[:data][:buyer_info][:address1]
+
+    #連名@order.user.user_names.build
+    #連名
+    #@order.order_delivery_names.build
+
+    #購入した商品のカウント
+    params[:data][:product_info].each_with_index do |product_info,i|
         @product = Product.find(product_info[:id])
         @product.count += params[:data][:product_info][i][:count]
         @product.save
-      end
+    end
+    #トランザクションで全て保存のみに対応にする。
+    if @order.save
       render json: {data:{result:"success"}}
     else
       render json: {data:

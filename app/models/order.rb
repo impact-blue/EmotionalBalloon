@@ -1,7 +1,6 @@
 class Order < ActiveRecord::Base
   has_many :products, through: :product_orders
   belongs_to :user, foreign_key: 'user_id'
-  belongs_to :city
   belongs_to :scene
   has_many   :order_product_infos
   has_many :order_delivery_names
@@ -10,7 +9,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :order_delivery_names
   accepts_nested_attributes_for :user
 
-  validates :user_id,:price, presence: true,
+  validates :user_id, presence: true
+  validates :price, presence: true,
                              numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
   #postal_codeのバリデーション
   validates :postal_code,
@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
     numericality: {only_integer: true, :message => "は半角数字のみ入力できます" },
     length: {maximum: 9,wrong_length: 'の桁数が違います。'}
 
-  validates :city, :delivery_address, :payment_info, :order_status
+  validates :city, :delivery_address, :payment_info, :order_status,
     presence: { message: 'は必須です' },
     exclusion: { in: %w({ }  . [ ] ) }
 
@@ -36,5 +36,6 @@ class Order < ActiveRecord::Base
     numericality: {only_integer: true}
 
 
+#order_dateはやってない。create_atでよくね？
 
 end
