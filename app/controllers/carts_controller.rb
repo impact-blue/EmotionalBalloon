@@ -96,7 +96,7 @@ class CartsController < ApplicationController
                               end
                             }
                    }
-    end
+  end
 
   def thanks
     @order = Order.find(3)
