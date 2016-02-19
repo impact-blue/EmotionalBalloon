@@ -16,3 +16,6 @@
 */.DS_Store
 node_modules/
 .sass-cache/
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

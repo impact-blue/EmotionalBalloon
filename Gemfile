@@ -30,13 +30,15 @@ gem 'capistrano3-puma'
 gem 'puma'
 gem 'therubyracer', platforms: :ruby
 gem 'unicorn'
-  gem 'nginx'
-  gem 'rb-readline'
-  gem 'angular-rails-engine'
-  gem'angular_rails_csrf'
+gem 'nginx'
+gem 'rb-readline'
+gem 'angular-rails-engine'
+gem'angular_rails_csrf'
 gem 'whenever', :require => false
 gem 'roo'
 gem 'webpay'
+
+gem 'config'
 
 group :development, :test do
   gem 'byebug'
