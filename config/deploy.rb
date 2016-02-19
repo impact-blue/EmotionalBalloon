@@ -1,11 +1,5 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
-
-set :application, 'EmotionalBalloon'
-set :repo_url, 'git@github.com:impact-blue/EmotionalBalloon.git'
-set :deploy_to, 'var/www/app/EmotionalBalloon'
-set :scm, :git
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
