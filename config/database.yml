@@ -53,5 +53,5 @@ production:
   database: EmotionalBalloon_production
   username: Settings[:database][:user_name]
   password: Settings[:database][password]
-  host: Settings[:database][:host]
+  host: 153.120.166.128
   socket: /var/lib/mysql/mysql.sock
