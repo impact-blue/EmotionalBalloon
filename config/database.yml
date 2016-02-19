@@ -51,7 +51,7 @@ test:
 production:
   <<: *default
   database: EmotionalBalloon_production
-  username: Settings[:database][:user_name]
+  username: root
   password: Settings[:database][password]
   host: 153.120.166.128
   socket: /var/lib/mysql/mysql.sock
