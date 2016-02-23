@@ -16,6 +16,38 @@ app.controller('productCreateController', function($scope, $http) {
         scenes: [],
         characters: []
     };
+    angular.forEach(balloon_data.data.detail_product.scene, function(value, key){
+        $scope.product_data.scenes.push(value.id);
+    });
+    angular.forEach(balloon_data.data.detail_product.character, function(value, key){
+        $scope.product_data.characters.push(value.id);
+    });
+    $scope.checkScene = function(scene) {
+        var checkFlag = false;
+        angular.forEach($scope.product_data.scenes, function(value, key){
+            if(scene.id === value) {
+                checkFlag = true;
+            }
+        });
+        if(checkFlag) {
+            $scope.product_data.scenes.splice($scope.product_data.scenes.indexOf(scene.id), 1);
+        } else {
+            $scope.product_data.scenes.push(scene.id);
+        }
+    };
+    $scope.checkCharacter = function(character) {
+        var checkFlag = false;
+        angular.forEach($scope.product_data.characters, function(value, key){
+            if(character.id === value) {
+                checkFlag = true;
+            }
+        });
+        if(checkFlag) {
+            $scope.product_data.characters.splice($scope.product_data.characters.indexOf(character.id), 1);
+        } else {
+            $scope.product_data.characters.push(character.id);
+        }
+    };
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data

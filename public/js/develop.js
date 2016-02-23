@@ -428,8 +428,11 @@ app.controller('productCreateController', function($scope, $http) {
         description: balloon_data.data.detail_product.description,
         size: balloon_data.data.detail_product.size,
         status: balloon_data.data.detail_product.status,
-        scenes: [],
-        characters: []
+        scenes: balloon_data.data.detail_product.scene,
+        characters: balloon_data.data.detail_product.character.
+    };
+    $scope.checkScene = function(val) {
+        console.log($scope.data.detail_product.scenes);
     };
     $scope.editProduct = function() {
         var sendData = {
