@@ -37,7 +37,6 @@ gem'angular_rails_csrf'
 gem 'whenever', :require => false
 gem 'roo'
 gem 'webpay'
-
 gem 'config'
 
 group :development, :test do

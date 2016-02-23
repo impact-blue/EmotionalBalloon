@@ -2,7 +2,6 @@ lock '3.4.0'
 
 set :application, 'emotional_balloon'
 
-
 set :pty,true
 set :scm, :git
 
