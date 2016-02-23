@@ -431,10 +431,10 @@ app.controller('productCreateController', function($scope, $http) {
         scenes: [],
         characters: []
     };
-    angular.forEach(balloon_data.data.detail_product.scene, function(value, key){
+    angular.forEach(balloon_data.data.detail_product.scenes, function(value, key){
         $scope.product_data.scenes.push(value.id);
     });
-    angular.forEach(balloon_data.data.detail_product.character, function(value, key){
+    angular.forEach(balloon_data.data.detail_product.characters, function(value, key){
         $scope.product_data.characters.push(value.id);
     });
     $scope.checkScene = function(scene) {
@@ -467,6 +467,7 @@ app.controller('productCreateController', function($scope, $http) {
         var sendData = {
             data: $scope.product_data
         };
+        console.log(sendData);
         if(location.pathname === '/admin/products/new') {
             $http({
                 method: 'POST',
