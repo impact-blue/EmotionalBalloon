@@ -26,7 +26,7 @@
             <li class="p-registerForm__block__wrapper__list">
                 <p class="p-registerForm__block__wrapper__list__text">シーン</p>
                 <div class="p-registerForm__block__wrapper__list__content">
-                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="scene in data.scene_list" ng-model="data.detail_product.scenes"><input type="checkbox" name="scene" id="{{scene.name_en}}"><label for="{{scene.name_en}}">{{scene.name_jp}}</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="scene in data.scene_list" ng-model="data.detail_product.scenes"><input type="checkbox" name="scene" id="{{scene.name_en}}" ng-click="checkScene(scene.name_en)"><label for="{{scene.name_en}}">{{scene.name_jp}}</label></p>
                 </div>
             </li>
             <li class="p-registerForm__block__wrapper__list">
