@@ -3,10 +3,16 @@ class AdminController < ApplicationController
 
 
 def index
-  @new = Order.where(order_status: 10).count #新規受付
-  @complete = Order.where(order_status: 30).count
+  t = Time.current
+  #今月のやつ
+  @orders = Order.where(created_at: Time.now.in_time_zone.all_month)
+    @json_sales_orders = 0
+    @orders.each do |o|
+      @json_sales_orders += o.price
+    end
+  #当月のやつ
 
-  @no_stocks = Product.where(stocks: 0).count
+
 end
 
 end

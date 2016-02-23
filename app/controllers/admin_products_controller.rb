@@ -114,7 +114,7 @@ class AdminProductsController < ApplicationController
         @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
       end
     end
-
+binding.pry
     #保存
     if @product.save
       render json: {data:{result:"success"}}

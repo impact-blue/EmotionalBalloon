@@ -160,7 +160,16 @@
                 <% end %>
               ],
             <% end %>
+            <% if @json_sales_products.present? %>
+              sales_products:[
 
+              ],
+            <% end %>
+            <% if @json_sales_orders.present? %>
+              sales_orders:[
+                price: <%= @json_sales_orders %>
+              ],
+            <% end %>
         }
     };
 </script>
