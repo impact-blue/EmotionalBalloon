@@ -12,20 +12,67 @@ class CartsController < ApplicationController
 
   def purchase
     webpay = WebPay.new(WEBPAY_SECRET_KEY)
-        binding.pry
     # WebPay上での顧客の情報を作成
-    customer = webpay.customer.create(card: params['webpay-token'])
+    customer = webpay.customer.create(card: "tok_CardDeclined000")
     @order = Order.find(16)
-    # 顧客情報を使って支払い
+    webpay.set_accept_language('ja')
+
+  begin
+    # API リクエスト
     webpay.charge.create(
       amount: @order.price,
       currency: 'jpy',
       customer: customer.id
     )
-
+    binding.pry
     redirect_to action: 'thanks'
-  rescue WebPay::ErrorResponse::CardError => e
-    # エラーハンドリング。発生する例外の種類がいくつか用意されているので、内容に応じて処理を書く
+  rescue WebPay::ErrorResponse::ErrorResponseError => e
+
+    case e.data.error.caused_by
+    when 'buyer'
+      # カードエラーなど、購入者に原因がある
+      # エラーメッセージが購入者に分かりやすいものになっているので
+      # そのまま表示する
+      render(e.data.error.message)
+      # 頻繁に発生し、サービス側で対応の必要がないので、ロギングは必須ではない
+      # サポート目的でロギングする場合はINFOレベル以下が良い
+
+    when 'insufficient', 'missing'
+      # 実装ミスに起因する
+      # ERRORレベルでログに残し、すぐに対処する
+      error = e.data.error
+      log(ERROR, "Invalid request error: message:#{error.message} " +
+          "caused_by:#{error.caused_by} " +
+          "param:#{error.param} " +
+          "type:#{error.type}")
+
+      # 詳細を購入者に告知する必要はないので、固定のメッセージを表示する
+      render('サービスの障害により、現在ご利用いただけません。')
+
+      # 大抵の場合 insufficient と missing は同様に扱えるが
+      # 運用上 missing の発生を避けられない場合は個別に対処する
+
+    when 'service'
+      # WebPayに起因するエラー
+      log(ERROR, "WebPay API error: message:#{e.data.error.message}")
+      render('サービスの障害により、一時的にご利用いただけません。" +
+          "少し時間をおいて再度お試しください。')
+    else
+      # 未知のエラー
+      # 新しいエラーの原因が追加されたが、対応していない場合などが想定される
+      error = e.data.error
+      log(ERROR, "Unknown error response: message:#{error.message} " +
+          "caused_by:#{error.caused_by} " +
+          "type:#{error.type}")
+
+      # 原因が予測できないので固定のメッセージにする
+      render('サービスの障害により、現在ご利用いただけません。')
+    end
+    rescue WebPay::ApiError => e
+    # APIからのレスポンスが受け取れない場合。接続エラーなど
+    log(ERROR, "API request is not completed: #{e}")
+    render('サービスの障害により、現在ご利用いただけません。')
+    end
   end
 
 

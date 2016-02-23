@@ -106,14 +106,14 @@ class AdminProductsController < ApplicationController
         @product.product_charas[i].chara_id = Chara.find_by(name_en: product_info).id
       end
     end
-
-    if params[:data][:color].present?
-      params[:data][:colors].each_with_index do |product_info,i|
-        @product.product_colors.build
-        @product.product_colors[i].product_id = @product.id
-        @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
-      end
-    end
+binding.pry
+#    if params[:data][:color].present?
+#      params[:data][:colors].each_with_index do |product_info,i|
+#        @product.product_colors.build
+#        @product.product_colors[i].product_id = @product.id
+#        @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
+#      end
+#    end
 
     #保存
     if @product.save
