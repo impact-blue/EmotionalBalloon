@@ -67,6 +67,9 @@ gulp.task('copy', function(){
         .src(['./front/template/**'])
         .pipe(gulp.dest('./public/template/'));
     gulp
+        .src(['./front/fonts/**'])
+        .pipe(gulp.dest('./public/fonts/'));
+    gulp
         .src(['./front/template/public/index.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
