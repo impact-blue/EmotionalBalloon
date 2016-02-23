@@ -82,7 +82,15 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+<<<<<<< HEAD
     debug_inspector (0.0.2)
+=======
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
+    debug_inspector (0.0.2)
+    deep_merge (1.0.1)
+>>>>>>> origin/master
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (3.5.3)
@@ -276,6 +284,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano3-puma
   coffee-rails (~> 4.1.0)
+  config
   devise
   devise-i18n
   devise-i18n-views

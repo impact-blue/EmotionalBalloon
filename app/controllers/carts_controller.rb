@@ -79,12 +79,14 @@ class CartsController < ApplicationController
 
        #商品の在庫を減らすアクション
 
-
+#エラーの内容を表示させる
       #トランザクションで全て保存のみに対応にする。
       if @order.save!
         render json: {data:{result:"success"}}
-      else
-        render json: {data:
+      end
+    end
+    rescue
+      render json: {data:
                             {result:"error",
                              "message":
                               @order.errors.full_messages.each do |msg|
@@ -93,9 +95,7 @@ class CartsController < ApplicationController
                                 ]
                               end
                             }
-                     }
-      end
-    end
+                   }
   end
 
   def thanks

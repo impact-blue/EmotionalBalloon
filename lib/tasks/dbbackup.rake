@@ -6,7 +6,7 @@ namespace :db do
 
     environment = Rails.env
     configuration = ActiveRecord::Base.configurations[environment]
-    db_server = "153.120.166.128"
+    db_server = Settings[:database][:host]
     db_esc_path = ENV['~/var/backup_mysql'] # ファイルのバックアップ先のパス
     timestamp = Time.now.strftime("%Y-%m-%d_%H-%M-%S")
     backup_file = "#{db_esc_path}/#{timestamp}.dump"

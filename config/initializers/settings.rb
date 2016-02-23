@@ -1,4 +1,4 @@
 # テスト環境用公開可能鍵
-WEBPAY_PUBLIC_KEY = 'test_public_1Mag4I1r68CB3lC0zxgoHgcj'
+WEBPAY_PUBLIC_KEY = Settings[:webpay][:webpay_public_key]
 # テスト環境用非公開鍵
-WEBPAY_SECRET_KEY = 'test_secret_4cw41Z8NS8EI0q5gPG6W75QI'
+WEBPAY_SECRET_KEY = Settings[:webpay][:webpay_secret_key]
