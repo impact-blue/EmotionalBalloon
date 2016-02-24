@@ -99,7 +99,7 @@ class AdminProductsController < ApplicationController
       end
 
       @product.product_scenes.each_with_index do |scenes,i|
-        scenes.scene_id = i+1
+        scenes.scene_id = i+1 #シーンを一覧から削除した場合には対応していない。
         scenes.status = 0
         scenes.save
       end

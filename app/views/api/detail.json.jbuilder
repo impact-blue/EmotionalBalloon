@@ -1,3 +1,3 @@
 json.date do
-    json.extract! @product, :id, :name, :price,:image,:scenes,:charas,:colors,:balloon_types
+    json.extract! @product, :id, :name, :price,:scenes,:charas,:colors,:balloon_types
 end
