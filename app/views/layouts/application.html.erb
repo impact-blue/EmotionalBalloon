@@ -181,11 +181,13 @@
             <% end %>
             <% if @json_sales_orders.present? %>
               sales_orders:[
-                {
-                  day: <%= @json_sales_orders %>
-                  price: <%= @json_sales_orders_price %>
-                  count: 
-                },
+                <% @json_sales_orders.each do |s| %>
+                  {
+                    day: <%= s[:day] %>,
+                    price: <%= s[:price] %>,
+                    count: <%= s[:count] %>
+                  },
+                <% end %>
               ],
             <% end %>
         }

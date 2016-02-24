@@ -4,13 +4,30 @@ class AdminController < ApplicationController
 
 def index
   #当月の売上
- # @json_sales_orders = {"day" =>  "" , "price" => "","count" => ""}
- # @json_sales_orders_index = Order.where(created_at: Time.now.all_day)
- #   @json_sales_orders_price = 0
- #   @json_sales_orders.each do |o|
- #     @json_sales_orders_price += o.price
- #     @json_sales_orders.count + 1
- #   end
+  @json_sales_orders = []
+  current_day_count = Time.now.strftime('%d').to_i
+  current_day = Time.now
+      sales = {}
+
+  current_day_count.times do
+    @sales_index = Order.where(created_at: current_day.all_day)
+      sales = Hash.new
+      sales[:price] = 0
+      sales[:count] = 0
+      sales[:day] = current_day.strftime('%Y/%m/%d')
+
+      @sales_index.each do |o|
+        sales[:price] += o.price
+        sales[:count] += 1
+      end
+
+    @json_sales_orders.unshift(sales)
+    current_day_count -= 1
+    current_day -= 1.day
+  end
+  #当月の売り上げここまで
+
+
   #30日間の売上（月を跨ぐ）
 #  @orders = Order.where(created_at: [30.days.ago.beginning_of_day..Time.now.end_of_day])
 #    @json_sales_orders = 0
@@ -19,10 +36,11 @@ def index
 #    end
 
 #まずは、30日間のみ
-@date = Time.now
+  #@date = Time.now
 
-  @json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
+  #@json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
+
+end
 
 end
 
-end
