@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160216045120) do
   create_table "product_charas", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "chara_id",   limit: 4
+    t.integer  "status",     limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -131,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160216045120) do
   create_table "product_scenes", force: :cascade do |t|
     t.integer  "product_id", limit: 4
     t.integer  "scene_id",   limit: 4
+    t.integer  "status",     limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end

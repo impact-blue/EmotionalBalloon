@@ -91,30 +91,50 @@ class AdminProductsController < ApplicationController
       end
     end
 
-    if params[:data][:scenes].present?
-      params[:data][:scenes].each_with_index do |product_info,i|
+    #シーン
+      scene_count =  Scene.count - @product.product_scenes.count
+      scene_count.times do |i|
         @product.product_scenes.build
-        @product.product_scenes[i].product_id = @product.id
-        @product.product_scenes[i].scene_id = Scene.find_by(name_en: product_info).id
+        @product.product_scenes[i].product_id = params[:data][:id]
       end
-    end
 
-    if params[:data][:characters].present?
-      params[:data][:characters].each_with_index do |product_info,i|
+      @product.product_scenes.each_with_index do |scenes,i|
+        scenes.scene_id = i+1
+        scenes.status = 0
+        scenes.save
+      end
+
+      if params[:data][:scenes].present?
+        params[:data][:scenes].each_with_index do |product_info,i|
+          product_scene = @product.product_scenes.find_by(scene_id: product_info)
+          product_scene.scene_id = params[:data][:scenes][i]
+          product_scene.status = 1
+          product_scene.save
+        end
+      end
+    #シーンここまで
+    #キャラここから
+    chara_count =  Chara.count - @product.product_charas.count
+      chara_count.times do |i|
         @product.product_charas.build
-        @product.product_charas[i].product_id = @product.id
-        @product.product_charas[i].chara_id = Chara.find_by(name_en: product_info).id
+        @product.product_charas[i].product_id = params[:data][:id]
       end
-    end
 
-    if params[:data][:color].present?
-      params[:data][:colors].each_with_index do |product_info,i|
-        @product.product_colors.build
-        @product.product_colors[i].product_id = @product.id
-        @product.product_colors[i].color_id = Color.find_by(name_en: product_info).id
+      @product.product_charas.each_with_index do |charas,i|
+        charas.chara_id = i+1
+        charas.status = 0
+        charas.save
       end
-    end
-binding.pry
+
+      if params[:data][:characters].present?
+        params[:data][:characters].each_with_index do |product_info,i|
+          product_chara = @product.product_charas.find_by(chara_id: product_info)
+          product_chara.chara_id = params[:data][:characters][i]
+          product_chara.status = 1
+          product_chara.save
+        end
+      end
+    #ここまで
     #保存
     if @product.save
       render json: {data:{result:"success"}}

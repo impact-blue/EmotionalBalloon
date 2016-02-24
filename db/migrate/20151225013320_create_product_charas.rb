@@ -3,6 +3,7 @@ class CreateProductCharas < ActiveRecord::Migration
     create_table :product_charas do |t|
       t.integer :product_id
       t.integer :chara_id
+      t.integer :status
 
       t.timestamps null: false
     end

@@ -68,14 +68,26 @@
                 <% if @json_detail_product.product_scenes.present? %>
                 scenes: [
                   <% @json_detail_product.product_scenes.each do |s| %>
-                    "<%= s.scene.name_en %>",
+                  {
+                    <% if s.status == 1 %>
+                    id: <%= s.scene_id %>,
+                    name_en:"<%= s.scene.name_en %>",
+                    name_jp:"<%= s.scene.name_ja %>"
+                    <% end %>
+                  },
                   <% end %>
                 ],
                 <% end %>
-                <% if @json_detail_product.product_charas.present? %>
+                <% if @json_detail_product.charas.present? %>
                 characters: [
                   <% @json_detail_product.product_charas.each do |c| %>
-                    "<%= c.chara.name_en%>",
+                  {
+                    <% if c.status == 1%>
+                    id: <%= c.chara_id %>,
+                    name_en:"<%= c.chara.name_en %>",
+                    name_jp:"<%= c.chara.name_ja %>"
+                    <% end %>
+                  },
                   <% end %>
                 ],
                 <% end %>
@@ -162,12 +174,18 @@
             <% end %>
             <% if @json_sales_products.present? %>
               sales_products:[
+                {
 
+                },
               ],
             <% end %>
             <% if @json_sales_orders.present? %>
               sales_orders:[
-                price: <%= @json_sales_orders %>
+                {
+                  day: <%= @json_sales_orders %>
+                  price: <%= @json_sales_orders_price %>
+                  count: 
+                },
               ],
             <% end %>
         }
