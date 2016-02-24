@@ -68,26 +68,26 @@
                 <% if @json_detail_product.product_scenes.present? %>
                 scenes: [
                   <% @json_detail_product.product_scenes.each do |s| %>
-                  {
                     <% if s.status == 1 %>
+                  {
                     id: <%= s.scene_id %>,
                     name_en:"<%= s.scene.name_en %>",
                     name_jp:"<%= s.scene.name_ja %>"
-                    <% end %>
                   },
+                    <% end %>
                   <% end %>
                 ],
                 <% end %>
                 <% if @json_detail_product.charas.present? %>
                 characters: [
                   <% @json_detail_product.product_charas.each do |c| %>
-                  {
                     <% if c.status == 1%>
+                  {
                     id: <%= c.chara_id %>,
                     name_en:"<%= c.chara.name_en %>",
                     name_jp:"<%= c.chara.name_ja %>"
-                    <% end %>
                   },
+                    <% end %>
                   <% end %>
                 ],
                 <% end %>
@@ -137,6 +137,15 @@
                     },
                   <% end %>
                 ]
+              },
+            <% end %>
+            <% if @json_detail_customer.present? %>
+              detail_customer:{
+                id: <%= @json_detail_customer.id %>,
+                email: <%= @json_detail_customer.email %>,
+                phone: <%= @json_detail_customer.phone %>,
+                city: <%= @json_detail_customer.city %>,
+                address: <%= @json_detail_customer.address %>,
               },
             <% end %>
             <% if @json_admin_users.present? %>

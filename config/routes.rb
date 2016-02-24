@@ -21,44 +21,44 @@ Rails.application.routes.draw do
 #productの一覧
   get 'products/show/:id'  => 'products#show'
   get 'products/scene'     => 'products#scene'
-  get 'products' => 'products#index'
-  get 'products/ranking' => 'products#ranking'
+  get 'products'           => 'products#index'
+  get 'products/ranking'   => 'products#ranking'
 
 #カートの追加
-  get 'carts/show' =>'carts#show'
-  get 'carts/register' => 'carts#register'
-  get 'carts/comfirm' => 'carts#comfirm'
+  get  'carts/show'        => 'carts#show'
+  get  'carts/register'    => 'carts#register'
+  get  'carts/comfirm'     => 'carts#comfirm'
   post 'api/carts/comfirm' => 'carts#api' #購入
-  get 'carts/thanks' => 'carts#thanks'
-  post 'carts/confirm' => 'carts#purchase'
+  get  'carts/thanks'      => 'carts#thanks'
+  post 'carts/confirm'     => 'carts#purchase'
 #以下管理画面のルーティング
   resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'
   get 'admin/settings/users/:id' => 'admin_users#destroy'
 
   resources :admin_settings,only:[:index],:path => 'admin/settings'
-  get 'admin/settings/mail' => 'admin_settings#edit_mail_setting'
-  patch 'admin/settings/mail' => 'admin_settings#update_card_mail_content'
-  patch 'admin/settings/mail' => 'admin_settings#update_bank_mail_content'
-  get 'admin/settings/agreement' => 'admin_settings#edit_agreement'
+  get   'admin/settings/mail'      => 'admin_settings#edit_mail_setting'
+  patch 'admin/settings/mail'      => 'admin_settings#update_card_mail_content'
+  patch 'admin/settings/mail'      => 'admin_settings#update_bank_mail_content'
+  get   'admin/settings/agreement' => 'admin_settings#edit_agreement'
   patch 'admin/settings/agreement' => 'admin_settings#update_agreement'
-  get 'admin/settings/traderule' => 'admin_settings#edit_trade_rule'
+  get   'admin/settings/traderule' => 'admin_settings#edit_trade_rule'
   patch 'admin/settings/traderule' => 'admin_settings#update_trade_rule'
-  get 'admin/settings/company' => 'admin_settings#edit_company'
-  patch 'admin/settings/company' => 'admin_settings#update_company'
+  get   'admin/settings/company'   => 'admin_settings#edit_company'
+  patch 'admin/settings/company'   => 'admin_settings#update_company'
 
 #管理画面ホーム
   get "admin" => "admin#index"
 
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
-  post 'api/products/edit' => 'admin_products#api'
-  patch 'api/products/edit' => 'admin_products#api'
+  post 'api/products/edit'     => 'admin_products#api'
+  patch 'api/products/edit'    => 'admin_products#api'
   post 'admin/products/import' => 'admin_products#import'
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
 #管理画面の購入した人一覧
-  resources :admin_customers,only: [:index],:path => 'admin/customers'
+  resources :admin_customers,only: [:index,:show],:path => 'admin/customers'
 
 #バルーンのオプションの選択--ここから
  resources :admin_categories, only:[:index,:edit,:new,:create,:update] , :path => 'admin/categories'
@@ -87,6 +87,6 @@ Rails.application.routes.draw do
 #管理画面のログイン関連
 get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
-get  'admin/logout'  => 'sessions#destroy' ,as: :logout
+get    'admin/logout'  => 'sessions#destroy' ,as: :logout
 
 end

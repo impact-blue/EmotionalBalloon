@@ -7,7 +7,6 @@ def index
   @json_sales_orders = []
   current_day_count = Time.now.strftime('%d').to_i
   current_day = Time.now
-      sales = {}
 
   current_day_count.times do
     @sales_index = Order.where(created_at: current_day.all_day)

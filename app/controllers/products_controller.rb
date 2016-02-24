@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     elsif params[:scene].present?
       @json_products =
         Product.where(status: 1).includes(:scenes)
-          .merge(ProductScene.order("product_id asc")
+          .merge(ProductScene.where(status: 1).order("product_id asc")
             .where(scene_id: Scene
               .find_by(
                   "name_en = ?" , params[:scene]
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     elsif params[:character].present?
       @json_products =
         Product.where(status: 1).includes(:charas)
-          .merge(ProductChara.order("product_id asc")
+          .merge(ProductChara.where(status: 1).order("product_id asc")
             .where(chara_id: Chara
               .find_by(
                   "name_en = ?" , params[:character]
