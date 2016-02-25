@@ -1,0 +1,8 @@
+<% include ../parts/_header %>
+<ul class="l-admin__right__foot__content__list">
+    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/categories?filter=all">テンプレート1</a></li>
+    <li ng-class="{'on': search === '?filter=scene'}"><a href="/admin/categories?filter=scene">テンプレート2</a></li>
+    <li ng-class="{'on': search === '?filter=character'}"><a href="/admin/categories?filter=character">テンプレート3</a></li>
+</ul>
+<div class="l-admin__right__foot__content__body"></div>
+<% include ../parts/_footer %>

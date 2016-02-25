@@ -31,14 +31,20 @@
                     <p>CATEGORY</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
-                <a href="/admin/customers">
-                    <p><i class="fa fa-user"></i></p>
-                    <p>CUSTOMER</p>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
-                <a href="/admin/settings/users">
+                <a href="/admin/users">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>USER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings">
                     <p><i class="fa fa-cog"></i></p>
                     <p>SETTING</p>
                 </a>
@@ -58,40 +64,30 @@
     <div class="c-buttonList">
         <p class="c-buttonList__list"><a href="">CSV出力</a></p>
         <p class="c-buttonList__list">CSVインポート</p>
+        <p class="c-buttonList__list"><a href="/admin/settings/users/new">新規登録</a></p>
     </div>
     <table class="c-table">
-        <thead class="c-table__thread">
+        <thread class="c-table__thread">
             <tr class="c-table__thread__row">
                 <th class="c-table__thread__row__head">ID</th>
-                <th class="c-table__thread__row__head">お名前</th>
-                <th class="c-table__thread__row__head">電話番号</th>
+                <th class="c-table__thread__row__head">名前</th>
                 <th class="c-table__thread__row__head">メールアドレス</th>
-                <th class="c-table__thread__row__head">詳細</th>
+                <th class="c-table__thread__row__head">削除</th>
             </tr>
-        </thead>
+        </thread>
         <tbody class="c-table__body">
-            <tr class="c-table__body__row" ng-repeat="customer in data.customer_list.customers">
-                <td class="c-table__body__row__data">{{customer.id}}</td>
-                <td class="c-table__body__row__data">{{customer.family_name}} {{customer.first_name}}</td>
-                <td class="c-table__body__row__data">{{customer.phone}}</td>
-                <td class="c-table__body__row__data">{{customer.email}}</td>
+            <tr class="c-table__body__row" ng-repeat="user in data.admin_users">
+                <td class="c-table__body__row__data">{{user.id}}</td>
+                <td class="c-table__body__row__data">{{user.name}}</td>
+                <td class="c-table__body__row__data">{{user.email}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="">詳細を見る</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/settings/users/{{user.id}}">削除する</a></p>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    <ul class="c-nextButton u-mt-10">
-        <li class="c-nextButton__list">
-            <a href="/admin/customers?page={{data.customer_list.current_page - 1}}" ng-if="data.customer_list.current_page > 1"><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
-        </li>
-        <li class="c-nextButton__list ng-binding">{{data.customer_list.current_page}} / {{data.customer_list.max_page}}</li>
-        <li class="c-nextButton__list">
-            <a href="/admin/customers?page={{data.customer_list.current_page + 1}}" ng-if="data.customer_list.current_page !== data.customer_list.max_page"><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
-        </li>
-    </ul>
 </div>
             </div>
         </div>

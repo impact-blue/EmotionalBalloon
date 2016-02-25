@@ -59,10 +59,13 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/categories/:type/:id/edit', {
             templateUrl: '/template/admin/category/edit.html'
         })
-        .when('/admin/customers', {
-            templateUrl: '/template/admin/customer/index.html'
+        .when('/admin/users', {
+            templateUrl: '/template/admin/users/index.html'
         })
-        .when('/admin/settings/users', {
+        .when('/admin/mails', {
+            templateUrl: '/template/admin/mails/index.html'
+        })
+        .when('/admin/settings', {
             templateUrl: '/template/admin/setting/users.html'
         })
         .otherwise({
