@@ -8,7 +8,7 @@ app.controller('categoryEditController', function($scope, $http) {
 
     $scope.editCategory = function() {
         var sendData = {
-            data: $scope.formContent
+            data: $scope.categoryContent
         };
         $http({
             method: 'PATCH',
