@@ -178,6 +178,14 @@
                 <% end %>
               ],
             <% end %>
+            <% if @json_category_detail.present? %>
+              category_detail:{
+                id: <%= @json_category_detail.id %>,
+                name_en: "<%= @json_category_detail.name_en %>",
+                name_jp: "<%= @json_category_detail.name_ja %>",
+                type: "<%= @json_category_detail.model_name.name.downcase %>",
+              },
+            <% end %>
             <% if @json_customer_list.present? %>
               customer_list:{
                 current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,

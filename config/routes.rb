@@ -61,7 +61,9 @@ Rails.application.routes.draw do
   resources :admin_customers,only: [:index,:show],:path => 'admin/customers'
 
 #バルーンのオプションの選択--ここから
- resources :admin_categories, only:[:index,:edit,:new,:create,:update] , :path => 'admin/categories'
+ resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories'
+  get 'admin/categories/scene/:id/edit' => 'admin_categories#edit'
+  get 'admin/categories/chara/:id/edit' => 'admin_categories#edit'
 
 
   post 'colors/create'        => 'colors#create'
