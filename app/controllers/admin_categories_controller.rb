@@ -19,23 +19,27 @@ class AdminCategoriesController < ApplicationController
     @json_category_list = Chara.all
   end
 
-  def create
+  def new
   end
 
   def edit
     if request.path.include?("scene")
-      @json_category_detail = Scene.find(params[:id])
-      @type =  "scene"
+      if params[:id].present?
+        @json_category_detail = Scene.find(params[:id])
+        @type =  "scene"
+      end
     elsif request.path.include?("chara")
-      @json_category_detail = Chara.find(params[:id])
-      @type = "character"
+      if params[:id].present?
+        @json_category_detail = Chara.find(params[:id])
+        @type = "character"
+      end
     end
   end
 
   def api_scene
     if params[:data][:id].present?
       @category = Scene.find(params[:data][:id])
-    elsif prams[:data][:id].blank?
+    elsif params[:data][:id].blank?
       @category = Scene.new(create_params)
     end
 
@@ -49,9 +53,10 @@ class AdminCategoriesController < ApplicationController
   end
 
   def api_chara
+
     if params[:data][:id].present?
       @category = Chara.find(params[:data][:id])
-    elsif prams[:data][:id].blank?
+    elsif params[:data][:id].blank?
       @category = Chara.new(create_params)
     end
 

@@ -78,8 +78,8 @@ class CartsController < ApplicationController
           @product.save!
       end
 
-       #商品の在庫を減らすアクション。本当にここでいい？発送時？
-binding.pry
+      #商品の在庫を減らすアクション。本当にここでいい？発送時？
+
       #トランザクションで全て保存のみに対応にする。
       if @order.save!
         render json: {data:{result:"success"}}

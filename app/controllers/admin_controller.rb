@@ -26,7 +26,6 @@ def index
   end
   #当月の売り上げここまで
 
-
   #30日間の売上（月を跨ぐ）
 #  @orders = Order.where(created_at: [30.days.ago.beginning_of_day..Time.now.end_of_day])
 #    @json_sales_orders = 0

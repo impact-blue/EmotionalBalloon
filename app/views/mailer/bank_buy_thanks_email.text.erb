@@ -1,0 +1,6 @@
+
+<%= @order.user.user_family_name + @order.user.user_first_name %>様
+
+<%     s.gsub(/\$+/,@order.city) %>
+
+<%= @mail_content.text %>

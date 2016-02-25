@@ -6,6 +6,9 @@ class AdminSettingsController < ApplicationController
   def edit_mail_setting
     @card_mail_content = MailContent.find(1)
     @bank_mail_content = MailContent.find(2)
+
+    @order = Order.find(1)
+    #Mailer.card_buy_thanks_email(@order).deliver_later
   end
 
 #編集機能が、まだカードのみ対応
