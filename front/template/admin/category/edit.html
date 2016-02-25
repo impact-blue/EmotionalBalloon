@@ -56,7 +56,8 @@
             <div class="l-admin__right__foot__content">
 <div class="l-admin__right__foot__content__full" ng-controller="categoryEditController">
     <div class="p-registerForm">
-        <p class="p-registerForm__block__heading">カテゴリー詳細</p>
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'scene'">シーンカテゴリー</p>
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'character'">キャラクターカテゴリー</p>
         <ul class="p-registerForm__block__wrapper">
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">名称(English)</p>
@@ -66,17 +67,10 @@
                 <p class="p-registerForm__block__wrapper__list__text">名称(Japanese)</p>
                 <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="名称(Japanese)" ng-model="categoryContent.name_jp"></div>
             </li>
-            <li class="p-registerForm__block__wrapper__list">
-                <p class="p-registerForm__block__wrapper__list__text">分類</p>
-                <div class="p-registerForm__block__wrapper__list__content">
-                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="type" id="type1" ng-model="categoryContent.type" value="scene"><label for="type1">シーン</label></p>
-                    <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="type" id="type2" ng-model="categoryContent.type" value="character"><label for="type2">キャラクター</label></p>
-                </div>
-            </li>
         </ul>
     </div>
     <div class="c-button--cart">
-        <p class="c-button--cart__text" ng-click="editCategory()">変更</p>
+        <p class="c-button--cart__text" ng-click="editCategory(split[3])">変更</p>
     </div>
 </div>
             </div>
