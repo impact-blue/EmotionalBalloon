@@ -50,6 +50,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html'
         })
+        .when('/admin/orders/:id/edit', {
+            templateUrl: '/template/admin/order/edit.html'
+        })
         .when('/admin/categories', {
             templateUrl: '/template/admin/category/index.html'
         })
