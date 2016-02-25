@@ -22,16 +22,39 @@ class AdminCategoriesController < ApplicationController
   def edit
     if request.path.include?("scene")
       @json_category_detail = Scene.find(params[:id])
+      @type =  "scene"
     elsif request.path.include?("chara")
       @json_category_detail = Chara.find(params[:id])
+      @type = "character"
     end
   end
 
-  def api
+  def api_scene
+    if params[:data][:id].present?
+      @category = Scene.find(params[:data][:id])
+    elsif prams[:data][:id].nil?
+      @category = Scene.new(create_params)
+    end
 
-    @category = Scene.new(create_params)
-    @category.name_en = params[:data][:category_detail][:name_en]
-    @category.name_ja = params[:data][:category_detail][:name_jp]
+    @category.name_en = params[:data][:name_en]
+    @category.name_ja = params[:data][:name_jp]
+
+    if  @category.save
+      render json: {data:{result:"success"}}
+    else
+      render json: {data:{result:"false"}}
+    end
+  end
+
+  def api_chara
+    if params[:data][:id].present?
+      @category = Scene.find(params[:data][:id])
+    elsif prams[:data][:id].nil?
+      @category = Scene.new(create_params)
+    end
+
+    @category.name_en = params[:data][:name_en]
+    @category.name_ja = params[:data][:name_jp]
 
     if  @category.save
       render json: {data:{result:"success"}}

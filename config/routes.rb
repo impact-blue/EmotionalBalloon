@@ -63,8 +63,9 @@ Rails.application.routes.draw do
 #バルーンのオプションの選択--ここから
  resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories'
   get 'admin/categories/scene/:id/edit' => 'admin_categories#edit'
-  get 'admin/categories/chara/:id/edit' => 'admin_categories#edit'
-  patch 'api/categories/edit' => 'admin_categories#api'
+  get 'admin/categories/character/:id/edit' => 'admin_categories#edit'
+  patch 'api/categories/scenes'     => 'admin_categories#api_scene'
+  patch 'api/categories/cahracters' => 'admin_categories#api_chara'
 
 
   post 'colors/create'        => 'colors#create'
