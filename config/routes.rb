@@ -64,8 +64,10 @@ Rails.application.routes.draw do
  resources :admin_categories, only:[:index,:new,:create,:update] , :path => 'admin/categories'
   get 'admin/categories/scene/:id/edit' => 'admin_categories#edit'
   get 'admin/categories/character/:id/edit' => 'admin_categories#edit'
+  get 'admin/categories/scene/new' => 'admin_categories#api_scene'
+  get 'admin/categories/character/new' => 'admin_categories#api_chara'
   patch 'api/categories/scenes'     => 'admin_categories#api_scene'
-  patch 'api/categories/cahracters' => 'admin_categories#api_chara'
+  patch 'api/categories/characters' => 'admin_categories#api_chara'
 
 
   post 'colors/create'        => 'colors#create'

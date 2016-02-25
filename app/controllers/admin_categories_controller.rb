@@ -2,6 +2,9 @@ class AdminCategoriesController < ApplicationController
   before_action :logged_in_admin_user
 
   def index
+    unless params[:filter].present?
+      redirect_to "/admin/categories?filter=all"
+    end
     if params[:filter] == "all"
       @json_category_list = Scene.all + Chara.all
     elsif params[:filter] == "scene"
@@ -32,13 +35,12 @@ class AdminCategoriesController < ApplicationController
   def api_scene
     if params[:data][:id].present?
       @category = Scene.find(params[:data][:id])
-    elsif prams[:data][:id].nil?
+    elsif prams[:data][:id].blank?
       @category = Scene.new(create_params)
     end
 
     @category.name_en = params[:data][:name_en]
     @category.name_ja = params[:data][:name_jp]
-
     if  @category.save
       render json: {data:{result:"success"}}
     else
@@ -48,9 +50,9 @@ class AdminCategoriesController < ApplicationController
 
   def api_chara
     if params[:data][:id].present?
-      @category = Scene.find(params[:data][:id])
-    elsif prams[:data][:id].nil?
-      @category = Scene.new(create_params)
+      @category = Chara.find(params[:data][:id])
+    elsif prams[:data][:id].blank?
+      @category = Chara.new(create_params)
     end
 
     @category.name_en = params[:data][:name_en]

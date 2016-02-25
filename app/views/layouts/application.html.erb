@@ -172,7 +172,7 @@
                     id:<%= c.id %>,
                     name_en:"<%= c.name_en%>",
                     name_jp:"<%= c.name_ja%>",
-                    type: "<%= c.model_name.name.downcase %>",
+                    type: <% if c.model_name.element == "scene" %>"<%= "scene" %>"<% end %><% if c.model_name.element == "chara" %>"<%= "character" %>"<% end %>,
                     created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                   },
                 <% end %>
