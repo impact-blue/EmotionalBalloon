@@ -908,12 +908,18 @@
                         name_en: "character3",
                         name_jp: "キャラクター３"
                     }
-                ]
+                ],
+                category_detail: {
+                    id: 123,
+                    type: "scene",
+                    name_en: "marriage",
+                    name_jp: "結婚式"
+                }
             }
         };
     </script>
 </head>
-<body>
-    <div ng-view></div>
+<body ng-controller="balloonController">
+    <div ng-view style="height: inherit;"></div>
 </body>
 </html>
