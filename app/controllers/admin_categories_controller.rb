@@ -20,7 +20,6 @@ class AdminCategoriesController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -33,6 +32,8 @@ class AdminCategoriesController < ApplicationController
   def update
   end
 
+  def type_name
+  end
 
   private
 

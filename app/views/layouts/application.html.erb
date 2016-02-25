@@ -120,7 +120,8 @@
                             id: <%= product.product_id %>,
                             count: <%= product.product.count %>,
                             name: "<%= product.product.name %>",
-                            stocks: <%= product.product.stocks %>
+                            stocks: <%= product.product.stocks %>,
+                            price: <%= product.product.price %>,
                             images: [
                                 "<%= product.product.main_image %>",
                             ],
@@ -154,13 +155,14 @@
                         postal_code: "<%= @destination_info.postal_code %>",
                         prefectures: "<%= @destination_info.city %>",
                         address: "<%= @destination_info.delivery_address %>",
+                        phone: "<%= @destination_info.phone %>",
                         date: "<%= @destination_info.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
-                        classification: 
+                        classification: "",
                     },
                     payment_info: {
                         method: "<%= @json_detail_order.payment_info %>",
                     },
-                    comment: "<%= @json_detail_order.option %>"
+                    comment: "<%= @json_detail_order.option %>",
                 },
             <% end %>
             <% if @json_category_list.present? %>
@@ -170,6 +172,7 @@
                     id:<%= c.id %>,
                     name_en:"<%= c.name_en%>",
                     name_jp:"<%= c.name_ja%>",
+                    type: "<%= c.model_name.name.downcase %>",
                     created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                   },
                 <% end %>

@@ -34,4 +34,24 @@ class AdminOrdersController < ApplicationController
     @destination_info = @json_detail_order
   end
 
+  def api
+    ActiveRecord::Base.transation do
+      if params[:data][:id].nil?
+        @order = Order.new(order_params)
+      elsif params[:data][:id].present?
+        @order = Order.find(prams[:data][:id])
+      end
+
+
+
+    end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:price)
+  end
+
+
 end
