@@ -31,7 +31,7 @@
                         image:"<%= p.main_image %>"
                     },
                   <% end %>
-                ]
+                ],
               },
             <% end %>
             <% if @json_ranking_products.present? %>
@@ -109,6 +109,59 @@
                   },
                 <% end %>
               ],
+            <% end %>
+            <% if @json_detail_order.present? %>
+                detail_order: {
+                    id: <%= @json_detail_order.id %>,
+                    status: "<%= @json_detail_order.order_status %>",
+                    product_info: [
+                      <% @order_products.each do |product| %>
+                        {
+                            id: <%= product.product_id %>,
+                            count: <%= product.product.count %>,
+                            name: "<%= product.product.name %>",
+                            stocks: <%= product.product.stocks %>
+                            images: [
+                                "<%= product.product.main_image %>",
+                            ],
+                        },
+                      <% end %>
+                    ],
+                    buyer_info: {
+                        name: [
+                          <% @buyer_info.user_names.each do |name| %>
+                            {
+                                family_name: "<%= name.user_family_name %>",
+                                first_name: "<%= name.user_first_name %>"
+                            },
+                          <% end %>
+                        ],
+                        postal_code: <%= @buyer_info.postal_code %>,
+                        prefectures: "<%= @buyer_info.city %>",
+                        address: "<%= @buyer_info.address %>",
+                        phone: "<%= @buyer_info.phone %>",
+                        mail: "<%= @buyer_info.email %>",
+                    },
+                    destination_info: {
+                        name: [
+                          <% @destination_info.order_delivery_names.each do |name| %>
+                            {
+                                family_name: "<%= name.order_family_name %>",
+                                first_name: "<%= name.order_first_name %>"
+                            },
+                          <% end %>
+                        ],
+                        postal_code: "<%= @destination_info.postal_code %>",
+                        prefectures: "<%= @destination_info.city %>",
+                        address: "<%= @destination_info.delivery_address %>",
+                        date: "<%= @destination_info.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                        classification: 
+                    },
+                    payment_info: {
+                        method: "<%= @json_detail_order.payment_info %>",
+                    },
+                    comment: "<%= @json_detail_order.option %>"
+                },
             <% end %>
             <% if @json_category_list.present? %>
               category_list: [
@@ -199,6 +252,7 @@
                 <% end %>
               ],
             <% end %>
+
         }
     };
 </script>

@@ -27,6 +27,11 @@ class AdminOrdersController < ApplicationController
   end
 
   def edit
+    #detail_productも出す。
+    @json_detail_order = Order.includes(order_product_infos: :product).find(params[:id])
+    @order_products = @json_detail_order.order_product_infos
+    @buyer_info = @json_detail_order.user
+    @destination_info = @json_detail_order
   end
 
 end
