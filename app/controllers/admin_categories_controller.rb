@@ -11,29 +11,25 @@ class AdminCategoriesController < ApplicationController
     end
   end
 
-  def scene_index
-
-  end
 
   def chara_index
     @json_category_list = Chara.all
-  end
-
-  def edit
   end
 
   def create
   end
 
   def edit
-    @category = Category.find(params[:id])
+    if request.path.include?("scene")
+      @json_category_detail = Scene.find(params[:id])
+    elsif request.path.include?("chara")
+      @json_category_detail = Chara.find(params[:id])
+    end
   end
 
   def update
   end
 
-  def type_name
-  end
 
   private
 
