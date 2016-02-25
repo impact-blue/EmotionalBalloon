@@ -68,8 +68,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/categories', {
             templateUrl: '/template/admin/category/index.html'
         })
-        .when('/admin/categories/:id/edit', {
-            templateUrl: '/template/admin/category/index.html'
+        .when('/admin/categories/:type/:id/edit', {
+            templateUrl: '/template/admin/category/edit.html'
         })
         .when('/admin/customers', {
             templateUrl: '/template/admin/customer/index.html'
@@ -387,6 +387,33 @@ app.controller('cartShowController', function($scope, $http) {
             angular.merge($scope.data, data.data);
         });
     });
+});
+app.controller('categoryEditController', function($scope, $http) {
+    $scope.categoryContent = {
+        id: balloon_data.data.category_detail.id,
+        type: balloon_data.data.category_detail.type,
+        name_en: balloon_data.data.category_detail.name_en,
+        name_jp: balloon_data.data.category_detail.name_jp
+    };
+
+    $scope.editCategory = function() {
+        var sendData = {
+            data: $scope.formContent
+        };
+        $http({
+            method: 'PATCH',
+            url: '/api/categories/edit',
+            data: sendData
+        }).success(function(data, status, headers, config) {
+            if(data.data.result === 'success') {
+                location.href = "/admin/categories";
+            } else {
+                alert(data.data.message);
+            }
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
+    };
 });
 app.controller('loginController', function($scope, $http) {
     $scope.loginInfo = {
