@@ -1,0 +1,60 @@
+<div class="l-admin" ng-controller="adminController">
+    <div class="l-admin__left">
+        <ul class="l-admin__left__list">
+            <li class="l-admin__left__list__child">
+                <a href="/admin/products/new">
+                    <p><i class="fa fa-pencil-square-o"></i></p>
+                    <p>NEW POST</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+                <a href="/admin">
+                    <p><i class="fa fa-home"></i></p>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+                <a href="/admin/products?filter=all">
+                    <p><i class="fa fa-gift"></i></p>
+                    <p>PRODUCT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+                <a href="/admin/orders/?filter=all">
+                    <p><i class="fa fa-shopping-cart"></i></p>
+                    <p>ORDER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+                <a href="/admin/categories?filter=all">
+                    <p><i class="fa fa-tag"></i></p>
+                    <p>CATEGORY</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+                <a href="/admin/customers">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>CUSTOMER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings/users">
+                    <p><i class="fa fa-cog"></i></p>
+                    <p>SETTING</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child">
+                <a href="/admin/logout">
+                    <p><i class="fa fa-sign-out"></i></p>
+                    <p>LOGOUT</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="l-admin__right">
+        <div class="l-admin__right__foot">
+            <div class="l-admin__right__foot__content">
+            </div>
+        </div>
+    </div>
+</div>

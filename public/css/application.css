@@ -2173,7 +2173,7 @@ footer {
       .header__menu__list__child {
         display: none;
         position: absolute;
-        width: 110px;
+        width: 120px;
         background: rgba(255, 255, 255, 0.9); }
         .header__menu__list__child__text {
           line-height: 30px;
