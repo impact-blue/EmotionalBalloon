@@ -2434,12 +2434,8 @@ h2.balloonHeading2 {
     .p-cartList--comfirm .p-cartList__list:last-child .p-cartList__list__text {
       font-size: 14px;
       font-weight: normal; }
-  .p-cartList--comfirm .p-cartList__list__image {
-    width: 100px; }
   .p-cartList--comfirm .p-cartList__list__text {
     font-size: 14px; }
-    .p-cartList--comfirm .p-cartList__list__text.title {
-      width: 140px; }
 
 .p-categoryDescription {
   margin-right: auto;
