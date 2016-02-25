@@ -87,6 +87,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 });
 app.controller('adminController', function($scope, $http) {
     $scope.path = location.pathname;
+    $scope.split = $scope.path.split('/');
     $scope.search = location.search;
     $scope.data = balloon_data.data;
 });
@@ -396,23 +397,39 @@ app.controller('categoryEditController', function($scope, $http) {
         name_jp: balloon_data.data.category_detail.name_jp
     };
 
-    $scope.editCategory = function() {
+    $scope.editCategory = function(key) {
         var sendData = {
             data: $scope.categoryContent
         };
-        $http({
-            method: 'PATCH',
-            url: '/api/categories/edit',
-            data: sendData
-        }).success(function(data, status, headers, config) {
-            if(data.data.result === 'success') {
-                location.href = "/admin/categories";
-            } else {
-                alert(data.data.message);
-            }
-        }).error(function(data, status, headers, config) {
-            alert(status);
-        });
+        if(key === 'scene') {
+            $http({
+                method: 'PATCH',
+                url: '/api/categories/scenes',
+                data: sendData
+            }).success(function(data, status, headers, config) {
+                if(data.data.result === 'success') {
+                    location.href = "/admin/categories";
+                } else {
+                    alert(data.data.message);
+                }
+            }).error(function(data, status, headers, config) {
+                alert(status);
+            });
+        } else {
+            $http({
+                method: 'PATCH',
+                url: '/api/categories/characters',
+                data: sendData
+            }).success(function(data, status, headers, config) {
+                if(data.data.result === 'success') {
+                    location.href = "/admin/categories";
+                } else {
+                    alert(data.data.message);
+                }
+            }).error(function(data, status, headers, config) {
+                alert(status);
+            });
+        }
     };
 });
 app.controller('loginController', function($scope, $http) {
