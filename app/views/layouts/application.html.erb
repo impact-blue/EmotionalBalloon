@@ -118,7 +118,7 @@
                       <% @order_products.each do |product| %>
                         {
                             id: <%= product.product_id %>,
-                            count: <%= product.product.count %>,
+                            count: <%= product.count %>,
                             name: "<%= product.product.name %>",
                             stocks: <%= product.product.stocks %>,
                             price: <%= product.product.price %>,

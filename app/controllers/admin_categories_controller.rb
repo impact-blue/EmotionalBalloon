@@ -27,13 +27,24 @@ class AdminCategoriesController < ApplicationController
     end
   end
 
-  def update
+  def api
+
+    @category = Scene.new(create_params)
+    @category.name_en = params[:data][:category_detail][:name_en]
+    @category.name_ja = params[:data][:category_detail][:name_jp]
+
+    if  @category.save
+      render json: {data:{result:"success"}}
+    else
+      render json: {data:{result:"false"}}
+    end
   end
 
 
   private
 
   def create_params
+    params.permit(:name_en,:name_ja)
   end
 
 

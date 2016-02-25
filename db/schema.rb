@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160216045120) do
   create_table "order_product_infos", force: :cascade do |t|
     t.integer  "order_id",   limit: 4
     t.integer  "product_id", limit: 4
+    t.integer  "count",      limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
