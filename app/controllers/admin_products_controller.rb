@@ -1,6 +1,7 @@
 class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
   before_action :set_json_index
+  skip_before_filter :verify_authenticity_token ,only:[:import]
 
   def new
     @product = Product.new
