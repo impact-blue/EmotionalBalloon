@@ -1,4 +1,12 @@
 
 <%= @order.user.user_names[0].user_family_name + @order.user.user_names[0].user_first_name %>様
 
-<%= @mail_content.text.gsub(/\$+/,@order.city) %>
+
+<% @order.order_product_infos.each do |order| %>
+商品：<%= order.product.name %>
+価格：<%= order.product.price %>
+個数：<%= order.count %>個
+<% end %>
+
+<%= @mail_content.text.gsub(/\$+/,@order) %>
+

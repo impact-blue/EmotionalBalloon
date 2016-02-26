@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :products, through: :product_orders
+  has_many :products, through: :order_product_infos
   belongs_to :user, foreign_key: 'user_id'
   belongs_to :scene
   has_many   :order_product_infos

@@ -38,6 +38,12 @@ def index
 
   #@json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
 
+    @card_mail_content = MailContent.find(1)
+    @order = Order.find(1)
+    @count ="個数"
+
+    # order.products.map(&:name).zip(order.order_product_infos.map(&:count))
+#こんな書き方とか
 end
 
 end

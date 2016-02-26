@@ -39,6 +39,8 @@ class ProductsController < ApplicationController
       @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:max].present?
       @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+    elsif params[:min].present?
+      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
     end
 
   #以下は旧仕様
@@ -79,14 +81,5 @@ class ProductsController < ApplicationController
   def ranking
     @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")
   end
-
-
-
-  private
-
-  def cart_params
-    params.require(:cart).permit(:product_id,:ip)
-  end
-
 
 end
