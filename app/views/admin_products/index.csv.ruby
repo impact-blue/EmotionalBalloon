@@ -1,7 +1,7 @@
 require 'csv'
 require 'nkf'
 
-column_names = %w(id 名前 価格 在庫 コメント 購入回数 公開/非公開 作成日)
+column_names = %w(id 名前 価格 在庫 コメント 検索キーワード サイズ 購入回数 公開/非公開 作成日)
 
   @products = Product.all.order("created_at ASC")
 csv_str = CSV.generate do |csv|
@@ -13,6 +13,8 @@ csv_str = CSV.generate do |csv|
     product.price,
     product.stocks,
     product.comment,
+    product.keyword,
+    product.size,
     product.count,
     product.status,
     product.created_at.strftime("%Y-%m-%d %H:%M:%S")

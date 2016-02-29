@@ -26,13 +26,13 @@
             <li class="p-registerForm__block__wrapper__list">
                 <p class="p-registerForm__block__wrapper__list__text">シーン</p>
                 <div class="p-registerForm__block__wrapper__list__content">
-                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="scene in data.scene_list" ng-model="data.detail_product.scenes"><input type="checkbox" name="scene" id="{{scene.name_en}}"><label for="{{scene.name_en}}">{{scene.name_jp}}</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="scene in data.scene_list"><input type="checkbox" name="scene" id="{{scene.name_en}}" ng-checked="product_data.scenes.indexOf(scene.id) > -1" ng-click="checkScene(scene)"><label for="{{scene.name_en}}">{{scene.name_jp}}</label></p>
                 </div>
             </li>
             <li class="p-registerForm__block__wrapper__list">
                 <p class="p-registerForm__block__wrapper__list__text">キャラクター</p>
                 <div class="p-registerForm__block__wrapper__list__content">
-                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="character in data.character_list"><input type="checkbox" name="character" id="{{character.name_en}}" placeholder=""><label for="{{character.name_en}}">{{character.name_jp}}</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio" ng-repeat="character in data.character_list"><input type="checkbox" name="character" id="{{character.name_en}}" ng-checked="product_data.characters.indexOf(character.id) > -1" ng-click="checkCharacter(character)"><label for="{{character.name_en}}">{{character.name_jp}}</label></p>
                 </div>
             </li>
             <li class="p-registerForm__block__wrapper__list required">

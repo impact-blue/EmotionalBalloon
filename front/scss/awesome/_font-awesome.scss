@@ -3,15 +3,15 @@
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
-@import "variables";
-@import "mixins";
-@import "path";
-@import "core";
-@import "larger";
-@import "fixed-width";
-@import "list";
-@import "bordered-pulled";
-@import "animated";
-@import "rotated-flipped";
-@import "stacked";
-@import "icons";
+@import "front/scss/awesome/variables";
+@import "front/scss/awesome/mixins";
+@import "front/scss/awesome/path";
+@import "front/scss/awesome/core";
+@import "front/scss/awesome/larger";
+@import "front/scss/awesome/fixed-width";
+@import "front/scss/awesome/list";
+@import "front/scss/awesome/bordered-pulled";
+@import "front/scss/awesome/animated";
+@import "front/scss/awesome/rotated-flipped";
+@import "front/scss/awesome/stacked";
+@import "front/scss/awesome/icons";

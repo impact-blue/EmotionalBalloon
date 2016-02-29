@@ -50,16 +50,22 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/orders', {
             templateUrl: '/template/admin/order/index.html'
         })
+        .when('/admin/orders/:id/edit', {
+            templateUrl: '/template/admin/order/edit.html'
+        })
         .when('/admin/categories', {
             templateUrl: '/template/admin/category/index.html'
         })
-        .when('/admin/categories/:id/edit', {
-            templateUrl: '/template/admin/category/index.html'
+        .when('/admin/categories/:type/:id/edit', {
+            templateUrl: '/template/admin/category/edit.html'
         })
-        .when('/admin/customers', {
-            templateUrl: '/template/admin/customer/index.html'
+        .when('/admin/users', {
+            templateUrl: '/template/admin/users/index.html'
         })
-        .when('/admin/settings/users', {
+        .when('/admin/mails', {
+            templateUrl: '/template/admin/mails/index.html'
+        })
+        .when('/admin/settings', {
             templateUrl: '/template/admin/setting/users.html'
         })
         .otherwise({

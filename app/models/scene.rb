@@ -10,4 +10,6 @@ class Scene < ActiveRecord::Base
 
   validates :name_ja,
     presence: true
+
+
 end

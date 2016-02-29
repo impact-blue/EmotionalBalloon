@@ -62,7 +62,15 @@
 </ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
-        <p class="c-buttonList__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
+        <p class="c-buttonList__list"><a href="/admin/products.csv/?filter=all">CSV出力</a></p>
+
+
+        <form enctype="multipart/form-data" action="/admin/products/import"  method="post" >
+          <input type="file" name="file">
+          <input type="submit" name="commit" value="インポート">
+        </form>
+
+
         <p class="c-buttonList__list">CSVインポート</p>
         <p class="c-buttonList__list"><a href="/admin/products/new">新規登録</a></p>
     </div>

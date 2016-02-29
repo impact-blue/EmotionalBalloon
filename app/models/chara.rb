@@ -8,4 +8,5 @@ class Chara < ActiveRecord::Base
 
   validates :name_ja,
     presence: true
+
 end

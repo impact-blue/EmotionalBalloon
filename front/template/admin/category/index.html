@@ -31,14 +31,20 @@
                     <p>CATEGORY</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
-                <a href="/admin/customers">
-                    <p><i class="fa fa-user"></i></p>
-                    <p>CUSTOMER</p>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
-                <a href="/admin/settings/users">
+                <a href="/admin/users">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>USER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings">
                     <p><i class="fa fa-cog"></i></p>
                     <p>SETTING</p>
                 </a>
@@ -63,12 +69,14 @@
     <div class="c-buttonList">
         <p class="c-buttonList__list"><a href="">CSV出力</a></p>
         <p class="c-buttonList__list">CSVインポート</p>
-        <p class="c-buttonList__list"><a href="">新規登録</a></p>
+        <p class="c-buttonList__list" ng-if="search === '?filter=scene'"><a href="/admin/categories/scene/new">新規登録</a></p>
+        <p class="c-buttonList__list" ng-if="search === '?filter=character'"><a href="/admin/categories/character/new">新規登録</a></p>
     </div>
     <table class="c-table">
         <thread class="c-table__thread">
             <tr class="c-table__thread__row">
                 <th class="c-table__thread__row__head">ID</th>
+                <th class="c-table__thread__row__head">Type</th>
                 <th class="c-table__thread__row__head">名称 (English)</th>
                 <th class="c-table__thread__row__head">名称 (Japanese)</th>
                 <th class="c-table__thread__row__head">作成日</th>
@@ -78,12 +86,13 @@
         <tbody class="c-table__body">
             <tr class="c-table__body__row" ng-repeat="category in data.category_list">
                 <td class="c-table__body__row__data">{{category.id}}</td>
+                <td class="c-table__body__row__data">{{category.type}}</td>
                 <td class="c-table__body__row__data">{{category.name_en}}</td>
                 <td class="c-table__body__row__data">{{category.name_jp}}</td>
                 <td class="c-table__body__row__data">{{category.created_at}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="/admin/categories/{{category.id}}/edit">詳細を見る</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/categories/{{category.type}}/{{category.id}}/edit">詳細を見る</a></p>
                     </div>
                 </td>
             </tr>

@@ -28,7 +28,7 @@ class Product < ActiveRecord::Base
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
-    header = ["id","name","price","stocks","comment","count","status","created_at"]
+    header = ["id","name","price","stocks","comment","keyword","size","count","status","created_at"]
 
     (2..spreadsheet.last_row).each do |i|
       # {カラム名 => 値, ...} のハッシュを作成する

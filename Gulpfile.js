@@ -1,19 +1,18 @@
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
     ngrok = require('ngrok'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     runSequence = require('run-sequence'),
     rename = require('gulp-rename'),
-    concat = require('gulp-concat-util'),
     uglify = require('gulp-uglify'),
     browserSync = require('browser-sync'),
     modRewrite = require('connect-modrewrite'),
     ejs = require('gulp-ejs'),
     ngAnnotate = require('gulp-ng-annotate'),
-    browserify = require('browserify'),
+    browserify = require('gulp-browserify'),
     source = require('vinyl-source-stream');
 
 gulp.task('connect', function(){
@@ -31,43 +30,27 @@ gulp.task('connect', function(){
 });
 
 gulp.task('sass', function(){
-    sass('./front/scss/application.scss', {style: 'expanded'})
+    gulp.src(['./front/scss/awesome/_font-awesome.scss', './front/scss/foundation/*.scss', './front/scss/layout/*.scss', './front/scss/object/**/*.scss'])
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+        .pipe(concat('application.scss'))
+        .pipe(sass())
         .pipe(gulp.dest('./front/css'));
 });
 
-gulp.task('js:develop', function(callback){
-    runSequence('concat:develop', 'browserify:develop', callback);
-});
-
-gulp.task('concat:develop', function(){
+gulp.task('js', function(){
     gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js'])
-        .pipe(plumber())
-        .pipe(concat('develop.js'))
-        .pipe(gulp.dest('./front/js'));
+        .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+        .pipe(concat('application.js'))
+        .pipe(browserify())
+        .pipe(gulp.dest('front/js'));
 });
 
-gulp.task('browserify:develop', function(){
-    browserify({entries: ['./front/js/develop.js']})
-        .bundle()
-        .pipe(plumber())
-        .pipe(source('application.js'))
-        .pipe(gulp.dest('./front/js/'));
-});
-
-gulp.task('concat:build', function(){
+gulp.task('js:build', function(){
     gulp.src(['./front/js/_balloon.js', './front/js/controller/*.js', './front/js/directive/*.js'])
         .pipe(plumber())
-        .pipe(concat('build.js'))
-        .pipe(gulp.dest('./front/js'));
-});
-
-gulp.task('browserify:build', function(){
-    browserify({entries: ['./front/js/build.js']})
-        .bundle()
-        .pipe(plumber())
-        .pipe(source('application.min.js'))
-        .pipe(gulp.dest('./front/js/'));
+        .pipe(concat('application.min.js'))
+        .pipe(browserify())
+        .pipe(gulp.dest('front/js'));
 });
 
 gulp.task('copy', function(){
@@ -83,6 +66,9 @@ gulp.task('copy', function(){
     gulp
         .src(['./front/template/**'])
         .pipe(gulp.dest('./public/template/'));
+    gulp
+        .src(['./front/fonts/**'])
+        .pipe(gulp.dest('./public/fonts/'));
     gulp
         .src(['./front/template/public/index.html'])
         .pipe(rename(function(path) {
@@ -149,17 +135,15 @@ gulp.task('ejs', function(){
 });
 
 gulp.task('watch', function(){
-    gulp.watch(['./front/scss/**/*.scss'], ['sass']);
-    gulp.watch(['./front/js/**/_*.js'], ['js:develop']);
-    gulp.watch(['./front/ejs/**/*.ejs'], ['ejs']);
-    gulp.watch(['./front/html.html', './front/template/*.html', './front/css/application.css', './front/js/application.js'], function(){
+    gulp.watch(['front/scss/**/*.scss'], ['sass']);
+    gulp.watch(['front/js/**/_*.js'], ['js']);
+    gulp.watch(['front/ejs/**/*.ejs'], ['ejs']);
+    gulp.watch(['front/index.html', 'front/template/**/*.html', 'front/css/application.css', 'front/js/application.js'], function(){
         browserSync.reload();
     });
 });
 
-gulp.task('default', function() {
-    runSequence('sass', 'js:develop', 'ejs', 'connect', 'watch');
-});
-gulp.task('build', function(callback){
-    runSequence('sass', 'concat:build', 'browserify:build', 'ejs', 'copy', callback);
+gulp.task('default', ['sass', 'js', 'ejs', 'connect', 'watch']);
+gulp.task('build', function(){
+    runSequence('sass', 'js:build', 'ejs', 'copy');
 });

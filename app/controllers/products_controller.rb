@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
     elsif params[:scene].present?
       @json_products =
         Product.where(status: 1).includes(:scenes)
-          .merge(ProductScene.order("product_id asc")
+          .merge(ProductScene.where(status: 1).order("product_id asc")
             .where(scene_id: Scene
               .find_by(
                   "name_en = ?" , params[:scene]
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     elsif params[:character].present?
       @json_products =
         Product.where(status: 1).includes(:charas)
-          .merge(ProductChara.order("product_id asc")
+          .merge(ProductChara.where(status: 1).order("product_id asc")
             .where(chara_id: Chara
               .find_by(
                   "name_en = ?" , params[:character]
@@ -39,6 +39,8 @@ class ProductsController < ApplicationController
       @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:max].present?
       @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+    elsif params[:min].present?
+      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
     end
 
   #以下は旧仕様
@@ -79,14 +81,5 @@ class ProductsController < ApplicationController
   def ranking
     @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")
   end
-
-
-
-  private
-
-  def cart_params
-    params.require(:cart).permit(:product_id,:ip)
-  end
-
 
 end

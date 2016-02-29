@@ -5,4 +5,7 @@ class AdminCustomersController < ApplicationController
     @json_customer_list = User.all.includes(:user_names).page(params[:page]).per(20).order("created_at ASC")
   end
 
+  def show
+    @json_detail_customer = User.find(params[:id])
+  end
 end

@@ -1,3 +1,0 @@
-<%= @order.user.family_name + @order.user.first_name %>様
-
-<%= @mail_content.text %>

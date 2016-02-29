@@ -1,56 +1,77 @@
-<div class="l-admin">
+<div class="l-admin" ng-controller="adminController">
     <div class="l-admin__left">
         <ul class="l-admin__left__list">
-            <li class="l-admin__left__list__child"><a href=""><i class="fa fa-pencil-square-o"></i>NEW POST</a>
+            <li class="l-admin__left__list__child">
+                <a href="/admin/products/new">
+                    <p><i class="fa fa-pencil-square-o"></i></p>
+                    <p>NEW POST</p>
+                </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}"><a href="/admin"><i class="fa fa-home"></i>HOME</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}"><a href="/admin/products?filter=all"><i class="fa fa-gift"></i>PRODUCT</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}"><a href="/admin/orders/?filter=all"><i class="fa fa-shopping-cart"></i>ORDER</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}"><a href="/admin/categories"><i class="fa fa-tag"></i>CATEGORY</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}"><a href="/admin/customers"><i class="fa fa-user"></i>CUSTOMER</a></li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}"><a href="/admin/settings"><i class="fa fa-cog"></i>SETTING</a></li>
-            <li class="l-admin__left__list__child"><a href=""><i class="fa fa-sign-out"></i>LOGOUT</a></li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+                <a href="/admin">
+                    <p><i class="fa fa-home"></i></p>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+                <a href="/admin/products?filter=all">
+                    <p><i class="fa fa-gift"></i></p>
+                    <p>PRODUCT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+                <a href="/admin/orders/?filter=all">
+                    <p><i class="fa fa-shopping-cart"></i></p>
+                    <p>ORDER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+                <a href="/admin/categories?filter=all">
+                    <p><i class="fa fa-tag"></i></p>
+                    <p>CATEGORY</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+                <a href="/admin/customers">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>CUSTOMER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings/users">
+                    <p><i class="fa fa-cog"></i></p>
+                    <p>SETTING</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child">
+                <a href="/admin/logout">
+                    <p><i class="fa fa-sign-out"></i></p>
+                    <p>LOGOUT</p>
+                </a>
+            </li>
         </ul>
     </div>
     <div class="l-admin__right">
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
-<ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/categories?filter=all">ALL</a></li>
-    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/categories/new">NEW</a></li>
-    <li ng-class="{'on': search === '?filter=public'}"><a href="/admin/categories?filter=public">Public</a></li>
-    <li ng-class="{'on': search === '?filter=secret'}"><a href="/admin/categories?filter=secret">Secret</a></li>
-    <li ng-class="{'on': search === '?filter=none'}"><a href="/admin/categories?filter=none">None</a></li>
-</ul>
-<div class="l-admin__right__foot__content__body">
-    <table class="c-table">
-        <thead class="c-table__thread">
-            <tr class="c-table__row">
-                <th class="c-table__head small">id</th>
-                <th class="c-table__head normal">status</th>
-                <th class="c-table__head large">user</th>
-                <th class="c-table__head large">date</th>
-                <th class="c-table__head">option</th>
-            </tr>
-        </thead>
-        <tbody class="c-table__body">
-            <tr class="c-table__row" ng-repeat="order in data.order_list">
-                <td class="c-table__data"><a href="">{{order.id}}</a></td>
-                <td class="c-table__data">{{order.status}}</td>
-                <td class="c-table__data"><a href="">{{order.user.name}}</a></td>
-                <td class="c-table__data">{{order.date}}</td>
-                <td class="c-table__data">{{order.option}}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <%= form_for([:admin_categories, @category] , :url => {:action => 'create'}) do |f| %>
-      <p><%= f.label :名前 %></p>
-      <p><%= f.text_field :name , class: 'form-control' %><p>
-
-      <p><%= f.submit :新規カテゴリを作成する , class: "btn btn-primary"%><p>
-    <% end %>
-       <p><%= debug(params) if Rails.env.development? %></p>
+<div class="l-admin__right__foot__content__full" ng-controller="categoryEditController">
+    <div class="p-registerForm">
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'scene'">シーンカテゴリー</p>
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'character'">キャラクターカテゴリー</p>
+        <ul class="p-registerForm__block__wrapper">
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">名称(English)</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="名称(English)" ng-model="categoryContent.name_en"></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">名称(Japanese)</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="名称(Japanese)" ng-model="categoryContent.name_jp"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-button--cart">
+        <p class="c-button--cart__text" ng-click="editCategory(split[3])">変更</p>
+    </div>
 </div>
             </div>
         </div>

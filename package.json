@@ -4,7 +4,8 @@
   "description": "",
   "main": "Gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "gulp",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,11 @@
   },
   "homepage": "https://github.com/hatoya/ProtfolioSite",
   "devDependencies": {
-    "angular": "^1.4.9",
+    "angular": "^1.5.0",
     "angular-bootstrap-datetimepicker": "^0.4.0",
-    "angular-resource": "^1.4.9",
-    "angular-route": "^1.4.9",
+    "angular-resource": "^1.5.0",
+    "angular-route": "^1.5.0",
     "browser-sync": "^2.8.2",
-    "browserify": "^13.0.0",
     "connect-modrewrite": "^0.8.2",
     "gulp": "^3.9.0",
     "gulp-browserify": "^0.5.1",
@@ -30,14 +30,12 @@
     "gulp-concat-util": "^0.5.2",
     "gulp-connect": "^2.2.0",
     "gulp-ejs": "^1.2.2",
-    "gulp-ftp": "^1.0.4",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^1.4.0",
+    "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.2.0",
-    "gulp-util": "^3.0.7",
     "ngrok": "^0.1.99",
     "run-sequence": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
