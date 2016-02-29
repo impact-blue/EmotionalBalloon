@@ -42,6 +42,11 @@ class AdminOrdersController < ApplicationController
         @order = Order.find(prams[:data][:id])
       end
 
+  def import
+    Order.import(params[:file])
+    redirect_to "/admin/orders?filter=all"
+  end
+
 
 
     end
