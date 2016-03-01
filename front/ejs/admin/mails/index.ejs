@@ -4,5 +4,13 @@
     <li ng-class="{'on': search === '?filter=scene'}"><a href="/admin/categories?filter=scene">テンプレート2</a></li>
     <li ng-class="{'on': search === '?filter=character'}"><a href="/admin/categories?filter=character">テンプレート3</a></li>
 </ul>
-<div class="l-admin__right__foot__content__body"></div>
+<div class="l-admin__right__foot__content__body">
+    <p class="p-registerForm__block__heading u-mb-20">件名</p>
+    <div class="p-registerForm__block__wrapper__list__content address template u-mb-30"><input type="text" placeholder="市区町村、番地など" ng-model="orderContent.buyer_info.address"></div>
+    <p class="p-registerForm__block__heading u-mb-20">内容</p>
+    <div class="p-registerForm__block__wrapper__list__content address template u-mb-30"><textarea></textarea></div>
+    <div class="c-button--cart">
+        <p class="c-button--cart__text" ng-click="editProduct()">変更</p>
+    </div>
+</div>
 <% include ../parts/_footer %>
