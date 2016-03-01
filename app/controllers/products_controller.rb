@@ -6,10 +6,16 @@ class ProductsController < ApplicationController
     #シーン検索
     if request.path.include?("scenes")
         if request.path.include?("all")
-          @json_products = Product.where(status: 1).page(params[:page]).per(20).order("created_at ASC")
+          @json_products = []
+          category_id = Category.where(["genre = ? and status = ?","scene","1"]).pluck(:id)
+          category_id.each do |i|
+             @json_products <<  Product.where("status = ? and category_id = ?",1, i )
+          end
+
+          @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
+          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
           return
         end
-
       @category_name.each do |category_name|
         if request.path.include?("scenes/#{category_name}")
           @json_products =
@@ -18,20 +24,26 @@ class ProductsController < ApplicationController
         end
       end
     end
-    #キャラクター検索
-    #キャラクターの綴りがおかしい。(all)
-    if params[:caracter] == "all"
-      @json_products = Product.where(status: 1).page(params[:page]).per(20).order("created_at ASC")
-    elsif params[:character].present?
-      @json_products =
-        Product.where(status: 1).includes(:charas)
-          .merge(ProductChara.where(status: 1).order("product_id asc")
-            .where(chara_id: Chara
-              .find_by(
-                  "name_en = ?" , params[:character]
-              )
-            )
-          ).references(:chara).page(params[:page]).per(20)
+    #キャラクター
+    if request.path.include?("characters")
+        if request.path.include?("all")
+          @json_products = []
+          category_id = Category.where(["genre = ? and status = ?","character","1"]).pluck(:id)
+          category_id.each do |i|
+             @json_products <<  Product.where("status = ? and category_id = ?",1, i )
+          end
+
+          @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
+          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
+          return
+        end
+      @category_name.each do |category_name|
+        if request.path.include?("characters/#{category_name}")
+          @json_products =
+            Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+          return
+        end
+      end
     end
 
     #予算別
