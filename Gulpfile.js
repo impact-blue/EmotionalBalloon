@@ -46,7 +46,7 @@ gulp.task('js', function(){
 });
 
 gulp.task('js:build', function(){
-    gulp.src(['./front/js/_balloon.js', './front/js/controller/*.js', './front/js/directive/*.js'])
+    gulp.src(['./front/js/_balloon.js', './front/js/controller/*.js', './front/js/directive/*.js', './front/js/service/*.js'])
         .pipe(plumber())
         .pipe(concat('application.min.js'))
         .pipe(browserify())
