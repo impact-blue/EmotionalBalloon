@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name_en
       t.string :name_ja
       t.string :genre
-      t.string :status
+      t.integer :status
 
       t.timestamps null: false
     end

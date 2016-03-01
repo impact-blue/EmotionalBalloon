@@ -4,8 +4,7 @@ require 'nkf'
 class Product < ActiveRecord::Base
   has_many :product_colors
   has_many :colors, through: :product_colors
-  has_one :product_category
-  has_one :category, through: :product_category
+  belongs_to :category
   has_many :images
   has_many :orders, through: :order_product_info
   has_many :order_product_infos

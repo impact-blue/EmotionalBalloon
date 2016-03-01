@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.string   "name_en",    limit: 255
     t.string   "name_ja",    limit: 255
     t.string   "genre",      limit: 255
-    t.string   "status",     limit: 255
+    t.integer  "status",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.text     "keyword",                 limit: 65535
     t.integer  "size",                    limit: 4
     t.integer  "count",                   limit: 4
+    t.integer  "category_id",             limit: 4
     t.integer  "status",                  limit: 4
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false

@@ -65,32 +65,15 @@
                   <% end %>
                 ],
                 <% end %>
-                <% if @json_detail_product.product_category.present? %>
-                scenes: [
-                  <% @json_detail_product.product_scenes.each do |s| %>
-                    <% if s.status == 1 %>
+                category:
+                    <% if @json_detail_product.category.status == 1 %>
                   {
-                    id: <%= s.scene_id %>,
-                    name_en:"<%= s.scene.name_en %>",
-                    name_jp:"<%= s.scene.name_ja %>"
+                    id: <%= @json_detail_product.category.id %>,
+                    name_en:"<%= @json_detail_product.category.name_en %>",
+                    name_jp:"<%= @json_detail_product.category.name_ja %>",
+                    type: "<%= @json_detail_product.category.genre %>"
                   },
                     <% end %>
-                  <% end %>
-                ],
-                <% end %>
-                <% if @json_detail_product.charas.present? %>
-                characters: [
-                  <% @json_detail_product.product_charas.each do |c| %>
-                    <% if c.status == 1%>
-                  {
-                    id: <%= c.chara_id %>,
-                    name_en:"<%= c.chara.name_en %>",
-                    name_jp:"<%= c.chara.name_ja %>"
-                  },
-                    <% end %>
-                  <% end %>
-                ],
-                <% end %>
               },
             <% end %>
             <% if @json_order_list.present? %>
@@ -172,8 +155,7 @@
                     id:<%= c.id %>,
                     name_en:"<%= c.name_en%>",
                     name_jp:"<%= c.name_ja%>",
-                    type: <% if c.model_name.element == "scene" %>"<%= "scene" %>"<% end %><% if c.model_name.element == "chara" %>"<%= "character" %>"<% end %>,
-                    created_at:"<%= c.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
+                    type: "<%= c.genre %>",
                   },
                 <% end %>
               ],

@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text    :keyword
       t.integer :size
       t.integer :count
+      t.integer :category_id
       t.integer :status
 
       t.timestamps null: false

@@ -6,11 +6,11 @@ class AdminCategoriesController < ApplicationController
       redirect_to "/admin/categories?filter=all"
     end
     if params[:filter] == "all"
-      @json_category_list = Scene.all + Chara.all
+      @json_category_list = Category.all
     elsif params[:filter] == "scene"
-      @json_category_list = Scene.all
+      @json_category_list = Category.where(genre: :scene)
     elsif params[:filter] == "character"
-      @json_category_list = Chara.all
+      @json_category_list = Category.where(genre: :character)
     end
   end
 
@@ -23,17 +23,7 @@ class AdminCategoriesController < ApplicationController
   end
 
   def edit
-    if request.path.include?("scene")
-      if params[:id].present?
-        @json_category_detail = Scene.find(params[:id])
-        @type =  "scene"
-      end
-    elsif request.path.include?("chara")
-      if params[:id].present?
-        @json_category_detail = Chara.find(params[:id])
-        @type = "character"
-      end
-    end
+        @json_category_detail = Category.find(params[:id])
   end
 
   def api_scene
