@@ -7,5 +7,6 @@ class CreateOrderDeliveryNames < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :order_delivery_names, :order_id
   end
 end

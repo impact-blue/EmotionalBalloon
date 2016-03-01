@@ -8,5 +8,6 @@ class CreateImages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :images,:product_id
   end
 end

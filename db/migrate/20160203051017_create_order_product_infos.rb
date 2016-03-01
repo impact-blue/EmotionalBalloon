@@ -7,5 +7,7 @@ class CreateOrderProductInfos < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :order_product_infos,[:product_id, :order_id],unique: true
+    add_index :order_product_infos,[:order_id, :product_id],unique: true
   end
 end

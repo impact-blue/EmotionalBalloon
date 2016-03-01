@@ -7,5 +7,6 @@ class CreateUserNames < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :user_names, :user_id
   end
 end

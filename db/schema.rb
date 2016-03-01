@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "updated_at",                          null: false
   end
 
+  add_index "images", ["product_id"], name: "index_images_on_product_id", using: :btree
+
   create_table "mail_contents", force: :cascade do |t|
     t.string   "subject",    limit: 255
     t.text     "text",       limit: 65535
@@ -93,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "updated_at",                    null: false
   end
 
+  add_index "order_delivery_names", ["order_id"], name: "index_order_delivery_names_on_order_id", using: :btree
+
   create_table "order_product_infos", force: :cascade do |t|
     t.integer  "order_id",   limit: 4
     t.integer  "product_id", limit: 4
@@ -100,6 +104,9 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "order_product_infos", ["order_id", "product_id"], name: "index_order_product_infos_on_order_id_and_product_id", unique: true, using: :btree
+  add_index "order_product_infos", ["product_id", "order_id"], name: "index_order_product_infos_on_product_id_and_order_id", unique: true, using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id",          limit: 4
@@ -111,18 +118,13 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.string   "order_status",     limit: 255
     t.string   "phone",            limit: 255
     t.string   "option",           limit: 255
-    t.integer  "scene_id",         limit: 4
+    t.integer  "category",         limit: 4
     t.date     "order_date"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
-  create_table "product_categories", force: :cascade do |t|
-    t.integer  "product_id",  limit: 4
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "product_colors", force: :cascade do |t|
     t.integer  "product_id", limit: 4
@@ -130,6 +132,9 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "product_colors", ["color_id", "product_id"], name: "index_product_colors_on_color_id_and_product_id", unique: true, using: :btree
+  add_index "product_colors", ["product_id", "color_id"], name: "index_product_colors_on_product_id_and_color_id", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name",                    limit: 255
@@ -146,6 +151,8 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "traderules", force: :cascade do |t|
     t.string   "company",           limit: 255
@@ -172,6 +179,8 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
+
+  add_index "user_names", ["user_id"], name: "index_user_names_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",       limit: 255

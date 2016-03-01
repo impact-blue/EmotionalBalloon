@@ -15,5 +15,6 @@ class CreateProducts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :products, :category_id
   end
 end

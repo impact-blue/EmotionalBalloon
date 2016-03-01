@@ -10,10 +10,11 @@ class CreateOrders < ActiveRecord::Migration
       t.string  :order_status
       t.string :phone
       t.string  :option
-      t.integer :scene_id
+      t.integer :category
 
       t.date    :order_date
       t.timestamps null: false
     end
+    add_index :orders, :user_id
   end
 end

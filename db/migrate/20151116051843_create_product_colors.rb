@@ -6,5 +6,7 @@ class CreateProductColors < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :product_colors,[:product_id, :color_id],unique: true
+    add_index :product_colors,[:color_id, :product_id],unique: true
   end
 end
