@@ -663,6 +663,15 @@ app.directive('balloonProgressBar', function() {
         }
     };
 });
+app.service('querySortService', function() {
+    var queryVal = {};
+    if(location.search) {
+        angular.forEach(location.search.split('?')[1].split('&'), function(val, key) {
+            queryVal[val.split('=')[0]] = val.split('=')[1];
+        });
+        return queryVal;
+    }
+});
 },{"angular":8,"angular-bootstrap-datetimepicker":2,"angular-resource":4,"angular-route":6}],2:[function(require,module,exports){
 /*globals define, jQuery, module, require */
 /*jslint vars:true */

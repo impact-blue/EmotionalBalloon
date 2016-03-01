@@ -38,7 +38,7 @@ gulp.task('sass', function(){
 });
 
 gulp.task('js', function(){
-    gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js'])
+    gulp.src(['./front/js/_balloon.js', './front/js/_config.js', './front/js/controller/*.js', './front/js/directive/*.js', './front/js/service/*.js'])
         .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
         .pipe(concat('application.js'))
         .pipe(browserify())
