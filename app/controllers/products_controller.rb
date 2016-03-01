@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     if request.path.include?("scenes")
         if request.path.include?("all")
           @json_products = []
+
           category_id = Category.where(["genre = ? and status = ?","scene","1"]).pluck(:id)
           category_id.each do |i|
              @json_products <<  Product.where("status = ? and category_id = ?",1, i )
@@ -87,11 +88,24 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @json_detail_product = Product.includes(:scenes,:charas).find(params[:id])
+    @json_detail_product = Product.find(params[:id])
   end
 
-
+  #月間のカウントの21個
   def ranking
+    #カウント処理はバッジに追加
+
+    #タイムゾーン取得
+    current_day = Time.zone.now
+
+    #30日間に購入された商品情報を取得
+    last_30days_buy = OrderProductInfo.where('created_at >= ? ',Time.zone.now - 30.day).includes(:product)
+    count_product = Hash.new(:id => 0,:count => 0)
+
+    last_30days_buy.each do |p|
+        count_product
+    end
+
     @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")
   end
 

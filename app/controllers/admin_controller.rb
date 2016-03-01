@@ -5,8 +5,8 @@ class AdminController < ApplicationController
 def index
   #当月の売上
   @json_sales_orders = []
-  current_day_count = Time.now.strftime('%d').to_i
-  current_day = Time.now
+  current_day_count = Time.zone.now.strftime('%d').to_i
+  current_day = Time.zone.now
 
   current_day_count.times do
     @sales_index = Order.where(created_at: current_day.all_day)
