@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
 #productの一覧
   get 'show/:id'  => 'products#show'
-  get ':category_genre/:category_name'     => 'products#index'
+  get 'scenes/:category_name'     => 'products#index'
+  get 'characters/:category_name'     => 'products#index'
+  get 'search' => 'products#index'
   get 'products/ranking'   => 'products#ranking'
 
 #カートの追加

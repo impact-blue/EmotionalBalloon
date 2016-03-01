@@ -11,7 +11,6 @@ class AdminProductsController < ApplicationController
   def index
     #全商品個数の表示
     #@product_count = Product.count
-binding.pry
     unless params[:status].present?
       redirect_to "/admin/products?status=all"
     end
