@@ -4,43 +4,34 @@
             <div class="header__logo"><a href="/"><img src="/img/logo.png" alt="EmotionalBalloon"></a></div>
             <ul class="header__menu">
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/products?scene=all">シーン別</a></p>
+                    <p class="header__menu__list__text"><a href="/scenes/all">シーン別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/products?scene=marriage">結婚式</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?scene=babygift">出産祝い</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?scene=birthday">誕生日</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?scene=open">開店祝い</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.scene_list"><a href="/scenes/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/products">予算別</a></p>
+                    <p class="header__menu__list__text">予算別</p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/products?max=4999">~ ¥4,999</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?min=5000&max=6999">¥5,000 ~ ¥6,999</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?min=7000&max=8999">¥7,000 ~ ¥8,999</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?min=9000">¥9,000 ~</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?max=4999">~ ¥4,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=5000&max=6999">¥5,000 ~ ¥6,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=7000&max=8999">¥7,000 ~ ¥8,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=9000">¥9,000 ~</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/products?caracter=all">キャラクター</a></p>
+                    <p class="header__menu__list__text"><a href="/characters/all">キャラクター</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/products?character=disney">ディズニー</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=ghibli">ジブリ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=sanrio">サンリオ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=anpanman">アンパンマン</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=onepiece">ワンピース</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=yokai">妖怪ウォッチ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/products?character=other">その他</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.character_list"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/products/ranking">ランキング</a></p>
+                    <p class="header__menu__list__text"><a href="/ranking">ランキング</a></p>
                 </li>
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">2</span></a></p>
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">{{cart.length}}</span></a></p>
                 </li>
             </ul>
         </div>
@@ -56,9 +47,9 @@
             <li>バルーン</li>
         </ul>
         <div class="p-photoGallery">
-            <div class="p-photoGallery__zoom"><img src="{{data.detail_product.image[0]}}" alt=""></div>
+            <div class="p-photoGallery__zoom"><img src="{{data.detail_product.images[0]}}" alt=""></div>
             <ul class="p-photoGallery__list">
-                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
+                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.images" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
             </ul>
         </div>
     </div>
@@ -95,11 +86,8 @@
                 </table>
             </div>
         </div>
-        <div class="c-button--cart" ng-if="!is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, true)">カートに追加する</p>
-        </div>
-        <div class="c-button--cart on" ng-if="is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, false)">カートに追加済み</p>
+        <div class="c-button--cart">
+            <p class="c-button--cart__text" ng-click="saveProduct(data.detail_product.id)">カートに追加する</p>
         </div>
     </div>
 </div>

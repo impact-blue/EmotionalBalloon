@@ -77,13 +77,13 @@ gulp.task('copy', function(){
         }))
         .pipe(gulp.dest('./app/views/top/'));
     gulp
-        .src(['./front/template/public/product/*.html'])
+        .src(['./front/template/public/products/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/products/'));
     gulp
-        .src(['./front/template/public/cart/*.html'])
+        .src(['./front/template/public/carts/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
