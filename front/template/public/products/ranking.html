@@ -6,10 +6,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/scenes/all">シーン別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/scenes/marriage">結婚式</a></li>
-                        <li class="header__menu__list__child__text"><a href="/scenes/babygift">出産祝い</a></li>
-                        <li class="header__menu__list__child__text"><a href="/scenes/birthday">誕生日</a></li>
-                        <li class="header__menu__list__child__text"><a href="/scenes/open">開店祝い</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.scene_list"><a href="/scenes/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
@@ -24,13 +21,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/characters/all">キャラクター</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text"><a href="/characters/disney">ディズニー</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/ghibli">ジブリ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/sanrio">サンリオ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/anpanman">アンパンマン</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/onepiece">ワンピース</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/yokai">妖怪ウォッチ</a></li>
-                        <li class="header__menu__list__child__text"><a href="/characters/other">その他</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.character_list"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
