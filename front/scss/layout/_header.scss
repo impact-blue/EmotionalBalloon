@@ -47,6 +47,9 @@
                 a {
                     display: block;
                 }
+                &:hover {
+                    color: $brandColor;
+                }
                 &__badge {
                     position: absolute;
                     top: 6px;

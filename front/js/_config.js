@@ -4,10 +4,16 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/', {
             templateUrl: '/template/public/index.html'
         })
-        .when('/products', {
+        .when('/scenes/:scene', {
             templateUrl: '/template/public/products/index.html'
         })
-        .when('/products/ranking', {
+        .when('/characters/:character', {
+            templateUrl: '/template/public/products/index.html'
+        })
+        .when('/search', {
+            templateUrl: '/template/public/products/index.html'
+        })
+        .when('/ranking', {
             templateUrl: '/template/public/products/ranking.html'
         })
         .when('/products/show/:id', {

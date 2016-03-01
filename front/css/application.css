@@ -2159,6 +2159,8 @@ footer {
         line-height: 50px; }
         .header__menu__list__text a {
           display: block; }
+        .header__menu__list__text:hover {
+          color: #D83961; }
         .header__menu__list__text__badge {
           position: absolute;
           top: 6px;
