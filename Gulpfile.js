@@ -69,6 +69,7 @@ gulp.task('copy', function(){
     gulp
         .src(['./front/fonts/**'])
         .pipe(gulp.dest('./public/fonts/'));
+    /***** Public *****/
     gulp
         .src(['./front/template/public/index.html'])
         .pipe(rename(function(path) {
@@ -87,6 +88,7 @@ gulp.task('copy', function(){
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/carts/'));
+    /***** Admin *****/
     gulp
         .src(['./front/template/admin/index.html'])
         .pipe(rename(function(path) {
@@ -94,31 +96,31 @@ gulp.task('copy', function(){
         }))
         .pipe(gulp.dest('./app/views/admin/'));
     gulp
-        .src(['./front/template/admin/product/*.html'])
+        .src(['./front/template/admin/products/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_products/'));
     gulp
-        .src(['./front/template/admin/order/*.html'])
+        .src(['./front/template/admin/orders/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_orders/'));
     gulp
-        .src(['./front/template/admin/category/*.html'])
+        .src(['./front/template/admin/categories/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_categories/'));
     gulp
-        .src(['./front/template/admin/customer/*.html'])
+        .src(['./front/template/admin/customers/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';
         }))
         .pipe(gulp.dest('./app/views/admin_customers/'));
     gulp
-        .src(['./front/template/admin/setting/*.html'])
+        .src(['./front/template/admin/settings/*.html'])
         .pipe(rename('index.html.erb'))
         .pipe(gulp.dest('./app/views/admin_users/'));
     gulp

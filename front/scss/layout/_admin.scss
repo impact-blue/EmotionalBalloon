@@ -25,12 +25,12 @@
                     &::after {
                         content: "";
                         position: absolute;
-                        top: 15px;
-                        right: -20px;
+                        top: 16px;
+                        right: -16px;
                         width: 0;
                         height: 0;
-                        border: 10px solid transparent;
-                        border-left: 10px solid #0a9b94;
+                        border: 8px solid transparent;
+                        border-left: 8px solid #0a9b94;
                         z-index: 1000;
                     }
                 }
@@ -78,9 +78,19 @@
                 width: 100%;
                 height: 100%;
                 &__list {
-                    width: 200px;
+                    width: 140px;
                     height: 100%;
                     background: #555;
+                    &:nth-of-type(2) {
+                        background: #777;
+                        li {
+                            &.on {
+                                &::after {
+                                    border-left: 8px solid #777;
+                                }
+                            }
+                        }
+                    }
                     li {
                         position: relative;
                         border-bottom: 1px solid #444;
@@ -88,12 +98,12 @@
                             &::after {
                                 content: "";
                                 position: absolute;
-                                top: 15px;
-                                right: -20px;
+                                top: 14px;
+                                right: -16px;
                                 width: 0;
                                 height: 0;
-                                border: 10px solid transparent;
-                                border-left: 10px solid #555;
+                                border: 8px solid transparent;
+                                border-left: 8px solid #555;
                             }
                         }
                     }
@@ -101,7 +111,7 @@
                         display: block;
                         font-size: 12px;
                         line-height: 3.5;
-                        padding: 0 10px;
+                        padding: 0 14px;
                         color: rgba(white, 0.9);
                     }
                 }

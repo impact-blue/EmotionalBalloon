@@ -47,18 +47,43 @@
     </div>
 </header>
 <div class="l-column-col1">
+    <div class="p-categoryHead" style="background-image: url({{data.search_products.image}})" ng-if="data.search_products.image"></div>
     <ul class="breadList u-pt-20">
         <li><a href="">home</a></li>
-        <li>オリジナル</li>
+        <li><a href="">バルーン</a></li>
+        <li><a href="">東京</a></li>
+        <li>バルーン</li>
     </ul>
     <div class="p-categoryDescription p-categoryDescription--attention u-mt-20">
         <p>10月14日（水）午前10時までのご注文で、最短のお届け日は10月15日（木）です</p>
         <p>※関東方面の最短のお届けは10月15日（木）午後14～16時です<br />※東北地方などお届けに2日かかる地域は、10月16日（金）のお届けが最短となります<br />※関東方面へ15日（木）午前中お届けをご希望の場合はスペシャルお急ぎ便ページからご注文ください</p>
     </div>
     <div class="p-categoryDescription u-mt-20">
-        <p>オリジナルバルーン</p>
-        <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+        <p>{{data.search_products.title}}</p>
+        <p>{{data.search_products.description}}</p>
     </div>
+    <ul class="p-spaceList u-mt-40">
+        <li ng-repeat="product in data.search_products.product_list">
+            <a href="/products/show/{{product.id}}">
+                <img src="{{product.image}}" alt="">
+                <div class="spaceWrapper">
+                    <p>{{product.name}}</p>
+                    <p>¥{{product.price}}</p>
+                    <p>{{product.description}}</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <ul class="c-nextButton">
+        <li class="c-nextButton__list">
+            <a href=""><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
+        </li>
+        <li class="c-nextButton__list">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
+        <li class="c-nextButton__list">
+            <a href=""><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
+        </li>
+    </ul>
+</div>
 <footer class="u-mt-40">
     <div class="footerContent">
         <section>

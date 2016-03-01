@@ -66,6 +66,11 @@
     <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret">非公開</a></li>
     <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none">在庫なし</a></li>
 </ul>
+<ul class="l-admin__right__foot__content__list">
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">すべて</a></li>
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">シーン</a></li>
+    <li ng-class="{'on': search === '?status=public'}"><a href="/admin/products?status=public">キャラクター</a></li>
+</ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
         <p class="c-buttonList__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>

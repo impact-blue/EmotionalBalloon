@@ -1,0 +1,181 @@
+<header>
+    <div class="header">
+        <div class="header__wrapper">
+            <div class="header__logo"><a href="/"><img src="/img/logo.png" alt="EmotionalBalloon"></a></div>
+            <ul class="header__menu">
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/scenes/all">シーン別</a></p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="/scenes/marriage">結婚式</a></li>
+                        <li class="header__menu__list__child__text"><a href="/scenes/babygift">出産祝い</a></li>
+                        <li class="header__menu__list__child__text"><a href="/scenes/birthday">誕生日</a></li>
+                        <li class="header__menu__list__child__text"><a href="/scenes/open">開店祝い</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text">予算別</p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="/search?max=4999">~ ¥4,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=5000&max=6999">¥5,000 ~ ¥6,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=7000&max=8999">¥7,000 ~ ¥8,999</a></li>
+                        <li class="header__menu__list__child__text"><a href="/search?min=9000">¥9,000 ~</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/characters/all">キャラクター</a></p>
+                    <ul class="header__menu__list__child">
+                        <li class="header__menu__list__child__text"><a href="/characters/disney">ディズニー</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/ghibli">ジブリ</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/sanrio">サンリオ</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/anpanman">アンパンマン</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/onepiece">ワンピース</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/yokai">妖怪ウォッチ</a></li>
+                        <li class="header__menu__list__child__text"><a href="/characters/other">その他</a></li>
+                    </ul>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/ranking">ランキング</a></p>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
+                </li>
+                <li class="header__menu__list">
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">2</span></a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<div class="l-column-register" ng-controller="cartRegisterController">
+    <div class="l-column-register__wrapper">
+        <div class="l-column-register__head">
+            <div class="p-registerForm">
+                <div class="p-registerForm__block" ng-class="{'on': stepFlag === 1}">
+                    <p class="p-registerForm__block__heading">購入手続き</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お名前</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓" ng-model="formContent.buyer_info.name[0].family_name"><input type="text" placeholder="名" ng-model="formContent.buyer_info.name[0].first_name"></div>
+                        </li>
+                        <!-- <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">連名１</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
+                        </li> -->
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.buyer_info.postal_code"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="都道府県名" ng-model="formContent.buyer_info.prefectures"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">住所</p>
+                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など" ng-model="formContent.buyer_info.address"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="08012345678" ng-model="formContent.buyer_info.phone"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">メールアドレス</p>
+                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="sample@sample.com" ng-model="formContent.buyer_info.mail"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-registerForm__block" ng-class="{'on': stepFlag === 2}">
+                    <p class="p-registerForm__block__heading">お届け先</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お名前</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓" ng-model="formContent.destination_info.name[0].family_name"><input type="text" placeholder="名" ng-model="formContent.destination_info.name[0].first_name"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.destination_info.postal_code"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="都道府県名" ng-model="formContent.destination_info.prefectures"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">住所</p>
+                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など" ng-model="formContent.destination_info.address"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="080" ng-model="formContent.destination_info.phone"></div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">届け希望日時</p>
+                            <div class="p-registerForm__block__wrapper__list__content address">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+                                        <div class="input-group"><input type="text" class="form-control" data-ng-model="data.dateDropDownInput" placeholder="Fri Jan 01 2016 00:00:00 GMT+0900 (JST)"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span></div>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">届け先分類</p>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination1" placeholder=""><label for="destination1">貸し会場のイベントへ直送</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination2" placeholder=""><label for="destination2">住居・勤務先でのイベントで使用</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination3" placeholder=""><label for="destination3">自分で受取り後、持参・手渡し</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination4" placeholder=""><label for="destination4">お受取人の住居・勤務先へ</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination5" placeholder=""><label for="destination5">その他</label></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-registerForm__block" ng-class="{'on': stepFlag === 3}">
+                    <p class="p-registerForm__block__heading">お支払い方法</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お支払い方法</p>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">代金引換</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">銀行</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit3" placeholder=""><label for="credit3">クレジットカード</label></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="p-registerForm__block__heading u-mt-20">その他</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">備考</p>
+                            <div class="p-registerForm__block__wrapper__list__content"><textarea name=""></textarea></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-registerForm__block" ng-class="{'on': stepFlag === 4}">
+                    aiueo
+                </div>
+            </div>
+        </div>
+        <div class="l-column-register__foot">
+            <div class="l-column-register__foot__wrapper">
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': stepFlag !== 1}" ng-click="prevForm()"><i class="fa fa-arrow-left"></i></div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step1, 'show': stepFlag === 1}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[0]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">次へ進む</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step2, 'show': stepFlag === 2}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[1]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">次へ進む</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag.step3, 'show': stepFlag === 3}" ng-click="nextForm()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: {{progressPer[2]}}%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">注文を確認する</p>
+                </div>
+                <div class="l-column-register__foot__wrapper__button on" ng-class="{'show': stepFlag === 4}" ng-click="sendCart()">
+                    <div class="l-column-register__foot__wrapper__button__progress" style="width: 100%;"></div>
+                    <p class="l-column-register__foot__wrapper__button__text">注文を確定する</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

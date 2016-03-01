@@ -46,19 +46,63 @@
         </div>
     </div>
 </header>
-<div class="l-column-col1">
-    <ul class="breadList u-pt-20">
-        <li><a href="">home</a></li>
-        <li>オリジナル</li>
-    </ul>
-    <div class="p-categoryDescription p-categoryDescription--attention u-mt-20">
-        <p>10月14日（水）午前10時までのご注文で、最短のお届け日は10月15日（木）です</p>
-        <p>※関東方面の最短のお届けは10月15日（木）午後14～16時です<br />※東北地方などお届けに2日かかる地域は、10月16日（金）のお届けが最短となります<br />※関東方面へ15日（木）午前中お届けをご希望の場合はスペシャルお急ぎ便ページからご注文ください</p>
+<div class="l-column-col2" ng-controller="productShowController">
+    <div class="l-column-col2__left">
+        <balloon-bread-crumb></balloon-bread-crumb>
+        <ul class="breadList">
+            <li><a href="">home</a></li>
+            <li><a href="">バルーン</a></li>
+            <li><a href="">東京</a></li>
+            <li>バルーン</li>
+        </ul>
+        <div class="p-photoGallery">
+            <div class="p-photoGallery__zoom"><img src="{{data.detail_product.image[0]}}" alt=""></div>
+            <ul class="p-photoGallery__list">
+                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
+            </ul>
+        </div>
     </div>
-    <div class="p-categoryDescription u-mt-20">
-        <p>オリジナルバルーン</p>
-        <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+    <div class="l-column-col2__right">
+        <div class="p-productDetail">
+            <p class="p-productDetail__option">この商品は送料無料でお届けします</p>
+            <p class="p-productDetail__title">{{data.detail_product.name}}</p>
+            <p class="p-productDetail__price">¥{{data.detail_product.price}}</p>
+            <div class="p-productDetail__description">
+                <div class="p-productDetail__description__title">商品説明</div>
+                <div class="p-productDetail__description__text">{{data.detail_product.description}}</div>
+            </div>
+            <div class="p-productDetail__detail">
+                <p class="productDetail__detail__title">商品詳細</p>
+                <table class="p-productDetail__detail__table">
+                    <tbody>
+                        <tr class="p-productDetail__detail__table__row">
+                            <th>即日配送</th>
+                            <td>即日配送不可</td>
+                        </tr>
+                        <tr class="p-productDetail__detail__table__row">
+                            <th>送料</th>
+                            <td>合計3,000円以上のお買い上げで送料無料</td>
+                        </tr>
+                        <tr class="p-productDetail__detail__table__row">
+                            <th>ギフト</th>
+                            <td>ラッピング不可</td>
+                        </tr>
+                        <tr class="p-productDetail__detail__table__row">
+                            <th>お問い合わせ番号</th>
+                            <td>10329172（ZOZO）<br />B1561RKJ408（店舗）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="c-button--cart" ng-if="!is_cart">
+            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, true)">カートに追加する</p>
+        </div>
+        <div class="c-button--cart on" ng-if="is_cart">
+            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, false)">カートに追加済み</p>
+        </div>
     </div>
+</div>
 <footer class="u-mt-40">
     <div class="footerContent">
         <section>
