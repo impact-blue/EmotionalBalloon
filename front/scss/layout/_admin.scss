@@ -81,16 +81,6 @@
                     width: 140px;
                     height: 100%;
                     background: #555;
-                    &:nth-of-type(2) {
-                        background: #777;
-                        li {
-                            &.on {
-                                &::after {
-                                    border-left: 8px solid #777;
-                                }
-                            }
-                        }
-                    }
                     li {
                         position: relative;
                         border-bottom: 1px solid #444;
@@ -116,7 +106,7 @@
                     }
                 }
                 &__body {
-                    width: calc(100% - 200px);
+                    width: calc(100% - 140px);
                     padding: 10px;
                     overflow: scroll;
                 }
