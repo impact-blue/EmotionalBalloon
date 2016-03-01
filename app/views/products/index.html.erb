@@ -65,15 +65,8 @@
             </a>
         </li>
     </ul>
-    <ul class="c-nextButton">
-        <li class="c-nextButton__list">
-            <a href=""><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
-        </li>
-        <li class="c-nextButton__list">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
-        <li class="c-nextButton__list">
-            <a href=""><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
-        </li>
-    </ul>
+    <balloon-next-button url="/{{path[1]}}/{{path[2]}}" max="data.search_products.max_page" current="data.search_products.current_page" ng-if="path[1] !== 'search'"></balloon-next-button>
+    <balloon-next-button url="/search" max="data.search_products.max_page" current="data.search_products.current_page" ng-if="path[1] === 'search'"></balloon-next-button>
 </div>
 <footer class="u-mt-40">
     <div class="footerContent">
