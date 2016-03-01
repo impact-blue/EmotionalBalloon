@@ -17,25 +17,25 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/public/index.html'
         })
         .when('/products', {
-            templateUrl: '/template/public/product/index.html'
+            templateUrl: '/template/public/products/index.html'
         })
         .when('/products/ranking', {
-            templateUrl: '/template/public/product/ranking.html'
+            templateUrl: '/template/public/products/ranking.html'
         })
         .when('/products/show/:id', {
-            templateUrl: '/template/public/product/show.html'
+            templateUrl: '/template/public/products/show.html'
         })
         .when('/carts/show', {
-            templateUrl: '/template/public/cart/show.html'
+            templateUrl: '/template/public/carts/show.html'
         })
         .when('/carts/register', {
-            templateUrl: '/template/public/cart/register.html'
+            templateUrl: '/template/public/carts/register.html'
         })
         .when('/carts/comfirm', {
-            templateUrl: '/template/public/cart/comfirm.html'
+            templateUrl: '/template/public/carts/comfirm.html'
         })
         .when('/carts/thanks', {
-            templateUrl: '/template/public/cart/thanks.html'
+            templateUrl: '/template/public/carts/thanks.html'
         })
         .when('/original', {
             templateUrl: '/template/public/original/index.html'
@@ -51,25 +51,25 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/admin/login.html'
         })
         .when('/admin/products', {
-            templateUrl: '/template/admin/product/index.html'
+            templateUrl: '/template/admin/products/index.html'
         })
         .when('/admin/products/new', {
-            templateUrl: '/template/admin/product/edit.html'
+            templateUrl: '/template/admin/products/edit.html'
         })
         .when('/admin/products/:id/edit', {
-            templateUrl: '/template/admin/product/edit.html'
+            templateUrl: '/template/admin/products/edit.html'
         })
         .when('/admin/orders', {
-            templateUrl: '/template/admin/order/index.html'
+            templateUrl: '/template/admin/orders/index.html'
         })
         .when('/admin/orders/:id/edit', {
-            templateUrl: '/template/admin/order/edit.html'
+            templateUrl: '/template/admin/orders/edit.html'
         })
         .when('/admin/categories', {
-            templateUrl: '/template/admin/category/index.html'
+            templateUrl: '/template/admin/categories/index.html'
         })
         .when('/admin/categories/:type/:id/edit', {
-            templateUrl: '/template/admin/category/edit.html'
+            templateUrl: '/template/admin/categories/edit.html'
         })
         .when('/admin/users', {
             templateUrl: '/template/admin/users/index.html'
@@ -78,7 +78,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: '/template/admin/mails/index.html'
         })
         .when('/admin/settings', {
-            templateUrl: '/template/admin/setting/users.html'
+            templateUrl: '/template/admin/settings/users.html'
         })
         .otherwise({
             redirectTo: '/'
