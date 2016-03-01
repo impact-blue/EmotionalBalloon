@@ -9,7 +9,7 @@ app.directive('balloonNextButton', function(querySortService) {
             max: "=max"
         },
         link: function(scope, element, attrs) {
-            if(location.pathname[1].split('/') === 'search') {
+            if(location.pathname.split('/')[1] === 'search') {
                 scope.link = {
                     down: scope.url + "?page=" + ( scope.current - 1 ) + "&min=" + querySortService.min + "&max=" + querySortService.max,
                     up: scope.url + "?page=" + ( scope.current + 1 ) + "&min=" + querySortService.min + "&max=" + querySortService.max
