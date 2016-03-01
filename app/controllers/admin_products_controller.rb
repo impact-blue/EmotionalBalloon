@@ -12,22 +12,22 @@ class AdminProductsController < ApplicationController
     #全商品個数の表示
     #@product_count = Product.count
 
-    unless params[:filter].present?
-      redirect_to "/admin/products?filter=all"
+    unless params[:status].present?
+      redirect_to "/admin/products?status=all"
     end
 
-    if params[:filter] == "all"
+    if params[:status] == "all"
       @json_products = Product.all.page(params[:page]).per(@page).order("created_at ASC")
-    elsif params[:filter] == "public"
+    elsif params[:status] == "public"
       @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("created_at ASC")
-    elsif params[:filter] == "secret"
+    elsif params[:status] == "secret"
       @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at ASC")
-    elsif params[:filter] == "none"
+    elsif params[:status] == "none"
       @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at ASC")
     end
 
     #CSVダウンロード
-    #<a href="/admin/products.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
+    #<a href="/admin/products.csv/?status=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
       format.html and return
       format.csv do
@@ -45,7 +45,7 @@ class AdminProductsController < ApplicationController
   def create
     @product = Product.new(create_params)
     if @product.save
-      redirect_to "/admin/products?filter=all" , notice: '商品の追加が完了しました。'
+      redirect_to "/admin/products?status=all" , notice: '商品の追加が完了しました。'
     else
       render action: 'new'
     end
@@ -146,7 +146,7 @@ class AdminProductsController < ApplicationController
 
   def import
     Product.import(params[:file])
-    redirect_to "/admin/products?filter=all"
+    redirect_to "/admin/products?status=all"
   end
 
   private
