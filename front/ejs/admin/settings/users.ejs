@@ -1,16 +1,18 @@
 <% include ../parts/_header %>
 <ul class="l-admin__right__foot__content__list">
     <li ng-class="{'on': path === '/admin/settings/users'}"><a href="/admin/settings/users">管理ユーザー</a></li>
-    <li ng-class="{'on': path === ''}"><a href="">メールテンプレート</a></li>
     <li ng-class="{'on': path === ''}"><a href="">会社概要</a></li>
     <li ng-class="{'on': path === ''}"><a href="">利用規約</a></li>
     <li ng-class="{'on': path === ''}"><a href="">特定商法の記述</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
-        <p class="c-buttonList__list"><a href="">CSV出力</a></p>
-        <p class="c-buttonList__list">CSVインポート</p>
-        <p class="c-buttonList__list"><a href="/admin/settings/users/new">新規登録</a></p>
+        <div class="c-buttonList__left"></div>
+        <div class="c-buttonList__right">
+            <p class="c-buttonList__right__list"><a href="">CSV出力</a></p>
+            <p class="c-buttonList__right__list">CSVインポート</p>
+            <p class="c-buttonList__right__list"><a href="/admin/settings/users/new">新規登録</a></p>
+        </div>
     </div>
     <table class="c-table">
         <thread class="c-table__thread">

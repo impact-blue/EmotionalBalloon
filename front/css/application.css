@@ -1924,10 +1924,6 @@ select {
           width: 140px;
           height: 100%;
           background: #555; }
-          .l-admin__right__foot__content__list:nth-of-type(2) {
-            background: #777; }
-            .l-admin__right__foot__content__list:nth-of-type(2) li.on::after {
-              border-left: 8px solid #777; }
           .l-admin__right__foot__content__list li {
             position: relative;
             border-bottom: 1px solid #444; }
@@ -1947,7 +1943,7 @@ select {
             padding: 0 14px;
             color: rgba(255, 255, 255, 0.9); }
         .l-admin__right__foot__content__body {
-          width: calc(100% - 200px);
+          width: calc(100% - 140px);
           padding: 10px;
           overflow: scroll; }
         .l-admin__right__foot__content__full {
@@ -2290,26 +2286,36 @@ footer {
 
 .c-buttonList {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-bottom: 10px; }
-  .c-buttonList__list {
-    padding: 0 10px;
-    margin-left: 10px;
-    line-height: 30px;
-    font-size: 12px;
-    color: #D83961;
-    cursor: pointer;
-    border: 1px solid #D83961;
-    transition: 0.3s; }
-    .c-buttonList__list:hover {
-      color: white;
-      background: #D83961; }
-      .c-buttonList__list:hover a {
-        color: white; }
-    .c-buttonList__list a {
+  .c-buttonList__left {
+    display: flex; }
+    .c-buttonList__left select {
       display: block;
+      margin-right: 10px;
+      color: #555;
+      border: 1px solid #555; }
+  .c-buttonList__right {
+    display: flex;
+    justify-content: flex-end; }
+    .c-buttonList__right__list {
+      padding: 0 10px;
+      margin-left: 10px;
+      line-height: 30px;
+      font-size: 12px;
       color: #D83961;
+      cursor: pointer;
+      border: 1px solid #D83961;
       transition: 0.3s; }
+      .c-buttonList__right__list:hover {
+        color: white;
+        background: #D83961; }
+        .c-buttonList__right__list:hover a {
+          color: white; }
+      .c-buttonList__right__list a {
+        display: block;
+        color: #D83961;
+        transition: 0.3s; }
 
 h2.balloonHeading2 {
   font-size: 32px;

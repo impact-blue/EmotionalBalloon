@@ -5,16 +5,26 @@
     <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret">非公開</a></li>
     <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none">在庫なし</a></li>
 </ul>
-<ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">すべて</a></li>
-    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">シーン</a></li>
-    <li ng-class="{'on': search === '?status=public'}"><a href="/admin/products?status=public">キャラクター</a></li>
-</ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
-        <p class="c-buttonList__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
-        <p class="c-buttonList__list">CSVインポート</p>
-        <p class="c-buttonList__list"><a href="/admin/products/new">新規登録</a></p>
+        <div class="c-buttonList__left">
+            <select name="">
+                <option value="all">すべて</option>
+                <option value="scene">シーン</option>
+                <option value="character">キャラクター</option>
+            </select>
+            <select name="">
+                <option value="all">すべて</option>
+            </select>
+            <!-- <select name="" ng-model="scene" ng-options="scene.name_en as scene.name_jp for scene in data.scene_list">
+                <option value="all">すべて</option>
+            </select> -->
+        </div>
+        <div class="c-buttonList__right">
+            <p class="c-buttonList__right__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
+            <p class="c-buttonList__right__list">CSVインポート</p>
+            <p class="c-buttonList__right__list"><a href="/admin/products/new">新規登録</a></p>
+        </div>
     </div>
     <table class="c-table">
         <thread class="c-table__thread">
