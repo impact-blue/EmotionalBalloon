@@ -4,12 +4,7 @@ require('angular-resource');
 require('angular-route');
 require('angular-bootstrap-datetimepicker');
 
-var app = angular.module('balloonApp', ['ngRoute', 'ngResource', 'ui.bootstrap.datetimepicker']),
-    cartItem = [];
-
-if(localStorage.getItem('cart')) {
-    cartItem = JSON.parse(localStorage.getItem('cart'));
-}
+var app = angular.module('balloonApp', ['ngRoute', 'ngResource', 'ui.bootstrap.datetimepicker']);
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
         /***** Public *****/
@@ -100,9 +95,10 @@ app.controller('adminController', function($scope, $http) {
     $scope.search = location.search;
     $scope.data = balloon_data.data;
 });
-app.controller('balloonController', function($scope, $http, querySortService) {
+app.controller('balloonController', function($scope, $http, querySortService, getStorageService) {
     $scope.data = balloon_data.data;
     $scope.query = querySortService;
+    $scope.cart = getStorageService.cart;
 });
 app.controller('cartComfirmController', function($scope, $http) {
     $scope.comfirm = {
@@ -624,28 +620,17 @@ app.controller('productCreateController', function($scope, $http) {
         }
     };
 });
-app.controller('productShowController', function($scope, $http) {
-    $scope.is_cart = false;
-    $scope.cartItem = cartItem;
-    angular.forEach($scope.cartItem, function(value, key){
-        if($scope.data.id === value) {
-            $scope.is_cart = true;
-        }
-    });
-
-    $scope.toCart = function(id, flag) {
-        var tmpItem = $scope.cartItem;
-        $scope.cartItem = [];
-        $scope.is_cart = !$scope.is_cart;
-        angular.forEach(tmpItem, function(value, key){
-            if(id !== value) {
-                $scope.cartItem.push(value);
+app.controller('productShowController', function($scope, $http, getStorageService, saveStorageService) {
+    $scope.saveProduct = function(id) {
+        var saveFlag = true;
+        angular.forEach(getStorageService.cart, function(value, key) {
+            if(id === value) {
+                saveFlag = false;
             }
         });
-        if(flag) {
-            $scope.cartItem.push(id);
+        if(saveFlag) {
+            saveStorageServie('hi');
         }
-        localStorage.setItem("cart", JSON.stringify($scope.cartItem));
     };
 });
 app.directive('hobbeeBreadCrumb', function(){
@@ -664,6 +649,15 @@ app.directive('balloonProgressBar', function() {
         }
     };
 });
+app.service('getStorageService', function() {
+    var storageVal = {};
+    angular.forEach(localStorage, function(value, key) {
+        if(key !== 'debug') {
+            storageVal[key] = JSON.parse(value);
+        }
+    });
+    return storageVal;
+});
 app.service('querySortService', function() {
     var queryVal = {};
     if(location.search) {
@@ -672,6 +666,9 @@ app.service('querySortService', function() {
         });
         return queryVal;
     }
+});
+app.service('saveStorageService', function() {
+    console.log('hi');
 });
 },{"angular":8,"angular-bootstrap-datetimepicker":2,"angular-resource":4,"angular-route":6}],2:[function(require,module,exports){
 /*globals define, jQuery, module, require */
