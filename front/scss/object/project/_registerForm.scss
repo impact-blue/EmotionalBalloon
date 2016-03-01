@@ -69,6 +69,9 @@
                             width: 100%;
                         }
                     }
+                    &.template {
+                        width: 100%;
+                    }
                     &__radio {
                         input[type="radio"],
                         input[type="checkbox"] {

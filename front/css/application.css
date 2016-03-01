@@ -2704,6 +2704,8 @@ h2.balloonHeading2 {
           margin-right: 0; }
       .p-registerForm__block__wrapper__list__content.address input[type="text"] {
         width: 100%; }
+      .p-registerForm__block__wrapper__list__content.template {
+        width: 100%; }
       .p-registerForm__block__wrapper__list__content__radio input[type="radio"],
       .p-registerForm__block__wrapper__list__content__radio input[type="checkbox"] {
         margin-right: 5px;
@@ -2943,6 +2945,15 @@ h2.balloonHeading2 {
 
 .u-mt-80 {
   margin-top: 80px !important; }
+
+.u-mb-20 {
+  margin-bottom: 20px !important; }
+
+.u-mb-30 {
+  margin-bottom: 30px !important; }
+
+.u-mb-40 {
+  margin-bottom: 40px !important; }
 
 .u-pt-20 {
   padding-top: 20px !important; }

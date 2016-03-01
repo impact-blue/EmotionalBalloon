@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
-                <a href="/admin/products?filter=all">
+                <a href="/admin/products?status=all">
                     <p><i class="fa fa-gift"></i></p>
                     <p>PRODUCT</p>
                 </a>
@@ -31,10 +31,16 @@
                     <p>CATEGORY</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
-                <a href="/admin/customers">
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/users">
                     <p><i class="fa fa-user"></i></p>
-                    <p>CUSTOMER</p>
+                    <p>USER</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
@@ -54,10 +60,25 @@
     <div class="l-admin__right">
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
-<ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?'}"><a href=""></a></li>
-</ul>
-<div class="l-admin__right__foot__content__body"></div>
+<div class="l-admin__right__foot__content__full" ng-controller="categoryEditController">
+    <div class="p-registerForm">
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'scene'">シーンカテゴリー</p>
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'character'">キャラクターカテゴリー</p>
+        <ul class="p-registerForm__block__wrapper">
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">名称(English)</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="名称(English)" ng-model="categoryContent.name_en"></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">名称(Japanese)</p>
+                <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="名称(Japanese)" ng-model="categoryContent.name_jp"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-button--cart">
+        <p class="c-button--cart__text" ng-click="editCategory(split[3])">変更</p>
+    </div>
+</div>
             </div>
         </div>
     </div>
