@@ -1,0 +1,5 @@
+<ul class="c-nextButton">
+    <li class="c-nextButton__list"><a href="{{link.down}}" class="c-nextButton__list__text" ng-if="current > 1"><i class="fa fa-arrow-left"></i>前のページ</a></li>
+    <li class="c-nextButton__list"><p class="c-nextButton__list__text">{{current}} / {{max}}</p></li>
+    <li class="c-nextButton__list"><a href="{{link.up}}" class="c-nextButton__list__text" ng-if="current !== max">次のページ<i class="fa fa-arrow-right"></i></a></li>
+</ul>

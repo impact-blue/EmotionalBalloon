@@ -69,6 +69,9 @@ gulp.task('copy', function(){
     gulp
         .src(['./front/fonts/**'])
         .pipe(gulp.dest('./public/fonts/'));
+    gulp
+        .src(['./front/parts/**'])
+        .pipe(gulp.dest('./public/parts/'));
     /***** Public *****/
     gulp
         .src(['./front/template/public/index.html'])
