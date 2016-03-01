@@ -100,8 +100,9 @@ app.controller('adminController', function($scope, $http) {
     $scope.search = location.search;
     $scope.data = balloon_data.data;
 });
-app.controller('balloonController', function($scope, $http) {
+app.controller('balloonController', function($scope, $http, querySortService) {
     $scope.data = balloon_data.data;
+    $scope.query = querySortService;
 });
 app.controller('cartComfirmController', function($scope, $http) {
     $scope.comfirm = {
