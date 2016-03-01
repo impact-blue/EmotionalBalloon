@@ -37,9 +37,9 @@ class AdminProductsController < ApplicationController
   end
 
   def edit
-    @json_detail_product = Product.includes(:charas,:scenes).find(params[:id])
-    @json_scene_list = Scene.all
-    @json_chara_list = Chara.all
+    @json_detail_product = Product.includes(:category).find(params[:id])
+    #@json_scene_list = Scene.all
+    #@json_chara_list = Chara.all
   end
 
   def create

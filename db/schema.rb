@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160301021421) do
     t.string   "name_en",    limit: 255
     t.string   "name_ja",    limit: 255
     t.string   "genre",      limit: 255
+    t.string   "status",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

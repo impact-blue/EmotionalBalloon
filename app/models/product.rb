@@ -4,14 +4,9 @@ require 'nkf'
 class Product < ActiveRecord::Base
   has_many :product_colors
   has_many :colors, through: :product_colors
-  has_many :product_charas
-  has_many :charas, through: :product_charas
-  has_many :product_balloon_types
-  has_many :balloon_types, through: :product_balloon_types
+  has_one :product_category
+  has_one :category, through: :product_category
   has_many :images
-  has_many :product_scenes
-  has_many :scenes, through: :product_scenes
-
   has_many :orders, through: :order_product_info
   has_many :order_product_infos
 

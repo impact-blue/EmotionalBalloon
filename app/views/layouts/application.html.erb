@@ -65,7 +65,7 @@
                   <% end %>
                 ],
                 <% end %>
-                <% if @json_detail_product.product_scenes.present? %>
+                <% if @json_detail_product.product_category.present? %>
                 scenes: [
                   <% @json_detail_product.product_scenes.each do |s| %>
                     <% if s.status == 1 %>
