@@ -97,6 +97,7 @@ app.controller('adminController', function($scope, $http) {
 });
 app.controller('balloonController', function($scope, $http, querySortService, getStorageService) {
     $scope.data = balloon_data.data;
+    $scope.path = location.pathname.split('/');
     $scope.query = querySortService;
     $scope.cart = getStorageService.cart;
 });
@@ -637,6 +638,24 @@ app.directive('hobbeeBreadCrumb', function(){
     return {
         restrict: 'E',
         templateUrl: 'partials/ninja-customer.html'
+    };
+});
+app.directive('balloonNextButton', function(querySortService) {
+    return {
+        restrict: "E",
+        templateUrl: '/parts/nextButton.html',
+        replace: true,
+        scope: {
+            url: "@url",
+            current: "=current",
+            max: "=max"
+        },
+        link: function(scope, element, attrs) {
+            scope.link = {
+                down: scope.url + "?page=" + ( scope.current - 1 ) + "&min=" + querySortService.min + "&max=" + querySortService.max,
+                up: scope.url + "?page=" + ( scope.current + 1 ) + "&min=" + querySortService.min + "&max=" + querySortService.max
+            };
+        }
     };
 });
 app.directive('balloonProgressBar', function() {
