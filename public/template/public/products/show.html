@@ -31,7 +31,7 @@
                     <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">2</span></a></p>
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">{{cart.length}}</span></a></p>
                 </li>
             </ul>
         </div>
@@ -47,9 +47,9 @@
             <li>バルーン</li>
         </ul>
         <div class="p-photoGallery">
-            <div class="p-photoGallery__zoom"><img src="{{data.detail_product.image[0]}}" alt=""></div>
+            <div class="p-photoGallery__zoom"><img src="{{data.detail_product.images[0]}}" alt=""></div>
             <ul class="p-photoGallery__list">
-                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.image" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
+                <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.images" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
             </ul>
         </div>
     </div>
@@ -86,11 +86,8 @@
                 </table>
             </div>
         </div>
-        <div class="c-button--cart" ng-if="!is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, true)">カートに追加する</p>
-        </div>
-        <div class="c-button--cart on" ng-if="is_cart">
-            <p class="c-button--cart__text" ng-click="toCart(data.detail_product.id, false)">カートに追加済み</p>
+        <div class="c-button--cart">
+            <p class="c-button--cart__text" ng-click="saveProduct(data.detail_product.id)">カートに追加する</p>
         </div>
     </div>
 </div>
