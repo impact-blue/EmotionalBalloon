@@ -42,6 +42,7 @@ gem 'config'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'

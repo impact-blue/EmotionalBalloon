@@ -1,22 +1,22 @@
 class ProductsController < ApplicationController
+  before_action :set_json_categories,:set_json_index
 
   def index
-    unless params[:filter].present?
-      @json_products = Product.where(status: 1).page(params[:page]).per(20).order("created_at ASC")
-    end
+    @category_name = Category.where(status: 1).pluck(:name_en)
     #シーン検索
-    if params[:scene] == "all"
-      @json_products = Product.where(status: 1).page(params[:page]).per(20).order("created_at ASC")
-    elsif params[:scene].present?
-      @json_products =
-        Product.where(status: 1).includes(:scenes)
-          .merge(ProductScene.where(status: 1).order("product_id asc")
-            .where(scene_id: Scene
-              .find_by(
-                  "name_en = ?" , params[:scene]
-              )
-            )
-          ).references(:scene).page(params[:page]).per(20)
+    if request.path.include?("scenes")
+        if request.path.include?("all")
+          @json_products = Product.where(status: 1).page(params[:page]).per(20).order("created_at ASC")
+          return
+        end
+
+      @category_name.each do |category_name|
+        if request.path.include?("scenes/#{category_name}")
+          @json_products =
+            Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+          return
+        end
+      end
     end
     #キャラクター検索
     #キャラクターの綴りがおかしい。(all)
@@ -77,6 +77,7 @@ class ProductsController < ApplicationController
   def show
     @json_detail_product = Product.includes(:scenes,:charas).find(params[:id])
   end
+
 
   def ranking
     @json_ranking_products = Product.all.page(params[:page]).per(5).order("count DESC")

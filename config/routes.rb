@@ -19,9 +19,8 @@ Rails.application.routes.draw do
   get 'company/contact'   => 'company#contact'
 
 #productの一覧
-  get 'products/show/:id'  => 'products#show'
-  get 'products/scene'     => 'products#scene'
-  get 'products'           => 'products#index'
+  get 'show/:id'  => 'products#show'
+  get ':category_genre/:category_name'     => 'products#index'
   get 'products/ranking'   => 'products#ranking'
 
 #カートの追加

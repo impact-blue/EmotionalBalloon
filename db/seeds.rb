@@ -494,6 +494,7 @@ Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'marriage' ,:name_j
 Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'babygift' ,:name_ja => '出産祝い')
 Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'birthday' ,:name_ja => '誕生日')
 Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'open' ,:name_ja => '開店祝い')
+Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'other' ,:name_ja => 'その他')
 
 MailContent.create(:subject => 'エモーショナルバルーン：商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
 MailContent.create(:subject => 'エモーショナルバルーン：【銀行振込】商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')

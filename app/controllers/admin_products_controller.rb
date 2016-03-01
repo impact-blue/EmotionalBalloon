@@ -1,6 +1,6 @@
 class AdminProductsController < ApplicationController
   before_action :logged_in_admin_user
-  before_action :set_json_index
+  before_action :set_json_index,:set_json_categories
   skip_before_filter :verify_authenticity_token ,only:[:import]
 
   def new
@@ -11,7 +11,7 @@ class AdminProductsController < ApplicationController
   def index
     #全商品個数の表示
     #@product_count = Product.count
-
+binding.pry
     unless params[:status].present?
       redirect_to "/admin/products?status=all"
     end
@@ -38,8 +38,6 @@ class AdminProductsController < ApplicationController
 
   def edit
     @json_detail_product = Product.includes(:category).find(params[:id])
-    #@json_scene_list = Scene.all
-    #@json_chara_list = Chara.all
   end
 
   def create
