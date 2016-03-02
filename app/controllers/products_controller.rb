@@ -110,7 +110,7 @@ class ProductsController < ApplicationController
     end
 
     #重複のないproduct_idよりハッシュを追加(countのid部分)
-    product_ids.uniq!.each do |p|
+    product_ids.uniq.each do |p|
         data = Hash.new(:id => 0,:count => 0)
         data[:id] = p
         data[:count] = 0
