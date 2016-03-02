@@ -1,1 +1,18 @@
-  <p>contact</p>
+<%= form_for([:company, @contact] , :url => {:action => 'create_contact'}) do |f| %>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+<%= f.label :名前 %>
+<%= f.text_field :name %>
+
+<%= f.label :メールアドレス %>
+<%= f.text_field :email %>
+
+<%= f.label :お問い合わせ内容 %>
+<%= f.text_area :content %>
+
+<%= f.submit '保存' %>
+
+<% end %>

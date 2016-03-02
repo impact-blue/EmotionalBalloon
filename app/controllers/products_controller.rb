@@ -101,7 +101,7 @@ class ProductsController < ApplicationController
     #30日間に購入された商品情報を取得
     last_30days_buy = OrderProductInfo.where('created_at >= ? ',Time.zone.now - 30.day).includes(:product).order("product_id ASC")
 
-    product_ids = []  #購入された商品の番号を取得
+    product_ids = []  #購入された商品の番号の配列
           count = []  #ランキングをカウントするデータの配列
           sum   = []  #30日間の購入情報から、商品IDとその個数だけ取り出した情報
 

@@ -10,13 +10,14 @@ Rails.application.routes.draw do
   #post 'api/carts/confirm' => '#confirm'
 
 #下層ページ
-  get 'company/agreement' => 'company#agreement'
-  get 'company/privacy'   => 'company#privacy'
-  get 'company/exchange'  => 'company#exchange'
-  get 'company/question'  => 'company#question'
-  get 'company/about'     => 'company#about'
-  get 'company/flow'      => 'company#flow'
-  get 'company/contact'   => 'company#contact'
+  get  'company/agreement' => 'company#agreement'
+  get  'company/privacy'   => 'company#privacy'
+  get  'company/exchange'  => 'company#exchange'
+  get  'company/question'  => 'company#question'
+  get  'company/about'     => 'company#about'
+  get  'company/flow'      => 'company#flow'
+  get  'company/contact'   => 'company#contact'
+  post 'company/contact'   => 'company#create_contact'
 
 #productの一覧
   get 'products/show/:id'  => 'products#show'
@@ -53,9 +54,9 @@ Rails.application.routes.draw do
 
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
-  post 'api/products/edit'     => 'admin_products#api'
-  patch 'api/products/edit'    => 'admin_products#api'
-  post 'admin/products/import' => 'admin_products#import'
+  post  'api/products/edit'     => 'admin_products#api'
+  patch 'api/products/edit'     => 'admin_products#api'
+  post  'admin/products/import' => 'admin_products#import'
 
 #管理画面の注文一覧
   resources :admin_orders,:path  =>  'admin/orders'
