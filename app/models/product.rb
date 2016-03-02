@@ -8,8 +8,8 @@ class Product < ActiveRecord::Base
   has_many :images
   has_many :orders, through: :order_product_info
   has_many :order_product_infos
-
   has_many :carts
+  has_one :ranking
 
   #商品名
   validates :name,:comment,

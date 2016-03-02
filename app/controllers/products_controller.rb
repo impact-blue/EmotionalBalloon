@@ -135,7 +135,6 @@ class ProductsController < ApplicationController
     end
 
     count_sort = count.sort_by!{|c| c[:count] }.reverse.slice(0..20) #countを購入回数のの多い順に並べ替え（最大20個）
-
     product_id_only_21 =[] #ランキング21位をソートしてidを抽出
     count_sort.each do |c|
       product_id_only_21 << c[:id]
@@ -153,6 +152,15 @@ class ProductsController < ApplicationController
 
     @json_ranking_products = json.uniq!
 
+
+    #Rankingモデルに保存
+#    Ranking.destroy_all
+#    count_sort.each do |c|
+#      rank = Ranking.new
+#      rank.product_id = c[:id]
+#      rank.count      = c[:count]
+#      rank.save
+#    end
   end
 
 end
