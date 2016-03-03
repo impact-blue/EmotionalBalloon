@@ -99,7 +99,7 @@ class ProductsController < ApplicationController
     current_day = Time.zone.now
 
     #30日間に購入された商品情報を取得
-    last_30days_buy = OrderProductInfo.where('created_at >= ? ',Time.zone.now - 30.day).includes(:product).order("product_id ASC")
+    last_30days_buy = OrderProductInfo.select("product_id,count").where('created_at >= ? ',Time.zone.now - 30.day).includes(:product).order("product_id ASC")
 
     product_ids = []  #購入された商品の番号の配列
           count = []  #ランキングをカウントするデータの配列
@@ -151,7 +151,6 @@ class ProductsController < ApplicationController
     end
 
     @json_ranking_products = json.uniq!
-
 
     #Rankingモデルに保存
 #    Ranking.destroy_all

@@ -101,7 +101,7 @@ Product.create(:name => 'バルーン99',:price => '6400',:stocks => '3',:commen
 Product.create(:name => 'バルーン100',:price => '6400',:stocks => '2',:comment => 'バルーンの説明です。ここに商品の説明を記述してください。',:main_image=>"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809", :keyword => 'サンプル',:size => '111',:count => '0',:category_id => '1' ,:status => '1',)
 end
 
-20.times do |i|
+50.times do |i|
 Order.create(:user_id => "#{i*20 + 1}" ,
              :price => '1800'  ,
              :postal_code => '2150987',
@@ -283,7 +283,7 @@ Order.create(:user_id => "#{i*20 + 20}" ,
              :order_status => '完了'   )
 end
 
-20.times do |i|
+50.times do |i|
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 1}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 2}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 3}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
@@ -327,7 +327,7 @@ OrderDeliveryName.create(:order_id =>  "#{i*20 + 40}"  ,:order_family_name => '�
 end
 
 
-10.times do |i|
+25.times do |i|
 OrderProductInfo.create(:order_id => "#{1  + i*40}" , :product_id => '10' , :count =>  '2'  )
 OrderProductInfo.create(:order_id => "#{2  + i*40}" , :product_id => '7'  , :count =>  '3'  )
 OrderProductInfo.create(:order_id => "#{3  + i*40}" , :product_id => '2'  , :count =>  '1'  )
@@ -371,7 +371,7 @@ OrderProductInfo.create(:order_id => "#{40 + i*40}" , :product_id => '34' , :cou
 end
 
 
-20.times do |i|
+50.times do |i|
 User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
