@@ -52,6 +52,10 @@ Rails.application.routes.draw do
 #管理画面ホーム
   get "admin" => "admin#index"
 
+#管理画面お問い合わせ
+  get 'admin/contact'     =>  'admin_contacts#index'
+  get 'admin/contact/:id' =>  'admin_contacts#edit'
+
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
   post  'api/products/edit'     => 'admin_products#api'

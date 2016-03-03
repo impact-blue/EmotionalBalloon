@@ -4,4 +4,8 @@ class AdminContactsController < ApplicationController
     @contact = Contact.all
   end
 
+  def edit
+    @contact = Contact.find(params[:id])
+  end
+
 end

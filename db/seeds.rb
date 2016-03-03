@@ -494,7 +494,7 @@ City.create(:name => '沖縄県', :roman =>'okinawa')
 
 
 50.times do
-Contact.create(:name => '西村健人',:email => 'sample@example.com' ,:content => 'お問い合わせ内容です。こちらに詳細を記述してください。本文になります。')
+Contact.create(:name => '西村健人',:email => 'sample@example.com' ,:subject => '件名です',:content => 'お問い合わせ内容です。こちらに詳細を記述してください。本文になります。', :status => '0')
 end
 
 
