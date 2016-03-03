@@ -199,6 +199,7 @@ ja:
         user: ユーザー
         order: 注文
         order_delivery_name: 名前（お届け先）
+        contact: お問い合わせ
       attributes:
         product:
           name: 商品
@@ -227,3 +228,7 @@ ja:
           user_id: 注文者情報
           user_family_name: 姓（注文者）
           user_first_name: 名（注文者）
+        contact:
+          name: 名前
+          email: メールアドレス
+          content: 内容
