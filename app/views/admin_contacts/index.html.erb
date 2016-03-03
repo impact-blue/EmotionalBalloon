@@ -76,6 +76,8 @@
                 <th class="c-table__thread__row__head">名前</th>
                 <th class="c-table__thread__row__head">メールアドレス</th>
                 <th class="c-table__thread__row__head">件名</th>
+                <th class="c-table__thread__row__head">受信日</th>
+                <th class="c-table__thread__row__head">変更日</th>
                 <th class="c-table__thread__row__head">状態</th>
                 <th class="c-table__thread__row__head">詳細</th>
             </tr>
@@ -87,6 +89,8 @@
                 <td class="c-table__body__row__data"><%= c.name %></td>
                 <td class="c-table__body__row__data"><%= c.email %></td>
                 <td class="c-table__body__row__data"><%= c.subject %></td>
+                <td class="c-table__body__row__data"><%= c.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+                <td class="c-table__body__row__data"><%= c.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
                 <td class="c-table__body__row__data"><%= c.now_status  %></td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
