@@ -9,9 +9,8 @@ class ProductsController < ApplicationController
           @json_products = []
 
           category_id = Category.where(["genre = ? and status = ?","scene","1"]).pluck(:id)
-          category_id.each do |i|
-             @json_products <<  Product.where("status = ? and category_id = ?",1, i )
-          end
+
+          @json_products =  Product.where(status: 1, category_id: category_id )
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
           @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
@@ -30,9 +29,7 @@ class ProductsController < ApplicationController
         if request.path.include?("all")
           @json_products = []
           category_id = Category.where(["genre = ? and status = ?","character","1"]).pluck(:id)
-          category_id.each do |i|
-             @json_products <<  Product.where("status = ? and category_id = ?",1, i )
-          end
+          @json_products =  Product.where(status: 1, category_id: category_id )
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
           @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
