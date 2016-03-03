@@ -493,6 +493,15 @@ City.create(:name => '鹿児島県', :roman =>'kagoshima')
 City.create(:name => '沖縄県', :roman =>'okinawa')
 
 
+50.times do
+Contact.create(:name => '西村健人',:email => 'sample@example.com' ,:content => 'お問い合わせ内容です。こちらに詳細を記述してください。本文になります。')
+end
+
+
+
+
+
+
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'disney'  ,:name_ja => 'ディズニー'  )
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'sanrio'  ,:name_ja => 'サンリオ'    )
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'anpanman',:name_ja => 'アンパンマン' )
@@ -501,6 +510,7 @@ Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'yokai'   ,:na
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'ghible'  ,:name_ja => 'ジブリ'  )
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'pokemon' ,:name_ja => 'ポケモン'    )
 Category.create(:status =>'1' ,:genre => 'character' ,:name_en => 'other'   ,:name_ja => 'その他'      )
+
 
 
 Color.create(:name_en => 'white', :name_ja => '白色')
