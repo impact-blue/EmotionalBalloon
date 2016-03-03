@@ -8,7 +8,7 @@ class Contact < ActiveRecord::Base
   def now_status
     if status == 0
       status =  '未'
-    elsif status == 1
+    else
       status = '対応済み'
     end
   end

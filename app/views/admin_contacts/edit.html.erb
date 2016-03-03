@@ -1,0 +1,103 @@
+<div class="l-admin" ng-controller="adminController">
+    <div class="l-admin__left">
+        <ul class="l-admin__left__list">
+            <li class="l-admin__left__list__child">
+                <a href="/admin/products/new">
+                    <p><i class="fa fa-pencil-square-o"></i></p>
+                    <p>NEW POST</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin'}">
+                <a href="/admin">
+                    <p><i class="fa fa-home"></i></p>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
+                <a href="/admin/products?status=all">
+                    <p><i class="fa fa-gift"></i></p>
+                    <p>PRODUCT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
+                <a href="/admin/orders/?filter=all">
+                    <p><i class="fa fa-shopping-cart"></i></p>
+                    <p>ORDER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/categories'}">
+                <a href="/admin/categories?filter=all">
+                    <p><i class="fa fa-tag"></i></p>
+                    <p>CATEGORY</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+                <a href="/admin/customers">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>CUSTOMER</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
+                <a href="/admin/settings">
+                    <p><i class="fa fa-cog"></i></p>
+                    <p>SETTING</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child">
+                <a href="/admin/logout">
+                    <p><i class="fa fa-sign-out"></i></p>
+                    <p>LOGOUT</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="l-admin__right">
+        <div class="l-admin__right__foot">
+            <div class="l-admin__right__foot__content">
+<div class="l-admin__right__foot__content__full">
+    <div class="p-registerForm">
+        <p class="p-registerForm__block__heading">お問い合わせ詳細</p>
+        <ul class="p-registerForm__block__wrapper">
+        <%= form_for([:admin_contacts, @contact] , :url => {:action => 'update'}) do |f| %>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">名前</p>
+                <div class="p-registerForm__block__wrapper__list__content address"><%= f.text_field :name %></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">アドレス</p>
+                <div class="p-registerForm__block__wrapper__list__content"><%= f.text_field :email %></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">件名</p>
+                <div class="p-registerForm__block__wrapper__list__content"><%= f.text_field :subject %></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">本文</p>
+                <div class="p-registerForm__block__wrapper__list__content"><%= f.text_area :content %></textarea></div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">状態</p>
+                <div class="p-registerForm__block__wrapper__list__content">
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><%= f.radio_button :status, "0" %><label for="status1">未</label></p>
+                    <p class="p-registerForm__block__wrapper__list__content__radio"><%= f.radio_button :status, "1" %><label for="status2">対応済み</label></p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="c-button--cart">
+        <p class="c-button--cart__text" ng-click="editProduct()">変更</p>
+                    <%= f.submit :編集する , class: "btn btn-primary"%>
+        <% end %>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
