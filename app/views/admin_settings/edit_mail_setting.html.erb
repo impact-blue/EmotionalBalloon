@@ -40,7 +40,20 @@
                 <%= b.submit :編集する , class: "btn btn-primary"%>
                 <% end %>
 
-                <%= @card_mail_content.text %>
+                <%= form_for([:admin_settings, @thanks_mail_contant] , :url => {:action => 'update_bank_mail_content'}) do |b| %>
+                <p>件名</p>
+                <%= b.text_area :subject , class: 'form-control' %>
+                <p>本文</p>
+                <%= b.text_area :text , class: 'form-control' %>
+
+                <%= b.submit :編集する , class: "btn btn-primary"%>
+                <% end %>
+
+                <p><%= @card_mail_content.text
+                .gsub(/\$name+/,@contact.name)
+                .gsub(/\$email+/,@contact.email)
+                .gsub(/\$subject+/,@contact.subject)
+                .gsub(/\$content+/,@contact.content) %></p>
             </div>
         </div>
     </div>

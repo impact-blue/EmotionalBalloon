@@ -6,8 +6,9 @@ class AdminSettingsController < ApplicationController
   def edit_mail_setting
     @card_mail_content = MailContent.find(1)
     @bank_mail_content = MailContent.find(2)
-
+    @thanks_mail_contant = MailContent.find(3)
     @order = Order.find(1)
+    @contact = Contact.find(1)
     #Mailer.card_buy_thanks_email(@order).deliver_later
   end
 

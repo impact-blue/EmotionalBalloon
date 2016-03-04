@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_json_categories,:set_json_index
 
   def index
-    @category_name = Category.pluck(:name_en)
+    @category_name = @json_category_list.pluck(:name_en)
     #シーン検索
     if request.path.include?("scenes")
         if request.path.include?("all")
           @json_products = []
 
-          category_id = Category.where(["genre = ?","scene"]).pluck(:id)
+          category_id = @json_scene_list.pluck(:id)
 
           @json_products =  Product.where(status: 1, category_id: category_id )
 
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     if request.path.include?("characters")
         if request.path.include?("all")
           @json_products = []
-          category_id = Category.where(["genre = ? and status = ?","character","1"]).pluck(:id)
+          category_id = @json_character_list.pluck(:id)
           @json_products =  Product.where(status: 1, category_id: category_id )
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
