@@ -546,39 +546,15 @@ app.controller('productCreateController', function($scope, $http) {
             description: '',
             size: '',
             status: '',
-            category: {}
-        };
-        $scope.formModel = {
-            category: 'scene'
+            category: 111
         };
     } else {
         $scope.product_data = balloon_data.data.detail_product;
-        $scope.formModel = {
-            category: balloon_data.data.detail_product.category.type
-        };
-        $scope.product_data.category = balloon_data.data.detail_product.category;
     }
 
-    console.log('hii');
-
     $scope.formOptions = {
-        category: []
+        category: balloon_data.data.category_list
     };
-
-    $scope.$watch('formModel.category', function(value) {
-        $scope.formOptions.category = [];
-        if(value === 'scene') {
-            angular.forEach(balloon_data.data.category_list.scene, function(value, key) {
-                $scope.formOptions.category.push(value);
-            });
-            $scope.product_data.category.name_en = 'marriage';
-        } else if(value === 'character') {
-            angular.forEach(balloon_data.data.category_list.character, function(value, key) {
-                $scope.formOptions.category.push(value);
-            });
-            $scope.product_data.category.name_en = 'disney';
-        }
-    });
 
     $scope.editProduct = function() {
         var sendData = {
