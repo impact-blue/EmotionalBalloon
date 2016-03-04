@@ -3,21 +3,23 @@ class AdminOrdersController < ApplicationController
   before_action :set_json_index
 
   def index
-    @json_order_list = Order.select("id,payment_info,order_status,created_at,price,user_id").includes(:user,user: :user_names).order("created_at ASC")
-    unless params[:filter].present?
-      redirect_to "/admin/orders/?filter=all" and return
+
+    unless params[:status].present?
+      redirect_to "/admin/orders/?status=all" and return
     end
 
-    if params[:filter] == "unconfirmed"
-      @json_order_list = Order.where(order_status: "未入金"  ).includes(:user,user: :user_names)
-    elsif params[:filter] ==  "process"
-      @json_order_list = Order.where(order_status: "未発送").includes(:user,user: :user_names)
-    elsif params[:filter] == "complete"
-      @json_order_list = Order.where(order_status: "完了"  ).includes(:user,user: :user_names)
+    if params[:status] ==  "all"
+      @json_order_list = Order.select("id,payment_info,order_status,created_at,price,user_id").includes(:user,user: :user_names).page(params[:page]).per(@page).order("id ASC")
+    elsif params[:status] == "unconfirmed"
+      @json_order_list = Order.where(order_status: "未入金"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
+    elsif params[:status] ==  "process"
+      @json_order_list = Order.where(order_status: "未発送").page(params[:page]).per(@page).includes(:user,user: :user_names)
+    elsif params[:status] == "complete"
+      @json_order_list = Order.where(order_status: "完了"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
     end
 
     #CSVダウンロード
-    #<a href="/admin/orders.csv/?filter=all&page={{data.search_products.current_page}}">CSV</a>
+    #<a href="/admin/orders.csv/?status=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
       format.html
       format.csv do
@@ -44,7 +46,7 @@ class AdminOrdersController < ApplicationController
 
   def import
     Order.import(params[:file])
-    redirect_to "/admin/orders?filter=all"
+    redirect_to "/admin/orders?status=all"
   end
 
 

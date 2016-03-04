@@ -140,15 +140,6 @@ class ProductsController < ApplicationController
 
     @json_ranking_products  = Product.where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
 
- #   json = []
- #   product_id_only_21.each do |p_id|
- #     last_30days_buy.product.each do |product|
- #       if product[0].product_id == p_id
- #         json << product[0].product
- #       end
- #     end
- #   end
-
  #   @json_ranking_products = json.uniq!
     #Rankingモデルに保存
 #    Ranking.destroy_all
