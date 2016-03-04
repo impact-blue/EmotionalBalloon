@@ -29,14 +29,6 @@ class AdminProductsController < ApplicationController
 
     if params[:category].present?
       @json_products = @json_products.where(category_id: params[:category])
-    elsif params[:list] == "scene"
-      scene_list = @json_category_list.where(genre: :scene)
-      category_id     = scene_list.pluck(:id)
-      @json_products  = @json_products.where(category_id:  category_id)
-    elsif params[:list] == "character"
-      json_character_list = @json_category_list.where(genre: :character)
-      category_id     = character_list.pluck(:id)
-      @json_products = @json_products.where(category_id:  category_id)
     end
 
     #CSVダウンロード
@@ -95,7 +87,6 @@ class AdminProductsController < ApplicationController
     @product.size         = params[:data][:size]
     @product.status       = params[:data][:status]
     @product.category_id  = params[:data][:category]
-binding.pry
     if params[:data][:images].present?
       params[:data][:images].each_with_index do |product_info,i|
         @product.images.build

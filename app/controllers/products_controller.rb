@@ -97,7 +97,7 @@ class ProductsController < ApplicationController
     current_day = Time.zone.now
 
     #30日間に購入された商品情報を取得
-    last_30days_buy = OrderProductInfo.select("product_id,count").where('created_at >= ? ',Time.zone.now - 30.day).includes(:product).order("product_id ASC")
+    last_30days_buy = OrderProductInfo.select("product_id,count").where('created_at >= ? ',Time.zone.now - 30.day).order("product_id ASC")
 
     product_ids = []  #購入された商品の番号の配列
           count = []  #ランキングをカウントするデータの配列
@@ -138,18 +138,18 @@ class ProductsController < ApplicationController
       product_id_only_21 << c[:id]
     end
 
-    json = []
+    @json_ranking_products  = Product.where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
 
-    product_id_only_21.each do |p_id|
-      last_30days_buy.product.each do |product|
-        if product[0].product_id == p_id
-          json << product[0].product
-        end
-      end
-    end
+ #   json = []
+ #   product_id_only_21.each do |p_id|
+ #     last_30days_buy.product.each do |product|
+ #       if product[0].product_id == p_id
+ #         json << product[0].product
+ #       end
+ #     end
+ #   end
 
-    @json_ranking_products = json.uniq!
-
+ #   @json_ranking_products = json.uniq!
     #Rankingモデルに保存
 #    Ranking.destroy_all
 #    count_sort.each do |c|
