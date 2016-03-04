@@ -6,7 +6,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/scenes/all">シーン別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text" ng-repeat="menu in data.scene_list"><a href="/scenes/{{menu.name_en}}">{{menu.name_jp}}</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.category_list"><a href="/scenes/{{menu.name_en}}" ng-if="menu.type === 'scene'">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
@@ -21,7 +21,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/characters/all">キャラクター</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text" ng-repeat="menu in data.character_list"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.category_list" ng-if="menu.type === 'character'"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
@@ -46,7 +46,7 @@
 <h2 class="balloonHeading2">シーン別</h2>
 <ul class="p-categoryList">
     <li>
-        <a href="/products?scene=marriage">
+        <a href="/scenes/marriage">
             <div class="categoryIcon"><img src="http://diftion.com/0142/app/webroot/files/uploads/fu60.jpg" alt=""></div>
             <div class="categoryWrapper">
                 <p>結婚式 - Marriage</p>
@@ -55,7 +55,7 @@
         </a>
     </li>
     <li>
-        <a href="/products?scene=babygift">
+        <a href="/scenes/babygift">
             <div class="categoryIcon"><img src="http://livedoor.blogimg.jp/martinskitchen/imgs/8/2/822d6918.jpg" alt=""></div>
             <div class="categoryWrapper">
                 <p>出産祝い - Baby Gifts</p>
@@ -64,7 +64,7 @@
         </a>
     </li>
     <li>
-        <a href="/products?scene=birthday">
+        <a href="/scenes/birthday">
             <div class="categoryIcon"><img src="http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172" alt=""></div>
             <div class="categoryWrapper">
                 <p>誕生日 - Birth Day</p>
@@ -73,7 +73,7 @@
         </a>
     </li>
     <li>
-        <a href="/products?character=all">
+        <a href="/characters/all">
             <div class="categoryIcon"><img src="http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809" alt=""></div>
             <div class="categoryWrapper">
                 <p>キャラクター - Character</p>
@@ -88,7 +88,7 @@
 <h2 class="balloonHeading2">ランキング</h2>
 <ul class="p-spaceList p-spaceList--ranking">
     <li ng-repeat="product in data.ranking_products | limitTo: 5">
-        <a href="/products/show/{{product.id}}">
+        <a href="/products/{{product.id}}">
             <img src="{{product.image}}" alt="{{product.name}}">
             <div class="spaceWrapper">
                 <p>{{product.name}}</p>

@@ -6,7 +6,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/scenes/all">シーン別</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text" ng-repeat="menu in data.scene_list"><a href="/scenes/{{menu.name_en}}">{{menu.name_jp}}</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.category_list"><a href="/scenes/{{menu.name_en}}" ng-if="menu.type === 'scene'">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
@@ -21,7 +21,7 @@
                 <li class="header__menu__list">
                     <p class="header__menu__list__text"><a href="/characters/all">キャラクター</a></p>
                     <ul class="header__menu__list__child">
-                        <li class="header__menu__list__child__text" ng-repeat="menu in data.character_list"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
+                        <li class="header__menu__list__child__text" ng-repeat="menu in data.category_list" ng-if="menu.type === 'character'"><a href="/characters/{{menu.name_en}}">{{menu.name_jp}}</a></li>
                     </ul>
                 </li>
                 <li class="header__menu__list">
