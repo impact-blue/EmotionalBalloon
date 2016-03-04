@@ -15,14 +15,26 @@ class AdminProductsController < ApplicationController
       redirect_to "/admin/products?status=all"
     end
 
+    # params[:target][:id,order,stocks][:list][:category]
+
     if params[:status] == "all"
-      @json_products = Product.all.page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.all.page(params[:page]).per(@page).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "public"
-      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("#{params[:targer]} #{params[:order]}")
     elsif params[:status] == "secret"
-      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "none"
-      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("#{params[:targer]} #{params[:order]}")
+    end
+
+    if params[:category].present?
+      @json_products = @json_products.where(category_id: params[:category])
+    elsif params[:list] == "scene"
+      category_id = @json_scene_list.pluck(:id)
+      @json_products = @json_products.where(category_id:  category_id)
+    elsif params[:list] == "character"
+      category_id = @json_character_list.pluck(:id)
+      @json_products = @json_products.where(category_id:  category_id)
     end
 
     #CSVダウンロード

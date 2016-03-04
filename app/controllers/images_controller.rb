@@ -16,7 +16,6 @@ class ImagesController < ApplicationController
     @image = Image.new(create_params)
     @image.image =params[:image][:image].read
     @image.image_content_type = params[:image][:image].content_type
-binding.pry
     if @image.save
       redirect_to action: 'index'
     else

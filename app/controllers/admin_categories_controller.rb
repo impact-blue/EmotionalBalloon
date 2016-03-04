@@ -5,17 +5,9 @@ class AdminCategoriesController < ApplicationController
     unless params[:filter].present?
       redirect_to "/admin/categories?filter=all"
     end
-    if params[:filter] == "all"
       @json_category_list = Category.all
       @json_scene_list = @json_category_list.where(genre: :scene)
-      @json_chara_list = @json_category_list.where(genre: :character)
-    elsif params[:filter] == "scene"
-      @json_category_list = Category.all
-      @json_scene_list = Category.where(genre: :scene)
-    elsif params[:filter] == "character"
-      @json_category_list = Category.all
-      @json_character_list = Category.where(genre: :character)
-    end
+      @json_character_list = @json_category_list.where(genre: :character)
   end
 
 

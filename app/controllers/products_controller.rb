@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_json_categories,:set_json_index
 
   def index
-    @category_name = Category.where(status: 1).pluck(:name_en)
+    @category_name = Category.pluck(:name_en)
     #シーン検索
     if request.path.include?("scenes")
         if request.path.include?("all")
           @json_products = []
 
-          category_id = Category.where(["genre = ? and status = ?","scene","1"]).pluck(:id)
+          category_id = Category.where(["genre = ?","scene"]).pluck(:id)
 
           @json_products =  Product.where(status: 1, category_id: category_id )
 

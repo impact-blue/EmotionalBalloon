@@ -71,6 +71,7 @@
                     id: <%= @json_detail_product.category.id %>,
                     name_en:"<%= @json_detail_product.category.name_en %>",
                     name_jp:"<%= @json_detail_product.category.name_ja %>",
+                    type: "<%= @json_detail_product.category.genre %>"
                   },
                     <% end %>
               },
@@ -163,7 +164,7 @@
                 <% end %>
                 <% if @json_character_list.present? %>
                   character: [
-                    <% @json_chara_list.each do |c| %>
+                    <% @json_character_list.each do |c| %>
                       {
                         id:<%= c.id %>,
                         name_en:"<%= c.name_en%>",
