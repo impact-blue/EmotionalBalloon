@@ -4,26 +4,26 @@ class AdminController < ApplicationController
 
   def index
     #当月の売上
-    @json_sales_orders = []
-    current_day_count = Time.zone.now.strftime('%d').to_i
-    current_day = Time.zone.now
+      @json_sales_orders = []
+      current_day_count = Time.zone.now.strftime('%d').to_i
+      current_day = Time.zone.now
 
-    current_day_count.times do
-      @sales_index = Order.where(created_at: current_day.all_day)
-        sales = Hash.new
-        sales[:price] = 0
-        sales[:count] = 0
-        sales[:day] = current_day.strftime('%Y/%m/%d')
+      current_day_count.times do
+        @sales_index = Order.where(created_at: current_day.all_day)
+          sales = Hash.new
+          sales[:price] = 0
+          sales[:count] = 0
+          sales[:day] = current_day.strftime('%Y/%m/%d')
 
-        @sales_index.each do |o|
-          sales[:price] += o.price
-          sales[:count] += 1
-        end
+          @sales_index.each do |o|
+            sales[:price] += o.price
+            sales[:count] += 1
+          end
 
-      @json_sales_orders.unshift(sales)
-      current_day_count -= 1
-      current_day -= 1.day
-    end
+        @json_sales_orders.unshift(sales)
+        current_day_count -= 1
+        current_day -= 1.day
+      end
     #当月の売り上げここまで
 
     #30日間の売上（月を跨ぐ）

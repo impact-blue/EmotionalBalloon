@@ -46,8 +46,6 @@ class ApplicationController < ActionController::Base
 
   def set_json_categories
     @json_category_list = Category.all
-    @json_scene_list = @json_category_list.where(genre: :scene)
-    @json_character_list = @json_category_list.where(genre: :character)
   end
 
   def set_json_index

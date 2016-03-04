@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'company/contact'   => 'company#create_contact'
 
 #productの一覧
-  get 'products/show/:id'  => 'products#show'
+  get 'products/:id'  => 'products#show'
   get 'scenes/:category_name'     => 'products#index'
   get 'characters/:category_name'     => 'products#index'
   get 'search' => 'products#index'

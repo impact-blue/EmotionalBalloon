@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if request.path.include?("scenes")
         if request.path.include?("all")
           @json_products = []
-
+          @json_scene_list = @json_category_list.where(genre: :scene)
           category_id = @json_scene_list.pluck(:id)
 
           @json_products =  Product.where(status: 1, category_id: category_id )
@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     if request.path.include?("characters")
         if request.path.include?("all")
           @json_products = []
+          @json_character_list = @json_category_list.where(genre: :character)
           category_id = @json_character_list.pluck(:id)
           @json_products =  Product.where(status: 1, category_id: category_id )
 

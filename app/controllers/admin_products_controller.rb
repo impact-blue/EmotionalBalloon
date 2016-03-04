@@ -30,10 +30,12 @@ class AdminProductsController < ApplicationController
     if params[:category].present?
       @json_products = @json_products.where(category_id: params[:category])
     elsif params[:list] == "scene"
-      category_id = @json_scene_list.pluck(:id)
-      @json_products = @json_products.where(category_id:  category_id)
+      scene_list = @json_category_list.where(genre: :scene)
+      category_id     = scene_list.pluck(:id)
+      @json_products  = @json_products.where(category_id:  category_id)
     elsif params[:list] == "character"
-      category_id = @json_character_list.pluck(:id)
+      json_character_list = @json_category_list.where(genre: :character)
+      category_id     = character_list.pluck(:id)
       @json_products = @json_products.where(category_id:  category_id)
     end
 
