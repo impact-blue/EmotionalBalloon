@@ -1,9 +1,9 @@
 <% include ../parts/_header %>
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?filter=all'}"><a href="/admin/orders?filter=all">すべて</a></li>
-    <li ng-class="{'on': search === '?filter=unconfirmed'}"><a href="/admin/orders?filter=unconfirmed">未入金</a></li>
-    <li ng-class="{'on': search === '?filter=process'}"><a href="/admin/orders?filter=process">未発送</a></li>
-    <li ng-class="{'on': search === '?filter=complete'}"><a href="/admin/orders?filter=complete">完了</a></li>
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/orders?status=all">すべて</a></li>
+    <li ng-class="{'on': search === '?status=unconfirmed'}"><a href="/admin/orders?status=unconfirmed">未入金</a></li>
+    <li ng-class="{'on': search === '?status=process'}"><a href="/admin/orders?status=process">未発送</a></li>
+    <li ng-class="{'on': search === '?status=complete'}"><a href="/admin/orders?status=complete">完了</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
@@ -26,7 +26,7 @@
             </tr>
         </thread>
         <tbody class="c-table__body">
-            <tr class="c-table__body__row" ng-repeat="order in data.order_list">
+            <tr class="c-table__body__row" ng-repeat="order in data.order_list.orders">
                 <td class="c-table__body__row__data">{{order.id}}</td>
                 <td class="c-table__body__row__data">{{order.family_name}} {{order.first_name}}</td>
                 <td class="c-table__body__row__data">{{order.payment_info.method}}</td>
@@ -41,5 +41,6 @@
             </tr>
         </tbody>
     </table>
+    <balloon-next-button class="u-mt-10" url="/admin/orders" max="data.order_list.max_page" current="data.order_list.current_page"></balloon-next-button>
 </div>
 <% include ../parts/_footer %>
