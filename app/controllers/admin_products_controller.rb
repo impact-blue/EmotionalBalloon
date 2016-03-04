@@ -73,13 +73,14 @@ class AdminProductsController < ApplicationController
      # @json_detail_product = Product.find(params[:id])
     end
 
-    @product.name = params[:data][:name]
-    @product.price = params[:data][:price]
-    @product.stocks = params[:data][:stock]
-    @product.main_image = params[:data][:images][0]
-    @product.comment = params[:data][:description]
-    @product.size = params[:data][:size]
-    @product.status = params[:data][:status]
+    @product.name         = params[:data][:name]
+    @product.price        = params[:data][:price]
+    @product.stocks       = params[:data][:stock]
+    @product.main_image   = params[:data][:images][0]
+    @product.comment      = params[:data][:description]
+    @product.size         = params[:data][:size]
+    @product.status       = params[:data][:status]
+    @product.category_id  = params[:data][:category]
 
     if params[:data][:images].present?
       params[:data][:images].each_with_index do |product_info,i|
@@ -89,50 +90,6 @@ class AdminProductsController < ApplicationController
       end
     end
 
-    #シーン
-      scene_count =  Scene.count - @product.product_scenes.count
-      scene_count.times do |i|
-        @product.product_scenes.build
-        @product.product_scenes[i].product_id = params[:data][:id]
-      end
-
-      @product.product_scenes.each_with_index do |scenes,i|
-        scenes.scene_id = i+1 #シーンを一覧から削除した場合には対応していない。
-        scenes.status = 0
-        scenes.save
-      end
-
-      if params[:data][:scenes].present?
-        params[:data][:scenes].each_with_index do |product_info,i|
-          product_scene = @product.product_scenes.find_by(scene_id: product_info)
-          product_scene.scene_id = params[:data][:scenes][i]
-          product_scene.status = 1
-          product_scene.save
-        end
-      end
-    #シーンここまで
-    #キャラここから
-    chara_count =  Chara.count - @product.product_charas.count
-      chara_count.times do |i|
-        @product.product_charas.build
-        @product.product_charas[i].product_id = params[:data][:id]
-      end
-
-      @product.product_charas.each_with_index do |charas,i|
-        charas.chara_id = i+1
-        charas.status = 0
-        charas.save
-      end
-
-      if params[:data][:characters].present?
-        params[:data][:characters].each_with_index do |product_info,i|
-          product_chara = @product.product_charas.find_by(chara_id: product_info)
-          product_chara.chara_id = params[:data][:characters][i]
-          product_chara.status = 1
-          product_chara.save
-        end
-      end
-    #ここまで
     #保存
     if @product.save
       render json: {data:{result:"success"}}

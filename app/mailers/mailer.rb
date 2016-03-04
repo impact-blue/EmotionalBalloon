@@ -9,9 +9,7 @@ class Mailer < ApplicationMailer
   end
 
   def thanks_contact
-    #apiのコントローラーでメッセージの送信（保存した後で、リダイレクトする前）
-    
-
+    #apiのコントローラーでメッセージの送信（保存した後で、リダイレクトする前
   end
 
   def bank_buy_thanks_email(order)
