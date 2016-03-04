@@ -525,6 +525,8 @@ Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'other' ,:name_ja =
 
 MailContent.create(:subject => 'エモーショナルバルーン：商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
 MailContent.create(:subject => 'エモーショナルバルーン：【銀行振込】商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
+MailContent.create(:subject => 'お問い合わせの受付',:text => 'お問い合わせを下記にて受け付けました。')
+
 
 Agreement.create(:content => '利用規約の内容です。')
 Traderule.create(:company => 'インパクトブルー')

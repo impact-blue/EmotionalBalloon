@@ -10,6 +10,8 @@ class Mailer < ApplicationMailer
 
   def thanks_contact
     #apiのコントローラーでメッセージの送信（保存した後で、リダイレクトする前）
+    
+
   end
 
   def bank_buy_thanks_email(order)
@@ -17,5 +19,6 @@ class Mailer < ApplicationMailer
     @order = order
     mail to: order.user.email, subject: @mail_content.subject
   end
+
 
 end
