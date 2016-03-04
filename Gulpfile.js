@@ -105,6 +105,10 @@ gulp.task('copy', function(){
         }))
         .pipe(gulp.dest('./app/views/admin_products/'));
     gulp
+        .src(['./front/template/admin/products/edit.html'])
+        .pipe(rename('new.html.erb'))
+        .pipe(gulp.dest('./app/views/admin_products/'));
+    gulp
         .src(['./front/template/admin/orders/*.html'])
         .pipe(rename(function(path) {
             path.extname = '.html.erb';

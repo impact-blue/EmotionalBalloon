@@ -1,53 +1,48 @@
 app.controller('productCreateController', function($scope, $http) {
-    $scope.product_data = {
-        id: balloon_data.data.detail_product.id,
-        name: balloon_data.data.detail_product.name,
-        price: balloon_data.data.detail_product.price,
-        stock: balloon_data.data.detail_product.stocks,
-        images: [
-            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720172",
-            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720173",
-            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720174",
-            "http://uds.gnst.jp/rest/img/s3a4fr5t0000/s_00m9.jpg?t=1401720175"
-        ],
-        description: balloon_data.data.detail_product.description,
-        size: balloon_data.data.detail_product.size,
-        status: balloon_data.data.detail_product.status,
-        scenes: [],
-        characters: []
+    if(location.pathname.split('/')[3] === 'new') {
+        $scope.product_data = {
+            id: null,
+            name: '',
+            price: null,
+            stock: null,
+            images: [],
+            description: '',
+            size: '',
+            status: '',
+            category: {}
+        };
+        $scope.formModel = {
+            category: 'scene'
+        };
+    } else {
+        $scope.product_data = balloon_data.data.detail_product;
+        $scope.formModel = {
+            category: balloon_data.data.detail_product.category.type
+        };
+        $scope.product_data.category = balloon_data.data.detail_product.category;
+    }
+
+    console.log('hii');
+
+    $scope.formOptions = {
+        category: []
     };
-    angular.forEach(balloon_data.data.detail_product.scenes, function(value, key){
-        $scope.product_data.scenes.push(value.id);
-    });
-    angular.forEach(balloon_data.data.detail_product.characters, function(value, key){
-        $scope.product_data.characters.push(value.id);
-    });
-    $scope.checkScene = function(scene) {
-        var checkFlag = false;
-        angular.forEach($scope.product_data.scenes, function(value, key){
-            if(scene.id === value) {
-                checkFlag = true;
-            }
-        });
-        if(checkFlag) {
-            $scope.product_data.scenes.splice($scope.product_data.scenes.indexOf(scene.id), 1);
-        } else {
-            $scope.product_data.scenes.push(scene.id);
+
+    $scope.$watch('formModel.category', function(value) {
+        $scope.formOptions.category = [];
+        if(value === 'scene') {
+            angular.forEach(balloon_data.data.category_list.scene, function(value, key) {
+                $scope.formOptions.category.push(value);
+            });
+            $scope.product_data.category.name_en = 'marriage';
+        } else if(value === 'character') {
+            angular.forEach(balloon_data.data.category_list.character, function(value, key) {
+                $scope.formOptions.category.push(value);
+            });
+            $scope.product_data.category.name_en = 'disney';
         }
-    };
-    $scope.checkCharacter = function(character) {
-        var checkFlag = false;
-        angular.forEach($scope.product_data.characters, function(value, key){
-            if(character.id === value) {
-                checkFlag = true;
-            }
-        });
-        if(checkFlag) {
-            $scope.product_data.characters.splice($scope.product_data.characters.indexOf(character.id), 1);
-        } else {
-            $scope.product_data.characters.push(character.id);
-        }
-    };
+    });
+
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data

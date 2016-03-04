@@ -455,30 +455,12 @@
                         "http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_08_35.jpg",
                         "http://img5.zozo.jp/goodsimages/172/10329172/10329172_b_09_35.jpg"
                     ],
-                    scenes: [
-                        {
-                            id: 123,
-                            name_en: "scene1",
-                            name_jp: "シーン１"
-                        },
-                        {
-                            id: 456,
-                            name_en: "scene2",
-                            name_jp: "シーン２"
-                        }
-                    ],
-                    characters: [
-                        {
-                            id: 123,
-                            name_en: "character1",
-                            name_jp: "キャラクター１"
-                        },
-                        {
-                            id: 789,
-                            name_en: "character2",
-                            name_jp: "キャラクター２"
-                        }
-                    ]
+                    category: {
+                        id: 123,
+                        name_en: "ghibli",
+                        name_jp: "結婚式",
+                        type: 'character'
+                    }
                 },
                 feature_list: [
                     {
@@ -770,43 +752,72 @@
                     },
                     comment: "HelloWorld!!"
                 },
-                category_list: [
-                    {
-                        id: 123,
-                        name_en: "marriage",
-                        name_jp: "結婚式",
-                        type: "scene",
-                        created_at: "2016-01-01 12:34:56"
-                    },
-                    {
-                        id: 123,
-                        name_en: "marriage",
-                        name_jp: "結婚式",
-                        type: "scene",
-                        created_at: "2016-01-01 12:34:56"
-                    },
-                    {
-                        id: 123,
-                        name_en: "marriage",
-                        name_jp: "結婚式",
-                        type: "scene",
-                        created_at: "2016-01-01 12:34:56"
-                    },
-                    {
-                        id: 123,
-                        name_en: "marriage",
-                        name_jp: "結婚式",
-                        type: "character",
-                        created_at: "2016-01-01 12:34:56"
-                    },
-                    {
-                        id: 123,
-                        name_en: "marriage",
-                        name_jp: "結婚式",
-                        type: "character",
-                        created_at: "2016-01-01 12:34:56"
-                    }
-                ],
+                category_list: {
+                    scene: [
+                        {
+                            id: 111,
+                            name_en: "marriage",
+                            name_jp: "結婚式"
+                        },
+                        {
+                            id: 222,
+                            name_en: "babygift",
+                            name_jp: "出産祝い"
+                        },
+                        {
+                            id: 333,
+                            name_en: "birthday",
+                            name_jp: "誕生日"
+                        },
+                        {
+                            id: 444,
+                            name_en: "open",
+                            name_jp: "開店祝い"
+                        },
+                        {
+                            id: 555,
+                            name_en: "other",
+                            name_jp: "その他"
+                        }
+                    ],
+                    character: [
+                        {
+                            id: 111,
+                            name_en: "disney",
+                            name_jp: "ディズニー"
+                        },
+                        {
+                            id: 222,
+                            name_en: "ghibli",
+                            name_jp: "ジブリ"
+                        },
+                        {
+                            id: 333,
+                            name_en: "sanrio",
+                            name_jp: "サンリオ"
+                        },
+                        {
+                            id: 444,
+                            name_en: "anpanman",
+                            name_jp: "アンパンマン"
+                        },
+                        {
+                            id: 555,
+                            name_en: "onepiece",
+                            name_jp: "ワンピース"
+                        },
+                        {
+                            id: 666,
+                            name_en: "yokai",
+                            name_jp: "妖怪ウォッチ"
+                        },
+                        {
+                            id: 777,
+                            name_en: "other",
+                            name_jp: "その他"
+                        }
+                    ]
+                },
                 customer_list: {
                     current_page: 1,
                     max_page: 5,
@@ -874,70 +885,6 @@
                         name: "和田 隼人",
                         email: "hatoya.web.design@gmail.com"
                     }
-                ],
-                scene_list: [
-                    {
-                        id: 111,
-                        name_en: "marriage",
-                        name_jp: "結婚式"
-                    },
-                    {
-                        id: 222,
-                        name_en: "babygift",
-                        name_jp: "出産祝い"
-                    },
-                    {
-                        id: 333,
-                        name_en: "birthday",
-                        name_jp: "誕生日"
-                    },
-                    {
-                        id: 444,
-                        name_en: "open",
-                        name_jp: "開店祝い"
-                    },
-                    {
-                        id: 555,
-                        name_en: "other",
-                        name_jp: "その他"
-                    }
-                ],
-                character_list: [
-                    {
-                        id: 111,
-                        name_en: "disney",
-                        name_jp: "ディズニー"
-                    },
-                    {
-                        id: 222,
-                        name_en: "ghibli",
-                        name_jp: "ジブリ"
-                    },
-                    {
-                        id: 333,
-                        name_en: "sanrio",
-                        name_jp: "サンリオ"
-                    },
-                    {
-                        id: 444,
-                        name_en: "anpanman",
-                        name_jp: "アンパンマン"
-                    },
-                    {
-                        id: 555,
-                        name_en: "onepiece",
-                        name_jp: "ワンピース"
-                    },
-                    {
-                        id: 666,
-                        name_en: "yokai",
-                        name_jp: "妖怪ウォッチ"
-                    },
-                    {
-                        id: 777,
-                        name_en: "other",
-                        name_jp: "その他"
-                    },
                 ],
                 category_detail: {
                     id: 123,
