@@ -9,7 +9,7 @@ app.controller('productCreateController', function($scope, $http) {
             description: '',
             size: '',
             status: '',
-            category: 111
+            category: null
         };
     } else {
         $scope.product_data = balloon_data.data.detail_product;
