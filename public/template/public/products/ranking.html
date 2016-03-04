@@ -52,7 +52,7 @@
     </div>
     <ul class="p-spaceList p-spaceList--ranking u-mt-40">
         <li ng-repeat="product in data.ranking_products">
-            <a href="/products">
+            <a href="/products/{{product.id}}">
                 <img src="{{product.image}}" alt="">
                 <div class="spaceWrapper">
                     <p>{{product.name}}</p>
