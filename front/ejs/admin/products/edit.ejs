@@ -30,11 +30,7 @@
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">カテゴリー</p>
                 <div class="p-registerForm__block__wrapper__list__content">
-                    <select ng-model="formModel.category">
-                        <option value="scene">シーン</option>
-                        <option value="character">キャラクター</option>
-                    </select>
-                    <select ng-model="product_data.category" ng-options="option.name_jp for option in formOptions.category track by option.name_en"></select>
+                    <select ng-model="product_data.category" ng-options="category.id as category.name_jp group by category.type for (i, category) in formOptions.category"></select>
                 </div>
             </li>
             <li class="p-registerForm__block__wrapper__list required">
