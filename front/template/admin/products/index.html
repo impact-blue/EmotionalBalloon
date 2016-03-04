@@ -66,20 +66,11 @@
     <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret">非公開</a></li>
     <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none">在庫なし</a></li>
 </ul>
-<div class="l-admin__right__foot__content__body">
+<div class="l-admin__right__foot__content__body" ng-controller="productListController">
     <div class="c-buttonList">
         <div class="c-buttonList__left">
-            <select name="">
-                <option value="all">すべて</option>
-                <option value="scene">シーン</option>
-                <option value="character">キャラクター</option>
-            </select>
-            <select name="">
-                <option value="all">すべて</option>
-            </select>
-            <!-- <select name="" ng-model="scene" ng-options="scene.name_en as scene.name_jp for scene in data.scene_list">
-                <option value="all">すべて</option>
-            </select> -->
+            <select ng-model="formModel.category" ng-options="category.id as category.name_jp group by category.type for (i, category) in formOptions.category"></select>
+            <p class="c-buttonList__right__list u-ml-0" ng-click="findProduct(formModel.category)">絞り込む</p>
         </div>
         <div class="c-buttonList__right">
             <p class="c-buttonList__right__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
@@ -115,15 +106,7 @@
             </tr>
         </tbody>
     </table>
-    <ul class="c-nextButton u-mt-10">
-        <li class="c-nextButton__list">
-            <a href="/admin/products/?filter=all&page={{data.search_products.current_page - 1}}" ng-if="data.search_products.current_page > 1"><p class="c-nextButton__list__button"><i class="fa fa-arrow-left"></i> 前のページ</p></a>
-        </li>
-        <li class="c-nextButton__list ng-binding">{{data.search_products.current_page}} / {{data.search_products.max_page}}</li>
-        <li class="c-nextButton__list">
-            <a href="/admin/products/?filter=all&page={{data.search_products.current_page + 1}}" ng-if="data.search_products.current_page !== data.search_products.max_page"><p class="c-nextButton__list__button">次のページ <i class="fa fa-arrow-right"></i></p></a>
-        </li>
-    </ul>
+    <balloon-next-button class="u-mt-10" url="/admin/products" max="data.search_products.max_page" current="data.search_products.current_page"></balloon-next-button>
 </div>
             </div>
         </div>
