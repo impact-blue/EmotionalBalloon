@@ -40,7 +40,7 @@
         </thread>
         <tbody class="c-table__body">
             <tr class="c-table__body__row" ng-repeat="order in data.search_products.product_list">
-                <td class="c-table__body__row__data">{{order.id}}</td>
+                <td class="c-table__body__row__data"><a href="/products/{{order.id}}" target="_blank">{{order.id}}</a></td>
                 <td class="c-table__body__row__data"><img src="{{order.image}}" alt=""></td>
                 <td class="c-table__body__row__data">{{order.name}}</td>
                 <td class="c-table__body__row__data">{{order.stock}}</td>

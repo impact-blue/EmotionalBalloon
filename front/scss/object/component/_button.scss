@@ -93,7 +93,8 @@
         }
         a {
             display: block;
-            color: white;
+            color: white !important;
+            text-decoration: none !important;
         }
     }
 }

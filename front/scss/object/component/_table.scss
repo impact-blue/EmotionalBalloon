@@ -35,6 +35,10 @@
                 &:first-child {
                     border-left: none;
                 }
+                a {
+                    color: $brandColor;
+                    text-decoration: underline;
+                }
                 img {
                     width: 100%;
                 }

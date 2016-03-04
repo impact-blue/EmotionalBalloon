@@ -16,7 +16,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/ranking', {
             templateUrl: '/template/public/products/ranking.html'
         })
-        .when('/products/show/:id', {
+        .when('/products/:id', {
             templateUrl: '/template/public/products/show.html'
         })
         .when('/carts/show', {
