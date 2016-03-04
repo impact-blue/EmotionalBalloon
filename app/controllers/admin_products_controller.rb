@@ -90,12 +90,12 @@ class AdminProductsController < ApplicationController
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
     @product.stocks       = params[:data][:stock]
-    @product.main_image   = params[:data][:images][0]
+#    @product.main_image   = params[:data][:images][0]
     @product.comment      = params[:data][:description]
     @product.size         = params[:data][:size]
     @product.status       = params[:data][:status]
     @product.category_id  = params[:data][:category]
-
+binding.pry
     if params[:data][:images].present?
       params[:data][:images].each_with_index do |product_info,i|
         @product.images.build

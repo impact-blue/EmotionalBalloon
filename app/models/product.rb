@@ -49,7 +49,7 @@ class Product < ActiveRecord::Base
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["name", "price","stocks","comment","keyword","size","status","count"]
+    ["name", "price","stocks","comment","keyword","size","status","count","category_id"]
   end
 
 end
