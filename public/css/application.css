@@ -2282,7 +2282,8 @@ footer {
     opacity: 0.9; }
   .c-button--detail__text a {
     display: block;
-    color: white; }
+    color: white !important;
+    text-decoration: none !important; }
 
 .c-buttonList {
   display: flex;
@@ -2375,6 +2376,9 @@ h2.balloonHeading2 {
     border-left: 1px solid #555; }
     .c-table__body__row__data:first-child {
       border-left: none; }
+    .c-table__body__row__data a {
+      color: #D83961;
+      text-decoration: underline; }
     .c-table__body__row__data img {
       width: 100%; }
 
