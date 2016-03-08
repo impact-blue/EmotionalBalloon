@@ -23,8 +23,23 @@ class AdminController < ApplicationController
         @json_sales_orders.unshift(sales)
         current_day_count -= 1
         current_day -= 1.day
-      end
-    #当月の売り上げここまで
+    end
+    #昨日の売上
+
+
+    #平均顧客単価
+      @json_sales_average = Hash.new
+      sales = Order.select("price").all
+      sales.pluck(:price)
+
+
+
+
+
+
+
+
+
 
     #30日間の売上（月を跨ぐ）
   #  @orders = Order.where(created_at: [30.days.ago.beginning_of_day..Time.now.end_of_day])
