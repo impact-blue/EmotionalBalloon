@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_json_categories,:set_json_index
 
   def index
+    
     @category_name = @json_category_list.pluck(:name_en)
     #シーン検索
     if request.path.include?("scenes")

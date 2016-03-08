@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
+  <meta content="!" name="fragment">
+  <link rel="canonical" hrel="https://emotional-balloon.com<%= canonical %>">
 
 
 <script type="text/javascript">
@@ -178,7 +180,7 @@
                       phone:"<%= c.phone %>",
                     },
                   <% end %>
-                ]
+                ],
               },
             <% end %>
             <% if @json_detail_customer.present? %>
@@ -247,7 +249,7 @@
             <% end %>
             <% if @json_detail_contact.present? %>
               detail_contact:
-               {
+                 {
                     id:          <%= @json_detail_contact.id %>,
                     status:     "<%= @json_detail_contact.status %>",
                     name:       "<%= @json_detail_contact.name %>",
