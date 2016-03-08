@@ -667,10 +667,17 @@ app.directive('balloonNextButton', function(querySortService) {
                     };
                 }
             } else {
-                scope.link = {
-                    down: scope.url + "?page=" + ( scope.current - 1 ),
-                    up: scope.url + "?page=" + ( scope.current + 1 )
-                };
+                if(angular.isUndefined(querySortService.category)) {
+                    scope.link = {
+                        down: scope.url + "?page=" + ( scope.current - 1 ),
+                        up: scope.url + "?page=" + ( scope.current + 1 )
+                    };
+                } else {
+                    scope.link = {
+                        down: scope.url + "?page=" + ( scope.current - 1 ) + '&category=' + querySortService.category,
+                        up: scope.url + "?page=" + ( scope.current + 1 ) + '&category=' + querySortService.category
+                    };
+                }
             }
         }
     };
