@@ -125,10 +125,11 @@ class ProductsController < ApplicationController
           sum   = []  #30日間の購入情報から、商品IDとその個数だけ取り出した情報
 
     last_30days_buy.each do |p|
-        if  p.product.status = 1
+        if  p.product.status == 1
         product_ids << p.product_id
         end
     end
+
     #重複のないproduct_idよりハッシュを追加(countのid部分)
     product_ids.uniq.each do |p|
         data = Hash.new(:id => 0,:count => 0)
