@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
     #シーン検索
     if request.path.include?("scenes")
         if request.path.include?("all")
+          if  params[:page] == "1"
+            redirect_to "/scenes/all"
+          end
           @json_products = []
           @json_scene_list = @json_category_list.where(genre: :scene)
           category_id = @json_scene_list.pluck(:id)
@@ -18,6 +21,9 @@ class ProductsController < ApplicationController
         end
       @category_name.each do |category_name|
         if request.path.include?("scenes/#{category_name}")
+          if  params[:page] == "1"
+            redirect_to "/scenes/#{category_name}"
+          end
           @json_products =
             Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
           return
@@ -27,6 +33,9 @@ class ProductsController < ApplicationController
     #キャラクター
     if request.path.include?("characters")
         if request.path.include?("all")
+          if  params[:page] == "1"
+            redirect_to "/characters/all"
+          end
           @json_products = []
           @json_character_list = @json_category_list.where(genre: :character)
           category_id = @json_character_list.pluck(:id)
@@ -38,6 +47,9 @@ class ProductsController < ApplicationController
         end
       @category_name.each do |category_name|
         if request.path.include?("characters/#{category_name}")
+          if  params[:page] == "1"
+            redirect_to "/characters/#{category_name}"
+          end
           @json_products =
             Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
           return
@@ -47,10 +59,19 @@ class ProductsController < ApplicationController
 
     #予算別
     if params[:min].present? && params[:max].present?
+      if  params[:page] == "1"
+            redirect_to "/search?min=#{params[:min]}&max=#{params[:max]}"
+      end
       @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:max].present?
+      if  params[:page] == "1"
+            redirect_to "/search?&max=#{params[:max]}"
+      end
       @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:min].present?
+      if  params[:page] == "1"
+            redirect_to "/search?&min=#{params[:min]}"
+      end
       @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
     end
 

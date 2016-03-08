@@ -78,10 +78,11 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
+    binding.pry
 
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
-    @product.stocks       = params[:data][:stock]
+    @product.stocks       = params[:data][:stocks]
 #    @product.main_image   = params[:data][:images][0]
     @product.comment      = params[:data][:description]
     @product.size         = params[:data][:size]
