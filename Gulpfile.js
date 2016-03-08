@@ -131,6 +131,12 @@ gulp.task('copy', function(){
         .pipe(rename('edit.html.erb'))
         .pipe(gulp.dest('./app/views/admin_mails/'));
     gulp
+        .src(['./front/template/admin/contacts/*.html'])
+        .pipe(rename(function(path) {
+            path.extname = '.html.erb';
+        }))
+        .pipe(gulp.dest('./app/views/admin_contacts/'));
+    gulp
         .src(['./front/template/admin/settings/*.html'])
         .pipe(rename('index.html.erb'))
         .pipe(gulp.dest('./app/views/admin_users/'));

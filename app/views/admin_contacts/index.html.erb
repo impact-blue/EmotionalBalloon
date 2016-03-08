@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/orders'}">
-                <a href="/admin/orders/?filter=all">
+                <a href="/admin/orders/?status=all">
                     <p><i class="fa fa-shopping-cart"></i></p>
                     <p>ORDER</p>
                 </a>
@@ -31,16 +31,22 @@
                     <p>CATEGORY</p>
                 </a>
             </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
+                <a href="/admin/customers">
+                    <p><i class="fa fa-user"></i></p>
+                    <p>CUSTOMER</p>
+                </a>
+            </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
                 <a href="/admin/mails">
                     <p><i class="fa fa-envelope"></i></p>
                     <p>MAIL</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/customers'}">
-                <a href="/admin/customers">
-                    <p><i class="fa fa-user"></i></p>
-                    <p>CUSTOMER</p>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/contacts'}">
+                <a href="/admin/contacts">
+                    <p><i class="fa fa-phone"></i></p>
+                    <p>CONTACT</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
@@ -60,45 +66,45 @@
     <div class="l-admin__right">
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
-<div class="l-admin__right__foot__content__full">
+<ul class="l-admin__right__foot__content__list">
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/contacts?status=all">すべて</a></li>
+    <li ng-class="{'on': search === '?status=uncomplete'}"><a href="/admin/contacts?status=uncomplete">未対応</a></li>
+    <li ng-class="{'on': search === '?status=complete'}"><a href="/admin/contacts?status=complete">対応済み</a></li>
+</ul>
+<div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
         <div class="c-buttonList__left"></div>
         <div class="c-buttonList__right">
             <p class="c-buttonList__right__list"><a href="">CSV出力</a></p>
             <p class="c-buttonList__right__list">CSVインポート</p>
-            <p class="c-buttonList__right__list"><a href="/admin/settings/users/new">新規登録</a></p>
         </div>
     </div>
     <table class="c-table">
         <thread class="c-table__thread">
             <tr class="c-table__thread__row">
                 <th class="c-table__thread__row__head">ID</th>
-                <th class="c-table__thread__row__head">名前</th>
-                <th class="c-table__thread__row__head">メールアドレス</th>
+                <th class="c-table__thread__row__head">ステータス</th>
+                <th class="c-table__thread__row__head">お名前</th>
                 <th class="c-table__thread__row__head">件名</th>
-                <th class="c-table__thread__row__head">受信日</th>
-                <th class="c-table__thread__row__head">変更日</th>
-                <th class="c-table__thread__row__head">状態</th>
+                <th class="c-table__thread__row__head">作成日</th>
+                <th class="c-table__thread__row__head">更新日</th>
                 <th class="c-table__thread__row__head">詳細</th>
             </tr>
         </thread>
         <tbody class="c-table__body">
-            <% @contact.each do |c| %>
-            <tr class="c-table__body__row">
-                <td class="c-table__body__row__data"><%= c.id %></td>
-                <td class="c-table__body__row__data"><%= c.name %></td>
-                <td class="c-table__body__row__data"><%= c.email %></td>
-                <td class="c-table__body__row__data"><%= c.subject %></td>
-                <td class="c-table__body__row__data"><%= c.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-                <td class="c-table__body__row__data"><%= c.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
-                <td class="c-table__body__row__data"><%= c.now_status  %></td>
+            <tr class="c-table__body__row" ng-repeat="contact in data.contact_list">
+                <td class="c-table__body__row__data">{{contact.id}}</td>
+                <td class="c-table__body__row__data">{{contact.status}}</td>
+                <td class="c-table__body__row__data">{{contact.name}}</td>
+                <td class="c-table__body__row__data">{{contact.subject}}</td>
+                <td class="c-table__body__row__data">{{contact.created_at}}</td>
+                <td class="c-table__body__row__data">{{contact.updated_at}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="/admin/contact/<%= c.id %>">詳細</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/contacts/{{contact.id}}/edit">詳細を見る</a></p>
                     </div>
                 </td>
             </tr>
-            <% end %>
         </tbody>
     </table>
 </div>
