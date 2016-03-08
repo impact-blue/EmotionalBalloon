@@ -45,9 +45,9 @@ Rails.application.routes.draw do
   patch 'admin/settings/traderule' => 'admin_settings#update_trade_rule'
   get   'admin/settings/company'   => 'admin_settings#edit_company'
   patch 'admin/settings/company'   => 'admin_settings#update_company'
-
+#管理画面メールテンプレート
   get   'admin/mails'      => 'admin_mails#edit'
-
+  patch 'api/mails/edit' => 'admin_mails#api'
 #管理画面ホーム
   get "admin" => "admin#index"
 

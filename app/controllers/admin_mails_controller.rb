@@ -13,7 +13,7 @@ before_action :logged_in_admin_user
     end
   end
 
-  def update
+  def api
     if @card_mail_content.update_attributes(mail_params)
       redirect_to '/admin'
     else
