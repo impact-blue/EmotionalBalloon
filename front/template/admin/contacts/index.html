@@ -67,52 +67,46 @@
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">すべて</a></li>
-    <li ng-class="{'on': search === '?status=public'}"><a href="/admin/products?status=public">公開</a></li>
-    <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret">非公開</a></li>
-    <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none">在庫なし</a></li>
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/contacts?status=all">すべて</a></li>
+    <li ng-class="{'on': search === '?status=uncomplete'}"><a href="/admin/contacts?status=uncomplete">未対応</a></li>
+    <li ng-class="{'on': search === '?status=complete'}"><a href="/admin/contacts?status=complete">対応済み</a></li>
 </ul>
-<div class="l-admin__right__foot__content__body" ng-controller="productListController">
+<div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
-        <div class="c-buttonList__left">
-            <select ng-model="formModel.category" ng-options="category.id as category.name_jp group by category.type for (i, category) in formOptions.category"></select>
-            <p class="c-buttonList__right__list u-ml-0" ng-click="findProduct(formModel.category)">絞り込む</p>
-        </div>
+        <div class="c-buttonList__left"></div>
         <div class="c-buttonList__right">
-            <p class="c-buttonList__right__list"><a href="/admin/products.csv{{search}}">CSV出力</a></p>
+            <p class="c-buttonList__right__list"><a href="">CSV出力</a></p>
             <p class="c-buttonList__right__list">CSVインポート</p>
-            <p class="c-buttonList__right__list"><a href="/admin/products/new">新規登録</a></p>
         </div>
     </div>
     <table class="c-table">
         <thread class="c-table__thread">
             <tr class="c-table__thread__row">
                 <th class="c-table__thread__row__head">ID</th>
-                <th class="c-table__thread__row__head">サムネイル画像</th>
-                <th class="c-table__thread__row__head">名称</th>
-                <th class="c-table__thread__row__head">在庫数</th>
-                <th class="c-table__thread__row__head">購入回数</th>
-                <th class="c-table__thread__row__head">登録日</th>
+                <th class="c-table__thread__row__head">ステータス</th>
+                <th class="c-table__thread__row__head">お名前</th>
+                <th class="c-table__thread__row__head">件名</th>
+                <th class="c-table__thread__row__head">作成日</th>
+                <th class="c-table__thread__row__head">更新日</th>
                 <th class="c-table__thread__row__head">詳細</th>
             </tr>
         </thread>
         <tbody class="c-table__body">
-            <tr class="c-table__body__row" ng-repeat="order in data.search_products.product_list">
-                <td class="c-table__body__row__data"><a href="/products/{{order.id}}" target="_blank">{{order.id}}</a></td>
-                <td class="c-table__body__row__data"><img src="{{order.image}}" alt=""></td>
-                <td class="c-table__body__row__data">{{order.name}}</td>
-                <td class="c-table__body__row__data">{{order.stock}}</td>
-                <td class="c-table__body__row__data">{{order.count}}</td>
-                <td class="c-table__body__row__data">{{order.created_at}}</td>
+            <tr class="c-table__body__row" ng-repeat="contact in data.contact_list">
+                <td class="c-table__body__row__data">{{contact.id}}</td>
+                <td class="c-table__body__row__data">{{contact.status}}</td>
+                <td class="c-table__body__row__data">{{contact.name}}</td>
+                <td class="c-table__body__row__data">{{contact.subject}}</td>
+                <td class="c-table__body__row__data">{{contact.created_at}}</td>
+                <td class="c-table__body__row__data">{{contact.updated_at}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
-                        <p class="c-button--detail__text"><a href="/admin/products/{{order.id}}/edit">詳細を見る</a></p>
+                        <p class="c-button--detail__text"><a href="/admin/contacts/{{contact.id}}/edit">詳細を見る</a></p>
                     </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    <balloon-next-button class="u-mt-10" url="/admin/products" max="data.search_products.max_page" current="data.search_products.current_page"></balloon-next-button>
 </div>
             </div>
         </div>

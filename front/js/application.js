@@ -75,6 +75,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/customers', {
             templateUrl: '/template/admin/customers/index.html'
         })
+        .when('/admin/contacts', {
+            templateUrl: '/template/admin/contacts/index.html'
+        })
         .when('/admin/mails', {
             templateUrl: '/template/admin/mails/index.html'
         })
