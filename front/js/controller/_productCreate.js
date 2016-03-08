@@ -31,7 +31,7 @@ app.controller('productCreateController', function($scope, $http) {
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
-                    location.href = "/admin/products";
+                    location.href = "/admin/products?status=all";
                 } else {
                     alert(data.data.message);
                 }
@@ -45,7 +45,7 @@ app.controller('productCreateController', function($scope, $http) {
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
-                    location.href = "/admin/products";
+                    location.href = "/admin/products?status=all";
                 } else {
                     alert(data.data.message);
                 }
