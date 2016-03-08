@@ -78,6 +78,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
         .when('/admin/contacts', {
             templateUrl: '/template/admin/contacts/index.html'
         })
+        .when('/admin/contacts/:id/edit', {
+            templateUrl: '/template/admin/contacts/edit.html'
+        })
         .when('/admin/mails', {
             templateUrl: '/template/admin/mails/index.html'
         })
@@ -450,6 +453,32 @@ app.controller('categoryEditController', function($scope, $http) {
                 alert(status);
             });
         }
+    };
+});
+app.controller('contactEditController', function($scope, $http) {
+    $scope.formOptions = {
+        status: ['未対応', '対応済み']
+    };
+    $scope.formModel = {
+        status: balloon_data.data.detail_contact.status
+    };
+    $scope.editContact = function() {
+        var sendData = {
+            data: $scope.formModel
+        };
+        $http({
+            method: 'PATCH',
+            url: '/api/contacts/edit',
+            data: sendData
+        }).success(function(data, status, headers, config) {
+            if(data.data.result === 'success') {
+                location.href = "/admin";
+            } else {
+                alert(data.data.message);
+            }
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
     };
 });
 app.controller('loginController', function($scope, $http) {

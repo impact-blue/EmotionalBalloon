@@ -1,0 +1,37 @@
+<% include ../parts/_header %>
+<div class="l-admin__right__foot__content__full" ng-controller="contactEditController">
+    <div class="p-registerForm">
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'scene'">シーンカテゴリー</p>
+        <p class="p-registerForm__block__heading" ng-if="split[3] === 'character'">キャラクターカテゴリー</p>
+        <ul class="p-registerForm__block__wrapper">
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">お名前</p>
+                <div class="p-registerForm__block__wrapper__list__content">{{data.detail_contact.name}}</div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">件名</p>
+                <div class="p-registerForm__block__wrapper__list__content">{{data.detail_contact.subject}}</div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">内容</p>
+                <div class="p-registerForm__block__wrapper__list__content">{{data.detail_contact.content}}</div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">作成日</p>
+                <div class="p-registerForm__block__wrapper__list__content">{{data.detail_contact.created_at}}</div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">変更日</p>
+                <div class="p-registerForm__block__wrapper__list__content">{{data.detail_contact.updated_at}}</div>
+            </li>
+            <li class="p-registerForm__block__wrapper__list required">
+                <p class="p-registerForm__block__wrapper__list__text">ステータス</p>
+                <div class="p-registerForm__block__wrapper__list__content"><select ng-model="formModel.status" ng-options="status for (i, status) in formOptions.status"></select></div>
+            </li>
+        </ul>
+    </div>
+    <div class="c-button--cart">
+        <p class="c-button--cart__text" ng-click="editContact()">変更</p>
+    </div>
+</div>
+<% include ../parts/_footer %>
