@@ -219,6 +219,13 @@
                 <% end %>
               ],
             <% end %>
+            <% if @json_detail_mail.present? %>
+            detail_mail: {
+              id: <%= @json_detail_mail.id %>,
+              subject: "<%= @json_detail_mail.subject %>",
+              content: "<%= @json_detail_mail.text %>",
+            },
+            <% end %>
         }
     };
 </script>
