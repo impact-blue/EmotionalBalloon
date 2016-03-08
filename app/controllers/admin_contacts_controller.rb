@@ -1,6 +1,7 @@
 class AdminContactsController < ApplicationController
 
   def index
+    @json_contact_list = Contact.all.page(params[:page]).per(@page).order("created_at asc")
     @contact = Contact.all
   end
 

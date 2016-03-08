@@ -52,9 +52,9 @@ Rails.application.routes.draw do
   get "admin" => "admin#index"
 
 #管理画面お問い合わせ
-  get   'admin/contact'     =>  'admin_contacts#index'
-  get   'admin/contact/:id' =>  'admin_contacts#edit'
-  patch 'admin/contact/:id' =>  'admin_contacts#update'
+  get   'admin/contacts'     =>  'admin_contacts#index'
+  get   'admin/contacts/:id' =>  'admin_contacts#edit'
+  patch 'admin/contacts/:id' =>  'admin_contacts#update'
 
 #管理画面の商品関連
   resources :admin_products,:path => 'admin/products'
