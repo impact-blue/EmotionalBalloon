@@ -5,10 +5,10 @@ class AdminController < ApplicationController
   def index
     #当月の売上
       @json_sales_orders = []
-      current_day_count = Time.zone.now.strftime('%d').to_i
+      current_day_count = Time.zone.now.strftime('%d').to_i #今日の日付のみ取得
       current_day = Time.zone.now
 
-      current_day_count.times do
+      current_day_count.times do  #今日の日付の数だけ繰り返す
         @sales_index = Order.where(created_at: current_day.all_day)
           sales = Hash.new
           sales[:price] = 0
@@ -37,12 +37,7 @@ class AdminController < ApplicationController
     #@date = Time.now
 
     #@json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
-
-      @card_mail_content = MailContent.find(1)
-      @order = Order.find(1)
-      @count ="個数"
-
-      # order.products.map(&:name).zip(order.order_product_infos.map(&:count))
+    # order.products.map(&:name).zip(order.order_product_infos.map(&:count))
   #こんな書き方とか
   end
 

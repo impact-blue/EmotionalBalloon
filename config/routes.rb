@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 
 #管理画面お問い合わせ
   get   'admin/contacts'     =>  'admin_contacts#index'
-  get   'admin/contacts/:id' =>  'admin_contacts#edit'
+  get   'admin/contacts/:id/edit' =>  'admin_contacts#edit'
   patch 'api/contacts' =>  'admin_contacts#api'
 
 #管理画面の商品関連

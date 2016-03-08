@@ -3,8 +3,13 @@ class AdminContactsController < ApplicationController
   before_action :set_json_index
 
   def index
+    if params[:status] == "all"
     @json_contact_list = Contact.all.page(params[:page]).per(@page).order("created_at asc")
-    @contact = Contact.all
+    elsif params[:status] == "uncomplete"
+      @json_contact_list = Contact.where(status: "未対応").page(params[:page]).per(@page).order("created_at asc")
+    elsif params[:status] == "complete"
+      @json_contact_list = Contact.where(status: "対応済み").page(params[:page]).per(@page).order("created_at asc")
+    end
   end
 
   def edit
