@@ -223,7 +223,7 @@
               detail_mail: {
                 id: <%= @json_detail_mail.id %>,
                 subject: "<%= @json_detail_mail.subject %>",
-                content: "<%= @json_detail_mail.text %>",
+                content:  "<%= @json_detail_mail.text.gsub(/\n/,"\\n") %>",
               },
             <% end %>
         }
@@ -232,6 +232,6 @@
 
 </head>
 <body ng-controller="balloonController">
-  <%= yield %>
+  <%= yield %>ß
 </body>
 </html>

@@ -14,10 +14,13 @@ before_action :logged_in_admin_user
   end
 
   def api
-    if @card_mail_content.update_attributes(mail_params)
-      redirect_to '/admin'
+    @mail         = MailContent.find(params[:data][:id])
+    @mail.subject = params[:data][:subject]
+    @mail.text    = params[:data][:content]
+    if @mail.save
+      render json: {data:{result:"success"}}
     else
-      render 'mail_setting'
+      render json: {data:{result:"false"}}
     end
   end
 
