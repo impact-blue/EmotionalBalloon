@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
             redirect_to "/scenes/#{category_name}"
           end
           @json_products =
-            Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
           return
         end
       end
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
             redirect_to "/characters/#{category_name}"
           end
           @json_products =
-            Product.where(category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
           return
         end
       end
@@ -112,22 +112,23 @@ class ProductsController < ApplicationController
 
   #月間のカウントの21個
   def ranking
-    #カウント処理はバッジに追加
+    #公開商品のみ
 
     #タイムゾーン取得
     current_day = Time.zone.now
 
     #30日間に購入された商品情報を取得
-    last_30days_buy = OrderProductInfo.select("product_id,count").where('created_at >= ? ',Time.zone.now - 30.day).order("product_id ASC")
+    last_30days_buy = OrderProductInfo.includes(:product).select("product_id,count").where('created_at >= ? ',Time.zone.now - 30.day).order("product_id ASC")
 
     product_ids = []  #購入された商品の番号の配列
           count = []  #ランキングをカウントするデータの配列
           sum   = []  #30日間の購入情報から、商品IDとその個数だけ取り出した情報
 
     last_30days_buy.each do |p|
+        if  p.product.status = 1
         product_ids << p.product_id
+        end
     end
-
     #重複のないproduct_idよりハッシュを追加(countのid部分)
     product_ids.uniq.each do |p|
         data = Hash.new(:id => 0,:count => 0)
