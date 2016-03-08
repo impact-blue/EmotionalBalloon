@@ -25,7 +25,7 @@
             </tr>
         </thread>
         <tbody class="c-table__body">
-            <tr class="c-table__body__row" ng-repeat="contact in data.contact_list">
+            <tr class="c-table__body__row" ng-repeat="contact in data.contact_list.contacts">
                 <td class="c-table__body__row__data">{{contact.id}}</td>
                 <td class="c-table__body__row__data">{{contact.status}}</td>
                 <td class="c-table__body__row__data">{{contact.name}}</td>
@@ -40,5 +40,6 @@
             </tr>
         </tbody>
     </table>
+    <balloon-next-button class="u-mt-10" url="/admin/contacts" max="data.contact_list.max_page" current="data.contact_list.current_page"></balloon-next-button>
 </div>
 <% include ../parts/_footer %>
