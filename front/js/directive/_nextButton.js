@@ -27,7 +27,12 @@ app.directive('balloonNextButton', function(querySortService) {
                     };
                 }
             } else {
-                if(angular.isUndefined(querySortService.category)) {
+                if(angular.isUndefined(querySortService.status) && angular.isUndefined(querySortService.category)) {
+                    scope.link = {
+                        down: scope.url + "?page=" + ( scope.current - 1 ),
+                        up: scope.url + "?page=" + ( scope.current + 1 )
+                    };
+                } else if(angular.isUndefined(querySortService.category)) {
                     scope.link = {
                         down: scope.url + '?status=' + querySortService.status + "&page=" + ( scope.current - 1 ),
                         up: scope.url + '?status=' + querySortService.status + "&page=" + ( scope.current + 1 )
