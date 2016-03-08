@@ -80,14 +80,16 @@
             <tr class="c-table__thread__row">
                 <th class="c-table__thread__row__head">ID</th>
                 <th class="c-table__thread__row__head">名前</th>
+                <th class="c-table__thread__row__head">電話番号</th>
                 <th class="c-table__thread__row__head">メールアドレス</th>
                 <th class="c-table__thread__row__head">削除</th>
             </tr>
         </thread>
         <tbody class="c-table__body">
-            <tr class="c-table__body__row" ng-repeat="user in data.admin_users">
+            <tr class="c-table__body__row" ng-repeat="user in data.customer_list.customers">
                 <td class="c-table__body__row__data">{{user.id}}</td>
-                <td class="c-table__body__row__data">{{user.name}}</td>
+                <td class="c-table__body__row__data">{{user.family_name}} {{user.first_name}}</td>
+                <td class="c-table__body__row__data">{{user.phone}}</td>
                 <td class="c-table__body__row__data">{{user.email}}</td>
                 <td class="c-table__body__row__data">
                     <div class="c-button--detail">
