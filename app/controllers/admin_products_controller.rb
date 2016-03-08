@@ -11,9 +11,9 @@ class AdminProductsController < ApplicationController
   def index
     #全商品個数の表示
     #@product_count = Product.count
-    unless params[:status].present?
-      redirect_to "/admin/products?status=all"
-    end
+    #unless params[:status].present?
+    #  redirect_to "/admin/products?status=all"
+    #end
 
     # params[:target][:id,order,stocks][:list][:category]
 
@@ -78,7 +78,6 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
-    binding.pry
 
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
@@ -89,7 +88,7 @@ class AdminProductsController < ApplicationController
     @product.status       = params[:data][:status]
     @product.category_id  = params[:data][:category]
     if params[:data][:images].present?
-      params[:data][:images].each_with_index do |product_info,i|
+       params[:data][:images].each_with_index do |product_info,i|
         @product.images.build
         @product.images[i].product_id = @product.id
         @product.images[i].image = params[:data][:images][i]

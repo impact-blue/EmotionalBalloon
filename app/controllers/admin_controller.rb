@@ -9,7 +9,7 @@ class AdminController < ApplicationController
       current_day = Time.zone.now
 
       current_day_count.times do  #今日の日付の数だけ繰り返す
-        @sales_index = Order.where(created_at: current_day.all_day)
+        @sales_index = Order.select("price").where(created_at: current_day.all_day)
           sales = Hash.new
           sales[:price] = 0
           sales[:count] = 0
@@ -28,10 +28,11 @@ class AdminController < ApplicationController
 
 
     #平均顧客単価
-      @json_sales_average = Hash.new
-      sales = Order.select("price").all
-      sales.pluck(:price)
-
+      all_sales = Order.select("price").all
+      sales_info = Hash.new
+      sales_info[:count] = all_sales.count
+      sales_info[:sum_price] = all_sales.pluck(:price).inject(:+)
+      @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
 
 
