@@ -39,15 +39,14 @@ Rails.application.routes.draw do
   get 'admin/settings/users/:id' => 'admin_users#destroy'
 
   resources :admin_settings,only:[:index],:path => 'admin/settings'
-  get   'admin/settings/mail'      => 'admin_settings#edit_mail_setting'
-  patch 'admin/settings/mail'      => 'admin_settings#update_card_mail_content'
-  patch 'admin/settings/mail'      => 'admin_settings#update_bank_mail_content'
   get   'admin/settings/agreement' => 'admin_settings#edit_agreement'
   patch 'admin/settings/agreement' => 'admin_settings#update_agreement'
   get   'admin/settings/traderule' => 'admin_settings#edit_trade_rule'
   patch 'admin/settings/traderule' => 'admin_settings#update_trade_rule'
   get   'admin/settings/company'   => 'admin_settings#edit_company'
   patch 'admin/settings/company'   => 'admin_settings#update_company'
+
+  get   'admin/mails'      => 'admin_mails#edit'
 
 #管理画面ホーム
   get "admin" => "admin#index"
