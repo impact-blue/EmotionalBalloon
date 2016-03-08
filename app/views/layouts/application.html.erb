@@ -227,19 +227,23 @@
               },
             <% end %>
             <% if @json_contact_list.present? %>
-              contact_list:[
-                <% @json_contact_list.each do |c| %>
-                  {
-                    id:         <%= c.id %>,
-                    status:     "<%= c.status %>",
-                    name:       "<%= c.name %>",
-                    subject:    "<%= c.subject %>",
-                    content:    "<%= c.content %>",
-                    created_at: "<%= c.created_at.strftime('%Y/%m/%d %H:%M') %>",
-                    updated_at: "<%= c.updated_at.strftime('%Y/%m/%d %H:%M') %>",
-                  },
-                <% end %>
-              ]
+              contact_list:{
+                current_page:<%= params[:page] %><%= 1 if params[:page] == nil %>,
+                max_page:<%= @json_contact_list.num_pages %>,
+                contacts: [
+                  <% @json_contact_list.each do |c| %>
+                    {
+                      id:         <%= c.id %>,
+                      status:     "<%= c.status %>",
+                      name:       "<%= c.name %>",
+                      subject:    "<%= c.subject %>",
+                      content:    "<%= c.content %>",
+                      created_at: "<%= c.created_at.strftime('%Y/%m/%d %H:%M') %>",
+                      updated_at: "<%= c.updated_at.strftime('%Y/%m/%d %H:%M') %>",
+                    },
+                  <% end %>
+                ],
+              }
             <% end %>
             <% if @json_detail_contact.present? %>
               detail_contact:
