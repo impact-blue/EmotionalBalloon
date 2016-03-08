@@ -127,6 +127,10 @@ gulp.task('copy', function(){
         }))
         .pipe(gulp.dest('./app/views/admin_customers/'));
     gulp
+        .src(['./front/template/admin/mails/index.html'])
+        .pipe(rename('edit.html.erb'))
+        .pipe(gulp.dest('./app/views/admin_mails/'));
+    gulp
         .src(['./front/template/admin/settings/*.html'])
         .pipe(rename('index.html.erb'))
         .pipe(gulp.dest('./app/views/admin_users/'));
