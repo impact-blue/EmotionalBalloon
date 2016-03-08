@@ -1,8 +1,8 @@
 <% include ../parts/_header %>
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/contacts?status=all">すべて</a></li>
-    <li ng-class="{'on': search === '?status=uncomplete'}"><a href="/admin/contacts?status=uncomplete">未対応</a></li>
-    <li ng-class="{'on': search === '?status=complete'}"><a href="/admin/contacts?status=complete">対応済み</a></li>
+    <li ng-class="{'on': query.status === 'all'}"><a href="/admin/contacts?status=all">すべて</a></li>
+    <li ng-class="{'on': query.status === 'uncomplete'}"><a href="/admin/contacts?status=uncomplete">未対応</a></li>
+    <li ng-class="{'on': query.status === 'complete'}"><a href="/admin/contacts?status=complete">対応済み</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body">
     <div class="c-buttonList">
