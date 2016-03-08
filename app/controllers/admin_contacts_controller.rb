@@ -1,4 +1,6 @@
 class AdminContactsController < ApplicationController
+  before_action :logged_in_admin_user
+  before_action :set_json_index
 
   def index
     @json_contact_list = Contact.all.page(params[:page]).per(@page).order("created_at asc")
@@ -7,15 +9,16 @@ class AdminContactsController < ApplicationController
 
   def edit
     @contact = Contact.find(params[:id])
+    @json_detail_contact = Contact.find(params[:id])
   end
 
-  def update
-    @contact = Contact.find(params[:id])
-    if @contact.update_attributes(create_params)
-      flash[:success] = "編集しました"
-      redirect_to admin_contact_path, notice: '状態を変更しました。'
+  def api
+    @contact = Contact.find(params[:data][:id])
+    @contact.status = params[:data][:status]
+    if @contact.save
+      render json: {data:{result:"success"}}
     else
-      render 'index'
+      render json: {data:{result:"false"}}
     end
   end
 

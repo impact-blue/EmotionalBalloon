@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.string   "email",      limit: 255
     t.string   "subject",    limit: 255
     t.text     "content",    limit: 65535
-    t.integer  "status",     limit: 4
+    t.string   "status",     limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

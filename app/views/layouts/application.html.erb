@@ -231,15 +231,27 @@
                 <% @json_contact_list.each do |c| %>
                   {
                     id:         <%= c.id %>,
-                    status:     <%= c.status %>,
+                    status:     "<%= c.status %>",
                     name:       "<%= c.name %>",
                     subject:    "<%= c.subject %>",
                     content:    "<%= c.content %>",
-                    created_at: <%= c.created_at.strftime('%Y/%m/%d %H:%M') %>,
-                    updated_at: <%= c.updated_at.strftime('%Y/%m/%d %H:%M') %>,
+                    created_at: "<%= c.created_at.strftime('%Y/%m/%d %H:%M') %>",
+                    updated_at: "<%= c.updated_at.strftime('%Y/%m/%d %H:%M') %>",
                   },
                 <% end %>
               ]
+            <% end %>
+            <% if @json_detail_contact.present? %>
+              detail_contact:
+               {
+                    id:          <%= @json_detail_contact.id %>,
+                    status:     "<%= @json_detail_contact.status %>",
+                    name:       "<%= @json_detail_contact.name %>",
+                    subject:    "<%= @json_detail_contact.subject %>",
+                    content:    "<%= @json_detail_contact.content %>",
+                    created_at: "<%= @json_detail_contact.created_at.strftime('%Y/%m/%d %H:%M') %>",
+                    updated_at: "<%= @json_detail_contact.updated_at.strftime('%Y/%m/%d %H:%M') %>",
+                  },
             <% end %>
         }
     };
