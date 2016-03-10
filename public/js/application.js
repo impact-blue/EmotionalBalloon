@@ -631,6 +631,16 @@ app.controller('productCreateController', function($scope, $http, Upload) {
         category: balloon_data.data.category_list
     };
 
+    $scope.formModel = {
+        images: []
+    };
+
+    $scope.uploadImage = function(content) {
+        angular.forEach(content, function(value, key){
+            $scope.product_data.images.push(value);
+        });
+    };
+
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data
