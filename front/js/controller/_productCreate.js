@@ -25,9 +25,10 @@ app.controller('productCreateController', function($scope, $http, Upload) {
         };
         console.log(sendData);
         if(location.pathname === '/admin/products/new') {
-            Upload.http({
+            Upload.upload({
                 method: 'POST',
                 url: '/api/products/edit',
+                file: sendData.data.images,
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
@@ -39,9 +40,10 @@ app.controller('productCreateController', function($scope, $http, Upload) {
                 alert(status);
             });
         } else {
-            Upload.http({
+            Upload.upload({
                 method: 'PATCH',
                 url: '/api/products/edit',
+                file: sendData.data.images,
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
