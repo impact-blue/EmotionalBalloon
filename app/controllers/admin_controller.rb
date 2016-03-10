@@ -36,7 +36,8 @@ class AdminController < ApplicationController
 
     #リピート判定
       all_users = User.select("id,email,phone,city,address").all
-      all_users
+      
+
 
 
 

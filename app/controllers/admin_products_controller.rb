@@ -91,10 +91,12 @@ class AdminProductsController < ApplicationController
 
     if params[:data][:images].present?
        params[:data][:images].each_with_index do |product_info,i|
-        @product.images.build
-        @product.images[i].product_id = @product.id
-        @product.images[i].image = product_info[1].read
-        @product.images[i].image_content_type = product_info[1].content_type
+          unless product_info[1].class == String
+            @product.images.build
+            @product.images[i].product_id = @product.id
+            @product.images[i].image = product_info[1].read
+            @product.images[i].image_content_type = product_info[1].content_type
+          end
       end
     end
 
