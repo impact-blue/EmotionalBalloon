@@ -92,7 +92,10 @@
             </li>
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">画像</p>
-                <div class="p-registerForm__block__wrapper__list__content upload" ng-model="product_data.images" ngf-select="uploadImage()" ngf-drop="uploadImage()" ngf-multiple="true">Click Here or Drop Files Here</div>
+                <div class="p-registerForm__block__wrapper__list__content">
+                    <img ngf-src="image" ng-repeat="image in product_data.images">
+                    <div class="p-registerForm__block__wrapper__list__content__upload" ng-model="formModel.images" ngf-select="uploadImage(formModel.images)" ngf-drop="uploadImage(formModel.images)" ngf-multiple="true">Click Here or Drop Files Here</div>
+                </div>
             </li>
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">カテゴリー</p>
