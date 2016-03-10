@@ -27,15 +27,16 @@ class AdminController < ApplicationController
     #昨日の売上
 
 
-    #平均顧客単価
+    #平均顧客単価（合計）
       all_sales = Order.select("price").all
       sales_info = Hash.new
       sales_info[:count] = all_sales.count
       sales_info[:sum_price] = all_sales.pluck(:price).inject(:+)
       @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
-
-
+    #リピート判定
+      all_users = User.select("id,email,phone,city,address").all
+      all_users
 
 
 
