@@ -101,7 +101,7 @@ Product.create(:name => 'バルーン99',:price => '6400',:stocks => '3',:commen
 Product.create(:name => 'バルーン100',:price => '6400',:stocks => '2',:comment => 'バルーンの説明です。ここに商品の説明を記述してください。',:main_image=>"http://img07.shop-pro.jp/PA01254/834/product/74883269.jpg?20140507162809", :keyword => 'サンプル',:size => '111',:count => '0',:category_id => '1' ,:status => '1',)
 end
 
-50.times do |i|
+5.times do |i|
 Order.create(:user_id => "#{i*20 + 1}" ,
              :price => '1800'  ,
              :postal_code => '2150987',
@@ -283,7 +283,7 @@ Order.create(:user_id => "#{i*20 + 20}" ,
              :order_status => '完了'   )
 end
 
-50.times do |i|
+4.times do |i|
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 1}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 2}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
 OrderDeliveryName.create(:order_id =>  "#{i*20 + 3}"  ,:order_family_name => 'テスト', :order_first_name => '太郎')
@@ -327,7 +327,7 @@ OrderDeliveryName.create(:order_id =>  "#{i*20 + 40}"  ,:order_family_name => '�
 end
 
 
-25.times do |i|
+3.times do |i|
 OrderProductInfo.create(:order_id => "#{1  + i*40}" , :product_id => '10' , :count =>  '2'  )
 OrderProductInfo.create(:order_id => "#{2  + i*40}" , :product_id => '7'  , :count =>  '3'  )
 OrderProductInfo.create(:order_id => "#{3  + i*40}" , :product_id => '2'  , :count =>  '1'  )
@@ -348,30 +348,30 @@ OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => '76' , :cou
 OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => '34' , :count =>  '5'  )
 OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => '43' , :count =>  '2'  )
 OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => '23' , :count =>  '1'  )
-OrderProductInfo.create(:order_id => "#{21 + i*40}" , :product_id => '22' , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{22 + i*40}" , :product_id => '22' , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{23 + i*40}" , :product_id => '8' , :count =>  '1'  )
-OrderProductInfo.create(:order_id => "#{24 + i*40}" , :product_id => "#{24 + i*40}" , :count =>  '2'  )
-OrderProductInfo.create(:order_id => "#{25 + i*40}" , :product_id => "#{25 + i*40}" , :count =>  '4'  )
-OrderProductInfo.create(:order_id => "#{26 + i*40}" , :product_id => "#{26 + i*40}" , :count =>  '2'  )
-OrderProductInfo.create(:order_id => "#{27 + i*40}" , :product_id => "#{27 + i*40}" , :count =>  '4'  )
-OrderProductInfo.create(:order_id => "#{28 + i*40}" , :product_id => "#{28 + i*40}" , :count =>  '2'  )
-OrderProductInfo.create(:order_id => "#{29 + i*40}" , :product_id => "#{29 + i*40}" , :count =>  '4'  )
-OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => "#{20 + i*40}" , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{31 + i*40}" , :product_id => "#{31 + i*40}" , :count =>  '6'  )
-OrderProductInfo.create(:order_id => "#{32 + i*40}" , :product_id => "#{32 + i*40}" , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{33 + i*40}" , :product_id => "#{33 + i*40}" , :count =>  '2'  )
-OrderProductInfo.create(:order_id => "#{34 + i*40}" , :product_id => "#{34 + i*40}" , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{35 + i*40}" , :product_id => "#{35 + i*40}" , :count =>  '5'  )
-OrderProductInfo.create(:order_id => "#{36 + i*40}" , :product_id => "#{36 + i*40}" , :count =>  '3'  )
-OrderProductInfo.create(:order_id => "#{37 + i*40}" , :product_id => "#{37 + i*40}" , :count =>  '1'  )
-OrderProductInfo.create(:order_id => "#{38 + i*40}" , :product_id => "#{38 + i*40}" , :count =>  '4'  )
-OrderProductInfo.create(:order_id => "#{39 + i*40}" , :product_id => "#{39 + i*40}" , :count =>  '4'  )
-OrderProductInfo.create(:order_id => "#{40 + i*40}" , :product_id => "#{40 + i*40}" , :count =>  '5'  )
+OrderProductInfo.create(:order_id => "#{1 + i*40}" , :product_id => '22' , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{2 + i*40}" , :product_id => '22' , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{3 + i*40}" , :product_id => '8'  , :count =>  '1'  )
+OrderProductInfo.create(:order_id => "#{4 + i*40}" , :product_id => "#{24 + i*40}" , :count =>  '2'  )
+OrderProductInfo.create(:order_id => "#{5 + i*40}" , :product_id => "#{25 + i*40}" , :count =>  '4'  )
+OrderProductInfo.create(:order_id => "#{6 + i*40}" , :product_id => "#{26 + i*40}" , :count =>  '2'  )
+OrderProductInfo.create(:order_id => "#{7 + i*40}" , :product_id => "#{27 + i*40}" , :count =>  '4'  )
+OrderProductInfo.create(:order_id => "#{8 + i*40}" , :product_id => "#{28 + i*40}" , :count =>  '2'  )
+OrderProductInfo.create(:order_id => "#{9 + i*40}" , :product_id => "#{29 + i*40}" , :count =>  '4'  )
+OrderProductInfo.create(:order_id => "#{0 + i*40}" , :product_id => "#{20 + i*40}" , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{11 + i*40}" , :product_id => "#{31 + i*40}" , :count =>  '6'  )
+OrderProductInfo.create(:order_id => "#{12 + i*40}" , :product_id => "#{32 + i*40}" , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{13 + i*40}" , :product_id => "#{33 + i*40}" , :count =>  '2'  )
+OrderProductInfo.create(:order_id => "#{14 + i*40}" , :product_id => "#{34 + i*40}" , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{15 + i*40}" , :product_id => "#{35 + i*40}" , :count =>  '5'  )
+OrderProductInfo.create(:order_id => "#{16 + i*40}" , :product_id => "#{36 + i*40}" , :count =>  '3'  )
+OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => "#{37 + i*40}" , :count =>  '1'  )
+OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => "#{38 + i*40}" , :count =>  '4'  )
+OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => "#{39 + i*40}" , :count =>  '4'  )
+OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => "#{40 + i*40}" , :count =>  '5'  )
 end
 
 
-50.times do |i|
+5.times do |i|
 User.create(:email =>'a@gmail.com'    ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 User.create(:email =>'a@gmail.com'    ,:phone => '09012345678', :postal_code => '1231234', :city => '神奈川', :address => '練馬区')
 User.create(:email =>'a@gmail.com'    ,:phone => '08012325678', :postal_code => '1231234', :city => '東京都', :address => '板橋区')
@@ -393,7 +393,7 @@ User.create(:email =>'test@test.com'  ,:phone => '08012315678', :postal_code => 
 User.create(:email =>'test@test.com'  ,:phone => '08012245678', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
 User.create(:email =>'test@test.com'  ,:phone => '08012145678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 end
-100.times do |i|
+10.times do |i|
 UserName.create(:user_id =>   "#{1 + i*20}" ,:user_family_name => 'テスト', :user_first_name => '太郎')
 UserName.create(:user_id =>   "#{2 + i*20}" ,:user_family_name => '佐藤', :user_first_name => '太郎')
 UserName.create(:user_id =>   "#{3 + i*20}" ,:user_family_name => '高橋', :user_first_name => '太郎')

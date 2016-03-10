@@ -1,4 +1,4 @@
-<%= form_for([:images, @image] , :url => {:action => 'create'}) do |f| %>
+<%= form_for([:images, @image] , :url => {:action => 'api'},:html => { :multipart => true }) do |f| %>
   <% if @image.errors.any? %>
   <% end %>
 <%= f.label :name %>
