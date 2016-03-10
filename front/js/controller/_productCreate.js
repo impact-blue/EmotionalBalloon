@@ -32,6 +32,10 @@ app.controller('productCreateController', function($scope, $http) {
         // });
     };
 
+    $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+        console.log(event);
+    });
+
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data
