@@ -19,6 +19,18 @@ app.controller('productCreateController', function($scope, $http) {
         category: balloon_data.data.category_list
     };
 
+    $scope.uploadImage = function(file) {
+        $http({
+            method: 'POST',
+            url: '/api/image',
+            data: file
+        }).success(function(data, status, headers, config) {
+            console.log(data);
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
+    };
+
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data
