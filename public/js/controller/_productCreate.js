@@ -20,21 +20,16 @@ app.controller('productCreateController', function($scope, $http) {
     };
 
     $scope.uploadImage = function(file) {
-        console.log(file);
-        // $http({
-        //     method: 'POST',
-        //     url: '/api/image',
-        //     data: file
-        // }).success(function(data, status, headers, config) {
-        //     console.log(data);
-        // }).error(function(data, status, headers, config) {
-        //     alert(status);
-        // });
+        $http({
+            method: 'POST',
+            url: '/api/image',
+            data: file
+        }).success(function(data, status, headers, config) {
+            console.log(data);
+        }).error(function(data, status, headers, config) {
+            alert(status);
+        });
     };
-
-    $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
-        console.log(event);
-    });
 
     $scope.editProduct = function() {
         var sendData = {
