@@ -632,15 +632,16 @@ app.controller('productCreateController', function($scope, $http) {
     };
 
     $scope.uploadImage = function(file) {
-        $http({
-            method: 'POST',
-            url: '/api/image',
-            data: file
-        }).success(function(data, status, headers, config) {
-            console.log(data);
-        }).error(function(data, status, headers, config) {
-            alert(status);
-        });
+        console.log(file);
+        // $http({
+        //     method: 'POST',
+        //     url: '/api/image',
+        //     data: file
+        // }).success(function(data, status, headers, config) {
+        //     console.log(data);
+        // }).error(function(data, status, headers, config) {
+        //     alert(status);
+        // });
     };
 
     $scope.editProduct = function() {
