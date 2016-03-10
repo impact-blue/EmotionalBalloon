@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+skip_before_filter :verify_authenticity_token
 
   def index
     @images = Image.all
@@ -29,16 +30,19 @@ class ImagesController < ApplicationController
   end
 
   def api
-    binding.pry
-    @image = Image.new(create_params)
-    @image.image =params[:image][:image].read
-    @image.image_content_type = params[:image][:image].content_type
+
+    params[:file].each do |image|
+      @image = Image.new
+      @image.image = image[1].read
+      @image.image_content_type = image[1].content_type
+      @image.save
+    end
+
     if @image.save
       redirect_to action: 'index'
     else
       render new
     end
-
   end
 
   private

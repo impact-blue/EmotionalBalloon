@@ -63,7 +63,7 @@
                 <% if @json_detail_product.images.present? %>
                 image:[
                   <% @json_detail_product.images.each do |p| %>
-                    "<%= p.image %>",
+                    "/admin/images/get_image?id=<%= p.id %>",
                   <% end %>
                 ],
                 <% end %>
@@ -151,8 +151,8 @@
                     <% @json_category_list.each do |c| %>
                       {
                         id:<%= c.id %>,
-                        name_en:"<%= c.name_en%>",
-                        name_jp:"<%= c.name_ja%>",
+                        name_en:"<%= c.name_en %>",
+                        name_jp:"<%= c.name_ja %>",
                         type: "<%= c.genre %>",
                       },
                     <% end %>

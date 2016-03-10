@@ -71,27 +71,30 @@ class AdminProductsController < ApplicationController
   end
 
   def api
-    if params[:data][:id].nil?
+
+    if params[:data][:id] == "null"
       @product = Product.new(product_params)
+      @product.id = (Product.last.id + 1)
       @product.count = 0
     elsif params[:data][:id].present?
       @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
-
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
-    @product.stocks       = params[:data][:stocks]
+    @product.stocks       = params[:data][:stock]
 #    @product.main_image   = params[:data][:images][0]
     @product.comment      = params[:data][:description]
     @product.size         = params[:data][:size]
     @product.status       = params[:data][:status]
     @product.category_id  = params[:data][:category]
+
     if params[:data][:images].present?
        params[:data][:images].each_with_index do |product_info,i|
         @product.images.build
         @product.images[i].product_id = @product.id
-        @product.images[i].image = params[:data][:images][i]
+        @product.images[i].image = product_info[1].read
+        @product.images[i].image_content_type = product_info[1].content_type
       end
     end
 
@@ -108,6 +111,11 @@ class AdminProductsController < ApplicationController
     redirect_to "/admin/products?status=all"
   end
 
+  def get_images
+    @image = Image.find(params[:id])
+    send_data(@image.image, :disposition => "inline", :type => "image/png")
+  end
+
   private
 
   def create_params
@@ -115,7 +123,7 @@ class AdminProductsController < ApplicationController
   end
 
   def product_params
-    params = ActionController::Parameters.new(JSON.parse(request.body.read))
+#    params = ActionController::Parameters.new(JSON.parse(request.body.read))
     params.require(:data).permit(:id)
   end
 
