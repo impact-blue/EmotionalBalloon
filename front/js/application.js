@@ -634,10 +634,11 @@ app.controller('productCreateController', function($scope, $http) {
     $scope.uploadImage = function(file) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
+        console.log(reader);
         $http({
             method: 'POST',
             url: '/api/image',
-            data: reader.result
+            data: reader
         }).success(function(data, status, headers, config) {
             console.log(data);
         }).error(function(data, status, headers, config) {
