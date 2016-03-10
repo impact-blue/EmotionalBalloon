@@ -72,6 +72,11 @@
                     &.template {
                         width: 100%;
                     }
+                    &.upload {
+                        line-height: 7;
+                        text-align: center;
+                        border: 1px solid #c8c8c8;
+                    }
                     &__radio {
                         input[type="radio"],
                         input[type="checkbox"] {
