@@ -610,7 +610,7 @@ app.controller('orderEditController', function($scope, $http) {
         });
     };
 });
-app.controller('productCreateController', function($scope, $http) {
+app.controller('productCreateController', function($scope, $http, Upload) {
     if(location.pathname.split('/')[3] === 'new') {
         $scope.product_data = {
             id: null,
@@ -632,17 +632,10 @@ app.controller('productCreateController', function($scope, $http) {
     };
 
     $scope.uploadImage = function(file) {
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        console.log(reader);
-        $http({
-            method: 'POST',
+        Upload.upload({
             url: '/api/image',
-            data: reader
-        }).success(function(data, status, headers, config) {
-            console.log(data);
-        }).error(function(data, status, headers, config) {
-            alert(status);
+            method: 'POST',
+            file: file
         });
     };
 
