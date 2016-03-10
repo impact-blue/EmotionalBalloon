@@ -25,7 +25,7 @@
             </li>
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">画像</p>
-                <div flow-init="{target: '/admin/image'}" flow-files-submitted="$flow.upload()" flow-file-success="$file.msg = $message">
+                <div flow-init="{target: '/api/image'}" flow-files-submitted="$flow.upload()" flow-file-success="$file.msg = $message">
                     <input type="file" flow-btn/>
                     Input OR Other element as upload button
                     <span class="btn" flow-btn>Upload File</span>
