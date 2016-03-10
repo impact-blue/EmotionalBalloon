@@ -111,10 +111,6 @@ class AdminProductsController < ApplicationController
     redirect_to "/admin/products?status=all"
   end
 
-  def get_images
-    @image = Image.find(params[:id])
-    send_data(@image.image, :disposition => "inline", :type => "image/png")
-  end
 
   private
 

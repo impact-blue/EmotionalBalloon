@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="./img/favicon.ico">
   <meta name="robots" content="noindex,nofollow">
   <meta content="!" name="fragment">
-  <link rel="canonical" hrel="https://emotional-balloon.com<%= canonical %>">
+  <link rel="canonical" href="https://emotional-balloon.com<%= canonical %>">
 
 
 <script type="text/javascript">
@@ -54,14 +54,14 @@
                 id:          <%= @json_detail_product.id  %>,
                 name:       "<%= @json_detail_product.name %>",
                 price:       <%= @json_detail_product.price %>,
-                stocks:      <%= @json_detail_product.stocks %>,
+                stock:      <%= @json_detail_product.stocks %>,
                 size:     <%= @json_detail_product.size %>,
                 description:"<%= @json_detail_product.comment %>",
                 count:       <%= @json_detail_product.count %>,
                 status:      <%= @json_detail_product.status %>,
                 created_at: "<%= @json_detail_product.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                 <% if @json_detail_product.images.present? %>
-                image:[
+                images:[
                   <% @json_detail_product.images.each do |p| %>
                     "/admin/images/get_image?id=<%= p.id %>",
                   <% end %>
