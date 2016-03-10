@@ -20,10 +20,12 @@ app.controller('productCreateController', function($scope, $http) {
     };
 
     $scope.uploadImage = function(file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
         $http({
             method: 'POST',
             url: '/api/image',
-            data: file
+            data: reader.result
         }).success(function(data, status, headers, config) {
             console.log(data);
         }).error(function(data, status, headers, config) {
