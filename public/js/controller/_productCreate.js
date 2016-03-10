@@ -19,11 +19,11 @@ app.controller('productCreateController', function($scope, $http, Upload) {
         category: balloon_data.data.category_list
     };
 
-    $scope.uploadImage = function(file) {
+    $scope.uploadImage = function() {
         Upload.upload({
             url: '/api/image',
             method: 'POST',
-            file: file
+            file: $scope.files
         });
     };
 
