@@ -91,7 +91,8 @@
                 <div class="p-registerForm__block__wrapper__list__content"><textarea name="" placeholder="説明文" ng-model="product_data.description"></textarea></div>
             </li>
             <li class="p-registerForm__block__wrapper__list required">
-                <p class="p-registerForm__block__wrapper__list__text" ng-model="files" ngf-select="uploadImage()" ngf-drop="uploadImage()" ngf-multiple="true">画像</p>
+                <p class="p-registerForm__block__wrapper__list__text">画像</p>
+                <div class="p-registerForm__block__wrapper__list__content upload" ng-model="product_data.images" ngf-select="uploadImage()" ngf-drop="uploadImage()" ngf-multiple="true">Click Here or Drop Files Here</div>
             </li>
             <li class="p-registerForm__block__wrapper__list required">
                 <p class="p-registerForm__block__wrapper__list__text">カテゴリー</p>

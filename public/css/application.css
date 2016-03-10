@@ -2727,6 +2727,10 @@ h2.balloonHeading2 {
         width: 100%; }
       .p-registerForm__block__wrapper__list__content.template {
         width: 100%; }
+      .p-registerForm__block__wrapper__list__content.upload {
+        line-height: 7;
+        text-align: center;
+        border: 1px solid #c8c8c8; }
       .p-registerForm__block__wrapper__list__content__radio input[type="radio"],
       .p-registerForm__block__wrapper__list__content__radio input[type="checkbox"] {
         margin-right: 5px;
