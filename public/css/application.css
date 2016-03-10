@@ -2719,6 +2719,10 @@ h2.balloonHeading2 {
         height: 80px;
         font-size: 12px;
         border: 1px solid #c8c8c8; }
+      .p-registerForm__block__wrapper__list__content img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 10px; }
       .p-registerForm__block__wrapper__list__content.postal input[type="text"] {
         width: calc(100% / 3 - 4px); }
         .p-registerForm__block__wrapper__list__content.postal input[type="text"]:last-child {
@@ -2727,7 +2731,7 @@ h2.balloonHeading2 {
         width: 100%; }
       .p-registerForm__block__wrapper__list__content.template {
         width: 100%; }
-      .p-registerForm__block__wrapper__list__content.upload {
+      .p-registerForm__block__wrapper__list__content__upload {
         line-height: 7;
         text-align: center;
         border: 1px solid #c8c8c8; }
