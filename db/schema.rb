@@ -200,13 +200,17 @@ ActiveRecord::Schema.define(version: 20160302075410) do
   add_index "user_names", ["user_id"], name: "index_user_names_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",       limit: 255
-    t.string   "phone",       limit: 255
-    t.string   "postal_code", limit: 255
-    t.string   "city",        limit: 255
-    t.string   "address",     limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "repeat_count",   limit: 4
+    t.integer  "repeat_user_id", limit: 4
+    t.string   "family_name",    limit: 255
+    t.string   "first_name",     limit: 255
+    t.string   "email",          limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "postal_code",    limit: 255
+    t.string   "city",           limit: 255
+    t.string   "address",        limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

@@ -35,4 +35,5 @@ class Order < ActiveRecord::Base
 
 #order_dateはやってない。create_atでよくね？
 
+
 end
