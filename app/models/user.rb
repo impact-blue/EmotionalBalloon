@@ -29,10 +29,38 @@ class User < ActiveRecord::Base
                       exclusion: { in: %w({ }  . [ ] ) }
 
 
-  def self.repeat_seach(order)
-    User.where(
-      "phone = ? or email = ? or address = ?",
-      order.user.phone ,order.user.email, order.user.address)
+  def self.repeat_search(order)
+    #下記のカラムが2つ以上のユーザーをリピート判定
+    user = User.where(
+      "name = ? or phone = ? or email = ? or address = ?",
+      order.user.name ,order.user.phone ,order.user.email, order.user.address)
+    repeat_user = []
+    repeat_count = 0
+    repeat = Hash.new(:repeat_user_id => 0,:repeat_count => 0)
+
+    user.each do |u|
+      count = 0
+        if u.name == order.user.name
+          count += 1
+        end
+        if u.phone == order.user.phone
+          count += 1
+        end
+        if u.email == order.user.email
+          count += 1
+        end
+        if u.address == order.user.address
+          count += 1
+        end
+        if count >= 2
+          repeat_count += 1
+          repeat_user << u
+        end
+    end
+    repeat[:repeat_count] = repeat_count
+    repeat[:user_id] = repeat_user.first.id
+    #user_idとrepeat_count
+    return repeat
   end
 
 
