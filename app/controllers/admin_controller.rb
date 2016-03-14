@@ -34,8 +34,9 @@ class AdminController < ApplicationController
       sales_info[:sum_price] = all_sales.pluck(:price).inject(:+)
       @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
-    #リピート判定
-      
+    #リピート人数
+    #  repeat_user = User.select("repeat_count,repeat_user_id").where("repeat_count >= ?" ,2).uniq{|c| c.repeat_user_id}
+    #  repeat_user.uniq(&:repeat_user_id)
 
 
 

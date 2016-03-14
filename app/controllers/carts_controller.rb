@@ -215,6 +215,12 @@ class CartsController < ApplicationController
       @order.user.repeat_count   = repeat_user[:repeat_count]
       @order.user.repeat_user_id = repeat_user[:first_user_id]
 
+      all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
+      all_repeat_user.each do |aru|
+        aru.repeat_count   = repeat_user[:repeat_count]
+        aru.repeat_user_id = repeat_user[:first_user_id]
+        aru.save!
+      end
       #商品の在庫を減らすアクション。本当にここでいい？発送時？
 
       #トランザクションで全て保存のみに対応にする。
@@ -235,7 +241,7 @@ class CartsController < ApplicationController
                    }
   end
 
-  def thanks(order)
+  def thanks
     #@order = Order.find(3)
     #Mailer.buy_thanks_email(@order).deliver
   end
