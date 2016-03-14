@@ -211,9 +211,9 @@ class CartsController < ApplicationController
       end
 
        #リピートの検索
-      @repeat_user = User.repeat_search(@order)
-      @order.user.repeat_count   = @repeat_user[:repeat_count]
-      @order.user.repeat_user_id = @repeat_user[:first_user_id]
+      repeat_user = User.repeat_search(@order)
+      @order.user.repeat_count   = repeat_user[:repeat_count]
+      @order.user.repeat_user_id = repeat_user[:first_user_id]
 
       #商品の在庫を減らすアクション。本当にここでいい？発送時？
 

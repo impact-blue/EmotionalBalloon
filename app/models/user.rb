@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
         end
     end
     repeat[:repeat_count] = repeat_count
-    repeat[:user_id] = repeat_user.first.id
+    repeat[:first_user_id] = repeat_user.first.id
     #user_idとrepeat_count
     return repeat
   end
