@@ -49,6 +49,9 @@ class CartsController < ApplicationController
 
           #連名(User)
           params[:data][:buyer_info][:name].each_with_index do |name,i|
+              if i == 0 #リピート検索の時に使う情報
+                @order.user.name = name[:family_name] + name[:first_name]
+              end
               @order.user.user_names.build
               @order.user.user_names[i].user_family_name = name[:family_name]
               @order.user.user_names[i].user_first_name  = name[:first_name]

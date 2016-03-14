@@ -202,8 +202,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
   create_table "users", force: :cascade do |t|
     t.integer  "repeat_count",   limit: 4
     t.integer  "repeat_user_id", limit: 4
-    t.string   "family_name",    limit: 255
-    t.string   "first_name",     limit: 255
+    t.string   "name",           limit: 255
     t.string   "email",          limit: 255
     t.string   "phone",          limit: 255
     t.string   "postal_code",    limit: 255

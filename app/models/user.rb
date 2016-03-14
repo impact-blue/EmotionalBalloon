@@ -27,4 +27,13 @@ class User < ActiveRecord::Base
   #addressのバリデーション
   validates :address, presence: { message: 'は必須です' },
                       exclusion: { in: %w({ }  . [ ] ) }
+
+
+  def self.repeat_seach(order)
+    User.where(
+      "phone = ? or email = ? or address = ?",
+      order.user.phone ,order.user.email, order.user.address)
+  end
+
+
 end

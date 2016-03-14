@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.integer :repeat_count
       t.integer :repeat_user_id
-      t.string  :name_search
+      t.string :name
       t.string :email
       t.string :phone
       t.string :postal_code
