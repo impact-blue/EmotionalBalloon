@@ -235,9 +235,8 @@ class CartsController < ApplicationController
                    }
   end
 
-  def thanks
-    @order = Order.find(3)
-
+  def thanks(order)
+    #@order = Order.find(3)
     #Mailer.buy_thanks_email(@order).deliver
   end
 

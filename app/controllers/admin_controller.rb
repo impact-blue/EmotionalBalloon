@@ -35,7 +35,6 @@ class AdminController < ApplicationController
       @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
     #リピート判定
-      all_users = User.select("id,email,phone,city,address").all
       
 
 
