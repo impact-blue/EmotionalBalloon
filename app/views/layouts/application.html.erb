@@ -81,6 +81,7 @@
                       family_name: "<%= o.user.user_names[0].user_family_name %>",
                       first_name: "<%= o.user.user_names[0].user_first_name%>",
                       price:<%= o.price%>,
+                      count:<%= o.user.repeat_count %>,
                       status:"<%= o.order_status %>",
                       created_at:"<%= o.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                       payment_info:{

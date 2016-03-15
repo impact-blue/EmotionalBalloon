@@ -214,7 +214,7 @@ class CartsController < ApplicationController
       repeat_user = User.repeat_search(@order)
       @order.user.repeat_count   = repeat_user[:repeat_count]
       @order.user.repeat_user_id = repeat_user[:first_user_id]
-
+      #リピートレコード全てを更新
       all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
       all_repeat_user.each do |aru|
         aru.repeat_count   = repeat_user[:repeat_count]
