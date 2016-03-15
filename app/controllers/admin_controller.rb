@@ -7,6 +7,8 @@ class AdminController < ApplicationController
       @json_sales_orders = []
       current_day_count = Time.zone.now.strftime('%d').to_i #今日の日付のみ取得
       current_day = Time.now
+      all_orders = Order.all
+      all_users  = User.all
 
       if params[:filter].blank?
         target_day = Time.local(2015,1,1)
@@ -20,11 +22,11 @@ class AdminController < ApplicationController
         target_day = current_day.beginning_of_day
       end
 
-@sales_index = Order.select("price").where("created_at >= ?, created_at <= ?",current_day.since(365),current_day)
-
-
-      current_day_count.times do  #今日の日付の数だけ繰り返す
-        @sales_index = Order.select("price").where(created_at: current_day.all_day)
+    #昨日の売上
+    #週間の売上
+    #今月の売上
+    current_day_count.times do  #今日の日付の数だけ繰り返す
+        @sales_index = all_orders.select("price").where(created_at: current_day.all_day)
           sales = Hash.new
           sales[:price] = 0
           sales[:count] = 0
@@ -39,36 +41,37 @@ class AdminController < ApplicationController
         current_day_count -= 1
         current_day -= 1.day
     end
-    #昨日の売上
-      current_day = Time.now
+    #年間の売上
 
+    current_day = Time.now
     #平均顧客単価（合計）
-      all_sales = Order.select("price").where(created_at: (target_day)..(current_day.end_of_day))
+      all_sales = all_orders.select("price").where(created_at: (target_day)..(current_day.end_of_day))
       sales_info = Hash.new
       sales_info[:count] = all_sales.count
       sales_info[:sum_price] = all_sales.pluck(:price).inject(:+)
       @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
     #平均顧客単価（リピート）
-      repeat_user = User.select("id,repeat_count").where("repeat_count >= ?",2).where(created_at: (target_day)..(current_day.end_of_day))
-      repeat_order = Order.select("price").where(user_id: repeat_user.ids).where(created_at: (target_day)..(current_day.end_of_day))
+      repeat_user = all_users.select("id,repeat_count").where("repeat_count >= ?",2).where(created_at: (target_day)..(current_day.end_of_day))
+      repeat_order = all_orders.select("price").where(user_id: repeat_user.ids).where(created_at: (target_day)..(current_day.end_of_day))
       sales_info_repeat = Hash.new
       sales_info_repeat[:count] = repeat_order.count
       sales_info_repeat[:sum_price] = repeat_order.pluck(:price).inject(:+)
       @json_repeat_sales_average = sales_info_repeat[:sum_price]/sales_info_repeat[:count]
 
     #平均顧客単価（新規）
-      new_user = User.select("id,repeat_count").where("repeat_count = ?",1).where(created_at: (target_day)..(current_day.end_of_day))
-      new_order = Order.select("price").where(user_id: new_user.ids).where(created_at: (target_day)..(current_day.end_of_day))
+      new_user = all_users.select("id,repeat_count").where("repeat_count = ?",1).where(created_at: (target_day)..(current_day.end_of_day))
+      new_order = all_orders.select("price").where(user_id: new_user.ids).where(created_at: (target_day)..(current_day.end_of_day))
       new_sales_info = Hash.new
       new_sales_info[:count] = new_order.count
       new_sales_info[:sum_price] = new_order.pluck(:price).inject(:+)
       @json_new_sales_average = new_sales_info[:sum_price]/new_sales_info[:count]
 
-    #リピート人数
-      @json_repeat_user_count = User.select("repeat_user_id,repeat_count").uniq.where("repeat_count >= ?",2).count
-    #  repeat_user = User.select("repeat_count,repeat_user_id").where("repeat_count >= ?" ,2).uniq{|c| c.repeat_user_id}
-    #  repeat_user.uniq(&:repeat_user_id)
+    #リピート人数（全体）
+      @json_repeat_user_count = all_users.select("repeat_user_id,repeat_count").uniq.where("repeat_count >= ?",2).count
+
+
+
 
     #30日間の売上（月を跨ぐ）
   #  @orders = Order.where(created_at: [30.days.ago.beginning_of_day..Time.now.end_of_day])
@@ -76,10 +79,6 @@ class AdminController < ApplicationController
   #    @orders.each do |o|
   #      @json_sales_orders += o.price
   #    end
-
-  #まずは、30日間のみ
-    #@date = Time.now
-
     #@json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
     # order.products.map(&:name).zip(order.order_product_infos.map(&:count))
   #こんな書き方とか

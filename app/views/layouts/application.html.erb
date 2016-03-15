@@ -231,6 +231,9 @@
             <% if @json_new_sales_average.present? %>
               new_sales_average: <%= @json_new_sales_average %>,
             <% end %>
+            <% if @json_repeat_user_count.present? %>
+              repeat_user_count: <%= @json_repeat_user_count %>,
+            <% end %>
             <% if @json_detail_mail.present? %>
               detail_mail: {
                 id: <%= @json_detail_mail.id %>,
