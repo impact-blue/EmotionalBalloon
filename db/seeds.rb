@@ -379,7 +379,7 @@ User.create(:repeat_count => "1" , :repeat_user_id => "4" , :name => "伊藤二�
 User.create(:repeat_count => "5" , :repeat_user_id => "5" , :name => "渡辺三郎" , :email =>'a@g.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '葛飾区')
 User.create(:repeat_count => "3" , :repeat_user_id => "6" , :name => "小林太郎" , :email =>'t@t.com'  ,:phone => '08012365678', :postal_code => '1231234', :city => '東京都', :address => '荒川区')
 User.create(:repeat_count => "1" , :repeat_user_id => "7" , :name => "鈴木太郎" , :email =>'t@t.com'  ,:phone => '12340971234', :postal_code => '1231234', :city => '東京都', :address => '台東区')
-User.create(:repeat_count => "5" , :repeat_user_5id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:phone => '08012335678', :postal_code => '1231234', :city => '東京都', :address => '豊島区')
+User.create(:repeat_count => "5" , :repeat_user_id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:phone => '08012335678', :postal_code => '1231234', :city => '東京都', :address => '豊島区')
 User.create(:repeat_count => "1" , :repeat_user_id => "9" , :name => "中村二郎" , :email =>'t@t.com'  ,:phone => '08012385678', :postal_code => '1231234', :city => '東京都', :address => '中野区')
 User.create(:repeat_count => "1" , :repeat_user_id => "10" , :name => "山田太郎" , :email =>'t@t.com'  ,:phone => '12340951234', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
 User.create(:repeat_count => "1" , :repeat_user_id => "11" , :name => "加藤太郎" , :email =>'t@t.com'  ,:phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '新宿区')

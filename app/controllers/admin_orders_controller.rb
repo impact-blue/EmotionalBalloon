@@ -9,7 +9,7 @@ class AdminOrdersController < ApplicationController
     end
 
     if params[:status] ==  "all"
-      @json_order_list = Order.select("id,payment_info,order_status,created_at,price,user_id").includes(:user,user: :user_names).page(params[:page]).per(@page).order("id ASC")
+      @json_order_list = Order.includes(:user,user: :user_names).all.page(params[:page]).per(@page).order("id ASC")
     elsif params[:status] == "unconfirmed"
       @json_order_list = Order.where(order_status: "未入金"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
     elsif params[:status] ==  "process"
