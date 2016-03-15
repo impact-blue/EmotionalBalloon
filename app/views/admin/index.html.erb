@@ -64,6 +64,12 @@
         </ul>
     </div>
     <div class="l-admin__right">
+    <ul class="l-admin__right__foot__content__list">
+        <li ng-class="{'on': search === '?filter=all'}"><a href="/admin?filter=all">すべて</a></li>
+        <li ng-class="{'on': search === '?filter=year'}"><a href="/admin?filter=year">年間</a></li>
+        <li ng-class="{'on': search === '?filter=month'}"><a href="/admin?filter=month">月間</a></li>
+        <li ng-class="{'on': search === '?filter=day'}"><a href="/admin?filter=day">当日</a></li>
+    </ul>
         <div class="l-admin__right__foot">
             <div class="l-admin__right__foot__content">
             </div>

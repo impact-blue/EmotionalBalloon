@@ -8,6 +8,9 @@ class AdminController < ApplicationController
       current_day_count = Time.zone.now.strftime('%d').to_i #今日の日付のみ取得
       current_day = Time.zone.now
 
+@sales_index = Order.select("price").where("created_at >= ?, created_at <= ?",current_day.since(365),current_day)
+
+
       current_day_count.times do  #今日の日付の数だけ繰り返す
         @sales_index = Order.select("price").where(created_at: current_day.all_day)
           sales = Hash.new
@@ -51,15 +54,10 @@ class AdminController < ApplicationController
       @json_new_sales_average = new_sales_info[:sum_price]/new_sales_info[:count]
 
     #リピート人数
-      repeat_user_count = User.select("repeat_user_id,repeat_count").uniq.where("repeat_count >= ?",2).count
+      @json_repeat_user_count = User.select("repeat_user_id,repeat_count").uniq.where("repeat_count >= ?",2).count
+
     #  repeat_user = User.select("repeat_count,repeat_user_id").where("repeat_count >= ?" ,2).uniq{|c| c.repeat_user_id}
     #  repeat_user.uniq(&:repeat_user_id)
-
-
-
-
-binding.pry
-
 
     #30日間の売上（月を跨ぐ）
   #  @orders = Order.where(created_at: [30.days.ago.beginning_of_day..Time.now.end_of_day])
