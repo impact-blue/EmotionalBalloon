@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       "name = ? or phone = ? or email = ? or address = ?",
       order.user.name ,order.user.phone ,order.user.email, order.user.address)
     repeat_user = []
-    repeat_count = 0
+    repeat_count = 1
     repeat = Hash.new(:repeat_user_id => 0,:repeat_count => 0)
 
     user.each do |u|

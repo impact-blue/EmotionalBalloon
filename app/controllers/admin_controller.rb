@@ -34,14 +34,31 @@ class AdminController < ApplicationController
       sales_info[:sum_price] = all_sales.pluck(:price).inject(:+)
       @json_sales_average = sales_info[:sum_price]/sales_info[:count]
 
+    #平均顧客単価（リピート）
+      repeat_user = User.select("id,repeat_count").where("repeat_count >= ?",2)
+      repeat_order = Order.select("price").where(user_id: repeat_user.ids)
+      sales_info_repeat = Hash.new
+      sales_info_repeat[:count] = repeat_order.count
+      sales_info_repeat[:sum_price] = repeat_order.pluck(:price).inject(:+)
+      @json_repeat_sales_average = sales_info_repeat[:sum_price]/sales_info_repeat[:count]
+
+    #平均顧客単価（新規）
+      new_user = User.select("id,repeat_count").where("repeat_count = ?",1)
+      new_order = Order.select("price").where(user_id: new_user.ids)
+      new_sales_info = Hash.new
+      new_sales_info[:count] = new_order.count
+      new_sales_info[:sum_price] = new_order.pluck(:price).inject(:+)
+      @json_new_sales_average = new_sales_info[:sum_price]/new_sales_info[:count]
+
     #リピート人数
+      repeat_user_count = User.select("repeat_user_id,repeat_count").uniq.where("repeat_count >= ?",2).count
     #  repeat_user = User.select("repeat_count,repeat_user_id").where("repeat_count >= ?" ,2).uniq{|c| c.repeat_user_id}
     #  repeat_user.uniq(&:repeat_user_id)
 
 
 
 
-
+binding.pry
 
 
     #30日間の売上（月を跨ぐ）

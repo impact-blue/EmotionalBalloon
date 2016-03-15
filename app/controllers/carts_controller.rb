@@ -207,6 +207,7 @@ class CartsController < ApplicationController
       params[:data][:product_info].each_with_index do |product_info,i|
           @product = Product.find(product_info[:id])
           @product.count += product_info[:count]
+          @product.stocks -= product_info[:count] #商品の在庫を減らすアクション。本当にここでいい？発送時？
           @product.save!
       end
 
@@ -221,7 +222,6 @@ class CartsController < ApplicationController
         aru.repeat_user_id = repeat_user[:first_user_id]
         aru.save!
       end
-      #商品の在庫を減らすアクション。本当にここでいい？発送時？
 
       #トランザクションで全て保存のみに対応にする。
       if @order.save!
