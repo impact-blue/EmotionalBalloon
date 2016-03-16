@@ -17,6 +17,11 @@ class AdminProductsController < ApplicationController
 
     # params[:target][:id,order,stocks][:list][:category]
 
+    if params[:per_page].present?
+      @page = params[:per_page]
+    end
+
+
     if params[:status] == "all"
       @json_products = Product.all.page(params[:page]).per(@page).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "public"
@@ -30,6 +35,7 @@ class AdminProductsController < ApplicationController
     if params[:category].present?
       @json_products = @json_products.where(category_id: params[:category])
     end
+
 
     #CSVダウンロード
     #<a href="/admin/products.csv/?status=all&page={{data.search_products.current_page}}">CSV</a>

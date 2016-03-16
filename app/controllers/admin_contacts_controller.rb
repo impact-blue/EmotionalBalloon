@@ -7,6 +7,10 @@ class AdminContactsController < ApplicationController
       redirect_to "/admin/contacts?status=all"
     end
 
+    if params[:per_page].present?
+      @page = params[:per_page]
+    end
+
     if params[:status] == "all"
     @json_contact_list = Contact.all.page(params[:page]).per(@page).order("created_at desc")
     elsif params[:status] == "uncomplete"

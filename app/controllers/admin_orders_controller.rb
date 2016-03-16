@@ -8,6 +8,10 @@ class AdminOrdersController < ApplicationController
       redirect_to "/admin/orders/?status=all" and return
     end
 
+    if params[:per_page].present?
+      @page = params[:per_page]
+    end
+
     if params[:status] ==  "all"
       @json_order_list = Order.includes(:user,user: :user_names).all.page(params[:page]).per(@page).order("id ASC")
     elsif params[:status] == "unconfirmed"
