@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string  :delivery_address
       t.string  :payment_info
       t.string  :order_status
+      t.string  :order_sub_status
       t.string  :phone
       t.string  :option
       t.integer :category

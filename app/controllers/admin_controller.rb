@@ -11,6 +11,7 @@ class AdminController < ApplicationController
       current_day = Time.now
       all_orders = Order.all
       all_users  = User.all
+      all_order_product_infos = OrderProductInfo.select("sun_price").all
 
       #平均顧客単価の求めたい期間を検索
       if params[:filter].blank?
@@ -24,69 +25,51 @@ class AdminController < ApplicationController
       elsif params[:filter] == "day"
         target_day = current_day.beginning_of_day
       end
-
-        #週間の売上 これは、ハッシュでまとめる
+        #昨日の売上
+              yesterday = Hash.new
+              day = (current_day -1.day)
+              yesterday[:price] = all_order_product_infos.where(created_at: day).pluck(:sum_price).inject(:+)
+              yesterday[:count] = all_orders.select("id").where(created_at: day).length
+              yesterday[:day]   = day.strftime('%Y/%m/%d')
+              @json_sales_yesterday = yesterday
+        #週間（7日間）の売上 これは、ハッシュでまとめる
               weekly = Hash.new
-              weekly[:price] = 0
-              weekly[:count] = 0
+              day = (current_day.beginning_of_day - 6.day)
+              weekly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
+              weekly[:count] = all_orders.select("id").where(created_at: day..current_day).length
               weekly[:day]   = "週間"
-        #月間の売上（ハッシュでまとめたやつ）
+              @json_sales_weekly = weekly
+        #31日間の売上（ハッシュでまとめたやつ）
               monthly = Hash.new
-              monthly[:price] = 0
-              monthly[:count] = 0
+              day = (current_day.beginning_of_day - 30.day)
+              monthly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
+              monthly[:count] = all_orders.select("id").where(created_at: day..current_day).length
               monthly[:day]   = "月間"
-        #今月の売上
+              @json_sales_monthly = monthly
+        #今年の売上
+              all_year = Time.now.all_year
+              sales_year = Hash.new
+              sales_year[:price]  = all_order_product_infos.where(created_at: all_year).pluck(:sum_price).inject(:+)
+              sales_year[:count]  = all_orders.select("id").where(created_at: all_year).length
+              @json_sales_year = sales_year
+
+        #当月の売上
         current_day_count.times do |i| #今日の日付の数だけ繰り返す
               @sales_index = all_orders.select("price").where(created_at: current_day.all_day)
               sales = Hash.new
               sales[:price] = 0
               sales[:count] = 0
               sales[:day] = current_day.strftime('%Y/%m/%d')
-              #昨日の売上
-              yesterday = Hash.new
-              yesterday[:price] = 0
-              yesterday[:count] = 0
-              yesterday[:day]   = (current_day - 1.day).strftime('%Y/%m/%d')
               #当月の売上
                   @sales_index.each do |o|
                     sales[:price] += o.price
                     sales[:count] += 1
                   end
-
-              #昨日の売上
-                  if i == 1
-                    @sales_index.each do |o|
-                      yesterday[:price] += o.price
-                      yesterday[:count] += 1
-                    end
-                    @json_sales_yesterday = yesterday
-                  end
-              #週間の売上
-                  if i >= 0 && i <= 7
-                    @sales_index.each do |o|
-                      weekly[:price] += o.price
-                      weekly[:count] += 1
-                    end
-                  end
-              #月間の売上
-                  @sales_index.each do |o|
-                      monthly[:price] += o.price
-                      monthly[:count] += 1
-                  end
-
-            @json_sales_monthly = monthly
-            @json_sales_weekly = weekly
             @json_sales_orders.unshift(sales)
             current_day_count -= 1
             current_day -= 1.day
         end
-    #年間の売上
-    all_year = Time.now.all_year
-    sales_year = Hash.new
-    sales_year[:price]  = OrderProductInfo.select("sum_price").where(created_at: all_year).pluck(:sum_price).inject(:+)
-    sales_year[:count]  = Order.select("id").where(created_at: all_year).length
 
-    @json_sales_year = sales_year
 
     #平均顧客単価（合計）
       all_sales = all_orders.select("price").where(created_at: (target_day)..(current_day.end_of_day))

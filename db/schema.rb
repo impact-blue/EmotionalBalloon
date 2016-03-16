@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.string   "delivery_address", limit: 255
     t.string   "payment_info",     limit: 255
     t.string   "order_status",     limit: 255
+    t.string   "order_sub_status", limit: 255
     t.string   "phone",            limit: 255
     t.string   "option",           limit: 255
     t.integer  "category",         limit: 4
