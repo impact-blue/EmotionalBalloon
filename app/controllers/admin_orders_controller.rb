@@ -13,13 +13,29 @@ class AdminOrdersController < ApplicationController
     end
 
     if params[:status] ==  "all"
-      @json_order_list = Order.includes(:user,user: :user_names).all.page(params[:page]).per(@page).order("id ASC")
+      if (params[:max] && params[:min]).present?
+        @json_order_list = Order.includes(:user,user: :user_names).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).order("id ASC")
+      else
+        @json_order_list = Order.includes(:user,user: :user_names).all.page(params[:page]).per(@page).order("id ASC")
+      end
     elsif params[:status] == "unconfirmed"
-      @json_order_list = Order.where(order_status: "未入金"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      if (params[:max] && params[:min]).present?
+        @json_order_list = Order.where(order_status: "未入金"  ).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      else
+        @json_order_list = Order.where(order_status: "未入金"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      end
     elsif params[:status] ==  "process"
-      @json_order_list = Order.where(order_status: "未発送").page(params[:page]).per(@page).includes(:user,user: :user_names)
+      if (params[:max] && params[:min]).present?
+        @json_order_list = Order.where(order_status: "未発送").where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      else
+        @json_order_list = Order.where(order_status: "未発送").page(params[:page]).per(@page).includes(:user,user: :user_names)
+      end
     elsif params[:status] == "complete"
-      @json_order_list = Order.where(order_status: "完了"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      if (params[:max] && params[:min]).present?
+        @json_order_list = Order.where(order_status: "完了"  ).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      else
+        @json_order_list = Order.where(order_status: "完了"  ).page(params[:page]).per(@page).includes(:user,user: :user_names)
+      end
     end
 
     #CSVダウンロード
