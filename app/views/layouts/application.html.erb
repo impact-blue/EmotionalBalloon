@@ -222,19 +222,22 @@
                 <% end %>
               ],
               sales_yesterday:{
-                day:   <%= @json_sales_yesterday[:day] %>
-                price: <%= @json_sales_yesterday[:price] %>
-                count: <%= @json_sales_yesterday[:count] %>
+                day:   <%= @json_sales_yesterday[:day] %>,
+                price: <%= @json_sales_yesterday[:price] %>,
+                count: <%= @json_sales_yesterday[:count] %>,
               },
               sales_weekly:{
-                price: <%= @json_sales_weekly[:price] %>
-                count: <%= @json_sales_weekly[:count] %>
+                price: <%= @json_sales_weekly[:price] %>,
+                count: <%= @json_sales_weekly[:count] %>,
               },
               sales_monthly:{
-                price: <%= @json_sales_monthly[:price] %>
-                count: <%= @json_sales_monthly[:count] %>
-              }
-
+                price: <%= @json_sales_monthly[:price] %>,
+                count: <%= @json_sales_monthly[:count] %>,
+              },
+              sales_year:{
+                price: <%= @json_sales_year[:price] %>,
+                count: <%= @json_sales_year[:count] %>,
+              },
             <% end %>
             <% if @json_sales_average.present? %>
               sales_average:<%= @json_sales_average %>,
