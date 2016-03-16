@@ -170,6 +170,7 @@ class CartsController < ApplicationController
         @order.order_product_infos.build
         @order.order_product_infos[i].product_id = product_info[:id]
         @order.order_product_infos[i].count = product_info[:count]
+        @order.order_product_infos[i].sum_price = (Product.select("price").find(product_info[:id]).price * product_info[:count])
       end
       @order.postal_code      = params[:data][:destination_info][:postal_code]
       @order.city             = params[:data][:destination_info][:prefectures]

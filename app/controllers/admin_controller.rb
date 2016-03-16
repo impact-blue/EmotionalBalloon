@@ -82,15 +82,10 @@ class AdminController < ApplicationController
         end
     #年間の売上
     all_year = Time.now.all_year
-    year_order_product_infos  = OrderProductInfo.select("product_id,count").where(created_at: all_year)
+    sales_year = Hash.new
+    sales_year[:price]  = OrderProductInfo.select("sum_price").where(created_at: all_year).pluck(:sum_price).inject(:+)
+    sales_year[:count]  = Order.select("id").where(created_at: all_year).length
 
-      sales_year = Hash.new
-      sales_year[:price] = 0
-      sales_year[:count] = 0
-        year_order_product_infos.each do |p|
-          sales_year[:price] += (p.product.price * p.count)
-          sales_year[:count] += 1
-        end
     @json_sales_year = sales_year
 
     #平均顧客単価（合計）

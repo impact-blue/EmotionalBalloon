@@ -4,6 +4,7 @@ class CreateOrderProductInfos < ActiveRecord::Migration
       t.integer :order_id
       t.integer :product_id
       t.integer :count
+      t.integer :sum_price
 
       t.timestamps null: false
     end

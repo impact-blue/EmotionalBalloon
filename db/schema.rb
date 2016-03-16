@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.integer  "order_id",   limit: 4
     t.integer  "product_id", limit: 4
     t.integer  "count",      limit: 4
+    t.integer  "sum_price",  limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
