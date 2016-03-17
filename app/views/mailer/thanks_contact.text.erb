@@ -1,1 +1,1 @@
-<%= @text %>
+<%= @mail_content.text.gsub(/\$name+/,@contact.name).gsub(/\$email+/,@contact.email).gsub(/\$subject+/,@contact.subject).gsub(/\$content+/,@contact.content) %>

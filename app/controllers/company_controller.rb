@@ -7,6 +7,7 @@ class CompanyController < ApplicationController
   def create_contact
      @contact = Contact.new(contact_params)
      if @contact.save
+      Mailer.thanks_contact(@contact).deliver
       redirect_to root_path
     else
       render 'contact'
@@ -17,7 +18,7 @@ class CompanyController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:email,:name,:content)
+    params.require(:contact).permit(:email,:name,:content,:subject)
   end
 
 end

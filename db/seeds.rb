@@ -507,10 +507,33 @@ Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'birthday' ,:name_j
 Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'open' ,:name_ja => '開店祝い')
 Category.create(:status =>'1' ,:genre => 'scene',:name_en => 'other' ,:name_ja => 'その他')
 
-MailContent.create(:subject => 'エモーショナルバルーン：商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
-MailContent.create(:subject => 'エモーショナルバルーン：【銀行振込】商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
-MailContent.create(:subject => 'エモーショナルバルーン：【代金引換】商品の購入について',:text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。')
-MailContent.create(:subject => 'お問い合わせの受付',:text => 'お問い合わせを下記にて受け付けました。')
+MailContent.create(
+  :subject => 'エモーショナルバルーン：【代金引換】商品の購入について',
+  :text => '$name様
+  この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。
+  お支払い方法：$payment_info
+
+  ')
+
+MailContent.create(
+  :subject => 'エモーショナルバルーン：【銀行振込】商品の購入について',
+  :text => ' この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。
+  ')
+
+MailContent.create(
+  :subject => 'エモーショナルバルーン：【カード】商品の購入について',
+  :text => 'この度はエモーショナルバルーンで商品のご購入をいただき、誠にありがとうございました。
+  ')
+
+MailContent.create(
+  :subject => 'お問い合わせの受付',
+  :text => '$name様
+
+お問い合わせを下記にて受け付けました。
+件名：$subject
+お問い合わせ内容
+$content
+  ')
 
 
 Agreement.create(:content => '利用規約の内容です。')
