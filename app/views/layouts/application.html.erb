@@ -9,7 +9,10 @@
   <meta name="robots" content="noindex,nofollow">
   <meta content="!" name="fragment">
   <link rel="canonical" href="https://emotional-balloon.com<%= canonical %>">
-  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" if @json_sales_orders.present? %>
+  <% if @json_sales_orders.present? %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+  <% end %>
 
 
 <script type="text/javascript">

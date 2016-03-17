@@ -45,8 +45,14 @@
     </table>
 
     <%= form_for([:admin_categories, @category] , :url => {:action => 'create'}) do |f| %>
-      <p><%= f.label :名前 %></p>
-      <p><%= f.text_field :name , class: 'form-control' %><p>
+      <p><%= f.label :英語名 %></p>
+      <p><%= f.text_field :name_en , class: 'form-control' %><p>
+
+      <p><%= f.label :日本語名 %></p>
+      <p><%= f.text_field :name_ja , class: 'form-control' %><p>
+
+      <p><%= f.label :公開 %></p>
+      <p><%= f.text_field :name_en , class: 'form-control' %><p>
 
       <p><%= f.submit :新規カテゴリを作成する , class: "btn btn-primary"%><p>
     <% end %>

@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
     numericality: {only_integer: true, :message => "は半角数字のみ入力できます" },
     length: {maximum: 9,wrong_length: 'の桁数が違います。'}
 
-  validates :city, :delivery_address, #:payment_info, :order_status,
+  validates :city, ,:payment_info, :delivery_address,:order_status,
     presence: { message: 'は必須です' },
     exclusion: { in: %w({ }  . [ ] ) }
 

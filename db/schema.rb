@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.string   "order_sub_status", limit: 255
     t.string   "phone",            limit: 255
     t.string   "option",           limit: 255
-    t.integer  "category",         limit: 4
     t.date     "order_date"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
