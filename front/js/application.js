@@ -684,30 +684,29 @@ app.controller('productCreateController', function($scope, $http, Upload) {
 });
 app.controller('productListController', function($scope, $http, querySortService) {
     $scope.formOptions = {
-        category: balloon_data.data.category_list
+        category: balloon_data.data.category_list,
+        per_page: [
+            20,
+            50,
+            100
+        ]
     };
     $scope.formOptions.category.unshift({
-        id: null,
+        id: 0,
         name_en: "all",
         name_jp: "すべて",
         type: ""
     });
-    if(angular.isUndefined(querySortService.category)) {
-        $scope.formModel = {
-            category: null
-        };
-    } else {
-        $scope.formModel = {
-            category: Number(querySortService.category)
-        };
-    }
-    $scope.findProduct = function(category) {
-        if(category === null) {
-            location.href = "/admin/products?status=" + querySortService['status'];
-        } else {
-            location.href = "/admin/products?status=" + querySortService['status'] + "&category=" + category;
-        }
+    $scope.formModel = {
+        category: Number(querySortService.category),
+        per_page: Number(querySortService.per_page)
     };
+    $scope.$watch('formModel', function(value) {
+        console.log(value.category, querySortService.category);
+        if(value.category !== Number(querySortService.category) || value.per_page !== Number(querySortService.per_page)) {
+            location.href = "/admin/products?status=" + querySortService['status'] + "&category=" + value.category + "&per_page=" + value.per_page;
+        }
+    }, true);
 });
 app.controller('productShowController', function($scope, $http, getStorageService, saveStorageService) {
     $scope.saveProduct = function(id) {

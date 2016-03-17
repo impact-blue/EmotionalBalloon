@@ -9,7 +9,7 @@
     <div class="c-buttonList">
         <div class="c-buttonList__left">
             <select ng-model="formModel.category" ng-options="category.id as category.name_jp group by category.type for (i, category) in formOptions.category"></select>
-            <p class="c-buttonList__right__list u-ml-0" ng-click="findProduct(formModel.category)">絞り込む</p>
+            <select ng-model="formModel.per_page" ng-options="page as page for (i, page) in formOptions.per_page"></select>
         </div>
         <div class="c-buttonList__right">
             <p class="c-buttonList__right__list" ng-click="exportCSV()">CSV出力</p>
