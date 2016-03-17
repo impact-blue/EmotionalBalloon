@@ -57,6 +57,7 @@ class ApplicationController < ActionController::Base
 #    color = params[:color]
 #    balloon_type = params[:balloon_type]
     @page = 20
+    @per =20
     @current_page = params[:page].to_i
 
 #    if min.present? && max.present?

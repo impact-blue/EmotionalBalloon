@@ -18,18 +18,18 @@ class AdminProductsController < ApplicationController
     # params[:target][:id,order,stocks][:list][:category]
 
     if params[:per_page].present?
-      @page = params[:per_page]
+      @per = params[:per_page]
     end
 
 
     if params[:status] == "all"
-      @json_products = Product.all.page(params[:page]).per(@page).order("#{params[:target]} #{params[:order]}")
+      @json_products = Product.get_list_all_page(params[:page],@per).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "public"
-      @json_products = Product.where(status: 1).page(params[:page]).per(@page).order("#{params[:targer]} #{params[:order]}")
+      @json_products = Product.get_list_public(params[:page],@per).order("#{params[:targer]} #{params[:order]}")
     elsif params[:status] == "secret"
-      @json_products = Product.where(status: 0).page(params[:page]).per(@page).order("#{params[:target]} #{params[:order]}")
+      @json_products = Product.get_list_secret(params[:page],@per).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "none"
-      @json_products = Product.where(stocks: 0).page(params[:page]).per(@page).order("#{params[:targer]} #{params[:order]}")
+      @json_products = Product.get_list_no_stocks.order("#{params[:targer]} #{params[:order]}")
     end
 
     if params[:category].present?

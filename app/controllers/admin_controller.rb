@@ -113,7 +113,7 @@ class AdminController < ApplicationController
   #こんな書き方とか
 
   @chart_data = @json_sales_orders
-
+#<%= column_chart @chart_data , stacked: true , label: "売上", xtitle: "日付", ytitle: "売上"%>
 
 
 

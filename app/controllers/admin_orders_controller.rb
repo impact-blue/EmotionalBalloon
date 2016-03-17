@@ -9,50 +9,18 @@ class AdminOrdersController < ApplicationController
     end
 
     if params[:per_page].present?
-      @page = params[:per_page]
+      @per = params[:per_page]
     end
 
     #検索
     if params[:status] ==  "all" #すべて
-      if (params[:max] && params[:min]).present? #価格絞り込み
-        @json_order_list = Order.includes(:user,user: :user_names).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).order("id ASC")
-      elsif params[:category].present? #カテゴリーで絞込み
-        @json_order_list = Order.joins(:products).includes(:user,user: :user_names).where('products.category_id = ?', params[:category]).page(params[:page]).per(@page).order("id ASC")
-      elsif params[:product].present? #商品番号で検索
-        @json_order_list = Order.joins(:products).includes(:user,user: :user_names).where('products.id = ?', params[:product]).page(params[:page]).per(@page).order("id ASC")
-      else
-        @json_order_list = Order.includes(:user,user: :user_names).all.page(params[:page]).per(@page).order("id ASC")
-      end
+        @json_order_list = Order.get_list_all(params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
     elsif params[:status] == "unconfirmed" #未入金
-      if (params[:max] && params[:min]).present? #価格で絞込み
-        @json_order_list = Order.where(order_status: "未入金"  ).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      elsif params[:category].present? #カテゴリーで絞込み
-        @json_order_list = Order.joins(:products).where(order_status: "未入金"  ).where('products.category_id = ?', params[:category]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      elsif params[:product].present? #商品番号で検索
-        @json_order_list = Order.joins(:products).where(order_status: "未入金"  ).where('products.id = ?', params[:product]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      else
-        @json_order_list = Order.where(order_status: "未入金"  ).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      end
+        @json_order_list = Order.get_list_by_status("未入金",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
     elsif params[:status] ==  "process" #未発送
-      if (params[:max] && params[:min]).present? #価格で絞込み
-        @json_order_list = Order.where(order_status: "未発送").where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names)
-      elsif params[:category].present? #カテゴリーで絞込み
-        @json_order_list = Order.joins(:products).where(order_status: "未発送").where('products.category_id = ?', params[:category]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      elsif params[:product].present?
-        @json_order_list = Order.joins(:products).where(order_status: "未発送").where('products.id = ?', params[:product]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      else
-        @json_order_list = Order.where(order_status: "未発送").page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      end
+        @json_order_list = Order.get_list_by_status("未発送",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
     elsif params[:status] == "complete" #完了
-      if (params[:max] && params[:min]).present? #価格で絞込み
-        @json_order_list = Order.where(order_status: "完了"  ).where("price >= ? AND price <= ?", params[:min],params[:max]).page(params[:page]).per(@page).includes(:user,user: :user_names)
-      elsif params[:category].present? #カテゴリーで絞込み
-        @json_order_list = Order.joins(:products).where(order_status: "完了"  ).where('products.category_id = ?', params[:category]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      elsif params[:product].present?
-        @json_order_list = Order.joins(:products).where(order_status: "完了"  ).where('products.id = ?', params[:product]).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      else
-        @json_order_list = Order.where(order_status: "完了"  ).page(params[:page]).per(@page).includes(:user,user: :user_names).order("id ASC")
-      end
+        @json_order_list = Order.get_list_by_status("完了",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
     end
 
     #CSVダウンロード

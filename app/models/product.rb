@@ -52,4 +52,24 @@ class Product < ActiveRecord::Base
     ["name", "price","stocks","comment","keyword","size","status","count","category_id"]
   end
 
+
+  def self.get_list_all_page(page,per)
+    return self.all.page(page).per(per)
+  end
+
+  def self.get_list_public(page,per)
+    return self.get_list_pages_by_status(1,page,per)
+  end
+
+  def self.get_list_secret(page,per)
+    return self.get_list_pages_by_status(0,page,per)
+  end
+
+  def self.get_list_pages_by_status(status,page,per)
+    return self.where(status: status).page(page).per(per)
+  end
+
+  def self.get_list_no_stocks(page,per)
+    return self.where(stocks: 0).page(page).per(per)
+  end
 end
