@@ -70,6 +70,7 @@ GEM
     capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
       puma (>= 2.6)
+    chartkick (1.4.2)
     chronic (0.10.2)
     coderay (1.1.1)
     coercible (1.0.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   capistrano
   capistrano-rails
   capistrano3-puma
+  chartkick
   coffee-rails (~> 4.1.0)
   config
   devise

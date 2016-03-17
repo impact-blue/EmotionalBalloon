@@ -38,6 +38,7 @@ gem 'whenever', :require => false
 gem 'roo'
 gem 'webpay'
 gem 'config'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug'
