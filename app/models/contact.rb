@@ -5,7 +5,7 @@ class Contact < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX }
   validates :subject,:content, presence: { message: 'は必須です' },
                                        exclusion: { in: %w({ }  . [ ] ) }
-
+#status
 #お問い合わせの状態を日本語に対応
   def now_status
     if status == 0

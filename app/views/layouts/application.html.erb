@@ -268,7 +268,7 @@
                       status:     "<%= c.status %>",
                       name:       "<%= c.name %>",
                       subject:    "<%= c.subject %>",
-                      content:    "<%= c.content %>",
+                      content:    "<%= c.content.gsub(/(\r\n|\r|\n|\f)/,"") %>",
                       created_at: "<%= c.created_at.strftime('%Y/%m/%d %H:%M') %>",
                       updated_at: "<%= c.updated_at.strftime('%Y/%m/%d %H:%M') %>",
                     },
