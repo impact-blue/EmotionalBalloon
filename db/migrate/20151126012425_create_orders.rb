@@ -11,6 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string  :order_sub_status
       t.string  :phone
       t.string  :option
+      t.text    :company_memo
 
       t.date    :order_date
       t.timestamps null: false

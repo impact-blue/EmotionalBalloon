@@ -109,7 +109,9 @@ Order.create(:user_id => "#{i*20 + 1}" ,
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '未入金'    )
+             :order_status => '未入金',
+             :created_at =>"#{Time.now - 6.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 2}" ,
              :price => '7500'  ,
@@ -118,7 +120,9 @@ Order.create(:user_id => "#{i*20 + 2}" ,
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
              :phone => '08012345678',
-             :order_status => '未発送' )
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 3}" ,
              :price => '7300'  ,
@@ -127,7 +131,9 @@ Order.create(:user_id => "#{i*20 + 3}" ,
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '完了'   )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - 5.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 4}" ,
              :price => '1800'  ,
@@ -136,7 +142,9 @@ Order.create(:user_id => "#{i*20 + 4}" ,
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 5}" ,
              :price => '7500'  ,
@@ -145,7 +153,9 @@ Order.create(:user_id => "#{i*20 + 5}" ,
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '完了' )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - 7.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 6}" ,
              :price => '7300'  ,
@@ -154,7 +164,9 @@ Order.create(:user_id => "#{i*20 + 6}" ,
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - 8.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 7}" ,
              :price => '30000' ,
@@ -163,7 +175,9 @@ Order.create(:user_id => "#{i*20 + 7}" ,
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '完了'   )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 8}" ,
              :price => '1800'  ,
@@ -172,7 +186,9 @@ Order.create(:user_id => "#{i*20 + 8}" ,
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '完了' )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 9}",
              :price => '30000' ,
@@ -181,7 +197,9 @@ Order.create(:user_id =>  "#{i*20 + 9}",
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
              :phone => '08012345678',
-             :order_status => '完了'  )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 10}",
              :price => '7500'  ,
@@ -190,7 +208,9 @@ Order.create(:user_id =>  "#{i*20 + 10}",
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '完了' )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - 9.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 11}",
              :price => '30000' ,
@@ -199,7 +219,9 @@ Order.create(:user_id =>  "#{i*20 + 11}",
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 12}",
              :price => '7300'  ,
@@ -208,7 +230,9 @@ Order.create(:user_id =>  "#{i*20 + 12}",
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '完了' )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 13}",
              :price => '1800'  ,
@@ -217,7 +241,9 @@ Order.create(:user_id =>  "#{i*20 + 13}",
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '完了' )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - 10.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 14}",
              :price => '30000' ,
@@ -226,7 +252,9 @@ Order.create(:user_id =>  "#{i*20 + 14}",
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 15}",
              :price => '7500'  ,
@@ -235,7 +263,9 @@ Order.create(:user_id =>  "#{i*20 + 15}",
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '未入金' )
+             :order_status => '未入金' ,
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 16}",
              :price => '30000' ,
@@ -244,7 +274,9 @@ Order.create(:user_id =>  "#{i*20 + 16}",
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '未入金' )
+             :order_status => '未入金',
+             :created_at =>"#{Time.now - 8.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 17}",
              :price => '7500'  ,
@@ -253,7 +285,9 @@ Order.create(:user_id =>  "#{i*20 + 17}",
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 18}",
              :price => '1800'  ,
@@ -262,7 +296,9 @@ Order.create(:user_id =>  "#{i*20 + 18}",
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
              :phone => '08012345678',
-             :order_status => '未入金' )
+             :order_status => '未入金',
+             :created_at =>"#{Time.now - i.day}"
+             )
 
 Order.create(:user_id =>  "#{i*20 + 19}",
              :price => '1800'  ,
@@ -271,7 +307,9 @@ Order.create(:user_id =>  "#{i*20 + 19}",
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
              :phone => '08012345678',
-             :order_status => '未発送')
+             :order_status => '未発送',
+             :created_at =>"#{Time.now - 11.day}"
+             )
 
 Order.create(:user_id => "#{i*20 + 20}" ,
              :price => '30000' ,
@@ -280,7 +318,9 @@ Order.create(:user_id => "#{i*20 + 20}" ,
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
              :phone => '08012345678',
-             :order_status => '完了'   )
+             :order_status => '完了',
+             :created_at =>"#{Time.now - i.day}"
+             )
 end
 
 4.times do |i|
@@ -328,46 +368,46 @@ end
 
 
 3.times do |i|
-OrderProductInfo.create(:order_id => "#{1  + i*40}" , :product_id => '10' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(10).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{2  + i*40}" , :product_id => '7'  , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(7).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{3  + i*40}" , :product_id => '2'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(2).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{4  + i*40}" , :product_id => '4'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(4).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{5  + i*40}" , :product_id => '6'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(6).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{6  + i*40}" , :product_id => '10' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(10).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{7  + i*40}" , :product_id => '8'  , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(8).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{8  + i*40}" , :product_id => '11' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(11).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{9  + i*40}" , :product_id => '14' , :count =>  '6'    ,:sum_price => "#{(Product.select("price").find(14).price)*6}"   )
-OrderProductInfo.create(:order_id => "#{10 + i*40}" , :product_id => '32' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(32).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{11 + i*40}" , :product_id => '27' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(27).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{12 + i*40}" , :product_id => '28' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(28).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{13 + i*40}" , :product_id => '32' , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(32).price)*5}"   )
-OrderProductInfo.create(:order_id => "#{14 + i*40}" , :product_id => '43' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(43).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{15 + i*40}" , :product_id => '41' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(41).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{16 + i*40}" , :product_id => '45' , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(45).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => '76' , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(76).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => '34' , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(34).price)*5}"   )
-OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => '43' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(43).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => '23' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(23).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{1 + i*40}" , :product_id => '22' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(22).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{2 + i*40}" , :product_id => '22' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(22).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{3 + i*40}" , :product_id => '8'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(8).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{4 + i*40}" , :product_id => "#{24 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(24 + i*40).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{5 + i*40}" , :product_id => "#{25 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(25 + i*40).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{6 + i*40}" , :product_id => "#{26 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(26 + i*40).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{7 + i*40}" , :product_id => "#{27 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(27 + i*40).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{8 + i*40}" , :product_id => "#{28 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(28 + i*40).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{9 + i*40}" , :product_id => "#{29 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(29 + i*40).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{0 + i*40}" , :product_id => "#{20 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(20 + i*40).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{11 + i*40}" , :product_id => "#{31 + i*40}" , :count =>  '6'    ,:sum_price => "#{(Product.select("price").find(21 + i*40).price)*6}"   )
-OrderProductInfo.create(:order_id => "#{12 + i*40}" , :product_id => "#{32 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(32 + i*40).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{13 + i*40}" , :product_id => "#{33 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(33 + i*40).price)*2}"   )
-OrderProductInfo.create(:order_id => "#{14 + i*40}" , :product_id => "#{34 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(34 + i*40).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{15 + i*40}" , :product_id => "#{35 + i*40}" , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(35 + i*40).price)*5}"   )
-OrderProductInfo.create(:order_id => "#{16 + i*40}" , :product_id => "#{36 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(36 + i*40).price)*3}"   )
-OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => "#{37 + i*40}" , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(37 + i*40).price)*1}"   )
-OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => "#{38 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(38 + i*40).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => "#{39 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(39 + i*40).price)*4}"   )
-OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => "#{40 + i*40}" , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(40 + i*40).price)*5}"   )
+OrderProductInfo.create(:order_id => "#{1  + i*40}" , :product_id => '10' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(10).price)*2}"  ,:created_at =>  "#{Time.now - 10.day}" )
+OrderProductInfo.create(:order_id => "#{2  + i*40}" , :product_id => '7'  , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(7).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{3  + i*40}" , :product_id => '2'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(2).price)*1}"  ,:created_at =>  "#{Time.now - 9.day}" )
+OrderProductInfo.create(:order_id => "#{4  + i*40}" , :product_id => '4'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(4).price)*1}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{5  + i*40}" , :product_id => '6'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(6).price)*1}"  ,:created_at =>  "#{Time.now - 8.day}" )
+OrderProductInfo.create(:order_id => "#{6  + i*40}" , :product_id => '10' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(10).price)*1}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{7  + i*40}" , :product_id => '8'  , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(8).price)*4}"  ,:created_at =>  "#{Time.now - 7.day}" )
+OrderProductInfo.create(:order_id => "#{8  + i*40}" , :product_id => '11' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(11).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{9  + i*40}" , :product_id => '14' , :count =>  '6'    ,:sum_price => "#{(Product.select("price").find(14).price)*6}"  ,:created_at =>  "#{Time.now - 6.day}" )
+OrderProductInfo.create(:order_id => "#{10 + i*40}" , :product_id => '32' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(32).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{11 + i*40}" , :product_id => '27' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(27).price)*2}"  ,:created_at =>  "#{Time.now - 5.day}" )
+OrderProductInfo.create(:order_id => "#{12 + i*40}" , :product_id => '28' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(28).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{13 + i*40}" , :product_id => '32' , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(32).price)*5}"  ,:created_at =>  "#{Time.now - 4.day}" )
+OrderProductInfo.create(:order_id => "#{14 + i*40}" , :product_id => '43' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(43).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{15 + i*40}" , :product_id => '41' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(41).price)*1}"  ,:created_at =>  "#{Time.now - 3.day}" )
+OrderProductInfo.create(:order_id => "#{16 + i*40}" , :product_id => '45' , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(45).price)*4}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => '76' , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(76).price)*4}"  ,:created_at =>  "#{Time.now - 2.day}" )
+OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => '34' , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(34).price)*5}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => '43' , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(43).price)*2}"  ,:created_at =>  "#{Time.now - 1.day}" )
+OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => '23' , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(23).price)*1}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{1 + i*40}" , :product_id => '22' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(22).price)*3}"  ,:created_at =>  "#{Time.now - 10.day}" )
+OrderProductInfo.create(:order_id => "#{2 + i*40}" , :product_id => '22' , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(22).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{3 + i*40}" , :product_id => '8'  , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(8).price)*1}"  ,:created_at =>  "#{Time.now - 9.day}" )
+OrderProductInfo.create(:order_id => "#{4 + i*40}" , :product_id => "#{24 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(24 + i*40).price)*2}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{5 + i*40}" , :product_id => "#{25 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(25 + i*40).price)*4}"  ,:created_at =>  "#{Time.now - 8.day}" )
+OrderProductInfo.create(:order_id => "#{6 + i*40}" , :product_id => "#{26 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(26 + i*40).price)*2}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{7 + i*40}" , :product_id => "#{27 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(27 + i*40).price)*4}"  ,:created_at =>  "#{Time.now - 7.day}" )
+OrderProductInfo.create(:order_id => "#{8 + i*40}" , :product_id => "#{28 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(28 + i*40).price)*2}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{9 + i*40}" , :product_id => "#{29 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(29 + i*40).price)*4}"  ,:created_at =>  "#{Time.now - 6.day}" )
+OrderProductInfo.create(:order_id => "#{0 + i*40}" , :product_id => "#{20 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(20 + i*40).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{11 + i*40}" , :product_id => "#{31 + i*40}" , :count =>  '6'    ,:sum_price => "#{(Product.select("price").find(21 + i*40).price)*6}"  ,:created_at =>  "#{Time.now - 5.day}" )
+OrderProductInfo.create(:order_id => "#{12 + i*40}" , :product_id => "#{32 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(32 + i*40).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{13 + i*40}" , :product_id => "#{33 + i*40}" , :count =>  '2'    ,:sum_price => "#{(Product.select("price").find(33 + i*40).price)*2}"  ,:created_at =>  "#{Time.now - 4.day}" )
+OrderProductInfo.create(:order_id => "#{14 + i*40}" , :product_id => "#{34 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(34 + i*40).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{15 + i*40}" , :product_id => "#{35 + i*40}" , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(35 + i*40).price)*5}"  ,:created_at =>  "#{Time.now - 3.day}" )
+OrderProductInfo.create(:order_id => "#{16 + i*40}" , :product_id => "#{36 + i*40}" , :count =>  '3'    ,:sum_price => "#{(Product.select("price").find(36 + i*40).price)*3}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{17 + i*40}" , :product_id => "#{37 + i*40}" , :count =>  '1'    ,:sum_price => "#{(Product.select("price").find(37 + i*40).price)*1}"  ,:created_at =>  "#{Time.now - 2.day}" )
+OrderProductInfo.create(:order_id => "#{18 + i*40}" , :product_id => "#{38 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(38 + i*40).price)*4}"  ,:created_at =>  "#{Time.now - i.day}" )
+OrderProductInfo.create(:order_id => "#{19 + i*40}" , :product_id => "#{39 + i*40}" , :count =>  '4'    ,:sum_price => "#{(Product.select("price").find(39 + i*40).price)*4}"  ,:created_at =>  "#{Time.now - 1.day}" )
+OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => "#{40 + i*40}" , :count =>  '5'    ,:sum_price => "#{(Product.select("price").find(40 + i*40).price)*5}"  ,:created_at =>  "#{Time.now - i.day}" )
 end
 
 
