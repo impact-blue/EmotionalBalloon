@@ -9,6 +9,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta content="!" name="fragment">
   <link rel="canonical" href="https://emotional-balloon.com<%= canonical %>">
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" if @json_sales_orders.present? %>
 
 
 <script type="text/javascript">
@@ -214,11 +215,6 @@
             <% if @json_sales_orders.present? %>
               sales_orders:[
                 <% @json_sales_orders.each do |s| %>
-                  {
-                    day: <%= s[:day] %>,
-                    price: <%= s[:price] %>,
-                    count: <%= s[:count] %>
-                  },
                 <% end %>
               ],
               sales_yesterday:{

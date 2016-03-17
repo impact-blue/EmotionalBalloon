@@ -56,14 +56,12 @@ class AdminController < ApplicationController
       #当月の売上
         current_day_count.times do |i| #今日の日付の数だけ繰り返す
               @sales_index = all_orders.select("price").where(created_at: current_day.all_day)
-              sales = Hash.new
-              sales[:price] = 0
-              sales[:count] = 0
-              sales[:day] = current_day.strftime('%Y/%m/%d')
+              sales = Array.new
+              sales << current_day.strftime('%m/%d')
+              sales << 0
               #当月の売上
                   @sales_index.each do |o|
-                    sales[:price] += o.price
-                    sales[:count] += 1
+                    sales[1] += o.price
                   end
             @json_sales_orders.unshift(sales)
             current_day_count -= 1
@@ -113,7 +111,13 @@ class AdminController < ApplicationController
     #@json_sales_orders = Order.where(created_at: @date.strftime("%Y/%m/%d"))
     # order.products.map(&:name).zip(order.order_product_infos.map(&:count))
   #こんな書き方とか
-  end
+
+  @chart_data = @json_sales_orders
+
+
+
+
+  end #indexの終わり
 
 
 
