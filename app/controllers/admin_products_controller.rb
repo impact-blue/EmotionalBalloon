@@ -33,7 +33,9 @@ class AdminProductsController < ApplicationController
     end
 
     if params[:category].present?
-      @json_products = @json_products.where(category_id: params[:category])
+      unless params[:category] == 0
+        @json_products = @json_products.where(category_id: params[:category])
+      end
     end
 
 
