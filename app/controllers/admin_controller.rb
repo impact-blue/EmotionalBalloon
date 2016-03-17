@@ -25,35 +25,35 @@ class AdminController < ApplicationController
       elsif params[:filter] == "day"
         target_day = current_day.beginning_of_day
       end
-        #昨日の売上
+      #昨日の売上
               yesterday = Hash.new
               day = (current_day -1.day)
               yesterday[:price] = all_order_product_infos.where(created_at: day).pluck(:sum_price).inject(:+)
               yesterday[:count] = all_orders.select("id").where(created_at: day).length
               yesterday[:day]   = day.strftime('%Y/%m/%d')
               @json_sales_yesterday = yesterday
-        #週間（7日間）の売上 これは、ハッシュでまとめる
+      #週間（7日間）の売上 これは、ハッシュでまとめる
               weekly = Hash.new
               day = (current_day.beginning_of_day - 6.day)
               weekly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
               weekly[:count] = all_orders.select("id").where(created_at: day..current_day).length
               weekly[:day]   = "週間"
               @json_sales_weekly = weekly
-        #31日間の売上（ハッシュでまとめたやつ）
+      #31日間の売上（ハッシュでまとめたやつ）
               monthly = Hash.new
               day = (current_day.beginning_of_day - 30.day)
               monthly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
               monthly[:count] = all_orders.select("id").where(created_at: day..current_day).length
               monthly[:day]   = "月間"
               @json_sales_monthly = monthly
-        #今年の売上
+      #今年の売上
               all_year = Time.now.all_year
               sales_year = Hash.new
               sales_year[:price]  = all_order_product_infos.where(created_at: all_year).pluck(:sum_price).inject(:+)
               sales_year[:count]  = all_orders.select("id").where(created_at: all_year).length
               @json_sales_year = sales_year
 
-        #当月の売上
+      #当月の売上
         current_day_count.times do |i| #今日の日付の数だけ繰り返す
               @sales_index = all_orders.select("price").where(created_at: current_day.all_day)
               sales = Hash.new
