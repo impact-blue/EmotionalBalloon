@@ -23,10 +23,8 @@
     }
 }
 .l-column-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    margin-top: 75px;
+    margin-bottom: 25px;
     &__head {
         margin: 0 auto;
         padding: 20px;
@@ -68,12 +66,13 @@
             align-items: center;
             margin-top: 20px;
             &__button {
-                display: none;
                 position: relative;
                 padding: 0 200px;
                 line-height: 40px;
+                color: white;
                 box-shadow: 3px 3px 5px rgba(black, 0.1);
                 border: 2px solid $brandColor;
+                background: $brandColor;
                 pointer-events: none;
                 cursor: pointer;
                 transition: 0.3s;
@@ -82,16 +81,10 @@
                     pointer-events: auto;
                     opacity: 1;
                 }
-                &.show {
-                    display: block;
-                }
                 &:first-child {
                     display: block;
                     padding: 0 20px;
                     margin-right: 10px;
-                    color: white;
-                    background: $brandColor;
-                    border: 2px solid $brandColor;
                 }
                 &__progress {
                     position: absolute;
