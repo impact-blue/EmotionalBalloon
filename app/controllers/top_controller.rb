@@ -51,7 +51,7 @@ class TopController < ApplicationController
       product_id_only_5 << c[:id]
     end
     if Product.select(:id).count >= 5
-       @json_ranking_products  = Product.where(id: product_id_only_5).order("field(id, #{product_id_only_5.join(',')})")
+       @json_ranking_products  = Product.includes(:images).where(id: product_id_only_5).order("field(id, #{product_id_only_5.join(',')})")
     end
 
   end

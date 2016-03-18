@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
             redirect_to "/scenes/#{category_name}"
           end
           @json_products =
-            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).includes(:images).page(params[:page]).per(20).order("created_at ASC")
           return
         end
       end

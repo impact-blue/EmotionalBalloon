@@ -10,7 +10,6 @@ class Product < ActiveRecord::Base
   has_many :order_product_infos
   has_many :carts
   has_one :ranking
-  validates_associated :images
 
   #商品名
   validates :name,:comment,
@@ -56,7 +55,7 @@ class Product < ActiveRecord::Base
 
 
   def self.get_list_all_page(page,per)
-    return self.all.page(page).per(per)
+    return self.all.page(page).per(per).includes(:images)
   end
 
   def self.get_list_public(page,per)
@@ -68,11 +67,11 @@ class Product < ActiveRecord::Base
   end
 
   def self.get_list_pages_by_status(status,page,per)
-    return self.includes(:images).where(status: status).page(page).per(per)
+    return self.where(status: status).page(page).per(per).includes(:images)
   end
 
   def self.get_list_no_stocks(page,per)
-    return self.includes(:images).where(stocks: 0).page(page).per(per)
+    return self.where(stocks: 0).page(page).per(per).includes(:images)
   end
 
 end
