@@ -47,7 +47,7 @@
                     id:<%= p.id %>,
                     name:"<%= p.name %>",
                     price:<%= p.price %>,
-                    image:"<%= p.main_image %>",
+                    image: "/admin/images/get_image?id=<%= p.images[0].id %>",
                     description:"<%= p.comment %>",
                   },
                 <% end %>
@@ -295,5 +295,6 @@
 </head>
 <body ng-controller="balloonController">
   <%= yield %>
+<%= debug(params)  if Rails.env.development? %>
 </body>
 </html>
