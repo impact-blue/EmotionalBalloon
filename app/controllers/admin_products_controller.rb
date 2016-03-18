@@ -33,12 +33,10 @@ class AdminProductsController < ApplicationController
     end
 
     if params[:category].present?
-      unless params[:category] == 0
+      unless params[:category] == "0"
         @json_products = @json_products.where(category_id: params[:category])
       end
     end
-
-
     #CSVダウンロード
     #<a href="/admin/products.csv/?status=all&page={{data.search_products.current_page}}">CSV</a>
     respond_to do |format|
@@ -94,7 +92,6 @@ class AdminProductsController < ApplicationController
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
     @product.stocks       = params[:data][:stock]
-#    @product.main_image   = params[:data][:images][0]
     @product.comment      = params[:data][:description]
     @product.size         = params[:data][:size]
     @product.status       = params[:data][:status]
@@ -109,12 +106,29 @@ class AdminProductsController < ApplicationController
             @product.images[i].image_content_type = product_info[1].content_type
           end
       end
+    elsif params[:data][:images].blank? #画像がない場合のエラーメッセージ
+      return render json: {data:
+                            {result:"false",
+                              "message":
+                              @product.errors.full_messages.each do |msg|
+                                ["msg"]
+                              end
+                            }
+                          }
     end
     #保存
+
     if @product.save
       render json: {data:{result:"success"}}
     else
-      render json: {data:{result:"false"}}
+      render json: {data:
+                      {result:"false",
+                        "message":
+                        @product.errors.full_messages.each do |msg|
+                          ["msg"]
+                        end
+                      }
+                   }
     end
   end
 

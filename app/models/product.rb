@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
   has_many :order_product_infos
   has_many :carts
   has_one :ranking
+  validates_associated :images
 
   #商品名
   validates :name,:comment,
@@ -17,7 +18,8 @@ class Product < ActiveRecord::Base
   #価格,在庫
   validates :price, :stocks,:size,:count,:status,:category_id,
     presence: { message: 'は必須です'},
-    numericality: { :only_integer => true , message: 'は必須です'}
+    numericality: { :only_integer => true , message: 'は半角数字で入力してください'}
+
 
 
   def self.import(file)
@@ -66,10 +68,11 @@ class Product < ActiveRecord::Base
   end
 
   def self.get_list_pages_by_status(status,page,per)
-    return self.where(status: status).page(page).per(per)
+    return self.includes(:images).where(status: status).page(page).per(per)
   end
 
   def self.get_list_no_stocks(page,per)
-    return self.where(stocks: 0).page(page).per(per)
+    return self.includes(:images).where(stocks: 0).page(page).per(per)
   end
+
 end
