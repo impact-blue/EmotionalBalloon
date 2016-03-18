@@ -13,7 +13,7 @@ app.controller('cartShowController', function($scope, $http, localStorageService
             }
             $scope.sumPrice += data.data.product_detail.price;
         }).error(function(data, status, headers, config) {
-            alert(status);
+            console.log(status);
         });
     });
 });
