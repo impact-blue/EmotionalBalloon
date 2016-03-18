@@ -658,6 +658,25 @@ app.controller('productCreateController', function($scope, $http, Upload) {
         });
     };
 
+    $scope.deleteImage = function(index) {
+        if(typeof $scope.product_data.images[index] !== 'object') {
+            $http({
+                method: 'DELETE',
+                url: '/api/products/images?id=' + $scope.product_data.images[index].split('?id=')[1]
+            }).success(function(data, status, headers, config) {
+                if(data.result === 'success') {
+                    $scope.product_data.images.splice(index, 1);
+                } else {
+                    console.log(data.message);
+                }
+            }).error(function(data, status, headers, config) {
+                console.log(status);
+            });
+        } else {
+            $scope.product_data.images.splice(index, 1);
+        }
+    };
+
     $scope.editProduct = function() {
         var sendData = {
             data: $scope.product_data
@@ -671,7 +690,7 @@ app.controller('productCreateController', function($scope, $http, Upload) {
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
-                    location.href = "/admin/products?status=all";
+                    location.href = "/admin/products?status=all&category=0&per_page=20";
                 } else {
                     alert(data.data.message);
                 }
@@ -686,7 +705,7 @@ app.controller('productCreateController', function($scope, $http, Upload) {
                 data: sendData
             }).success(function(data, status, headers, config) {
                 if(data.data.result === 'success') {
-                    location.href = "/admin/products?status=all";
+                    location.href = "/admin/products?status=all&category=0&per_page=20";
                 } else {
                     alert(data.data.message);
                 }

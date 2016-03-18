@@ -2725,18 +2725,6 @@ h2.balloonHeading2 {
         height: 80px;
         font-size: 12px;
         border: 1px solid #c8c8c8; }
-      .p-registerForm__block__wrapper__list__content img {
-        position: relative;
-        max-width: 100px;
-        height: auto;
-        margin-right: 10px; }
-        .p-registerForm__block__wrapper__list__content img::after {
-          content: "x";
-          position: absolute;
-          top: 0;
-          right: 0;
-          color: white;
-          background: #D83961; }
       .p-registerForm__block__wrapper__list__content.postal input[type="text"] {
         width: calc(100% / 3 - 4px); }
         .p-registerForm__block__wrapper__list__content.postal input[type="text"]:last-child {
@@ -2745,6 +2733,27 @@ h2.balloonHeading2 {
         width: 100%; }
       .p-registerForm__block__wrapper__list__content.template {
         width: 100%; }
+      .p-registerForm__block__wrapper__list__content__image {
+        display: flex;
+        flex-wrap: wrap; }
+        .p-registerForm__block__wrapper__list__content__image__list {
+          position: relative;
+          margin-right: 10px; }
+          .p-registerForm__block__wrapper__list__content__image__list img {
+            position: relative;
+            max-width: 100px;
+            height: auto; }
+          .p-registerForm__block__wrapper__list__content__image__list i {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            line-height: 20px;
+            font-size: 20px;
+            text-align: center;
+            color: #D83961;
+            border-radius: 50%;
+            cursor: pointer; }
       .p-registerForm__block__wrapper__list__content__upload {
         line-height: 7;
         text-align: center;

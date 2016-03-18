@@ -56,20 +56,6 @@
                         font-size: 12px;
                         border: 1px solid #c8c8c8;
                     }
-                    img {
-                        position: relative;
-                        max-width: 100px;
-                        height: auto;
-                        margin-right: 10px;
-                        &::after {
-                            content: "x";
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            color: white;
-                            background: $brandColor;
-                        }
-                    }
                     &.postal {
                         input[type="text"] {
                             width: calc(100% / 3 - 4px);
@@ -85,6 +71,31 @@
                     }
                     &.template {
                         width: 100%;
+                    }
+                    &__image {
+                        display: flex;
+                        flex-wrap: wrap;
+                        &__list {
+                            position: relative;
+                            margin-right: 10px;
+                            img {
+                                position: relative;
+                                max-width: 100px;
+                                height: auto;
+                            }
+                            i {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                width: 20px;
+                                line-height: 20px;
+                                font-size: 20px;
+                                text-align: center;
+                                color: $brandColor;
+                                border-radius: 50%;
+                                cursor: pointer;
+                            }
+                        }
                     }
                     &__upload {
                         line-height: 7;
