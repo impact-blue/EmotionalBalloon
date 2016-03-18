@@ -5,9 +5,12 @@ class AdminCategoriesController < ApplicationController
     unless params[:filter].present?
       redirect_to "/admin/categories?filter=all"
     end
-      @json_category_list = Category.all
-      @json_scene_list = @json_category_list.where(genre: :scene)
-      @json_character_list = @json_category_list.where(genre: :character)
+       @json_category_list = Category.all
+      if params[:filter] == "scene"
+        @json_category_list = @json_category_list.where(genre: :scene)
+      elsif params[:filter] == "character"
+       @json_category_list = @json_category_list.where(genre: :character)
+      end
   end
 
 
@@ -19,7 +22,11 @@ class AdminCategoriesController < ApplicationController
   end
 
   def edit
-        @json_category_detail = Category.find(params[:id])
+    if params[:id].present?
+       @json_category_detail = Category.find(params[:id])
+    elsif  params[:id].blank?
+       @json_category_detail = Category.new
+    end
   end
 
   def api_scene
@@ -31,6 +38,7 @@ class AdminCategoriesController < ApplicationController
 
     @category.name_en = params[:data][:name_en]
     @category.name_ja = params[:data][:name_jp]
+    @category.status = 1
     if  @category.save
       render json: {data:{result:"success"}}
     else

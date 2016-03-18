@@ -168,7 +168,7 @@
                 id: <%= @json_category_detail.id %>,
                 name_en: "<%= @json_category_detail.name_en %>",
                 name_jp: "<%= @json_category_detail.name_ja %>",
-                type: "<%= @type %>",
+                type: "<%= @json_category_detail.genre %>",
               },
             <% end %>
             <% if @json_customer_list.present? %>
