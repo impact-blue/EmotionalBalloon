@@ -2011,10 +2011,8 @@ select {
     width: 400px; }
 
 .l-column-register {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%; }
+  margin-top: 75px;
+  margin-bottom: 25px; }
   .l-column-register__head {
     margin: 0 auto;
     padding: 20px;
@@ -2050,12 +2048,13 @@ select {
     align-items: center;
     margin-top: 20px; }
     .l-column-register__foot__wrapper__button {
-      display: none;
       position: relative;
       padding: 0 200px;
       line-height: 40px;
+      color: white;
       box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
       border: 2px solid #D83961;
+      background: #D83961;
       pointer-events: none;
       cursor: pointer;
       transition: 0.3s;
@@ -2063,15 +2062,10 @@ select {
       .l-column-register__foot__wrapper__button.on {
         pointer-events: auto;
         opacity: 1; }
-      .l-column-register__foot__wrapper__button.show {
-        display: block; }
       .l-column-register__foot__wrapper__button:first-child {
         display: block;
         padding: 0 20px;
-        margin-right: 10px;
-        color: white;
-        background: #D83961;
-        border: 2px solid #D83961; }
+        margin-right: 10px; }
       .l-column-register__foot__wrapper__button__progress {
         position: absolute;
         top: 0;
