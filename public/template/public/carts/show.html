@@ -31,7 +31,7 @@
                     <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">{{cart.length}}</span></a></p>
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge" ng-if="cart.length">{{cart.length}}</span></a></p>
                 </li>
             </ul>
         </div>
@@ -45,7 +45,7 @@
         </ul>
         <ul class="p-cartList" ng-if="cartItem.length">
             <li class="p-cartList__list" ng-repeat="(i, product) in cartItem">
-                <div class="p-cartList__list__image" style="background-image: url({{product.image[0]}})"></div>
+                <div class="p-cartList__list__image" style="background-image: url({{product.images[0]}})"></div>
                 <p class="p-cartList__list__text"><span>{{product.name}}</span><br />{{product.description | limitTo:100}}</p>
                 <p class="p-cartList__list__text">¥{{product.price}}</p>
                 <p class="p-cartList__list__text">数量：1</p>
