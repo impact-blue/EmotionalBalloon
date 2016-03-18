@@ -2001,6 +2001,12 @@ select {
   padding-top: 20px; }
   .l-column-col2__left {
     width: 600px; }
+    .l-column-col2__left__error {
+      text-align: center;
+      line-height: 300px;
+      font-size: 20px;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white; }
   .l-column-col2__right {
     width: 400px; }
 
@@ -2239,6 +2245,9 @@ footer {
     background: #D83961; }
     .c-button--cart.on .c-button--cart__text a {
       color: white; }
+  .c-button--cart.off {
+    opacity: 0.5;
+    pointer-events: none; }
   .c-button--cart__text {
     width: 300px;
     margin: 0 auto;

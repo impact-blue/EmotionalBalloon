@@ -42,6 +42,10 @@
             }
         }
     }
+    &.off {
+        opacity: 0.5;
+        pointer-events: none;
+    }
     &__text {
         width: 300px;
         margin: 0 auto;
