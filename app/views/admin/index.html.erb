@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
-                <a href="/admin/products?status=all">
+                <a href="/admin/products?status=all&category=0&per_page=20">
                     <p><i class="fa fa-gift"></i></p>
                     <p>PRODUCT</p>
                 </a>
@@ -37,16 +37,16 @@
                     <p>CUSTOMER</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
-                <a href="/admin/mails">
-                    <p><i class="fa fa-envelope"></i></p>
-                    <p>MAIL</p>
-                </a>
-            </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/contacts'}">
                 <a href="/admin/contacts?status=all">
                     <p><i class="fa fa-phone"></i></p>
                     <p>CONTACT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
@@ -64,8 +64,9 @@
         </ul>
     </div>
     <div class="l-admin__right">
-        <div class="l-admin__right__full" style="min-height:100%">
-        <%= column_chart @chart_data , stacked: true , label: "売上", xtitle: "日付", ytitle: "売上"%>
+        <div class="l-admin__right__foot">
+            <div class="l-admin__right__foot__content">
+            </div>
         </div>
     </div>
 </div>

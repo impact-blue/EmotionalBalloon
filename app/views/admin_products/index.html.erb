@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/products'}">
-                <a href="/admin/products?status=all">
+                <a href="/admin/products?status=all&category=0&per_page=20">
                     <p><i class="fa fa-gift"></i></p>
                     <p>PRODUCT</p>
                 </a>
@@ -37,16 +37,16 @@
                     <p>CUSTOMER</p>
                 </a>
             </li>
-            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
-                <a href="/admin/mails">
-                    <p><i class="fa fa-envelope"></i></p>
-                    <p>MAIL</p>
-                </a>
-            </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/contacts'}">
                 <a href="/admin/contacts?status=all">
                     <p><i class="fa fa-phone"></i></p>
                     <p>CONTACT</p>
+                </a>
+            </li>
+            <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/mails'}">
+                <a href="/admin/mails">
+                    <p><i class="fa fa-envelope"></i></p>
+                    <p>MAIL</p>
                 </a>
             </li>
             <li class="l-admin__left__list__child" ng-class="{'on': path === '/admin/settings'}">
@@ -76,7 +76,7 @@
     <div class="c-buttonList">
         <div class="c-buttonList__left">
             <select ng-model="formModel.category" ng-options="category.id as category.name_jp group by category.type for (i, category) in formOptions.category"></select>
-            <p class="c-buttonList__right__list u-ml-0" ng-click="findProduct(formModel.category)">絞り込む</p>
+            <select ng-model="formModel.per_page" ng-options="page as page for (i, page) in formOptions.per_page"></select>
         </div>
         <div class="c-buttonList__right">
             <p class="c-buttonList__right__list" ng-click="exportCSV()">CSV出力</p>
