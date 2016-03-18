@@ -61,7 +61,14 @@ class ApiController < ApplicationController
   end
 
   def detail
-    @product = Product.find(params[:id])
+    @product = Product.find_by(id: params[:id])
+    if @product.nil?
+      render json:
+      {
+        result: "failure",
+        "message": "存在しない商品です"
+      }
+    end
     #http://localhost:3000/api/detail.json?id=2
   end
 

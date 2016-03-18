@@ -202,9 +202,13 @@ ja:
         contact: お問い合わせ
       attributes:
         product:
-          name: 商品
-          price: 価格
+          name: 商品名
+          price: 値段
           stocks: 在庫
+          comment: 説明文
+          size: サイズ
+          status: 状態
+          category_id: カテゴリー
           registration_date: 商品の登録日
         user:
           email: メールアドレス（購入者）
