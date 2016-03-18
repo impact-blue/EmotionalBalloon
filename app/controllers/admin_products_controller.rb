@@ -79,10 +79,14 @@ class AdminProductsController < ApplicationController
   end
 
   def api
-
+binding.pry
     if params[:data][:id] == "null"
       @product = Product.new(product_params)
-      @product.id = (Product.last.id + 1)
+      if Product.last.nil?
+        @product.id = 1
+      elsif Product.last.present?
+        @product.id = (Product.last.id + 1)
+      end
       @product.count = 0
     elsif params[:data][:id].present?
       @product = Product.find(params[:data][:id])
@@ -107,7 +111,7 @@ class AdminProductsController < ApplicationController
           end
       end
     end
-
+binding.pry
     #保存
     if @product.save
       render json: {data:{result:"success"}}
