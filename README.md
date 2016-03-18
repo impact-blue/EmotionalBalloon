@@ -161,7 +161,7 @@ Dashboard (/admin)
 }
 ```
 
-#### GET /api/product/detail
+#### GET /api/products/detail
 | Parameter | Value |
 |:-:|:-:|
 | id | :id |
