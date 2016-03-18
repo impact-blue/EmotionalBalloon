@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
           @json_scene_list = @json_category_list.where(genre: :scene)
           category_id = @json_scene_list.pluck(:id)
 
-          @json_products =  Product.includes(:images).where(status: 1, category_id: category_id )
+          @json_products =  Product.where(status: 1, category_id: category_id ).includes(:images)
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
           @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
           @json_products = []
           @json_character_list = @json_category_list.where(genre: :character)
           category_id = @json_character_list.pluck(:id)
-          @json_products =  Product.where(status: 1, category_id: category_id )
+          @json_products =  Product.where(status: 1, category_id: category_id ).includes(:images)
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
           @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
             redirect_to "/characters/#{category_name}"
           end
           @json_products =
-            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).includes(:images).order("created_at ASC")
           return
         end
       end
@@ -62,17 +62,17 @@ class ProductsController < ApplicationController
       if  params[:page] == "1"
             redirect_to "/search?min=#{params[:min]}&max=#{params[:max]}"
       end
-      @json_products = Product.includes(:images).where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
     elsif params[:max].present?
       if  params[:page] == "1"
             redirect_to "/search?&max=#{params[:max]}"
       end
-      @json_products = Product.includes(:images).where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
     elsif params[:min].present?
       if  params[:page] == "1"
             redirect_to "/search?&min=#{params[:min]}"
       end
-      @json_products = Product.includes(:images).where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
     end
 
   #以下は旧仕様

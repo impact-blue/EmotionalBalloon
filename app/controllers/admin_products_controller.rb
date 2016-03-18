@@ -133,7 +133,11 @@ class AdminProductsController < ApplicationController
   end
 
   def api_image_delete
-    image = Image.fine(params[:id])
+    image = Image.find(params[:id])
+    images = Image.select(:id).where(product_id: image.product_id)
+    if images.count <= 1
+      return render json: {data:{result:"failure",message:"画像が1枚以下の時には削除できません"}}
+    end
     if image.destroy
       render json: {data:{result:"success"}}
     else

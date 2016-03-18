@@ -102,7 +102,7 @@ Product.create(:name => 'バルーン100',:price => '6400',:stocks => '20',:comm
 end
 
 200.times do |i|
-Image.create(:product_id => "#{i}",:image_content_type => "image/jpg")
+Image.create(:product_id => "#{i+1}",:image_content_type => "image/jpg")
 end
 
 5.times do |i|
