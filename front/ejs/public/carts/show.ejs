@@ -6,13 +6,13 @@
             <li>カート</li>
         </ul>
         <ul class="p-cartList" ng-if="cartItem.length">
-            <li class="p-cartList__list" ng-repeat="product in cartItem">
+            <li class="p-cartList__list" ng-repeat="(i, product) in cartItem">
                 <div class="p-cartList__list__image" style="background-image: url({{product.image[0]}})"></div>
                 <p class="p-cartList__list__text"><span>{{product.name}}</span><br />{{product.description | limitTo:100}}</p>
                 <p class="p-cartList__list__text">¥{{product.price}}</p>
                 <p class="p-cartList__list__text">数量：1</p>
                 <div class="c-button--delete">
-                    <p class="c-button--delete__text">削除する</p>
+                    <p class="c-button--delete__text" ng-click="deleteItem(i, product.id)">削除する</p>
                 </div>
             </li>
             <li class="p-cartList__list">

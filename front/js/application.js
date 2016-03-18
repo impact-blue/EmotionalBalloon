@@ -416,7 +416,8 @@ app.controller('cartShowController', function($scope, $http, localStorageService
     angular.forEach(localStorageService.load().cart, function(value, key){
         $http({
             method: 'GET',
-            url: '/api/products/detail.json?id=' + value
+            // url: '/api/products/detail.json?id=' + value
+            url: '/api/products/detail.json'
         }).success(function(data, status, headers, config) {
             if(data.result === 'success') {
                 $scope.cartItem.push(data.data.product_detail);
@@ -428,6 +429,13 @@ app.controller('cartShowController', function($scope, $http, localStorageService
             console.log(status);
         });
     });
+
+    $scope.deleteItem = function(index, id) {
+        if(confirm('商品をカートから削除しますか？')) {
+            $scope.cartItem.splice(index, 1);
+            localStorageService.delete(localStorageService.load().cart, id);
+        }
+    };
 });
 app.controller('categoryEditController', function($scope, $http) {
     if(location.pathname.split('/')[4] !== 'new') {
