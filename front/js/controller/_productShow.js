@@ -1,13 +1,22 @@
-app.controller('productShowController', function($scope, $http, getStorageService, saveStorageService) {
-    $scope.saveProduct = function(id) {
-        var saveFlag = true;
-        angular.forEach(getStorageService.cart, function(value, key) {
-            if(id === value) {
-                saveFlag = false;
+app.controller('productShowController', function($scope, $http, localStorageService) {
+    var storage = localStorageService.load();
+    $scope.saveFlag = true;
+    if(angular.isDefined(storage.cart)) {
+        angular.forEach(storage.cart, function(value, key) {
+            if(balloon_data.data.detail_product.id === value) {
+                $scope.saveFlag = false;
             }
         });
-        if(saveFlag) {
-            saveStorageServie('hi');
+    }
+
+    $scope.saveProduct = function(id) {
+        storage = localStorageService.load();
+        if($scope.saveFlag) {
+            localStorageService.save(storage.cart, id);
+            $scope.saveFlag = false;
+        } else {
+            localStorageService.delete(storage.cart, id);
+            $scope.saveFlag = true;
         }
     };
 });

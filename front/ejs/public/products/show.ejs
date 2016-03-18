@@ -10,9 +10,9 @@
         </ul>
         <div class="p-photoGallery">
             <div class="p-photoGallery__zoom"><img src="{{data.detail_product.images[0]}}" alt=""></div>
-            <ul class="p-photoGallery__list">
+            <!-- <ul class="p-photoGallery__list">
                 <li class="p-photoGallery__list__child" ng-repeat="(i, path) in data.detail_product.images" ng-if="i !== 0"><img src="{{path}}" alt=""></li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     <div class="l-column-col2__right">
@@ -48,8 +48,8 @@
                 </table>
             </div>
         </div>
-        <div class="c-button--cart">
-            <p class="c-button--cart__text" ng-click="saveProduct(data.detail_product.id)">カートに追加する</p>
+        <div class="c-button--cart" ng-class="{'on': !saveFlag}">
+            <p class="c-button--cart__text" ng-click="saveProduct(data.detail_product.id)"><span ng-if="saveFlag">カートに追加する</span><span ng-if="!saveFlag">カートに追加済み</span></p>
         </div>
     </div>
 </div>
