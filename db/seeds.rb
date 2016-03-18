@@ -574,6 +574,7 @@ MailContent.create(
   :text => '$name様
 
 お問い合わせを下記にて受け付けました。
+メールアドレス：$email
 件名：$subject
 お問い合わせ内容
 $content
