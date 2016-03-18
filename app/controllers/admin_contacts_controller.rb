@@ -8,15 +8,15 @@ class AdminContactsController < ApplicationController
     end
 
     if params[:per_page].present?
-      @page = params[:per_page]
+      @per = params[:per_page]
     end
 
     if params[:status] == "all"
-    @json_contact_list = Contact.all.page(params[:page]).per(@page).order("created_at desc")
+    @json_contact_list = Contact.all.page(params[:page]).per(@per).order("created_at desc")
     elsif params[:status] == "uncomplete"
-      @json_contact_list = Contact.where(status: "未対応").page(params[:page]).per(@page).order("created_at desc")
+      @json_contact_list = Contact.where(status: "未対応").page(params[:page]).per(@per).order("created_at desc")
     elsif params[:status] == "complete"
-      @json_contact_list = Contact.where(status: "対応済み").page(params[:page]).per(@page).order("created_at desc")
+      @json_contact_list = Contact.where(status: "対応済み").page(params[:page]).per(@per).order("created_at desc")
     end
   end
 

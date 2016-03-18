@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
           @json_products =  Product.where(status: 1, category_id: category_id ).includes(:images)
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
-          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
+          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(@per)
           return
         end
       @category_name.each do |category_name|
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
             redirect_to "/scenes/#{category_name}"
           end
           @json_products =
-            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).includes(:images).page(params[:page]).per(20).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","scene",category_name]).id).includes(:images).page(params[:page]).per(@per).order("created_at ASC")
           return
         end
       end
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
           @json_products =  Product.where(status: 1, category_id: category_id ).includes(:images)
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
-          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
+          @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(@per)
           return
         end
       @category_name.each do |category_name|
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
             redirect_to "/characters/#{category_name}"
           end
           @json_products =
-            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(20).includes(:images).order("created_at ASC")
+            Product.where(status: 1,category_id:  Category.find_by(["genre = ? and name_en = ?","character",category_name]).id).page(params[:page]).per(@per).includes(:images).order("created_at ASC")
           return
         end
       end
@@ -62,45 +62,45 @@ class ProductsController < ApplicationController
       if  params[:page] == "1"
             redirect_to "/search?min=#{params[:min]}&max=#{params[:max]}"
       end
-      @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@per).includes(:images).order("created_at ASC")
     elsif params[:max].present?
       if  params[:page] == "1"
             redirect_to "/search?&max=#{params[:max]}"
       end
-      @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@per).includes(:images).order("created_at ASC")
     elsif params[:min].present?
       if  params[:page] == "1"
             redirect_to "/search?&min=#{params[:min]}"
       end
-      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).includes(:images).order("created_at ASC")
+      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@per).includes(:images).order("created_at ASC")
     end
 
   #以下は旧仕様
     #if min.present? && max.present?
-    #  @products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at DESC")
+    #  @products = Product.where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@per).order("created_at DESC")
     #  @current_page = params[:page].to_i
 
     #単一検索
     #elsif min.present? #最小価格
-    #  @products = Product.where('price >= ? ',params[:min]).page(params[:page]).per(@page).order("created_at DESC")
+    #  @products = Product.where('price >= ? ',params[:min]).page(params[:page]).per(@per).order("created_at DESC")
     #  @current_page = params[:page].to_i
     #elsif max.present? #最大価格
-    #  @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(@page).order("created_at DESC")
+    #  @products = Product.where('price <= ? ',params[:max]).page(params[:page]).per(@per).order("created_at DESC")
     #  @current_page = params[:page].to_i
     #elsif scene.present? #シーン別
-    #  @products = Kaminari.paginate_array(Product.includes(:scenes).where('name_en = ?', params[:name_en]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@page)
+    #  @products = Kaminari.paginate_array(Product.includes(:scenes).where('name_en = ?', params[:name_en]).references(:scene).order("products.created_at DESC")).page(params[:page]).per(@per)
     #  @current_page = params[:page].to_i
 
     #elsif chara.present? #キャラクター別
-    #  @products = Kaminari.paginate_array(Product.includes(:charas).where('name_en = ?', params[:name_en]).references(:chara).order("products.created_at DESC")).page(params[:page]).per(@page)
+    #  @products = Kaminari.paginate_array(Product.includes(:charas).where('name_en = ?', params[:name_en]).references(:chara).order("products.created_at DESC")).page(params[:page]).per(@per)
     #  @current_page = params[:page].to_i
 
     #elsif color.present? #色別
-    #  @products = Kaminari.paginate_array(Product.includes(:colors).where('color = ?', params[:color]).references(:color).order("products.created_at DESC")).page(params[:page]).per(@page)
+    #  @products = Kaminari.paginate_array(Product.includes(:colors).where('color = ?', params[:color]).references(:color).order("products.created_at DESC")).page(params[:page]).per(@per)
     #  @current_page = params[:page].to_i
     #条件なし
     #else
-    #  @products = Product.page(params[:page]).per(@page).order("created_at DESC")
+    #  @products = Product.page(params[:page]).per(@per).order("created_at DESC")
     #  @current_page = params[:page].to_i
     #end
   #ここまで

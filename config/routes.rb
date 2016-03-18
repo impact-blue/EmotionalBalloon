@@ -104,6 +104,6 @@ get    'admin/login'   => 'sessions#new'
 post   'admin/login'   => 'sessions#create'
 get    'admin/logout'  => 'sessions#destroy' ,as: :logout
 
-#match '*path' =>  'application#error404',via: :all
+match '*path' =>  'application#error404',via: :all
 
 end

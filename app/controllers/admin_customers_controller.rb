@@ -4,12 +4,12 @@ class AdminCustomersController < ApplicationController
   def index
 
     if params[:per_page].present?
-      @page = params[:per_page]
+      @per = params[:per_page]
     else
-      @page = 20
+      @per = 20
     end
 
-    @json_customer_list = User.all.includes(:user_names).page(params[:page]).per(@page).order("created_at ASC")
+    @json_customer_list = User.all.includes(:user_names).page(params[:page]).per(@per).order("created_at ASC")
   end
 
   def show
