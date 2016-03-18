@@ -34,7 +34,7 @@
                         stock: <%= p.stocks %>,
                         count: <%= p.count %>,
                         created_at: "<%= p.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
-                        image: "/admin/images/get_image?id=<%= p.images[0].id %>"
+                        image: "/images/get_image?id=<%= p.images[0].id %>"
                     },
                   <% end %>
                 ],
@@ -47,7 +47,7 @@
                     id:<%= p.id %>,
                     name:"<%= p.name %>",
                     price:<%= p.price %>,
-                    image: "/admin/images/get_image?id=<%= p.images[0].id %>",
+                    image: "/images/get_image?id=<%= p.images[0].id %>",
                     description:"<%= p.comment %>",
                   },
                 <% end %>
@@ -67,7 +67,7 @@
                 <% if @json_detail_product.images.present? %>
                 images:[
                   <% @json_detail_product.images.each do |p| %>
-                    "/admin/images/get_image?id=<%= p.id %>",
+                    "/images/get_image?id=<%= p.id %>",
                   <% end %>
                 ],
                 <% end %>
@@ -109,7 +109,7 @@
                             stocks: <%= product.product.stocks %>,
                             price: <%= product.product.price %>,
                             images: [
-                                "<%= product.product.main_image %>",
+                                 "/images/get_image?id=#{product.images[0].id}",
                             ],
                         },
                       <% end %>
