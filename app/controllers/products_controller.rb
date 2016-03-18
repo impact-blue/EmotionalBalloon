@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
           @json_scene_list = @json_category_list.where(genre: :scene)
           category_id = @json_scene_list.pluck(:id)
 
-          @json_products =  Product.where(status: 1, category_id: category_id )
+          @json_products =  Product.includes(:images).where(status: 1, category_id: category_id )
 
           @json_products =  @json_products.flatten.sort!{ |a, b| a[:id] <=> b[:id] }
           @json_products = Kaminari.paginate_array(@json_products).page(params[:page]).per(20)
@@ -62,17 +62,17 @@ class ProductsController < ApplicationController
       if  params[:page] == "1"
             redirect_to "/search?min=#{params[:min]}&max=#{params[:max]}"
       end
-      @json_products = Product.where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.includes(:images).where(status: 1).where('price >= ? AND price <= ?',params[:min],params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:max].present?
       if  params[:page] == "1"
             redirect_to "/search?&max=#{params[:max]}"
       end
-      @json_products = Product.where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.includes(:images).where(status: 1).where('price <= ?',params[:max]).page(params[:page]).per(@page).order("created_at ASC")
     elsif params[:min].present?
       if  params[:page] == "1"
             redirect_to "/search?&min=#{params[:min]}"
       end
-      @json_products = Product.where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
+      @json_products = Product.includes(:images).where(status: 1).where('price >= ?',params[:min]).page(params[:page]).per(@page).order("created_at ASC")
     end
 
   #以下は旧仕様
@@ -161,7 +161,7 @@ class ProductsController < ApplicationController
       product_id_only_21 << c[:id]
     end
     if Product.select(:id).count >= 21
-      @json_ranking_products  = Product.where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
+      @json_ranking_products  = Product.includes(:images).where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
     end
 
  #   @json_ranking_products = json.uniq!

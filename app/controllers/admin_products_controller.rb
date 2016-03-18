@@ -132,6 +132,15 @@ class AdminProductsController < ApplicationController
     end
   end
 
+  def api_image_delete
+    image = Image.fine(params[:id])
+    if image.destroy
+      render json: {data:{result:"success"}}
+    else
+      render json: {data:{result:"failure"}}
+    end
+  end
+
   def import
     Product.import(params[:file])
     redirect_to "/admin/products?status=all"
