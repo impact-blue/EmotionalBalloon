@@ -31,7 +31,7 @@
                     <p class="header__menu__list__text"><a href="/original">オリジナル</a></p>
                 </li>
                 <li class="header__menu__list">
-                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge">{{cart.length}}</span></a></p>
+                    <p class="header__menu__list__text"><a href="/carts/show"><i class="fa fa-shopping-cart"></i><span class="header__menu__list__text__badge" ng-if="cart.length">{{cart.length}}</span></a></p>
                 </li>
             </ul>
         </div>
@@ -108,16 +108,6 @@
                                         <datetimepicker data-ng-model="data.dateDropDownInput" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
                                     </ul>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="p-registerForm__block__wrapper__list">
-                            <p class="p-registerForm__block__wrapper__list__text">届け先分類</p>
-                            <div class="p-registerForm__block__wrapper__list__content">
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination1" placeholder=""><label for="destination1">貸し会場のイベントへ直送</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination2" placeholder=""><label for="destination2">住居・勤務先でのイベントで使用</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination3" placeholder=""><label for="destination3">自分で受取り後、持参・手渡し</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination4" placeholder=""><label for="destination4">お受取人の住居・勤務先へ</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="destination" id="destination5" placeholder=""><label for="destination5">その他</label></p>
                             </div>
                         </li>
                     </ul>

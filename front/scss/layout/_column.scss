@@ -10,6 +10,13 @@
     padding-top: 20px;
     &__left {
         width: 600px;
+        &__error {
+            text-align: center;
+            line-height: 300px;
+            font-size: 20px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+        }
     }
     &__right {
         width: 400px;
