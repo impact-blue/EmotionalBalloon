@@ -416,8 +416,7 @@ app.controller('cartShowController', function($scope, $http, localStorageService
     angular.forEach(localStorageService.load().cart, function(value, key){
         $http({
             method: 'GET',
-            // url: '/api/products/detail.json?id=' + value
-            url: '/api/products/detail.json'
+            url: '/api/products/detail.json?id=' + value
         }).success(function(data, status, headers, config) {
             if(data.result === 'success') {
                 $scope.cartItem.push(data.data.product_detail);
