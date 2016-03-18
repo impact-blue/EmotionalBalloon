@@ -222,19 +222,19 @@
               ],
               sales_yesterday:{
                 day:   <%= @json_sales_yesterday[:day] %>,
-                price: <%= @json_sales_yesterday[:price] %>,
+                price: <%= @json_sales_yesterday[:price] %><%= 0 if @json_sales_yesterday[:price] == nil %>,
                 count: <%= @json_sales_yesterday[:count] %>,
               },
               sales_weekly:{
-                price: <%= @json_sales_weekly[:price] %>,
+                price: <%= @json_sales_weekly[:price] %><%= 0 if @json_sales_weekly[:price] == nil %>,
                 count: <%= @json_sales_weekly[:count] %>,
               },
               sales_monthly:{
-                price: <%= @json_sales_monthly[:price] %>,
+                price: <%= @json_sales_monthly[:price] %><%= 0 if @json_sales_monthly[:price] == nil %>,
                 count: <%= @json_sales_monthly[:count] %>,
               },
               sales_year:{
-                price: <%= @json_sales_year[:price] %>,
+                price: <%= @json_sales_year[:price] %><%= 0 if @json_sales_year[:price] == nil %>,
                 count: <%= @json_sales_year[:count] %>,
               },
             <% end %>
@@ -283,7 +283,7 @@
                     status:     "<%= @json_detail_contact.status %>",
                     name:       "<%= @json_detail_contact.name %>",
                     subject:    "<%= @json_detail_contact.subject %>",
-                    content:    "<%= @json_detail_contact.content %>",
+                    content:    "<%= @json_detail_contact.content.gsub(/(\r\n|\r|\n|\f)/,"") %>",
                     created_at: "<%= @json_detail_contact.created_at.strftime('%Y/%m/%d %H:%M') %>",
                     updated_at: "<%= @json_detail_contact.updated_at.strftime('%Y/%m/%d %H:%M') %>",
                   },

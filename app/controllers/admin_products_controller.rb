@@ -29,7 +29,7 @@ class AdminProductsController < ApplicationController
     elsif params[:status] == "secret"
       @json_products = Product.get_list_secret(params[:page],@per).order("#{params[:target]} #{params[:order]}")
     elsif params[:status] == "none"
-      @json_products = Product.get_list_no_stocks.order("#{params[:targer]} #{params[:order]}")
+      @json_products = Product.get_list_no_stocks(params[:page],@per).order("#{params[:targer]} #{params[:order]}")
     end
 
     if params[:category].present?
