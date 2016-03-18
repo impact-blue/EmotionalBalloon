@@ -6,6 +6,7 @@ class CompanyController < ApplicationController
 
   def create_contact
      @contact = Contact.new(contact_params)
+     @contact.status = "未対応"
      if @contact.save
       Mailer.thanks_contact(@contact).deliver
       redirect_to root_path
