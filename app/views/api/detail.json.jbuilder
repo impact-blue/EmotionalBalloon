@@ -6,7 +6,7 @@ json.message "非公開の商品です。"   if @product.status == 0
       json.extract! @product, :id, :name, :price
       json.description @product.comment
       json.images(
-      @product.images.ids.map {|id|  "/admin/images/get_image?id=#{id}"}
+      @product.images.ids.map {|id|  "/images/get_image?id=#{id}"}
       )
   end
 end
