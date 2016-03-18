@@ -160,8 +160,9 @@ class ProductsController < ApplicationController
     count_sort.each do |c|
       product_id_only_21 << c[:id]
     end
-
-    @json_ranking_products  = Product.where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
+    if Product.select(:id).count >= 21
+      @json_ranking_products  = Product.where(id: product_id_only_21).order("field(id, #{product_id_only_21.join(',')})")
+    end
 
  #   @json_ranking_products = json.uniq!
     #Rankingモデルに保存

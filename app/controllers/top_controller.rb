@@ -50,8 +50,10 @@ class TopController < ApplicationController
     count_sort.each do |c|
       product_id_only_5 << c[:id]
     end
+    if Product.select(:id).count >= 5
+       @json_ranking_products  = Product.where(id: product_id_only_5).order("field(id, #{product_id_only_5.join(',')})")
+    end
 
-    @json_ranking_products  = Product.where(id: product_id_only_5).order("field(id, #{product_id_only_5.join(',')})")
   end
 
 end
