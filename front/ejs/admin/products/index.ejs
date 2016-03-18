@@ -1,9 +1,9 @@
 <% include ../parts/_header %>
 <ul class="l-admin__right__foot__content__list">
-    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all">すべて</a></li>
-    <li ng-class="{'on': search === '?status=public'}"><a href="/admin/products?status=public">公開</a></li>
-    <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret">非公開</a></li>
-    <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none">在庫なし</a></li>
+    <li ng-class="{'on': search === '?status=all'}"><a href="/admin/products?status=all&category=0&per_page=20">すべて</a></li>
+    <li ng-class="{'on': search === '?status=public'}"><a href="/admin/products?status=public&category=0&per_page=20">公開</a></li>
+    <li ng-class="{'on': search === '?status=secret'}"><a href="/admin/products?status=secret&category=0&per_page=20">非公開</a></li>
+    <li ng-class="{'on': search === '?status=none'}"><a href="/admin/products?status=none&category=0&per_page=20">在庫なし</a></li>
 </ul>
 <div class="l-admin__right__foot__content__body" ng-controller="productListController">
     <div class="c-buttonList">
