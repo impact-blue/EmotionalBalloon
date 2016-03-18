@@ -428,6 +428,13 @@ app.controller('cartShowController', function($scope, $http, localStorageService
             console.log(status);
         });
     });
+
+    $scope.deleteItem = function(index, id) {
+        if(confirm('商品をカートから削除しますか？')) {
+            $scope.cartItem.splice(index, 1);
+            localStorageService.delete(localStorageService.load().cart, id);
+        }
+    };
 });
 app.controller('categoryEditController', function($scope, $http) {
     if(location.pathname.split('/')[4] !== 'new') {
