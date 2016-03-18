@@ -79,7 +79,6 @@ class AdminProductsController < ApplicationController
   end
 
   def api
-binding.pry
     if params[:data][:id] == "null"
       @product = Product.new(product_params)
       if Product.last.nil?
@@ -111,7 +110,6 @@ binding.pry
           end
       end
     end
-binding.pry
     #保存
     if @product.save
       render json: {data:{result:"success"}}
