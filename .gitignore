@@ -12,15 +12,13 @@
 !/log/.keep
 /tmp
 
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+config/database.yml
+
 # Front-End
 */.DS_Store
 node_modules/
 .sass-cache/
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
-
-config/database.yml
-
-
-
+npm-debug.log

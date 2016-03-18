@@ -121,11 +121,11 @@ app.controller('adminController', function($scope, $http) {
         }
     };
 });
-app.controller('balloonController', function($scope, $http, querySortService, getStorageService) {
+app.controller('balloonController', function($scope, $http, querySortService, localStorageService) {
     $scope.data = balloon_data.data;
     $scope.path = location.pathname.split('/');
     $scope.query = querySortService;
-    $scope.cart = getStorageService.cart;
+    $scope.cart = localStorageService.load().cart;
 });
 app.controller('cartComfirmController', function($scope, $http) {
     $scope.comfirm = {
@@ -708,16 +708,25 @@ app.controller('productListController', function($scope, $http, querySortService
         }
     }, true);
 });
-app.controller('productShowController', function($scope, $http, getStorageService, saveStorageService) {
-    $scope.saveProduct = function(id) {
-        var saveFlag = true;
-        angular.forEach(getStorageService.cart, function(value, key) {
-            if(id === value) {
-                saveFlag = false;
+app.controller('productShowController', function($scope, $http, localStorageService) {
+    var storage = localStorageService.load();
+    $scope.saveFlag = true;
+    if(angular.isDefined(storage.cart)) {
+        angular.forEach(storage.cart, function(value, key) {
+            if(balloon_data.data.detail_product.id === value) {
+                $scope.saveFlag = false;
             }
         });
-        if(saveFlag) {
-            saveStorageServie('hi');
+    }
+
+    $scope.saveProduct = function(id) {
+        storage = localStorageService.load();
+        if($scope.saveFlag) {
+            localStorageService.save(storage.cart, id);
+            $scope.saveFlag = false;
+        } else {
+            localStorageService.delete(storage.cart, id);
+            $scope.saveFlag = true;
         }
     };
 });
@@ -786,14 +795,32 @@ app.directive('balloonProgressBar', function() {
         }
     };
 });
-app.service('getStorageService', function() {
-    var storageVal = {};
-    angular.forEach(localStorage, function(value, key) {
-        if(key !== 'debug') {
-            storageVal[key] = JSON.parse(value);
+app.service('localStorageService', function() {
+    this.load = function() {
+        var storageVal = {};
+        angular.forEach(localStorage, function(value, key) {
+            if(key !== 'debug') {
+                storageVal[key] = JSON.parse(value);
+            }
+        });
+        return storageVal;
+    };
+    this.save = function(array, id) {
+        if(angular.isUndefined(array)) {
+            array = [];
         }
-    });
-    return storageVal;
+        array.push(id);
+        localStorage.setItem('cart', JSON.stringify(array));
+    };
+    this.delete = function(array, id) {
+        array.splice(id, 1);
+        angular.forEach(array, function(value, key) {
+            if(value === id) {
+                array.splice(key, 1);
+            }
+        });
+        localStorage.setItem('cart', JSON.stringify(array));
+    };
 });
 app.service('querySortService', function() {
     var queryVal = {};
@@ -803,9 +830,6 @@ app.service('querySortService', function() {
         });
         return queryVal;
     }
-});
-app.service('saveStorageService', function() {
-    console.log('hi');
 });
 },{"angular":8,"angular-bootstrap-datetimepicker":2,"angular-resource":4,"angular-route":6,"ng-file-upload":11}],2:[function(require,module,exports){
 /*globals define, jQuery, module, require */
