@@ -28,6 +28,10 @@
         }
         &__text {
             font-size: 13px;
+            max-width: 260px;
+            span {
+                font-size: 18px;
+            }
         }
     }
 }
