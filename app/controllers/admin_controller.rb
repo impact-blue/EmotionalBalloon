@@ -27,6 +27,7 @@ class AdminController < ApplicationController
       end
       #昨日の売上
               yesterday = Hash.new
+              yesterday[:price] = 0
               day = (current_day -1.day)
               yesterday[:price] = all_order_product_infos.where(created_at: day).pluck(:sum_price).inject(:+)
               yesterday[:count] = all_orders.select("id").where(created_at: day).length
@@ -34,6 +35,7 @@ class AdminController < ApplicationController
               @json_sales_yesterday = yesterday
       #週間（7日間）の売上 これは、ハッシュでまとめる
               weekly = Hash.new
+              weekly[:price] = 0
               day = (current_day.beginning_of_day - 6.day)
               weekly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
               weekly[:count] = all_orders.select("id").where(created_at: day..current_day).length
@@ -41,6 +43,7 @@ class AdminController < ApplicationController
               @json_sales_weekly = weekly
       #31日間の売上（ハッシュでまとめたやつ）
               monthly = Hash.new
+              monthly[:price] = 0
               day = (current_day.beginning_of_day - 30.day)
               monthly[:price] = all_order_product_infos.where(created_at: day..current_day).pluck(:sum_price).inject(:+)
               monthly[:count] = all_orders.select("id").where(created_at: day..current_day).length
