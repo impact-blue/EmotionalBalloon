@@ -16,11 +16,11 @@
                         <li class="p-registerForm__block__wrapper__list">
                             <p class="p-registerForm__block__wrapper__list__text">連名</p>
                             <div class="p-registerForm__block__wrapper__list__content add">
-                                <div ng-repeat="(i, name) in formModel.name">
-                                    <input type="text" placeholder="姓" ng-model="formContent.buyer_info.name[i+1].family_name">
-                                    <input type="text" placeholder="名" ng-model="formContent.buyer_info.name[i+1].first_name">
+                                <div ng-repeat="(i, name) in formModel.buyer_jointly">
+                                    <input type="text" placeholder="姓（連名）" ng-model="formContent.buyer_info.name[i+1].family_name">
+                                    <input type="text" placeholder="名（連名）" ng-model="formContent.buyer_info.name[i+1].first_name">
                                 </div>
-                                <p><span ng-click="addInput()">連名を追加する</span></p>
+                                <p><span ng-click="addJointly('buyer')">連名を追加する</span></p>
                             </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
@@ -65,9 +65,12 @@
                         </li>
                         <li class="p-registerForm__block__wrapper__list">
                             <p class="p-registerForm__block__wrapper__list__text">連名</p>
-                            <div class="p-registerForm__block__wrapper__list__content">
-                                <input type="text" placeholder="姓">
-                                <input type="text" placeholder="名">
+                            <div class="p-registerForm__block__wrapper__list__content add">
+                                <div ng-repeat="(i, name) in formModel.destination_jointly">
+                                    <input type="text" placeholder="姓（連名）" ng-model="formContent.destination_info.name[i+1].family_name">
+                                    <input type="text" placeholder="名（連名）" ng-model="formContent.destination_info.name[i+1].first_name">
+                                </div>
+                                <p><span ng-click="addJointly('destination')">連名を追加する</span></p>
                             </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">

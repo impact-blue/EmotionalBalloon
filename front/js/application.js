@@ -275,7 +275,13 @@ app.controller('cartRegisterController', function($scope, $http) {
         comment: null
     };
     $scope.formModel = {
-        name: [
+        buyer_jointly: [
+            {
+                first_name: "",
+                last_name: ""
+            }
+        ],
+        destination_jointly: [
             {
                 first_name: "",
                 last_name: ""
@@ -401,11 +407,18 @@ app.controller('cartRegisterController', function($scope, $http) {
         console.log($scope.formContent.buyer_info.name);
     }, true);
 
-    $scope.addInput = function() {
-        $scope.formModel.name.push({
-            family_name: "",
-            first_name: ""
-        });
+    $scope.addJointly = function(type) {
+        if(type === 'buyer') {
+            $scope.formModel.buyer_jointly.push({
+                family_name: "",
+                first_name: ""
+            });
+        } else if(type === 'destination') {
+            $scope.formModel.destination_jointly.push({
+                family_name: "",
+                first_name: ""
+            });
+        }
     };
 
     $scope.sendCart = function() {
