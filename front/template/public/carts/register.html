@@ -42,7 +42,7 @@
         <div class="l-column-register__head">
             <div class="p-registerForm">
                 <div class="p-registerForm__block" ng-class="{'on': stepFlag === 1}">
-                    <p class="p-registerForm__block__heading">購入手続き</p>
+                    <p class="p-registerForm__block__heading" ng-click="sendCart()">購入手続き</p>
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">お名前</p>
@@ -153,16 +153,10 @@
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">お支払い方法</p>
-                            <div class="p-registerForm__block__wrapper__list__content">
-                                <p class="p-registerForm__block__wrapper__list__content__radio">
-                                    <input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">代金引換</label>
-                                </p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio">
-                                    <input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">銀行</label>
-                                </p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio">
-                                    <input type="radio" name="credit" id="credit3" placeholder=""><label for="credit3">クレジットカード</label>
-                                </p>
+                            <div class="p-registerForm__block__wrapper__list__content radio">
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">代金引換</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">銀行振込</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit3" placeholder=""><label for="credit3">クレジットカード</label></p>
                             </div>
                         </li>
                     </ul>

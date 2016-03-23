@@ -2755,6 +2755,8 @@ h2.balloonHeading2 {
         width: 100%; }
       .p-registerForm__block__wrapper__list__content.template {
         width: 100%; }
+      .p-registerForm__block__wrapper__list__content.radio {
+        display: block; }
       .p-registerForm__block__wrapper__list__content__image {
         display: flex;
         flex-wrap: wrap; }
