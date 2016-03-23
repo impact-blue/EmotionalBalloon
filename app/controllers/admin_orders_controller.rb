@@ -50,14 +50,13 @@ class AdminOrdersController < ApplicationController
         @order = Order.find(prams[:data][:id])
       end
 
+    end
+
+  end
+
   def import
     Order.import(params[:file])
     redirect_to "/admin/orders?status=all"
-  end
-
-
-
-    end
   end
 
   private
