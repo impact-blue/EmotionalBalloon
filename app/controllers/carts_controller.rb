@@ -225,7 +225,6 @@ class CartsController < ApplicationController
                 aru.save!
               end
             end
-
           #トランザクションで全て保存のみに対応にする。
           if @order.save!
             #webpayの処理
@@ -330,11 +329,9 @@ class CartsController < ApplicationController
           render json: {data:
                                 {result:"error",
                                  "message":
-                                  @order.errors.full_messages.each do |msg|
-                                    [
-                                      "msg",
-                                    ]
-                                  end
+                                    @order.errors.full_messages.each do |msg|
+                                      ["msg",]
+                                    end
                                 }
                        }
     end

@@ -415,6 +415,8 @@ OrderProductInfo.create(:order_id => "#{20 + i*40}" , :product_id => "#{40 + i*4
 end
 
 
+
+
 5.times do |i|
 User.create(:repeat_count => "1" , :repeat_user_id => "1" , :name => "テスト太郎" , :email =>'a@g.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 User.create(:repeat_count => "1" , :repeat_user_id => "2" , :name => "佐藤太郎" , :email =>'a@g.com'  ,:phone => '09012345678', :postal_code => '1231234', :city => '神奈川', :address => '練馬区')
@@ -440,7 +442,7 @@ end
 
 
 
-10.times do |i|
+5.times do |i|
 UserName.create(:user_id =>   "#{1 + i*20}" ,:user_family_name => 'テスト', :user_first_name => '太郎')
 UserName.create(:user_id =>   "#{2 + i*20}" ,:user_family_name => '佐藤', :user_first_name => '太郎')
 UserName.create(:user_id =>   "#{3 + i*20}" ,:user_family_name => '高橋', :user_first_name => '太郎')
