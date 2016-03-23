@@ -164,13 +164,13 @@ class CartsController < ApplicationController
           @order = Order.new(order_params)
           @order.price = 0
           params[:data][:product_info].each_with_index do |product_info,i|
-            #商品の合計値段計算
-            @order.price += Product.find(product_info[:id]).price
             #購入商品登録
             @order.order_product_infos.build
             @order.order_product_infos[i].product_id = product_info[:id]
             @order.order_product_infos[i].count = product_info[:count]
             @order.order_product_infos[i].sum_price = (Product.select("price").find(product_info[:id]).price * product_info[:count]) #OrderProductInfoに合計値段を記述（管理画面で売上表示用）
+            #商品の合計値段計算
+            @order.price  += @order.order_product_infos[i].sum_price
           end
           @order.postal_code      = params[:data][:destination_info][:postal_code]
           @order.city             = params[:data][:destination_info][:prefectures]
@@ -217,7 +217,6 @@ class CartsController < ApplicationController
             unless repeat_user[:first_user_id] == "null"
               @order.user.repeat_user_id = repeat_user[:first_user_id]
               #リピートレコード全てを更新
-
               all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
               all_repeat_user << User.find(repeat_user[:first_user_id]) #最初のリピートがnullのため
               all_repeat_user.each do |aru|
@@ -232,6 +231,7 @@ class CartsController < ApplicationController
             #webpayの処理
             if @order.payment_info == "credit"
                 webpay = WebPay.new(WEBPAY_SECRET_KEY)
+                webpay.set_accept_language('ja')
                 #トークンの作成
                   token = webpay.token.create(
                       card:
@@ -243,7 +243,6 @@ class CartsController < ApplicationController
                     ).id
                 # WebPay上での顧客の情報を作成
                 customer = webpay.customer.create(card: token)
-                webpay.set_accept_language('ja')
                 # API リクエスト
                 webpay.charge.create(
                   amount: @order.price,
