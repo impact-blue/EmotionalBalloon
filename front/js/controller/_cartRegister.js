@@ -1,12 +1,4 @@
 app.controller('cartRegisterController', function($scope, $http) {
-    $scope.stepFlag = 1;
-    $scope.prevForm = function() {
-        $scope.stepFlag--;
-    };
-    $scope.nextForm = function() {
-        $scope.stepFlag++;
-    };
-
     $scope.progressPer = [0, 0, 0];
     $scope.formContent = {
         product_info: [
@@ -26,28 +18,29 @@ app.controller('cartRegisterController', function($scope, $http) {
         buyer_info: {
             name: [
                 {
-                    family_name: null,
-                    first_name: null,
+                    family_name: "",
+                    first_name: "",
                 }
             ],
-            postal_code: null,
-            prefectures: null,
-            address: null,
-            phone: null,
-            mail: null
+            postal_code: "",
+            prefectures: "",
+            address: "",
+            phone: "",
+            mail: ""
         },
         destination_info: {
             name: [
                 {
-                    family_name: null,
-                    first_name: null,
+                    family_name: "",
+                    first_name: "",
                 }
             ],
-            postal_code: null,
-            prefectures: null,
-            address: null,
-            date: null,
-            classification: null
+            postal_code: "",
+            prefectures: "",
+            address: "",
+            phone: "",
+            date: "",
+            classification: ""
         },
         payment_info: {
             method: "credit",
@@ -76,27 +69,26 @@ app.controller('cartRegisterController', function($scope, $http) {
         ]
     };
     $scope.comfirmFlag = false;
-    // $scope.formFlag = {
-    //     buyer_info: {
-    //         name: false,
-    //         postal: false,
-    //         prefectures: false,
-    //         address: false,
-    //         phone: false,
-    //         mail: false
-    //     },
-    //     destination_info: {
-    //         name: false,
-    //         postal: false,
-    //         prefectures: false,
-    //         address: false,
-    //         phone: false
-    //     },
-    //     payment: false
-    // };
-    // $scope.$watch('formContent', function(value) {
-    //     var buyer_name:
-    // }, true);
+    $scope.$watch('formContent', function(value) {
+        var buyer_info = {
+                name: value.buyer_info.name[0].family_name.length > 0 && value.buyer_info.name[0].first_name.length > 0,
+                postal: value.buyer_info.postal_code.length > 0,
+                prefectures: value.buyer_info.prefectures.length > 0,
+                address: value.buyer_info.address.length > 0,
+                phone: value.buyer_info.phone.length > 0,
+                mail: value.buyer_info.mail.length > 0
+            },
+            destination_info = {
+                name: value.destination_info.name[0].family_name.length > 0 && value.destination_info.name[0].first_name.length > 0,
+                postal: value.destination_info.postal_code.length > 0,
+                prefectures: value.destination_info.prefectures.length > 0,
+                address: value.destination_info.address.length > 0,
+                phone: value.destination_info.phone.length > 0
+            },
+            payment_info = value.payment_info.method !== '';
+        $scope.comfirmFlag = buyer_info.name && buyer_info.postal && buyer_info.prefectures && buyer_info.address && buyer_info.phone && buyer_info.mail && destination_info.name && destination_info.postal && destination_info.prefectures && destination_info.address && destination_info.phone && payment_info;
+        console.log($scope.comfirmFlag);
+    }, true);
 
     $scope.addJointly = function(type) {
         if(type === 'buyer') {
@@ -110,6 +102,11 @@ app.controller('cartRegisterController', function($scope, $http) {
                 first_name: ""
             });
         }
+    };
+
+    $scope.is_comfirm = false;
+    $scope.comfirmRegister = function() {
+        $scope.is_comfirm = !$scope.is_comfirm;
     };
 
     $scope.sendCart = function() {

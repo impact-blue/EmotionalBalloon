@@ -3,7 +3,7 @@
     <div class="l-column-register__wrapper">
         <div class="l-column-register__head">
             <div class="p-registerForm">
-                <div class="p-registerForm__block" ng-class="{'on': stepFlag === 1}">
+                <div class="p-registerForm__block" ng-class="{'on': !is_comfirm}">
                     <p class="p-registerForm__block__heading" ng-click="sendCart()">購入手続き</p>
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list required">
@@ -132,18 +132,101 @@
                         </li>
                     </ul>
                 </div>
+                <div class="p-registerForm__block" ng-class="{'on': is_comfirm}"><p class="p-registerForm__block__heading" ng-click="sendCart()">購入手続き</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お名前</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.buyer_info.name[0].family_name}} {{formContent.buyer_info.name[0].first_name}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">連名</p>
+                            <div class="p-registerForm__block__wrapper__list__content add">
+                                <div ng-repeat="(i, name) in formModel.buyer_jointly">
+                                    {{formContent.buyer_info.name[i+1].family_name}} {{formContent.buyer_info.name[i+1].first_name}}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.buyer_info.postal_code}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.buyer_info.prefectures}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">住所</p>
+                            <div class="p-registerForm__block__wrapper__list__content address">{{formContent.buyer_info.address}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content address">{{formContent.buyer_info.phone}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">メールアドレス</p>
+                            <div class="p-registerForm__block__wrapper__list__content address">{{formContent.buyer_info.mail}}</div>
+                        </li>
+                    </ul>
+                    <p class="p-registerForm__block__heading u-mt-20">お届け先</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お名前</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.destination_info.name[0].family_name}} {{formContent.destination_info.name[0].first_name}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">連名</p>
+                            <div class="p-registerForm__block__wrapper__list__content add">
+                                <div ng-repeat="(i, name) in formModel.destination_jointly">{{formContent.destination_info.name[i+1].family_name}} {{formContent.destination_info.name[i+1].first_name}}</div>
+                            </div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.destination_info.postal_code}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.destination_info.prefectures}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">住所</p>
+                            <div class="p-registerForm__block__wrapper__list__content address">{{formContent.destination_info.address}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.destination_info.phone}}</div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">届け希望日時</p>
+                            <div class="p-registerForm__block__wrapper__list__content address"></div>
+                        </li>
+                    </ul>
+                    <p class="p-registerForm__block__heading u-mt-20">お支払い方法</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list required">
+                            <p class="p-registerForm__block__wrapper__list__text">お支払い方法</p>
+                            <div class="p-registerForm__block__wrapper__list__content">{{formContent.payment_info.method}}</div>
+                        </li>
+                    </ul>
+                    <p class="p-registerForm__block__heading u-mt-20">その他</p>
+                    <ul class="p-registerForm__block__wrapper">
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">備考</p>
+                            <div class="p-registerForm__block__wrapper__list__content"></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="l-column-register__foot">
             <div class="l-column-register__foot__wrapper">
-                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': stepFlag !== 1}" ng-click="prevForm()"><i class="fa fa-arrow-left"></i></div>
-                <div class="l-column-register__foot__wrapper__button" ng-click="nextForm()">
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': is_comfirm}" ng-click="comfirmRegister()"><i class="fa fa-arrow-left"></i></div>
+                <div class="l-column-register__foot__wrapper__button" ng-class="{'on': comfirmFlag}" ng-click="comfirmRegister()" ng-if="!is_comfirm">
                     <p class="l-column-register__foot__wrapper__button__text">注文を確認する</p>
                 </div>
-                <!-- <div class="l-column-register__foot__wrapper__button on" ng-click="sendCart()">
+                <div class="l-column-register__foot__wrapper__button on" ng-click="sendCart()" ng-if="is_comfirm">
                     <div class="l-column-register__foot__wrapper__button__progress" style="width: 100%;"></div>
                     <p class="l-column-register__foot__wrapper__button__text">注文を確定する</p>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
