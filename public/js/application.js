@@ -274,6 +274,20 @@ app.controller('cartRegisterController', function($scope, $http) {
         },
         comment: null
     };
+    $scope.formModel = {
+        buyer_jointly: [
+            {
+                first_name: "",
+                last_name: ""
+            }
+        ],
+        destination_jointly: [
+            {
+                first_name: "",
+                last_name: ""
+            }
+        ]
+    };
     $scope.formFlag = {
         buyer_info: {
             name: false,
@@ -389,7 +403,23 @@ app.controller('cartRegisterController', function($scope, $http) {
             step2: $scope.formFlag.destination_info.name && $scope.formFlag.destination_info.postal && $scope.formFlag.destination_info.prefectures && $scope.formFlag.destination_info.address && $scope.formFlag.destination_info.phone,
             step3: true
         };
+
+        console.log($scope.formContent.buyer_info.name);
     }, true);
+
+    $scope.addJointly = function(type) {
+        if(type === 'buyer') {
+            $scope.formModel.buyer_jointly.push({
+                family_name: "",
+                first_name: ""
+            });
+        } else if(type === 'destination') {
+            $scope.formModel.destination_jointly.push({
+                family_name: "",
+                first_name: ""
+            });
+        }
+    };
 
     $scope.sendCart = function() {
         var sendData = {

@@ -2696,8 +2696,8 @@ h2.balloonHeading2 {
     display: flex;
     align-items: center;
     margin-top: 5px; }
-    .p-registerForm__block__wrapper__list.required::after {
-      content: "必須";
+    .p-registerForm__block__wrapper__list::after {
+      content: "任意";
       position: absolute;
       top: calc(50% - 10px);
       left: 115px;
@@ -2705,6 +2705,10 @@ h2.balloonHeading2 {
       line-height: 20px;
       font-size: 12px;
       text-align: center;
+      color: #D83961;
+      border: 1px solid #D83961; }
+    .p-registerForm__block__wrapper__list.required::after {
+      content: "必須";
       color: white;
       background: #D83961; }
     .p-registerForm__block__wrapper__list__text {
@@ -2713,8 +2717,11 @@ h2.balloonHeading2 {
       font-size: 14px;
       font-weight: bold; }
     .p-registerForm__block__wrapper__list__content {
+      display: flex;
+      justify-content: space-between;
       width: calc(100% - 160px); }
       .p-registerForm__block__wrapper__list__content input[type="text"] {
+        display: block;
         width: calc(50% - 5px);
         line-height: 33px;
         font-size: 12px;
@@ -2725,6 +2732,21 @@ h2.balloonHeading2 {
         height: 80px;
         font-size: 12px;
         border: 1px solid #c8c8c8; }
+      .p-registerForm__block__wrapper__list__content.add {
+        display: block; }
+        .p-registerForm__block__wrapper__list__content.add div {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 5px; }
+          .p-registerForm__block__wrapper__list__content.add div:first-child {
+            margin-top: 0; }
+        .p-registerForm__block__wrapper__list__content.add p {
+          padding-right: 5px;
+          font-size: 14px;
+          color: #D83961;
+          text-align: right; }
+          .p-registerForm__block__wrapper__list__content.add p span {
+            cursor: pointer; }
       .p-registerForm__block__wrapper__list__content.postal input[type="text"] {
         width: calc(100% / 3 - 4px); }
         .p-registerForm__block__wrapper__list__content.postal input[type="text"]:last-child {
@@ -2733,6 +2755,8 @@ h2.balloonHeading2 {
         width: 100%; }
       .p-registerForm__block__wrapper__list__content.template {
         width: 100%; }
+      .p-registerForm__block__wrapper__list__content.radio {
+        display: block; }
       .p-registerForm__block__wrapper__list__content__image {
         display: flex;
         flex-wrap: wrap; }
