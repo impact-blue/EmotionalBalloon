@@ -35,13 +35,14 @@ class AdminOrdersController < ApplicationController
 
   def edit
     #detail_productも出す。
-    @json_detail_order = Order.includes(order_product_infos: :product).find(params[:id])
+    @json_detail_order = Order.includes(products: :images).find(params[:id])
     @order_products = @json_detail_order.order_product_infos
     @buyer_info = @json_detail_order.user
     @destination_info = @json_detail_order
   end
 
   def api
+    #order詳細からの変更ができない？
     ActiveRecord::Base.transation do
       if params[:data][:id].nil?
         @order = Order.new(order_params)

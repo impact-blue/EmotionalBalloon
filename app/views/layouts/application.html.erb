@@ -110,7 +110,7 @@
                             stocks: <%= product.product.stocks %>,
                             price: <%= product.product.price %>,
                             images: [
-                                 "/images/get_image?id=#{product.images[0].id}",
+                                 "/images/get_image?id=<%= product.product.images[0].id %>",
                             ],
                         },
                       <% end %>
