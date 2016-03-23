@@ -212,20 +212,24 @@ class CartsController < ApplicationController
           end
 
           #リピートの検索
-  #          repeat_user = User.repeat_search(@order)
-   #         @order.user.repeat_count   = repeat_user[:repeat_count]
-    #        @order.user.repeat_user_id = repeat_user[:first_user_id]
-    #        #リピートレコード全てを更新
-    #        all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
-    #        all_repeat_user.each do |aru|
-    #          aru.repeat_count   = repeat_user[:repeat_count]
-    #          aru.repeat_user_id = repeat_user[:first_user_id]
-    #          aru.save!
-    #      end
-binding.pry
-          #webpayの処理
+            repeat_user = User.repeat_search(@order)
+            @order.user.repeat_count   = repeat_user[:repeat_count]
+            unless repeat_user[:first_user_id] == "null"
+              @order.user.repeat_user_id = repeat_user[:first_user_id]
+              #リピートレコード全てを更新
+
+              all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
+              all_repeat_user << User.find(repeat_user[:first_user_id]) #最初のリピートがnullのため
+              all_repeat_user.each do |aru|
+                aru.repeat_count   = repeat_user[:repeat_count]
+                aru.repeat_user_id = repeat_user[:first_user_id]
+                aru.save!
+              end
+            end
+
           #トランザクションで全て保存のみに対応にする。
           if @order.save!
+            #webpayの処理
             if @order.payment_info == "credit"
                 webpay = WebPay.new(WEBPAY_SECRET_KEY)
                 #トークンの作成

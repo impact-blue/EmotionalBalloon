@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
     repeat_user = []
     repeat_count = 1
     repeat = Hash.new(:repeat_user_id => 0,:repeat_count => 0)
-
     user.each do |u|
       count = 0
         if u.name == order.user.name
@@ -58,7 +57,11 @@ class User < ActiveRecord::Base
         end
     end
     repeat[:repeat_count] = repeat_count
-    repeat[:first_user_id] = repeat_user.first.id
+    if repeat_user.first.present?
+       repeat[:first_user_id] = repeat_user.first.id
+    else
+      repeat[:first_user_id] = "null"
+    end
     #user_idとrepeat_count
     return repeat
   end
