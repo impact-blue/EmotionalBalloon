@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
 
   create_table "images", force: :cascade do |t|
     t.integer  "product_id",         limit: 4
-    t.string   "name",               limit: 255
+    t.string   "color",              limit: 255
     t.binary   "image",              limit: 16777215
     t.string   "image_content_type", limit: 255
     t.datetime "created_at",                          null: false

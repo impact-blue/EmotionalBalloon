@@ -35,14 +35,14 @@ class Order < ActiveRecord::Base
 
 #order_dateはやってない。create_atでよくね？
 
-
   def self.get_list_all(page,per,order_by,product_id,category_id,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
-       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.category_id = ?', category_id)
+       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
     elsif category_id.present? #カテゴリーで絞込み
-       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.category_id = ?', category_id)
+       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.category_id = ?', category_id)
     elsif product_id.present? #商品番号で検索
-       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.id = ?', product_id)
+       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.id = ?', product_id)
+      #elsif order_id,user_phone,user_name,受注期間で絞り込み
     else
        self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by)
     end
@@ -50,16 +50,16 @@ class Order < ActiveRecord::Base
 
   def self.get_list_by_status(status,page,per,order_by,product_id,category_id,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.category_id = ?', category_id)
+       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
     elsif category_id.present? #カテゴリーで絞込み
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.category_id = ?', category_id)
+       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.category_id = ?', category_id)
     elsif product_id.present? #商品番号で検索
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names).joins(:products).where('products.id = ?', product_id)
+       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.id = ?', product_id)
     else
-     self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).includes(:user,user: :user_names)
+     self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by)
     end
   end
-#Order.includes(:user,user: :user_names).page(params[:page]).per(@per).order("id ASC").joins(:products).where('products.category_id = ?', params[:category])
+#Order.includes(:user,user: :user_names).page(params[:page]).per(@per).order("id ASC").where('products.category_id = ?', params[:category])
 
 
 end

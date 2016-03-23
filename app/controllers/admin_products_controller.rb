@@ -89,6 +89,7 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
+    binding.pry
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
     @product.stocks       = params[:data][:stock]
@@ -117,7 +118,6 @@ class AdminProductsController < ApplicationController
                           }
     end
     #保存
-
     if @product.save
       render json: {data:{result:"success"}}
     else
