@@ -46,54 +46,91 @@
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">お名前</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓" ng-model="formContent.buyer_info.name[0].family_name"><input type="text" placeholder="名" ng-model="formContent.buyer_info.name[0].first_name"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="姓" ng-model="formContent.buyer_info.name[0].family_name">
+                                <input type="text" placeholder="名" ng-model="formContent.buyer_info.name[0].first_name">
+                            </div>
                         </li>
-                        <!-- <li class="p-registerForm__block__wrapper__list">
-                            <p class="p-registerForm__block__wrapper__list__text">連名１</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓"><input type="text" placeholder="名"></div>
-                        </li> -->
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">連名</p>
+                            <div class="p-registerForm__block__wrapper__list__content add">
+                                <div ng-repeat="(i, name) in formModel.name">
+                                    <input type="text" placeholder="姓" ng-model="formContent.buyer_info.name[i+1].family_name">
+                                    <input type="text" placeholder="名" ng-model="formContent.buyer_info.name[i+1].first_name">
+                                </div>
+                                <p><span ng-click="addInput()">連名を追加する</span></p>
+                            </div>
+                        </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.buyer_info.postal_code"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.buyer_info.postal_code">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="都道府県名" ng-model="formContent.buyer_info.prefectures"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="都道府県名" ng-model="formContent.buyer_info.prefectures">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">住所</p>
-                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など" ng-model="formContent.buyer_info.address"></div>
+                            <div class="p-registerForm__block__wrapper__list__content address">
+                                <input type="text" placeholder="市区町村、番地など" ng-model="formContent.buyer_info.address">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
-                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="08012345678" ng-model="formContent.buyer_info.phone"></div>
+                            <div class="p-registerForm__block__wrapper__list__content address">
+                                <input type="text" placeholder="08012345678" ng-model="formContent.buyer_info.phone">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">メールアドレス</p>
-                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="sample@sample.com" ng-model="formContent.buyer_info.mail"></div>
+                            <div class="p-registerForm__block__wrapper__list__content address">
+                                <input type="text" placeholder="sample@sample.com" ng-model="formContent.buyer_info.mail">
+                            </div>
                         </li>
                     </ul>
                     <p class="p-registerForm__block__heading u-mt-20">お届け先</p>
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">お名前</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="姓" ng-model="formContent.destination_info.name[0].family_name"><input type="text" placeholder="名" ng-model="formContent.destination_info.name[0].first_name"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="姓" ng-model="formContent.destination_info.name[0].family_name">
+                                <input type="text" placeholder="名" ng-model="formContent.destination_info.name[0].first_name">
+                            </div>
+                        </li>
+                        <li class="p-registerForm__block__wrapper__list">
+                            <p class="p-registerForm__block__wrapper__list__text">連名</p>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="姓">
+                                <input type="text" placeholder="名">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">郵便番号</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.destination_info.postal_code"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="ハイフンなし数字7桁" ng-model="formContent.destination_info.postal_code">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">都道府県</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="都道府県名" ng-model="formContent.destination_info.prefectures"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="都道府県名" ng-model="formContent.destination_info.prefectures">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">住所</p>
-                            <div class="p-registerForm__block__wrapper__list__content address"><input type="text" placeholder="市区町村、番地など" ng-model="formContent.destination_info.address"></div>
+                            <div class="p-registerForm__block__wrapper__list__content address">
+                                <input type="text" placeholder="市区町村、番地など" ng-model="formContent.destination_info.address">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">電話番号</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><input type="text" placeholder="080" ng-model="formContent.destination_info.phone"></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <input type="text" placeholder="080" ng-model="formContent.destination_info.phone">
+                            </div>
                         </li>
                         <li class="p-registerForm__block__wrapper__list">
                             <p class="p-registerForm__block__wrapper__list__text">届け希望日時</p>
@@ -114,9 +151,15 @@
                         <li class="p-registerForm__block__wrapper__list required">
                             <p class="p-registerForm__block__wrapper__list__text">お支払い方法</p>
                             <div class="p-registerForm__block__wrapper__list__content">
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">代金引換</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">銀行</label></p>
-                                <p class="p-registerForm__block__wrapper__list__content__radio"><input type="radio" name="credit" id="credit3" placeholder=""><label for="credit3">クレジットカード</label></p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio">
+                                    <input type="radio" name="credit" id="credit1" placeholder=""><label for="credit1">代金引換</label>
+                                </p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio">
+                                    <input type="radio" name="credit" id="credit2" placeholder=""><label for="credit2">銀行</label>
+                                </p>
+                                <p class="p-registerForm__block__wrapper__list__content__radio">
+                                    <input type="radio" name="credit" id="credit3" placeholder=""><label for="credit3">クレジットカード</label>
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -124,7 +167,9 @@
                     <ul class="p-registerForm__block__wrapper">
                         <li class="p-registerForm__block__wrapper__list">
                             <p class="p-registerForm__block__wrapper__list__text">備考</p>
-                            <div class="p-registerForm__block__wrapper__list__content"><textarea name=""></textarea></div>
+                            <div class="p-registerForm__block__wrapper__list__content">
+                                <textarea name=""></textarea>
+                            </div>
                         </li>
                     </ul>
                 </div>
