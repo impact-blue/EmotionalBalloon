@@ -89,7 +89,6 @@ class AdminProductsController < ApplicationController
       @product = Product.find(params[:data][:id])
      # @json_detail_product = Product.find(params[:id])
     end
-    binding.pry
     @product.name         = params[:data][:name]
     @product.price        = params[:data][:price]
     @product.stocks       = params[:data][:stock]
@@ -97,14 +96,15 @@ class AdminProductsController < ApplicationController
     @product.size         = params[:data][:size]
     @product.status       = params[:data][:status]
     @product.category_id  = params[:data][:category]
-
     if params[:data][:images].present?
        params[:data][:images].each_with_index do |product_info,i|
           unless product_info[1].class == String
             @product.images.build
             @product.images[i].product_id = @product.id
+            binding.pry
             @product.images[i].image = product_info[1].read
             @product.images[i].image_content_type = product_info[1].content_type
+          #@product.images[i].color = params[:data][color][i]
           end
       end
     elsif params[:data][:images].blank? #画像がない場合のエラーメッセージ

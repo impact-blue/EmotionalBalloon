@@ -72,6 +72,14 @@
                   <% end %>
                 ],
                 <% end %>
+                colors:[
+                  <% @json_detail_product.images.each do |p| %>
+                        {
+                          name:"<%= p.color %>",
+                          image:"/images/get_image?id=<%= p.id %>",
+                        },
+                  <% end %>
+                ],
                 category: <%= @json_detail_product.category.id %>,
               },
             <% end %>
