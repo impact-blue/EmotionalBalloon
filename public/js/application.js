@@ -218,14 +218,6 @@ app.controller('cartComfirmController', function($scope, $http) {
     };
 });
 app.controller('cartRegisterController', function($scope, $http) {
-    $scope.stepFlag = 1;
-    $scope.prevForm = function() {
-        $scope.stepFlag--;
-    };
-    $scope.nextForm = function() {
-        $scope.stepFlag++;
-    };
-
     $scope.progressPer = [0, 0, 0];
     $scope.formContent = {
         product_info: [
@@ -245,34 +237,41 @@ app.controller('cartRegisterController', function($scope, $http) {
         buyer_info: {
             name: [
                 {
-                    family_name: null,
-                    first_name: null,
+                    family_name: "",
+                    first_name: "",
                 }
             ],
-            postal_code: null,
-            prefectures: null,
-            address: null,
-            phone: null,
-            mail: null
+            postal_code: "",
+            prefectures: "",
+            address: "",
+            phone: "",
+            mail: ""
         },
         destination_info: {
             name: [
                 {
-                    family_name: null,
-                    first_name: null,
+                    family_name: "",
+                    first_name: "",
                 }
             ],
-            postal_code: null,
-            prefectures: null,
-            address: null,
-            date: null,
-            classification: null
+            postal_code: "",
+            prefectures: "",
+            address: "",
+            phone: "",
+            date: "",
+            classification: ""
         },
         payment_info: {
             method: "credit",
-            token: "cus_cWq8H4al7ceo9bs"
+            content: {
+                number: "4242-4242-4242-4242",
+                exp_month: 11,
+                exp_year: 2017,
+                cvc: "123",
+                name: "KEI KUBO"
+            }
         },
-        comment: null
+        comment: 'HelloWorld!!'
     };
     $scope.formModel = {
         buyer_jointly: [
@@ -288,123 +287,26 @@ app.controller('cartRegisterController', function($scope, $http) {
             }
         ]
     };
-    $scope.formFlag = {
-        buyer_info: {
-            name: false,
-            postal: false,
-            prefectures: false,
-            address: false,
-            phone: false,
-            mail: false
-        },
-        destination_info: {
-            name: false,
-            postal: false,
-            prefectures: false,
-            address: false,
-            phone: false
-        },
-        payment: false
-    };
-    $scope.comfirmFlag = {
-        step1: false,
-        step2: false,
-        step3: false
-    };
-    $scope.$watch('formContent', function(newVal, oldVal) {
-        var flagLength = [0, 0, 0];
-        /* Buyer Name */
-        if($scope.formContent.buyer_info.name[0].family_name && $scope.formContent.buyer_info.name[0].first_name) {
-            $scope.formFlag.buyer_info.name = true;
-        } else {
-            $scope.formFlag.buyer_info.name = false;
-        }
-        /* Buyer Postal Code */
-        if($scope.formContent.buyer_info.postal_code) {
-            $scope.formFlag.buyer_info.postal = true;
-        } else {
-            $scope.formFlag.buyer_info.postal = false;
-        }
-        /* Buyer Prefectures */
-        if($scope.formContent.buyer_info.prefectures) {
-            $scope.formFlag.buyer_info.prefectures = true;
-        } else {
-            $scope.formFlag.buyer_info.prefectures = false;
-        }
-        /* Buyer Address */
-        if($scope.formContent.buyer_info.address) {
-            $scope.formFlag.buyer_info.address = true;
-        } else {
-            $scope.formFlag.buyer_info.address = false;
-        }
-        /* Buyer Phone */
-        if($scope.formContent.buyer_info.phone) {
-            $scope.formFlag.buyer_info.phone = true;
-        } else {
-            $scope.formFlag.buyer_info.phone = false;
-        }
-        /* Buyer Mail */
-        if($scope.formContent.buyer_info.mail) {
-            $scope.formFlag.buyer_info.mail = true;
-        } else {
-            $scope.formFlag.buyer_info.mail = false;
-        }
-        /* Destination Name */
-        if($scope.formContent.destination_info.name[0].family_name && $scope.formContent.destination_info.name[0].first_name) {
-            $scope.formFlag.destination_info.name = true;
-        } else {
-            $scope.formFlag.destination_info.name = false;
-        }
-        /* Destination Postal Code */
-        if($scope.formContent.destination_info.postal_code) {
-            $scope.formFlag.destination_info.postal = true;
-        } else {
-            $scope.formFlag.destination_info.postal = false;
-        }
-        /* Destination Prefecture */
-        if($scope.formContent.destination_info.prefectures) {
-            $scope.formFlag.destination_info.prefectures = true;
-        } else {
-            $scope.formFlag.destination_info.prefectures = false;
-        }
-        /* Destination Address */
-        if($scope.formContent.destination_info.address) {
-            $scope.formFlag.destination_info.address = true;
-        } else {
-            $scope.formFlag.destination_info.address = false;
-        }
-        /* Destination Phone */
-        if($scope.formContent.destination_info.phone) {
-            $scope.formFlag.destination_info.phone = true;
-        } else {
-            $scope.formFlag.destination_info.phone = false;
-        }
-        /* Destination Class */
-        /* Payment */
-
-        angular.forEach($scope.formFlag.buyer_info, function(value, key){
-            if(value) {
-                flagLength[0]++;
-            }
-        });
-        $scope.progressPer[0] = flagLength[0] * 100 / 6;
-        angular.forEach($scope.formFlag.destination_info, function(value, key){
-            if(value) {
-                flagLength[1]++;
-            }
-        });
-        $scope.progressPer[1] = flagLength[1] * 100 / 5;
-        if($scope.formFlag.payment) {
-            $scope.progressPer[2] = 100;
-        }
-
-        $scope.comfirmFlag = {
-            step1: $scope.formFlag.buyer_info.name && $scope.formFlag.buyer_info.postal && $scope.formFlag.buyer_info.prefectures && $scope.formFlag.buyer_info.address && $scope.formFlag.buyer_info.phone && $scope.formFlag.buyer_info.mail,
-            step2: $scope.formFlag.destination_info.name && $scope.formFlag.destination_info.postal && $scope.formFlag.destination_info.prefectures && $scope.formFlag.destination_info.address && $scope.formFlag.destination_info.phone,
-            step3: true
-        };
-
-        console.log($scope.formContent.buyer_info.name);
+    $scope.comfirmFlag = false;
+    $scope.$watch('formContent', function(value) {
+        var buyer_info = {
+                name: value.buyer_info.name[0].family_name.length > 0 && value.buyer_info.name[0].first_name.length > 0,
+                postal: value.buyer_info.postal_code.length > 0,
+                prefectures: value.buyer_info.prefectures.length > 0,
+                address: value.buyer_info.address.length > 0,
+                phone: value.buyer_info.phone.length > 0,
+                mail: value.buyer_info.mail.length > 0
+            },
+            destination_info = {
+                name: value.destination_info.name[0].family_name.length > 0 && value.destination_info.name[0].first_name.length > 0,
+                postal: value.destination_info.postal_code.length > 0,
+                prefectures: value.destination_info.prefectures.length > 0,
+                address: value.destination_info.address.length > 0,
+                phone: value.destination_info.phone.length > 0
+            },
+            payment_info = value.payment_info.method !== '';
+        $scope.comfirmFlag = buyer_info.name && buyer_info.postal && buyer_info.prefectures && buyer_info.address && buyer_info.phone && buyer_info.mail && destination_info.name && destination_info.postal && destination_info.prefectures && destination_info.address && destination_info.phone && payment_info;
+        console.log($scope.comfirmFlag);
     }, true);
 
     $scope.addJointly = function(type) {
@@ -421,10 +323,16 @@ app.controller('cartRegisterController', function($scope, $http) {
         }
     };
 
+    $scope.is_comfirm = false;
+    $scope.comfirmRegister = function() {
+        $scope.is_comfirm = !$scope.is_comfirm;
+    };
+
     $scope.sendCart = function() {
         var sendData = {
             data: $scope.formContent
         };
+        console.log(sendData);
         $http({
             method: 'POST',
             url: '/api/carts/comfirm',
