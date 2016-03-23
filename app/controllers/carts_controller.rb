@@ -163,7 +163,6 @@ class CartsController < ApplicationController
         ActiveRecord::Base.transaction do
           @order = Order.new(order_params)
           @order.price = 0
-
           params[:data][:product_info].each_with_index do |product_info,i|
             #商品の合計値段計算
             @order.price += Product.find(product_info[:id]).price
@@ -213,32 +212,41 @@ class CartsController < ApplicationController
           end
 
           #リピートの検索
-            repeat_user = User.repeat_search(@order)
-            @order.user.repeat_count   = repeat_user[:repeat_count]
-            @order.user.repeat_user_id = repeat_user[:first_user_id]
-            #リピートレコード全てを更新
-            all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
-            all_repeat_user.each do |aru|
-              aru.repeat_count   = repeat_user[:repeat_count]
-              aru.repeat_user_id = repeat_user[:first_user_id]
-              aru.save!
-          end
-
+  #          repeat_user = User.repeat_search(@order)
+   #         @order.user.repeat_count   = repeat_user[:repeat_count]
+    #        @order.user.repeat_user_id = repeat_user[:first_user_id]
+    #        #リピートレコード全てを更新
+    #        all_repeat_user = User.where(repeat_user_id: repeat_user[:first_user_id])
+    #        all_repeat_user.each do |aru|
+    #          aru.repeat_count   = repeat_user[:repeat_count]
+    #          aru.repeat_user_id = repeat_user[:first_user_id]
+    #          aru.save!
+    #      end
+binding.pry
           #webpayの処理
-          if @order.payment_info == "credit"
-              webpay = WebPay.new(WEBPAY_SECRET_KEY)
-              # WebPay上での顧客の情報を作成
-              customer = webpay.customer.create(card: params['webpay-token'])
-              webpay.set_accept_language('ja')
-              # API リクエスト
-              webpay.charge.create(
-                amount: @order.price,
-                currency: 'jpy',
-                customer: customer.id
-              )
-          end
           #トランザクションで全て保存のみに対応にする。
           if @order.save!
+            if @order.payment_info == "credit"
+                webpay = WebPay.new(WEBPAY_SECRET_KEY)
+                #トークンの作成
+                  token = webpay.token.create(
+                      card:
+                        { number: params[:data][:payment_info][:content][:number],
+                          exp_month: params[:data][:payment_info][:content][:exp_month] ,
+                          exp_year: params[:data][:payment_info][:content][:exp_year] ,
+                          cvc: params[:data][:payment_info][:content][:cvc] ,
+                          name: params[:data][:payment_info][:content][:name]}
+                    ).id
+                # WebPay上での顧客の情報を作成
+                customer = webpay.customer.create(card: token)
+                webpay.set_accept_language('ja')
+                # API リクエスト
+                webpay.charge.create(
+                  amount: @order.price,
+                  currency: 'jpy',
+                  customer: customer.id
+                )
+            end
             render json: {data:{result:"success"}}
           end
         end
