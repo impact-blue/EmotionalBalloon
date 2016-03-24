@@ -35,31 +35,37 @@ class Order < ActiveRecord::Base
 
 #order_dateはやってない。create_atでよくね？
 
-  def self.get_list_all(page,per,order_by,product_id,category_id,max_price,min_price)
+#必要な検索
+#name
+#phone
+#ID
+#created_at（絞り込み）
+#targetでカラム指定、searchで検索内容、date_start,date_endで検索期間を指定。
+  def self.get_list_all(page,per,order_by,target,search,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
        self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
-    elsif category_id.present? #カテゴリーで絞込み
-       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.category_id = ?', category_id)
-    elsif product_id.present? #商品番号で検索
-       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.id = ?', product_id)
+    elsif target == "phone" #電話番号
+       self.all.page(page).per(per).includes(:user,:product,user: :user_names).order(order_by).where('phone', search.to_i)
+    elsif target == "products" #商品番号で検索
+       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
       #elsif order_id,user_phone,user_name,受注期間で絞り込み
     else
        self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by)
     end
   end
 
-  def self.get_list_by_status(status,page,per,order_by,product_id,category_id,max_price,min_price)
+  def self.get_list_by_status(status,page,per,order_by,target,search,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
        self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
-    elsif category_id.present? #カテゴリーで絞込み
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.category_id = ?', category_id)
-    elsif product_id.present? #商品番号で検索
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.id = ?', product_id)
+    elsif target == "phone" #電話番号
+       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.search = ?', search.to_i)
+    elsif target == "products" #商品番号で検索
+       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
     else
      self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by)
     end
   end
-#Order.includes(:user,user: :user_names).page(params[:page]).per(@per).order("id ASC").where('products.category_id = ?', params[:category])
+#Order.includes(:user,user: :user_names).where('products.search = ?', params[:category])
 
 
 end

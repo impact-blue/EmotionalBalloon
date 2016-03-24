@@ -11,16 +11,15 @@ class AdminOrdersController < ApplicationController
     if params[:per_page].present?
       @per = params[:per_page]
     end
-
     #検索
     if params[:status] ==  "all" #すべて
-        @json_order_list = Order.get_list_all(params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
+        @json_order_list = Order.get_list_all(params[:page],@per,"id ASC",params[:target],params[:search],params[:max],params[:min])
     elsif params[:status] == "unconfirmed" #未入金
-        @json_order_list = Order.get_list_by_status("未入金",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
+        @json_order_list = Order.get_list_by_status("未入金",params[:page],@per,"id ASC",params[:target],params[:search],params[:max],params[:min])
     elsif params[:status] ==  "process" #未発送
-        @json_order_list = Order.get_list_by_status("未発送",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
+        @json_order_list = Order.get_list_by_status("未発送",params[:page],@per,"id ASC",params[:target],params[:search],params[:max],params[:min])
     elsif params[:status] == "complete" #完了
-        @json_order_list = Order.get_list_by_status("完了",params[:page],@per,"id ASC",params[:product],params[:category],params[:max],params[:min])
+        @json_order_list = Order.get_list_by_status("完了",params[:page],@per,"id ASC",params[:target],params[:search],params[:max],params[:min])
     end
 
     #CSVダウンロード
