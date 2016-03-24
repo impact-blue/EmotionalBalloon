@@ -44,8 +44,8 @@ class Order < ActiveRecord::Base
   def self.get_list_all(page,per,order_by,target,search,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
        self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
-    elsif target == "user.customer_phone" #電話番号
-       self.all.page(page).per(per).includes(:user,:product,user: :user_names).order(order_by).where('user.customer_phone', search.to_i)
+    elsif target == "phone" #電話番号
+       self.all.page(page).per(per).includes(user: :user_names).joins(:user).order(order_by).where("customer_phone = ?", search)
     elsif target == "products" #商品番号で検索
        self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
       #elsif order_id,user_user.customer_phone,user_name,受注期間で絞り込み
@@ -57,8 +57,8 @@ class Order < ActiveRecord::Base
   def self.get_list_by_status(status,page,per,order_by,target,search,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
        self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('price >= ? AND price <= ?', min_price, max_price)
-    elsif target == "user.customer_phone" #電話番号
-       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where('products.search = ?', search.to_i)
+    elsif target == "phone" #電話番号
+       self.where(order_status: status).page(page).per(per).includes(user: :user_names).joins(:user).order(order_by).where("customer_phone = ?", search)
     elsif target == "products" #商品番号で検索
        self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
     else
