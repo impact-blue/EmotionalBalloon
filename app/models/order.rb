@@ -54,6 +54,8 @@ class Order < ActiveRecord::Base
       self.all.page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
     elsif target == "order_id"
       self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by).where(id: search.to_i)
+    elsif target == "name"
+      self.includes(:user,user: :user_names).all.page(page).per(per).joins(:user).where('name = ?', search)
     else
       self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by)
     end
@@ -68,6 +70,8 @@ class Order < ActiveRecord::Base
       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).joins(:order_product_infos).where('order_product_infos.product_id = ?', search.to_i)
     elsif target == "order_id"
       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where(id: search.to_i)
+    elsif target == "name"
+      self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).joins(:user).where('name = ?', search)
     else
       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by)
     end
