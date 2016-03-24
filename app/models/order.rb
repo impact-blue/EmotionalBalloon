@@ -35,15 +35,9 @@ class Order < ActiveRecord::Base
 
 #order_dateはやってない。create_atでよくね？
 
-#必要な検索
-#name
-#user.customer_phone OK
-#ID
-#created_at（絞り込み）
+#created_at（絞り込み） where(created_at: start..end)
 #targetでカラム指定、searchで検索内容、date_start,date_endで検索期間を指定。
-#購入した商品 order.produsts
-
-#(elsif order_id,user.customer_phone,user_name,受注期間で絞り込み)
+#受注期間で絞り込み
 
   def self.get_list_all(page,per,order_by,target,search,max_price,min_price)
     if (max_price && min_price).present? #価格で絞込み
@@ -55,7 +49,7 @@ class Order < ActiveRecord::Base
     elsif target == "order_id"
       self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by).where(id: search.to_i)
     elsif target == "name"
-      self.includes(:user,user: :user_names).all.page(page).per(per).joins(:user).where('name = ?', search)
+      self.includes(:user,user: :user_names).all.page(page).per(per).joins(:user).where('name = ?', search).reverse_order
     else
       self.includes(:user,user: :user_names).all.page(page).per(per).order(order_by)
     end
@@ -71,7 +65,7 @@ class Order < ActiveRecord::Base
     elsif target == "order_id"
       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by).where(id: search.to_i)
     elsif target == "name"
-      self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).joins(:user).where('name = ?', search)
+      self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).joins(:user).where('name = ?', search).reverse_order
     else
       self.where(order_status: status).page(page).per(per).includes(:user,user: :user_names).order(order_by)
     end
