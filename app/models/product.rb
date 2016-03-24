@@ -19,9 +19,6 @@ class Product < ActiveRecord::Base
   validates :price, :stocks,:size,:count,:status,:category_id,
     presence: { message: 'は必須です'},
     numericality: { :only_integer => true , message: 'は半角数字で入力してください'}
-  #サブカラー
-  validates :main_color_id,
-    numericality: { :only_integer => true , message: 'は、所属する商品番号を半角数字で入力してください。'}
 
 
 
