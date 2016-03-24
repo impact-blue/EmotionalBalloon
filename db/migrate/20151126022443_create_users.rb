@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :repeat_user_id
       t.string :name
       t.string :email
-      t.string :phone
+      t.string :customer_phone
       t.string :postal_code
       t.string :city
       t.string :address

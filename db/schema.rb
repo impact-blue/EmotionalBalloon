@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.string   "payment_info",     limit: 255
     t.string   "order_status",     limit: 255
     t.string   "order_sub_status", limit: 255
-    t.string   "phone",            limit: 255
+    t.string   "delivery_phone",   limit: 255
     t.string   "option",           limit: 255
     t.text     "company_memo",     limit: 65535
     t.date     "order_date"
@@ -205,7 +205,7 @@ ActiveRecord::Schema.define(version: 20160302075410) do
     t.integer  "repeat_user_id", limit: 4
     t.string   "name",           limit: 255
     t.string   "email",          limit: 255
-    t.string   "phone",          limit: 255
+    t.string   "customer_phone", limit: 255
     t.string   "postal_code",    limit: 255
     t.string   "city",           limit: 255
     t.string   "address",        limit: 255

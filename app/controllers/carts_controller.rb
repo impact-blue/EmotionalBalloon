@@ -27,7 +27,7 @@ class CartsController < ApplicationController
           @order.postal_code      = params[:data][:destination_info][:postal_code]
           @order.city             = params[:data][:destination_info][:prefectures]
           @order.delivery_address = params[:data][:destination_info][:address]
-          @order.phone = params[:data][:destination_info][:phone]
+          @order.delivery_phone = params[:data][:destination_info][:phone]
           #@order.date
           @order.payment_info     = params[:data][:payment_info][:method]
           #カードの場合は入金済み
@@ -35,7 +35,7 @@ class CartsController < ApplicationController
 
           @order.user = User.new(user_params)
           @order.user.email       = params[:data][:buyer_info][:mail]
-          @order.user.phone       = params[:data][:buyer_info][:phone]
+          @order.user.customer_phone       = params[:data][:buyer_info][:phone]
           @order.user.postal_code = params[:data][:buyer_info][:postal_code]
           @order.user.city        = params[:data][:buyer_info][:prefectures]
           @order.user.address     = params[:data][:buyer_info][:address]
@@ -207,7 +207,7 @@ class CartsController < ApplicationController
   end
 
   def order_params
-    params.require(:data).permit(:id,:phone,:postal_code,:city,:delivery_address,:order_status)
+    params.require(:data).permit(:id,:delivery_phone,:postal_code,:city,:delivery_address,:order_status)
   end
 
   def order_product_params

@@ -9,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string  :payment_info
       t.string  :order_status
       t.string  :order_sub_status
-      t.string  :phone
+      t.string  :delivery_phone
       t.string  :option
       t.text    :company_memo
 

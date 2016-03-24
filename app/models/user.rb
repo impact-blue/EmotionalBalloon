@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
 
-  #phoneのバリデーション
-  validates :phone, presence:  { message: 'は必須です' },
+  #customer_phoneのバリデーション
+  validates :customer_phone, presence:  { message: 'は必須です' },
                     length: { in: 10..15 , message: 'は10桁から15桁です。'},
                     numericality: {only_integer: true, message: 'は半角数字のみ入力できます。'}
 
@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
   def self.repeat_search(order)
     #下記のカラムが2つ以上のユーザーをリピート判定
     user = User.where(
-      "name = ? or phone = ? or email = ? or address = ?",
-      order.user.name ,order.user.phone ,order.user.email, order.user.address)
+      "name = ? or customer_phone = ? or email = ? or address = ?",
+      order.user.name ,order.user.customer_phone ,order.user.email, order.user.address)
     repeat_user = []
     repeat_count = 1
     repeat = Hash.new(:repeat_user_id => 0,:repeat_count => 0)
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
         if u.name == order.user.name
           count += 1
         end
-        if u.phone == order.user.phone
+        if u.customer_phone == order.user.customer_phone
           count += 1
         end
         if u.email == order.user.email

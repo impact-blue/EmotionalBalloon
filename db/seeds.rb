@@ -112,7 +112,7 @@ Order.create(:user_id => "#{i*20 + 1}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未入金',
              :created_at =>"#{Time.now - 6.day}"
              )
@@ -123,7 +123,7 @@ Order.create(:user_id => "#{i*20 + 2}" ,
              :city => '神奈川県',
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -134,7 +134,7 @@ Order.create(:user_id => "#{i*20 + 3}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - 5.day}"
              )
@@ -145,7 +145,7 @@ Order.create(:user_id => "#{i*20 + 4}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -156,7 +156,7 @@ Order.create(:user_id => "#{i*20 + 5}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - 7.day}"
              )
@@ -167,7 +167,7 @@ Order.create(:user_id => "#{i*20 + 6}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - 8.day}"
              )
@@ -178,7 +178,7 @@ Order.create(:user_id => "#{i*20 + 7}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -189,7 +189,7 @@ Order.create(:user_id => "#{i*20 + 8}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -200,7 +200,7 @@ Order.create(:user_id =>  "#{i*20 + 9}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -211,7 +211,7 @@ Order.create(:user_id =>  "#{i*20 + 10}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - 9.day}"
              )
@@ -222,7 +222,7 @@ Order.create(:user_id =>  "#{i*20 + 11}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -233,7 +233,7 @@ Order.create(:user_id =>  "#{i*20 + 12}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -244,7 +244,7 @@ Order.create(:user_id =>  "#{i*20 + 13}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - 10.day}"
              )
@@ -255,7 +255,7 @@ Order.create(:user_id =>  "#{i*20 + 14}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -266,7 +266,7 @@ Order.create(:user_id =>  "#{i*20 + 15}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未入金' ,
              :created_at =>"#{Time.now - i.day}"
              )
@@ -277,7 +277,7 @@ Order.create(:user_id =>  "#{i*20 + 16}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未入金',
              :created_at =>"#{Time.now - 8.day}"
              )
@@ -288,7 +288,7 @@ Order.create(:user_id =>  "#{i*20 + 17}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '銀行振込'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -299,7 +299,7 @@ Order.create(:user_id =>  "#{i*20 + 18}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'Amazon決済' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未入金',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -310,7 +310,7 @@ Order.create(:user_id =>  "#{i*20 + 19}",
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => '楽天決済'   ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '未発送',
              :created_at =>"#{Time.now - 11.day}"
              )
@@ -321,7 +321,7 @@ Order.create(:user_id => "#{i*20 + 20}" ,
              :city => '東京都',
              :delivery_address => '中央区',
              :payment_info => 'クレジット' ,
-             :phone => '08012345678',
+             :delivery_phone => '08012345678',
              :order_status => '完了',
              :created_at =>"#{Time.now - i.day}"
              )
@@ -418,26 +418,26 @@ end
 
 
 5.times do |i|
-User.create(:repeat_count => "1" , :repeat_user_id => "1" , :name => "テスト太郎" , :email =>'a@g.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
-User.create(:repeat_count => "1" , :repeat_user_id => "2" , :name => "佐藤太郎" , :email =>'a@g.com'  ,:phone => '09012345678', :postal_code => '1231234', :city => '神奈川', :address => '練馬区')
-User.create(:repeat_count => "1" , :repeat_user_id => "3" , :name => "高橋一郎" , :email =>'a@g.com'  ,:phone => '08012325678', :postal_code => '1231234', :city => '東京都', :address => '板橋区')
-User.create(:repeat_count => "1" , :repeat_user_id => "4" , :name => "伊藤二郎" , :email =>'a@g.com'  ,:phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '足立区')
-User.create(:repeat_count => "5" , :repeat_user_id => "5" , :name => "渡辺三郎" , :email =>'a@g.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '葛飾区')
-User.create(:repeat_count => "3" , :repeat_user_id => "6" , :name => "小林太郎" , :email =>'t@t.com'  ,:phone => '08012365678', :postal_code => '1231234', :city => '東京都', :address => '荒川区')
-User.create(:repeat_count => "1" , :repeat_user_id => "7" , :name => "鈴木太郎" , :email =>'t@t.com'  ,:phone => '12340971234', :postal_code => '1231234', :city => '東京都', :address => '台東区')
-User.create(:repeat_count => "5" , :repeat_user_id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:phone => '08012335678', :postal_code => '1231234', :city => '東京都', :address => '豊島区')
-User.create(:repeat_count => "1" , :repeat_user_id => "9" , :name => "中村二郎" , :email =>'t@t.com'  ,:phone => '08012385678', :postal_code => '1231234', :city => '東京都', :address => '中野区')
-User.create(:repeat_count => "1" , :repeat_user_id => "10" , :name => "山田太郎" , :email =>'t@t.com'  ,:phone => '12340951234', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
-User.create(:repeat_count => "1" , :repeat_user_id => "11" , :name => "加藤太郎" , :email =>'t@t.com'  ,:phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '新宿区')
-User.create(:repeat_count => "5" , :repeat_user_id => "12" , :name => "井上太郎" , :email =>'a@g.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '渋谷区')
-User.create(:repeat_count => "1" , :repeat_user_id => "13" , :name => "林太郎" , :email =>'a@g.com'  ,:phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '目黒区')
-User.create(:repeat_count => "1" , :repeat_user_id => "14" , :name => "池田太郎" , :email =>'a@g.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '品川区')
-User.create(:repeat_count => "1" , :repeat_user_id => "15" , :name => "木村太郎" , :email =>'a@g.com'  ,:phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '大田区')
-User.create(:repeat_count => "1" , :repeat_user_id => "16" , :name => "斎藤太郎" , :email =>'a@g.com'  ,:phone => '08012325678', :postal_code => '1231234', :city => '東京都', :address => '江東区')
-User.create(:repeat_count => "5" , :repeat_user_id => "5" , :name => "渡辺三郎" , :email =>'t@t.com'  ,:phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '港区')
-User.create(:repeat_count => "3" , :repeat_user_id => "18" , :name => "小林太郎" , :email =>'t@t.com'  ,:phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '品川区')
-User.create(:repeat_count => "5" , :repeat_user_id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:phone => '08012245678', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
-User.create(:repeat_count => "5" , :repeat_user_id => "12" , :name => "井上太郎" , :email =>'t@t.com'  ,:phone => '08012145678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:repeat_count => "1" , :repeat_user_id => "1" , :name => "テスト太郎" , :email =>'a@g.com'  ,:customer_phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
+User.create(:repeat_count => "1" , :repeat_user_id => "2" , :name => "佐藤太郎" , :email =>'a@g.com'  ,:customer_phone => '09012345678', :postal_code => '1231234', :city => '神奈川', :address => '練馬区')
+User.create(:repeat_count => "1" , :repeat_user_id => "3" , :name => "高橋一郎" , :email =>'a@g.com'  ,:customer_phone => '08012325678', :postal_code => '1231234', :city => '東京都', :address => '板橋区')
+User.create(:repeat_count => "1" , :repeat_user_id => "4" , :name => "伊藤二郎" , :email =>'a@g.com'  ,:customer_phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '足立区')
+User.create(:repeat_count => "5" , :repeat_user_id => "5" , :name => "渡辺三郎" , :email =>'a@g.com'  ,:customer_phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '葛飾区')
+User.create(:repeat_count => "3" , :repeat_user_id => "6" , :name => "小林太郎" , :email =>'t@t.com'  ,:customer_phone => '08012365678', :postal_code => '1231234', :city => '東京都', :address => '荒川区')
+User.create(:repeat_count => "1" , :repeat_user_id => "7" , :name => "鈴木太郎" , :email =>'t@t.com'  ,:customer_phone => '12340971234', :postal_code => '1231234', :city => '東京都', :address => '台東区')
+User.create(:repeat_count => "5" , :repeat_user_id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:customer_phone => '08012335678', :postal_code => '1231234', :city => '東京都', :address => '豊島区')
+User.create(:repeat_count => "1" , :repeat_user_id => "9" , :name => "中村二郎" , :email =>'t@t.com'  ,:customer_phone => '08012385678', :postal_code => '1231234', :city => '東京都', :address => '中野区')
+User.create(:repeat_count => "1" , :repeat_user_id => "10" , :name => "山田太郎" , :email =>'t@t.com'  ,:customer_phone => '12340951234', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
+User.create(:repeat_count => "1" , :repeat_user_id => "11" , :name => "加藤太郎" , :email =>'t@t.com'  ,:customer_phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '新宿区')
+User.create(:repeat_count => "5" , :repeat_user_id => "12" , :name => "井上太郎" , :email =>'a@g.com'  ,:customer_phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '渋谷区')
+User.create(:repeat_count => "1" , :repeat_user_id => "13" , :name => "林太郎" , :email =>'a@g.com'  ,:customer_phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '目黒区')
+User.create(:repeat_count => "1" , :repeat_user_id => "14" , :name => "池田太郎" , :email =>'a@g.com'  ,:customer_phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '品川区')
+User.create(:repeat_count => "1" , :repeat_user_id => "15" , :name => "木村太郎" , :email =>'a@g.com'  ,:customer_phone => '08012345678', :postal_code => '1231234', :city => '東京都', :address => '大田区')
+User.create(:repeat_count => "1" , :repeat_user_id => "16" , :name => "斎藤太郎" , :email =>'a@g.com'  ,:customer_phone => '08012325678', :postal_code => '1231234', :city => '東京都', :address => '江東区')
+User.create(:repeat_count => "5" , :repeat_user_id => "5" , :name => "渡辺三郎" , :email =>'t@t.com'  ,:customer_phone => '12340901234', :postal_code => '1231234', :city => '東京都', :address => '港区')
+User.create(:repeat_count => "3" , :repeat_user_id => "18" , :name => "小林太郎" , :email =>'t@t.com'  ,:customer_phone => '08012315678', :postal_code => '1231234', :city => '東京都', :address => '品川区')
+User.create(:repeat_count => "5" , :repeat_user_id => "8" , :name => "山本太郎" , :email =>'t@t.com'  ,:customer_phone => '08012245678', :postal_code => '1231234', :city => '東京都', :address => '杉並区')
+User.create(:repeat_count => "5" , :repeat_user_id => "12" , :name => "井上太郎" , :email =>'t@t.com'  ,:customer_phone => '08012145678', :postal_code => '1231234', :city => '東京都', :address => '中央区')
 end
 
 

@@ -135,7 +135,7 @@
                         postal_code: <%= @buyer_info.postal_code %>,
                         prefectures: "<%= @buyer_info.city %>",
                         address: "<%= @buyer_info.address %>",
-                        phone: "<%= @buyer_info.phone %>",
+                        phone: "<%= @buyer_info.customer_phone %>",
                         mail: "<%= @buyer_info.email %>",
                     },
                     destination_info: {
@@ -150,7 +150,7 @@
                         postal_code: "<%= @destination_info.postal_code %>",
                         prefectures: "<%= @destination_info.city %>",
                         address: "<%= @destination_info.delivery_address %>",
-                        phone: "<%= @destination_info.phone %>",
+                        phone: "<%= @destination_info.delivery_phone %>",
                         date: "<%= @destination_info.created_at.strftime('%Y/%m/%d %H:%M:%S') %>",
                         classification: "",
                     },
@@ -191,7 +191,7 @@
                       family_name: "<%= c.user_names[0].user_family_name %>",
                       first_name:  "<%= c.user_names[0].user_first_name%>",
                       email:"<%= c.email %>",
-                      phone:"<%= c.phone %>",
+                      phone:"<%= c.customer_phone %>",
                     },
                   <% end %>
                 ],
@@ -201,7 +201,7 @@
               detail_customer:{
                 id: <%= @json_detail_customer.id %>,
                 email: <%= @json_detail_customer.email %>,
-                phone: <%= @json_detail_customer.phone %>,
+                phone: <%= @json_detail_customer.customer_phone %>,
                 city: <%= @json_detail_customer.city %>,
                 address: <%= @json_detail_customer.address %>,
               },
