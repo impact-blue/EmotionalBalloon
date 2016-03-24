@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_one :order, :dependent => :destroy
+  has_one :order
   has_many :user_names
 
   accepts_nested_attributes_for :order

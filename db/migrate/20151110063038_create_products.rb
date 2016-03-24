@@ -10,6 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :count
       t.integer :category_id
       t.integer :status
+      t.references :main_color
 
       t.timestamps null: false
     end

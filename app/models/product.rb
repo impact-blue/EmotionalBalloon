@@ -2,14 +2,15 @@ require 'csv'
 require 'roo'
 require 'nkf'
 class Product < ActiveRecord::Base
-  has_many :product_colors
-  has_many :colors, through: :product_colors
+  #has_many :product_colors
+  #has_many :colors, through: :product_colors
   belongs_to :category
   has_many :images
   has_many :orders, through: :order_product_info
   has_many :order_product_infos
-  has_many :carts
-  has_one :ranking
+  has_one  :ranking
+  has_many   :sub_color, class_name: "Product", foreign_key: "main_color_id"
+  belongs_to :main_color,class_name: "Product"
 
   #商品名
   validates :name,:comment,
@@ -18,6 +19,9 @@ class Product < ActiveRecord::Base
   validates :price, :stocks,:size,:count,:status,:category_id,
     presence: { message: 'は必須です'},
     numericality: { :only_integer => true , message: 'は半角数字で入力してください'}
+  #サブカラー
+  validates :main_color_id,
+    numericality: { :only_integer => true , message: 'は、所属する商品番号を半角数字で入力してください。'}
 
 
 

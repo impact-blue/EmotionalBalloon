@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get  'carts/comfirm'     => 'carts#comfirm'
   post 'api/carts/comfirm' => 'carts#api' #購入
   get  'carts/thanks'      => 'carts#thanks'
-  post 'carts/confirm'     => 'carts#purchase'
 
 #以下管理画面のルーティング
   resources :admin_users,only: [:index,:new,:create],:path => 'admin/settings/users'

@@ -149,17 +149,18 @@ ActiveRecord::Schema.define(version: 20160302075410) do
   add_index "product_colors", ["product_id", "color_id"], name: "index_product_colors_on_product_id_and_color_id", unique: true, using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "price",       limit: 4
-    t.integer  "stocks",      limit: 4
-    t.text     "comment",     limit: 65535
-    t.text     "keyword",     limit: 65535
-    t.integer  "size",        limit: 4
-    t.integer  "count",       limit: 4
-    t.integer  "category_id", limit: 4
-    t.integer  "status",      limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",          limit: 255
+    t.integer  "price",         limit: 4
+    t.integer  "stocks",        limit: 4
+    t.text     "comment",       limit: 65535
+    t.text     "keyword",       limit: 65535
+    t.integer  "size",          limit: 4
+    t.integer  "count",         limit: 4
+    t.integer  "category_id",   limit: 4
+    t.integer  "status",        limit: 4
+    t.integer  "main_color_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
