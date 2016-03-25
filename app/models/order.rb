@@ -75,7 +75,7 @@ class Order < ActiveRecord::Base
   end
 
   def self.refine_search_created_at(start_date,end_date)
-    return self.where(created_at: start_date..end_date)
+    return self.where(created_at: start_date.to_date.beginning_of_day..end_date.to_date.end_of_day)
   end
 #Order.includes(:user,user: :user_names).where('products.search = ?', params[:category])
 

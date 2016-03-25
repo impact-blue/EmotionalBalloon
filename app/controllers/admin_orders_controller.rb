@@ -22,9 +22,9 @@ class AdminOrdersController < ApplicationController
         @json_order_list = Order.get_list_by_status("完了",params[:page],@per,"id DESC",params[:target],params[:search],params[:max],params[:min])
     end
 
-    #if 期間指定があれば
-    #@json_order_list = @json_order_list.refine_search_created_at(params[:date],params[:end])
-    #end
+    if (params[:start] && params[:end]).present?
+      @json_order_list = @json_order_list.refine_search_created_at(params[:start],params[:end])
+    end
 
     #CSVダウンロード
     #<a href="/admin/orders.csv/?status=all&page={{data.search_products.current_page}}">CSV</a>
