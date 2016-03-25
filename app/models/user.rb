@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
     user = User.where(
       "name = ? or customer_phone = ? or email = ? or address = ?",
       order.user.name ,order.user.customer_phone ,order.user.email, order.user.address)
+
     repeat_user = []
     repeat_count = 1
     repeat = Hash.new(:repeat_user_id => 0,:repeat_count => 0)
