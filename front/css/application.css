@@ -2127,8 +2127,8 @@ footer {
   left: 0;
   width: 100%;
   height: 50px;
-  background: white;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   transition: 0.5s;
   z-index: 100; }
   .header__wrapper {
@@ -2518,7 +2518,7 @@ h2.balloonHeading2 {
     .p-categoryList a:hover {
       opacity: 0.9; }
     .p-categoryList a::after {
-      content: "read more...";
+      content: "もっと見る";
       position: absolute;
       right: 0;
       bottom: 0;
