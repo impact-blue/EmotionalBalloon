@@ -1944,11 +1944,13 @@ select {
             color: rgba(255, 255, 255, 0.9); }
         .l-admin__right__foot__content__body {
           width: calc(100% - 140px);
+          margin: 10px;
           padding: 10px;
           overflow: scroll; }
         .l-admin__right__foot__content__full {
           width: 100%;
-          padding: 10px;
+          margin: 20px;
+          padding: 20px;
           overflow: scroll; }
 
 .l-admin--login {
